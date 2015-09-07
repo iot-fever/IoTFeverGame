@@ -10,11 +10,7 @@ import Foundation
 
 class LevelService {
     
-    static func getNextRandomMove() -> Move {
-        
-        return EntityManager.get().runningLevel.moves[Int(arc4random_uniform(7) + 0)]
-    }
-    
+ 
     static func isWon(score: Int) -> Bool {
         
         return true
@@ -22,14 +18,14 @@ class LevelService {
     
     static func nextLevel() -> Level {
 
-        if EntityManager.get().runningLevel.name <= 3 {
-            for level in EntityManager.get().levels {
-                if level.name == EntityManager.get().runningLevel.name++ {
+        if EntityManager.entityManager.get().runningLevel.name <= 3 {
+            for level in EntityManager.entityManager.get().levels {
+                if level.name == EntityManager.entityManager.get().runningLevel.name++ {
                     return level
                 }
             }
         }
         
-        return EntityManager.get().runningLevel
+        return EntityManager.entityManager.get().runningLevel
     }
 }

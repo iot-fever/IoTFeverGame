@@ -39,7 +39,6 @@ class RankingTableViewController: UITableViewController, UITableViewDataSource, 
         // Return the number of rows in the section.
         return 6
     }
-
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("customcell", forIndexPath: indexPath) as! UITableViewCell

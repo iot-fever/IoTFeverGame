@@ -15,12 +15,12 @@ class IoTFeverGameService {
         var player = Player(calibrateValue: 0, name: username)
         var timer = Timer()
         
-        EntityManager.add(IoTFeverGame(player: player, timer: timer))
+        EntityManager.entityManager.add(IoTFeverGame(player: player, timer: timer))
     }
     
     func getCurrentLevel() -> Level{
     
-        return EntityManager.get().runningLevel
+        return EntityManager.entityManager.get().runningLevel
     }
     
     func isAHit(move: Move) -> Bool{

@@ -9,14 +9,20 @@
 import Foundation
 
 class EntityManager {
+    static let entityManager = EntityManager()
     
-    static var game = [IoTFeverGame]()
+    var game = [IoTFeverGame]()
     
-    static func add(game: IoTFeverGame){
+    // METHODS
+    private init() {
+        println(__FUNCTION__)
+    }
+    
+    func add(game: IoTFeverGame){
         self.game.append(game)
     }
     
-    static func get() -> IoTFeverGame {
+    func get() -> IoTFeverGame {
         return game[0]
     }
 

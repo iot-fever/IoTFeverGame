@@ -10,6 +10,11 @@ import Foundation
 
 class MoveService {
 
+    static func getNextRandomMove() -> Move {
+        
+        return EntityManager.entityManager.get().runningLevel.moves[Int(arc4random_uniform(7) + 0)]
+    }
+    
     func getMove (x: Int, y: Int) {
     
     }

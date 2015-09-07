@@ -17,8 +17,8 @@ class IoTFeverGameViewController: UIViewController {
     @IBOutlet weak var levelCountLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
-    var level: Level = LevelService.nextLevel()
-    var intervalCountdown: Int = LevelService.nextLevel().duration
+    var level: Level
+    var intervalCountdown: Int
     
     override func viewDidLoad() {
         super.viewDidLoad()
