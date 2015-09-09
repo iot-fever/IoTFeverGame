@@ -11,8 +11,7 @@ import CoreBluetooth
 
 class DataService {
 
-    
-    
+
     func fetchData() -> [Double] {
         var data = [Double]()
         data.append(15)

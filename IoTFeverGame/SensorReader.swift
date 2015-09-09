@@ -40,7 +40,9 @@ class SensorReader {
     // Check name of device from advertisement data
     class func sensorTagFound (advertisementData: [NSObject : AnyObject]!) -> Bool {
         
-       
+        for item in advertisementData {
+            println(item)
+        }
         
         let nameOfDeviceFound = (advertisementData as NSDictionary).objectForKey(CBAdvertisementDataLocalNameKey) as? NSString
         return (nameOfDeviceFound == deviceName)

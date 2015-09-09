@@ -8,14 +8,16 @@
 
 import UIKit
 import CoreData
+import CoreBluetooth
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        centralManager = CBCentralManager(delegate: sensorDelegate, queue: nil)
+
         // Override point for customization after application launch.
         return true
     }

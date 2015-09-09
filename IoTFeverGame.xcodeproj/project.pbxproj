@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2612ECDC1BA031CC00255D2C /* SensorTagInitializationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2612ECDB1BA031CC00255D2C /* SensorTagInitializationViewController.swift */; };
 		26550EFF1B96F8BE0010D1D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26550EFE1B96F8BE0010D1D2 /* AppDelegate.swift */; };
 		26550F041B96F8BE0010D1D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26550F031B96F8BE0010D1D2 /* ViewController.swift */; };
 		26550F071B96F8BE0010D1D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26550F051B96F8BE0010D1D2 /* Main.storyboard */; };
@@ -14,6 +15,7 @@
 		26550F0C1B96F8BE0010D1D2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26550F0A1B96F8BE0010D1D2 /* LaunchScreen.xib */; };
 		26550F181B96F8BE0010D1D2 /* IoTFeverGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26550F171B96F8BE0010D1D2 /* IoTFeverGameTests.swift */; };
 		266F42B31B9FD47A002FCB7E /* tries.png in Resources */ = {isa = PBXBuildFile; fileRef = 266F42B21B9FD47A002FCB7E /* tries.png */; };
+		269E0ABB1BA03B5100AF2804 /* SensorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269E0ABA1BA03B5100AF2804 /* SensorService.swift */; };
 		26D77EBC1B9931EB0042F414 /* RankingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D77EBB1B9931EB0042F414 /* RankingTableViewController.swift */; };
 		26D77EBF1B99390E0042F414 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D77EBE1B99390E0042F414 /* Timer.swift */; };
 		26D77EC11B9939210042F414 /* ScoreRanking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D77EC01B9939210042F414 /* ScoreRanking.swift */; };
@@ -53,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2612ECDB1BA031CC00255D2C /* SensorTagInitializationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorTagInitializationViewController.swift; sourceTree = "<group>"; };
 		26550EF91B96F8BE0010D1D2 /* IoTFeverGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IoTFeverGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26550EFD1B96F8BE0010D1D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26550EFE1B96F8BE0010D1D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +67,7 @@
 		26550F161B96F8BE0010D1D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26550F171B96F8BE0010D1D2 /* IoTFeverGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IoTFeverGameTests.swift; sourceTree = "<group>"; };
 		266F42B21B9FD47A002FCB7E /* tries.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tries.png; sourceTree = "<group>"; };
+		269E0ABA1BA03B5100AF2804 /* SensorService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorService.swift; sourceTree = "<group>"; };
 		26D77EBB1B9931EB0042F414 /* RankingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingTableViewController.swift; sourceTree = "<group>"; };
 		26D77EBE1B99390E0042F414 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		26D77EC01B9939210042F414 /* ScoreRanking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreRanking.swift; sourceTree = "<group>"; };
@@ -196,6 +200,7 @@
 				26D77ED51B9947110042F414 /* MoveService.swift */,
 				26E0C07C1B9E7BE000769688 /* DataService.swift */,
 				26E0C0871B9E82A200769688 /* SensorReader.swift */,
+				269E0ABA1BA03B5100AF2804 /* SensorService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -204,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				26550F031B96F8BE0010D1D2 /* ViewController.swift */,
+				2612ECDB1BA031CC00255D2C /* SensorTagInitializationViewController.swift */,
 				26EBAA2A1B981A3C0083CCCC /* IoTFeverGameViewController.swift */,
 				26D77EBB1B9931EB0042F414 /* RankingTableViewController.swift */,
 			);
@@ -351,8 +357,10 @@
 				26D77EBF1B99390E0042F414 /* Timer.swift in Sources */,
 				26D77EBC1B9931EB0042F414 /* RankingTableViewController.swift in Sources */,
 				26D77ED01B9944130042F414 /* PlayerService.swift in Sources */,
+				2612ECDC1BA031CC00255D2C /* SensorTagInitializationViewController.swift in Sources */,
 				26E0C0881B9E82A200769688 /* SensorReader.swift in Sources */,
 				26D77EC91B99399D0042F414 /* IoTFeverGame.swift in Sources */,
+				269E0ABB1BA03B5100AF2804 /* SensorService.swift in Sources */,
 				26E9744D1B984C9D00E73157 /* Game.xcdatamodeld in Sources */,
 				26D77EC31B99394E0042F414 /* Level.swift in Sources */,
 				26D77EC51B9939680042F414 /* Player.swift in Sources */,

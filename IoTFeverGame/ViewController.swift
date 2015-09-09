@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class ViewController: UIViewController, UITextFieldDelegate, IOTFeverDataAware {
 
     // MARK: Properties
     @IBOutlet weak var playerNameText   : UITextField!
@@ -17,6 +17,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        sensorDelegate.subscribe(self)
         
         playButton.enabled = true
         
@@ -32,6 +34,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
         IoTFeverGameService.start(playerNameText.text)
     
+    }
+    
+    func onDataIncoming(data: [Double]) {
+        println("We got some data here!!")
     }
     
 }

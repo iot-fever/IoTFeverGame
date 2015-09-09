@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IoTFeverGame/ViewController.swift"
-            timestampString = "463474237.111219"
+            timestampString = "463490584.720817"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
             landmarkName = "start(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -89,11 +89,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IoTFeverGame/Level.swift"
-            timestampString = "463050155.643885"
+            timestampString = "463482587.904031"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
             landmarkName = "init(name:duration:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -152,13 +152,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "IoTFeverGame/SensorReader.swift"
-            timestampString = "463474058.382699"
+            filePath = "IoTFeverGame/SensorService.swift"
+            timestampString = "463490584.720817"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "sensorTagFound(_:)"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "subscribe(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

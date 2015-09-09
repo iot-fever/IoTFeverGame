@@ -23,9 +23,9 @@ class IoTFeverGame {
     init (player: Player) {
         
         self.levels = [Level]()
-        self.levels.append(Level(name: 1, duration: 30))
-        self.levels.append(Level(name: 2, duration: 30))
-        self.levels.append(Level(name: 3, duration: 30))
+        self.levels.append(Level(name: 1, duration: 30, delayBetweenMoves: 3))
+        self.levels.append(Level(name: 2, duration: 30, delayBetweenMoves: 2))
+        self.levels.append(Level(name: 3, duration: 30, delayBetweenMoves: 1))
         
         self.runningLevel   = levels[0]
         

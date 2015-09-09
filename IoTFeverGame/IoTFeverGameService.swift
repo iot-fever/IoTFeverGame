@@ -12,7 +12,7 @@ class IoTFeverGameService {
     
     class func start(username: String){
       
-        var player = Player(calibrateValue: 0, name: username)
+        var player = Player( name: username)
         var timer = Timer()
         
         EntityManager.sharedInstance.add(IoTFeverGame(player: player))

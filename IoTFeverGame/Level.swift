@@ -11,14 +11,16 @@ import Foundation
 class Level {
 
     var name: Int
-    var duration: Int
+    var duration : Int 
+    var delayBetweenMoves: Int
     var moves: [Move]
 
-    init (name: Int, duration: Int) {
+    init (name: Int, duration: Int, delayBetweenMoves: Int) {
         
         self.name = 1
         self.duration = duration        
         self.moves = [Move]()
+        self.delayBetweenMoves = delayBetweenMoves
         
         moves.append(Move(name: "TR", path: "TR.jpg", tr: 1, tl: 0, br: 0, bl: 0))
         moves.append(Move(name: "TL", path: "TL.jpg", tr: 0, tl: 1, br: 0, bl: 0))

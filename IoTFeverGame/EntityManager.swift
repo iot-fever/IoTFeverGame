@@ -26,7 +26,7 @@ class EntityManager {
     func get () -> IoTFeverGame {
         if game.count < 1 {
             
-            var player = Player(calibrateValue: 0, name: "test")
+            var player = Player( name: "test")
             var timer = Timer()
         
             EntityManager.sharedInstance.add(IoTFeverGame(player: player))
