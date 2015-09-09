@@ -30,12 +30,11 @@ let BarometerDataUUID       = CBUUID(string: "F000AA41-0451-4000-B000-0000000000
 let BarometerConfigUUID     = CBUUID(string: "F000AA42-0451-4000-B000-000000000000")
 let GyroscopeDataUUID       = CBUUID(string: "F000AA51-0451-4000-B000-000000000000")
 let GyroscopeConfigUUID     = CBUUID(string: "F000AA52-0451-4000-B000-000000000000")
-
 let MovementDataUUID        = CBUUID(string: "F000AA81-0451-4000-B000-000000000000")
 let MovementConfigUUID      = CBUUID(string: "F000AA82-0451-4000-B000-000000000000")
 let MovementPeriodUUID      = CBUUID(string: "F000AA83-0451-4000-B000-000000000000")
 
-class SensorReader {
+class SensorTag {
     
     // Check name of device from advertisement data
     class func sensorTagFound (advertisementData: [NSObject : AnyObject]!) -> Bool {
@@ -46,18 +45,15 @@ class SensorReader {
     
     // Check if the service has a valid UUID
     class func validService (service : CBService) -> Bool {
-        
-        
         if service.UUID == IRTemperatureServiceUUID || service.UUID == AccelerometerServiceUUID ||
             service.UUID == HumidityServiceUUID || service.UUID == MagnetometerServiceUUID ||
             service.UUID == BarometerServiceUUID || service.UUID == GyroscopeServiceUUID
-            || service.UUID == MovementServiceUUID {
+        || service.UUID == MovementServiceUUID {
                 return true
         }
         else {
             return false
         }
-
     }
     
     
@@ -98,12 +94,45 @@ class SensorReader {
     // Get labels of all sensors
     class func getSensorLabels () -> [String] {
         let sensorLabels : [String] = [
+            "Ambient Temperature",
+            "Object Temperature",
             "Accelerometer X",
             "Accelerometer Y",
-            "Accelerometer Z"
+            "Accelerometer Z",
+            "Relative Humidity",
+            "Magnetometer X",
+            "Magnetometer Y",
+            "Magnetometer Z",
+            "Gyroscope X",
+            "Gyroscope Y",
+            "Gyroscope Z"
         ]
         return sensorLabels
     }
+    
+    // type.csv
+    class func writeToFile(filename: String, values: Double...) {
+        var now = NSDate()
+        var formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        let tsValue = formatter.stringFromDate(now)
+        var writeValue = tsValue + ","
+        for val in values {
+            let strVal = String(format:"%f", val)
+            
+            writeValue = writeValue + strVal + ","
+        }
+        var writeData = writeValue + "\r\n"
+        
+        let folder = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
+        let writePath = NSTemporaryDirectory() + filename
+        if let outputStream = NSOutputStream(toFileAtPath: writePath, append: true) {
+            outputStream.open()
+            outputStream.write(writeData, maxLength: count(writeData))
+            outputStream.close()
+        }
+    }
+    // Process the values from sensor
     
     
     // Convert NSData to array of bytes
@@ -131,7 +160,46 @@ class SensorReader {
     class func getMovementData(value: NSData) -> NSData {
         return value
     }
-
+    
+    // Get ambient temperature value
+    class func getAmbientTemperature(value : NSData) -> Double {
+        let dataFromSensor = dataToSignedBytes16(value)
+        let ambientTemperature = Double(dataFromSensor[1])/128
+        return ambientTemperature
+    }
+    
+    // Get object temperature value
+    class func getObjectTemperature(value : NSData, ambientTemperature : Double) -> Double {
+        let dataFromSensor = dataToSignedBytes16(value)
+        let Vobj2 = Double(dataFromSensor[0]) * 0.00000015625
+        
+        let Tdie2 = ambientTemperature + 273.15
+        let Tref  = 298.15
+        
+        let S0 = 6.4e-14
+        let a1 = 1.75E-3
+        let a2 = -1.678E-5
+        let b0 = -2.94E-5
+        let b1 = -5.7E-7
+        let b2 = 4.63E-9
+        let c2 = 13.4
+        
+        let S = S0*(1+a1*(Tdie2 - Tref)+a2*pow((Tdie2 - Tref),2))
+        let Vos = b0 + b1*(Tdie2 - Tref) + b2*pow((Tdie2 - Tref),2)
+        let fObj = (Vobj2 - Vos) + c2*pow((Vobj2 - Vos),2)
+        let tObj = pow(pow(Tdie2,4) + (fObj/S),0.25)
+        
+        let objectTemperature = (tObj - 273.15)
+        
+        return objectTemperature
+    }
+    
+    // Get Relative Humidity
+    class func getRelativeHumidity(value: NSData) -> Double {
+        let dataFromSensor = dataToUnsignedBytes16(value)
+        let humidity = -6 + 125/65536 * Double(dataFromSensor[1])
+        return humidity
+    }
     
     // Get Accelerometer values
     class func getAccelerometerData(value: NSData) -> [Double] {
@@ -147,11 +215,18 @@ class SensorReader {
         let dataFromSensor = dataToSignedBytes16(value)
         let xVal = Double(dataFromSensor[6]) * 2000 / 65536 * -1
         let yVal = Double(dataFromSensor[7]) * 2000 / 65536 * -1
-        let zVal = Double	(dataFromSensor[8]) * 2000 / 65536
+        let zVal = Double(dataFromSensor[8]) * 2000 / 65536
         return [xVal, yVal, zVal]
     }
     
+    // Get gyroscope values
+    class func getGyroscopeData(value: NSData) -> [Double] {
+        let dataFromSensor = dataToSignedBytes16(value)
+        let yVal = Double(dataFromSensor[0]) * 500 / 65536 * -1
+        let xVal = Double(dataFromSensor[1]) * 500 / 65536
+        let zVal = Double(dataFromSensor[2]) * 500 / 65536
+        return [xVal, yVal, zVal]
+    }
     
-
     
 }

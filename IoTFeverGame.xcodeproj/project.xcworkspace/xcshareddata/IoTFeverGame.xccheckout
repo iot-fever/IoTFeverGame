@@ -12,6 +12,8 @@
 	<dict>
 		<key>5A551AB41EFCFF94809A60D7B519463329E14961</key>
 		<string>https://github.com/iot-fever/IoTFeverGame.git</string>
+		<key>D48AC738068CBF53C0E6E12CB7EF796F1689493A</key>
+		<string>https://github.com/iot-fever/ios-sensortag-data-collector.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>IoTFeverGame.xcodeproj</string>
@@ -19,6 +21,8 @@
 	<dict>
 		<key>5A551AB41EFCFF94809A60D7B519463329E14961</key>
 		<string>../..</string>
+		<key>D48AC738068CBF53C0E6E12CB7EF796F1689493A</key>
+		<string>../../../Source/sensortag/ios-sensortag-data-collector</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/iot-fever/IoTFeverGame.git</string>
@@ -28,6 +32,14 @@
 	<string>5A551AB41EFCFF94809A60D7B519463329E14961</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D48AC738068CBF53C0E6E12CB7EF796F1689493A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ios-sensortag-data-collector</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

@@ -1,4 +1,4 @@
-//
+///Users/foa81sgp/Documents/IoTFeverGame/IoTFeverGame/IoTFeverGame.xcodeproj
 //  DataService.swift
 //  IoTFeverGame
 //
@@ -7,3 +7,19 @@
 //
 
 import Foundation
+import CoreBluetooth
+
+class DataService {
+
+    
+    
+    func fetchData() -> [Double] {
+        var data = [Double]()
+        data.append(15)
+        data.append(30)
+        
+        return data
+    }
+    
+    
+}

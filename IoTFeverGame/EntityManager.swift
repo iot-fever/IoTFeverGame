@@ -8,22 +8,29 @@
 
 import Foundation
 
-class EntityManager {
-    static let entityManager = EntityManager()
     
-    var game = [IoTFeverGame]()
+class EntityManager {
+    static let sharedInstance = EntityManager()
+    
+    var game: [IoTFeverGame] = [IoTFeverGame]()
     
     // METHODS
     private init() {
-        println(__FUNCTION__)
+
     }
     
-    func add(game: IoTFeverGame){
+    func add (game: IoTFeverGame) {
         self.game.append(game)
     }
     
-    func get() -> IoTFeverGame {
-        return game[0]
+    func get () -> IoTFeverGame {
+        if game.count < 1 {
+            
+            var player = Player(calibrateValue: 0, name: "test")
+            var timer = Timer()
+        
+            EntityManager.sharedInstance.add(IoTFeverGame(player: player))
+        }
+        return self.game[0]
     }
-
 }

@@ -8,15 +8,20 @@
 
 import UIKit
 import CoreData
+import CoreBluetooth
 
 class ViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: Properties
-    @IBOutlet weak var playerNameText: UITextField!
+    @IBOutlet weak var playerNameText   : UITextField!
+    @IBOutlet weak var playButton       : UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        playButton.enabled = true
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,5 +35,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         IoTFeverGameService.start(playerNameText.text)
     
     }
+    
 }
 

@@ -10,11 +10,19 @@ import Foundation
 
 class Move {
 
-    var name: String
-    var path: String
+    var name    : String
+    var path    : String
+    var tr      : Double
+    var tl      : Double
+    var br      : Double
+    var bl      : Double
     
-    init (name: String, path: String) {
-        self.name = name
-        self.path = path
+    init (name: String, path: String, tr: Double, tl: Double, br: Double, bl: Double) {
+        self.name   = name
+        self.path   = path
+        self.tr     = tr
+        self.tl     = tl
+        self.br     = br
+        self.bl     = bl
     }
 }

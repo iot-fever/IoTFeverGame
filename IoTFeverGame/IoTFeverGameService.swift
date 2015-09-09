@@ -10,25 +10,20 @@ import Foundation
 
 class IoTFeverGameService {
     
-    static func start(username: String){
+    class func start(username: String){
       
         var player = Player(calibrateValue: 0, name: username)
         var timer = Timer()
         
-        EntityManager.entityManager.add(IoTFeverGame(player: player, timer: timer))
+        EntityManager.sharedInstance.add(IoTFeverGame(player: player))
     }
     
-    func getCurrentLevel() -> Level{
-    
-        return EntityManager.entityManager.get().runningLevel
-    }
-    
-    func isAHit(move: Move) -> Bool{
+    class func isAHit(move: Move) -> Bool{
        
         return true
     }
     
-    func isCompleted() -> Bool {
+    class func isCompleted() -> Bool {
         
         return true
     }

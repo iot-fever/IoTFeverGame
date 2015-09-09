@@ -10,28 +10,30 @@ import Foundation
 
 class IoTFeverGame {
 
-    var runningLevel: Level
-    var startTime: NSDate
-    var finalScore: Int
-       
-    var player: Player
-    var timer: Timer
     var levels: [Level]
     
-    init (player: Player, timer: Timer) {
-        
-        self.startTime = NSDate()
-        self.finalScore = 0
-        
-        self.player = player
-        self.timer = timer
+    var runningLevel: Level
+    var startTime: NSDate
+    
+    var score: Int
+    var tries: Int
+    
+    var player: Player
+    
+    init (player: Player) {
         
         self.levels = [Level]()
-        self.levels.append(Level(name: 1, duration: 30, targetScore: 25, minDelay: 2, maxDelay: 4 ))
-        self.levels.append(Level(name: 2, duration: 30, targetScore: 25, minDelay: 2, maxDelay: 3 ))
-        self.levels.append(Level(name: 3, duration: 30, targetScore: 25, minDelay: 1, maxDelay: 2 ))
+        self.levels.append(Level(name: 1, duration: 30))
+        self.levels.append(Level(name: 2, duration: 30))
+        self.levels.append(Level(name: 3, duration: 30))
         
-        self.runningLevel = levels[0]
+        self.runningLevel   = levels[0]
+        
+        self.startTime      = NSDate()
+        
+        self.score          = 0
+        self.tries          = 3
+        self.player         = player
     }
     
 }

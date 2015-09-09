@@ -10,11 +10,11 @@ import Foundation
 
 class Player {
 
-    var calibrateValue: Int
-    var name: String
+    var calibrateValue  : Int
+    var name            : String
     
     init (calibrateValue: Int, name: String) {
         self.calibrateValue = calibrateValue
-        self.name = name
+        self.name           = name
     }    
 }
