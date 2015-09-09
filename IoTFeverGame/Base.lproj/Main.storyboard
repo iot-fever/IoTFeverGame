@@ -98,17 +98,8 @@
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6vI-nN-reu">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                             </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f5M-UB-MXX">
-                                <rect key="frame" x="40" y="156" width="240" height="255"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TIME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KME-TZ-K68">
                                 <rect key="frame" x="40" y="455" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="90" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YAt-zJ-JW3">
-                                <rect key="frame" x="100" y="455" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -119,35 +110,42 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rGy-FO-vD3">
-                                <rect key="frame" x="267" y="455" width="13" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="s" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oD1-K6-6E8">
-                                <rect key="frame" x="125" y="455" width="42" height="21"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tries.png" translatesAutoresizingMaskIntoConstraints="NO" id="Zry-uh-sMB">
+                                <rect key="frame" x="103" y="99" width="34" height="34"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tries.png" translatesAutoresizingMaskIntoConstraints="NO" id="rK9-aF-igB">
+                                <rect key="frame" x="145" y="99" width="33" height="34"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tries.png" translatesAutoresizingMaskIntoConstraints="NO" id="s0s-8t-MCP">
+                                <rect key="frame" x="186" y="98" width="31" height="35"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sjO-mv-wUp">
+                                <rect key="frame" x="40" y="176" width="240" height="216"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HUj-WY-09z">
+                                <rect key="frame" x="265" y="455" width="15" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tries.png" translatesAutoresizingMaskIntoConstraints="NO" id="q6H-C9-7b0">
-                                <rect key="frame" x="124" y="105" width="22" height="23"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tries.png" translatesAutoresizingMaskIntoConstraints="NO" id="qWm-In-Nlm">
-                                <rect key="frame" x="149" y="105" width="22" height="23"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tries.png" translatesAutoresizingMaskIntoConstraints="NO" id="wEg-pg-VuW">
-                                <rect key="frame" x="174" y="105" width="22" height="23"/>
-                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="90" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hjg-DZ-wwj">
+                                <rect key="frame" x="103" y="455" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="imageView" destination="f5M-UB-MXX" id="iES-dH-sgz"/>
-                        <outlet property="trieImage1" destination="q6H-C9-7b0" id="Egg-Wu-ZSQ"/>
-                        <outlet property="trieImage2" destination="qWm-In-Nlm" id="yK6-DA-wEW"/>
-                        <outlet property="trieImage3" destination="wEg-pg-VuW" id="yeO-Nt-kJ3"/>
+                        <outlet property="imageView" destination="sjO-mv-wUp" id="zc2-nR-gKl"/>
+                        <outlet property="levelAmountLabel" destination="HUj-WY-09z" id="CPF-bh-vNv"/>
+                        <outlet property="levelLabel" destination="1tH-qQ-N0n" id="z8G-Ou-Z4I"/>
+                        <outlet property="timeCountLabel" destination="Hjg-DZ-wwj" id="0Cc-w9-809"/>
+                        <outlet property="timeLabel" destination="KME-TZ-K68" id="Lpb-4t-iiC"/>
+                        <outlet property="try1Image" destination="Zry-uh-sMB" id="zDe-DN-yl6"/>
+                        <outlet property="try2Image" destination="rK9-aF-igB" id="o0G-4W-emf"/>
+                        <outlet property="try3Image" destination="s0s-8t-MCP" id="10j-Ov-Be7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yVV-OK-11y" userLabel="First Responder" sceneMemberID="firstResponder"/>

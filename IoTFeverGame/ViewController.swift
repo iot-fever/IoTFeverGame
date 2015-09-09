@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import CoreData
-import CoreBluetooth
 
 class ViewController: UIViewController, UITextFieldDelegate {
 

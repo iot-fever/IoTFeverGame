@@ -7,27 +7,28 @@
 //
 
 import UIKit
+import CoreData
 import CoreBluetooth
 
 class IoTFeverGameViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDelegate  {
 
     // MARK: UI Properties
-    @IBOutlet weak var timeHeadLabel    : UILabel!
-    @IBOutlet weak var timeCountLabel   : UILabel!
-    @IBOutlet weak var levelHeadLabel   : UILabel!
-    @IBOutlet weak var levelCountLabel  : UILabel!
-    @IBOutlet weak var imageView        : UIImageView!
-    @IBOutlet weak var statusLabel      : UILabel!
-    @IBOutlet weak var trieImage1       : UIImageView!
-    @IBOutlet weak var trieImage2       : UIImageView!
-    @IBOutlet weak var trieImage3       : UIImageView!
+    @IBOutlet weak var try1Image: UIImageView!
+    @IBOutlet weak var try2Image: UIImageView!
+    @IBOutlet weak var try3Image: UIImageView!
+    
+    @IBOutlet weak var imageView: UIImageView!
+    
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var timeCountLabel: UILabel!
+    
+    @IBOutlet weak var levelLabel: UILabel!
+    @IBOutlet weak var levelAmountLabel: UILabel!
     
     var countdown           : Int       = 90
     var intervalCountdown   : Double    = 1.0
     var intervalImage       : Double    = 3.0
     var duration            : UInt32    = UInt32(EntityManager.sharedInstance.get().runningLevel.duration)
-    var tries                           = [UIImageView]()
-    var sensor                          = UIAlertController(title: "Attention", message: "Seeking for Sensortag", preferredStyle: UIAlertControllerStyle.Alert)
     
     // BLE
     var centralManager          : CBCentralManager!
@@ -38,18 +39,12 @@ class IoTFeverGameViewController: UIViewController, CBCentralManagerDelegate, CB
         
         centralManager = CBCentralManager(delegate: self, queue: nil)
         
-        self.presentViewController(sensor, animated: true, completion: nil)
-        
-        tries.append(trieImage1)
-        tries.append(trieImage1)
-        tries.append(trieImage1)
-        
         // Change Counter
-        self.timeCountLabel.text    = String(countdown)
+        self.timeCountLabel.text    = String(90)
         var timerCountdown = NSTimer.scheduledTimerWithTimeInterval(intervalCountdown, target: self, selector: Selector("updateCountdown:"), userInfo: nil, repeats: true)
         
         // Change Image
-        self.levelCountLabel.text   = String(EntityManager.sharedInstance.get().runningLevel.name)
+        self.timeCountLabel.text   = String(EntityManager.sharedInstance.get().runningLevel.name)
         var timerImage = NSTimer.scheduledTimerWithTimeInterval(intervalImage, target: self, selector: Selector("updateImage:"), userInfo: nil, repeats: true)
         
     }
@@ -63,7 +58,7 @@ class IoTFeverGameViewController: UIViewController, CBCentralManagerDelegate, CB
     // Change Counter
     func updateCountdown(timer: NSTimer) {
         if(countdown >= 0) {
-            timeCountLabel.text = String(countdown--)
+            self.timeCountLabel.text = String(countdown--)
         } else {
             timer.invalidate()
         }
@@ -76,34 +71,27 @@ class IoTFeverGameViewController: UIViewController, CBCentralManagerDelegate, CB
         
         //Level1
         case 60...90:
-            var move = LevelService.getNextRandomMove()
-            self.imageView.image = UIImage(named: move.path)
-            
+            self.imageView.image = UIImage(named: LevelService.getNextRandomMove().path)
             //Sensortag - Validation
-            if IoTFeverGameService.isAHit(move){
-                tries.removeLast()
-            }
             
             timer.fireDate = timer.fireDate.dateByAddingTimeInterval(3)
-            self.levelCountLabel.text = String(1)
+            self.levelAmountLabel.text = String(1)
         
         //Level2
         case 30...60:
             self.imageView.image = UIImage(named: LevelService.getNextRandomMove().path)
             //Sensortag - Validation
             
-            
             timer.fireDate = timer.fireDate.dateByAddingTimeInterval(2)
-            self.levelCountLabel.text = String(2)
+            self.levelAmountLabel.text = String(2)
         
         //Level3
         case 1...30:
             self.imageView.image = UIImage(named: LevelService.getNextRandomMove().path)
             //Sensortag - Validation
             
-            
             timer.fireDate = timer.fireDate.dateByAddingTimeInterval(1)
-            self.levelCountLabel.text = String(3)
+            self.levelAmountLabel.text = String(3)
         
         //Finish
         case 0:
@@ -115,14 +103,12 @@ class IoTFeverGameViewController: UIViewController, CBCentralManagerDelegate, CB
             self.presentViewController(alert, animated: true, completion: nil)
         
         default:
-            print("default")
+            println("default")
         }
     }
     
     func next(alert: UIAlertAction!) {
         println("Success")
-        LevelService.nextLevel()
-        viewDidLoad()
     }
     
     func cancel(alert: UIAlertAction!) {
@@ -136,11 +122,11 @@ class IoTFeverGameViewController: UIViewController, CBCentralManagerDelegate, CB
         if central.state == CBCentralManagerState.PoweredOn {
             // Scan for peripherals if BLE is turned on
             central.scanForPeripheralsWithServices(nil, options: nil)
-            self.sensor.message = "Searching for BLE Devices"
+            println("Searching for BLE Devices")
         }
         else {
             // Can have different conditions for all states if needed - show generic alert for now
-            self.sensor.message = "Bluetooth switched off or not initialized"
+            println("Bluetooth switched off or not initialized")
         }
     }
     
@@ -149,7 +135,7 @@ class IoTFeverGameViewController: UIViewController, CBCentralManagerDelegate, CB
         
         if SensorReader.sensorTagFound(advertisementData) == true {
             // Update Status Label
-            self.sensor.message = "Sensor Tag Found"
+            println("Sensor Tag Found")
             // Stop scanning, set as the peripheral to use and establish connection
             self.centralManager.stopScan()
             self.sensorTagPeripheral = peripheral
@@ -157,21 +143,21 @@ class IoTFeverGameViewController: UIViewController, CBCentralManagerDelegate, CB
             self.centralManager.connectPeripheral(self.sensorTagPeripheral, options: nil)
         }
         else {
-            self.sensor.message = "Sensor Tag NOT Found"
+            println("Sensor Tag NOT Found")
             //showAlertWithText(header: "Warning", message: "SensorTag Not Found")
         }
     }
     
     // Discover services of the peripheral
     func centralManager(central: CBCentralManager!, didConnectPeripheral peripheral: CBPeripheral!) {
-        self.sensor.message = "Discovering peripheral services"
+        println("Discovering peripheral services")
         peripheral.discoverServices(nil)
     }
     
     
     // If disconnected, start searching again
     func centralManager(central: CBCentralManager!, didDisconnectPeripheral peripheral: CBPeripheral!, error: NSError!) {
-        self.sensor.message = "Disconnected"
+        println("Disconnected")
         central.scanForPeripheralsWithServices(nil, options: nil)
     }
     
@@ -188,8 +174,8 @@ class IoTFeverGameViewController: UIViewController, CBCentralManagerDelegate, CB
     // (Others are not implemented)
     func peripheral(peripheral: CBPeripheral!, didDiscoverServices error: NSError!) {
         println("1")
+        println("Looking at peripheral services")
         
-        self.sensor.message = "Looking at peripheral services"
         for service in peripheral.services {
             let thisService = service as! CBService
             if SensorReader.validService(thisService) {
@@ -204,7 +190,7 @@ class IoTFeverGameViewController: UIViewController, CBCentralManagerDelegate, CB
     func peripheral(peripheral: CBPeripheral!, didDiscoverCharacteristicsForService service: CBService!, error: NSError!) {
         
         println("2")
-        self.sensor.message = "Enabling sensors"
+        println("Enabling sensors")
         
         var enableValue = 1
         let enablyBytes = NSData(bytes: &enableValue, length: sizeof(UInt8))
@@ -232,15 +218,12 @@ class IoTFeverGameViewController: UIViewController, CBCentralManagerDelegate, CB
     
     func peripheral(peripheral: CBPeripheral!, didUpdateValueForCharacteristic characteristic: CBCharacteristic!, error: NSError!){
         println("3")
-        
-        self.sensor.message = "Connected"
+        println("Connected")
         
         if characteristic.UUID == MovementDataUUID {
             let movementData = SensorReader.getMovementData(characteristic.value)
             let accelData = SensorReader.getAccelerometerData(movementData)
-            
-            sensor.addAction(UIAlertAction(title: "Next", style: UIAlertActionStyle.Default, handler: next))
-            
+                        
             println(String(format:"%f", accelData[0]))
         }
     }
