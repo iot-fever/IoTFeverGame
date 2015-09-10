@@ -13,8 +13,8 @@ class Player {
     var calibrateValue  : Int
     var name            : String
     
-    init ( name: String) {
+    init (username: String) {
         self.calibrateValue = 0
-        self.name           = name
+        self.name           = username
     }    
 }

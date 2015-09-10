@@ -10,44 +10,30 @@ import UIKit
 import CoreData
 import CoreBluetooth
 
-class IoTFeverGameViewController: UIViewController{
+class IoTFeverGameViewController: UIViewController, IOTFeverDataAware, GameSubscribe {
     
     // MARK: UI Properties
-    @IBOutlet weak var try1Image: UIImageView!
-    @IBOutlet weak var try2Image: UIImageView!
-    @IBOutlet weak var try3Image: UIImageView!
+    @IBOutlet weak var try1Image            : UIImageView!
+    @IBOutlet weak var try2Image            : UIImageView!
+    @IBOutlet weak var try3Image            : UIImageView!
     
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageView            : UIImageView!
     
-    @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var timeCountLabel: UILabel!
+    @IBOutlet weak var timeLabel            : UILabel!
+    @IBOutlet weak var timeCountLabel       : UILabel!
     
-    @IBOutlet weak var levelLabel: UILabel!
-    @IBOutlet weak var levelAmountLabel: UILabel!
+    @IBOutlet weak var levelLabel           : UILabel!
+    @IBOutlet weak var levelAmountLabel     : UILabel!
     
-    var countdown           : Int       = 90
-    var intervalCountdown   : Double    = 1.0
-    var intervalImage       : Double    = 3.0
-    var duration            : UInt32    = UInt32(EntityManager.sharedInstance.get().runningLevel.duration)
+    var currentGame                         : IoTFeverGame!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Change Counter
-        self.timeCountLabel.text    = String(90)
-        var timerCountdown = NSTimer.scheduledTimerWithTimeInterval(intervalCountdown, target: self, selector: Selector("updateCountdown:"), userInfo: nil, repeats: true)
-        
-        // Change Image
-        self.timeCountLabel.text   = String(EntityManager.sharedInstance.get().runningLevel.name)
-        var timerImage = NSTimer.scheduledTimerWithTimeInterval(intervalImage, target: self, selector: Selector("updateImage:"), userInfo: nil, repeats: true)
-        
-        // let movementData = SensorReader.getMovementData(characteristic.value)
-        // let accelData = SensorReader.getAccelerometerData(movementData)
-        
-        // move = accelData[0]
-        
-        // self.timeLabel.text = String(stringInterpolationSegment: move)
-        
+
+        // Subscriber
+        currentGame = IoTFeverGame.start("Andreas", vc: self)
+        sensorDelegate.subscribe(self)
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,64 +41,42 @@ class IoTFeverGameViewController: UIViewController{
         // Dispose of any resources that can be recreated.
     }
     
+    // Protocol IOTFeverDataAware
+    func onDataIncoming(data: [Double]) {
+        // wenn Game nicht null - an game liefern 
+        
+        
+        // set Image
+        // self.imageView.image = UIImage(named: currentGame.runningLevel.getNextRandomMove().path)
+
+        // validate Move
+        // currentGame.isAHit(data)
+        
+        // IoTFeverGame.current().setMove(data);
+        // int hits = IoTFeverGame.current().getTotalHits();
+        
+    }
     
-    // Change Counter
-    func updateCountdown(timer: NSTimer) {
-        if(countdown >= 0) {
-            self.timeCountLabel.text = String(countdown--)
-        } else {
-            timer.invalidate()
+    // Protocol GameSubscribe
+    func ended(){
+        
+    }
+    
+    func isAhit(hit: Bool) {
+        
+        if hit {
+            // View - Pop Up - Green
+        }
+        else {
+            // View - Pop Up - Red
         }
     }
     
-    // Change Image
-    func updateImage(timer: NSTimer) {
-        
-        switch countdown {
-        
-        //Level1
-        case 60...90:
-            self.imageView.image = UIImage(named: LevelService.getNextRandomMove().path)
-            //Sensortag - Validation
-            
-            timer.fireDate = timer.fireDate.dateByAddingTimeInterval(3)
-            self.levelAmountLabel.text = String(1)
-        
-        //Level2
-        case 30...60:
-            self.imageView.image = UIImage(named: LevelService.getNextRandomMove().path)
-            //Sensortag - Validation
-            
-            timer.fireDate = timer.fireDate.dateByAddingTimeInterval(2)
-            self.levelAmountLabel.text = String(2)
-        
-        //Level3
-        case 1...30:
-            self.imageView.image = UIImage(named: LevelService.getNextRandomMove().path)
-            //Sensortag - Validation
-            
-            timer.fireDate = timer.fireDate.dateByAddingTimeInterval(1)
-            self.levelAmountLabel.text = String(3)
-        
-        //Finish
-        case 0:
-            timer.invalidate()
-            
-            var alert = UIAlertController(title: "Success", message: "Congratulation - You completed all Moves!", preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "Next", style: UIAlertActionStyle.Default, handler: next))
-            
-            self.presentViewController(alert, animated: true, completion: nil)
-        
-        default:
-            println("default")
-        }
+    func setMove(move: Move) {
+        self.imageView.image = UIImage(named: move.path)
     }
     
-    func next(alert: UIAlertAction!) {
-        println("Success")
-    }
-    
-    func cancel(alert: UIAlertAction!) {
-        println("cancel")
+    func setCountdown(countdown: Int) {
+        self.timeCountLabel.text = String(countdown)
     }
 }

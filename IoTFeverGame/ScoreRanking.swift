@@ -15,4 +15,11 @@ class ScoreRanking {
     init(){
         self.games = [IoTFeverGame] ()
     }
+    
+    func getTop(amount: Int) -> [Player]{
+        
+        var player = [Player]()
+        
+        return player
+    }
 }

@@ -10,17 +10,19 @@ import Foundation
 
 class Level {
 
-    var name: Int
-    var duration : Int 
-    var delayBetweenMoves: Int
-    var moves: [Move]
+    var name                : Int
+    var duration            : Int
+    var delayBetweenMoves   : Int
+    var currentMove         : Move
+    var moves               : [Move]
 
     init (name: Int, duration: Int, delayBetweenMoves: Int) {
         
-        self.name = 1
-        self.duration = duration        
-        self.moves = [Move]()
-        self.delayBetweenMoves = delayBetweenMoves
+        self.name                   = name
+        self.duration               = duration
+        self.delayBetweenMoves      = delayBetweenMoves
+        self.moves                  = [Move]()
+        self.currentMove            = Move(name: "TR", path: "TR.jpg", tr: 1, tl: 0, br: 0, bl: 0)
         
         moves.append(Move(name: "TR", path: "TR.jpg", tr: 1, tl: 0, br: 0, bl: 0))
         moves.append(Move(name: "TL", path: "TL.jpg", tr: 0, tl: 1, br: 0, bl: 0))
@@ -31,5 +33,14 @@ class Level {
         moves.append(Move(name: "TL_BR", path: "TL_BR.jpg", tr: 0, tl: 1, br: 1, bl: 0))
         moves.append(Move(name: "BL_BR", path: "BL_BR.jpg", tr: 0, tl: 1, br: 1, bl: 1))
         moves.append(Move(name: "TR_BL", path: "TR_BL.jpg", tr: 1, tl: 0, br: 0, bl: 1))
+        
     }
+    
+    func getNextRandomMove() -> Move {
+    
+        return moves[Int(arc4random_uniform(7) + 0)]
+    }
+    
+   
+    
 }

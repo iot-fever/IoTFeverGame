@@ -44,7 +44,6 @@ class SensorDelegate: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate {
     }
     
     func peripheral(peripheral: CBPeripheral!, didDiscoverServices error: NSError!) {
-        println("1")
         println("Looking at peripheral services")
         
         for service in peripheral.services {
@@ -59,8 +58,6 @@ class SensorDelegate: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate {
     
     // Enable notification and sensor for each characteristic of valid service
     func peripheral(peripheral: CBPeripheral!, didDiscoverCharacteristicsForService service: CBService!, error: NSError!) {
-        
-        println("2")
         println("Enabling sensors")
         
         var enableValue = 1
@@ -88,7 +85,6 @@ class SensorDelegate: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate {
     }
     
     func peripheral(peripheral: CBPeripheral!, didUpdateValueForCharacteristic characteristic: CBCharacteristic!, error: NSError!){
-        println("3")
         println("Connected")
         
         if characteristic.UUID == MovementDataUUID {
@@ -97,7 +93,7 @@ class SensorDelegate: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate {
             
             self.publish(accelData)
             
-            println(String(format:"%f", accelData[0]))
+           //println(String(format:"%f", accelData[0]))
         }
     }
     

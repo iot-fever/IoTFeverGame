@@ -17,10 +17,10 @@ class SensorTagInitializationViewController: UIViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.activityLoader.startAnimating()
         self.startButton.enabled = false
-        
-        // SensorService.start()
+        self.activityLoader.startAnimating()
+        self.activityLoader.stopAnimating()
+        self.startButton.enabled = true
         
     }
     
@@ -28,6 +28,4 @@ class SensorTagInitializationViewController: UIViewController  {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
 }

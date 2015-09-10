@@ -8,9 +8,23 @@
 
 import Foundation
 
-class MoveService {
+class MoveService: IOTFeverDataAware {
     
-    func getMove (x: Int, y: Int) {
+    func validateMove (move: Move) {
+        sensorDelegate.subscribe(self)
+        // timer - 3s 
+        
+        
+        
+    }
     
+    func onDataIncoming(data: [Double]) {
+        
+        println("We got some data here!!")
+        
+        
+        for value in data {
+            println("test \(value)")
+        }
     }
 }

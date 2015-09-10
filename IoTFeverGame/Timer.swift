@@ -8,6 +8,29 @@
 
 import Foundation
 
-class Timer {
+class Timer: NSObject {
+   
+    var subscribers     = [GameSubscribe]()
+    
+    var duration    : Double = 90
+    var frequence   : Double = 1
+    
+    override init(){
+        super.init()
+        
+        schedule()
+    }
+    
+    // Protocol - Game Subscribe - Implementation
+    func subscribe(vc: GameSubscribe) {
+        self.subscribers.append(vc)
+    }
+    
+    func publish() {
+        for vc in self.subscribers {
+            vc.started()
+        }
+    }
+    
    
 }
