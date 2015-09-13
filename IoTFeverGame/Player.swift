@@ -10,11 +10,25 @@ import Foundation
 
 class Player {
 
-    var calibrateValue  : Int
     var name            : String
+    var score           : Int
+    var lives           : Int
     
-    init (username: String) {
-        self.calibrateValue = 0
-        self.name           = username
-    }    
+    init (username: String, lives : Int) {
+        self.name  = username
+        self.lives = lives
+        self.score = 0
+    }
+    
+    func deductLive() {
+        --lives
+    }
+    
+    func isAlive() -> Bool {
+        return lives > 0
+    }
+    
+    func increaseHits() {
+        ++score
+    }
 }

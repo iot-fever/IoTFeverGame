@@ -10,10 +10,10 @@ import Foundation
 
 class ScoreRanking {
 
-    var games: [IoTFeverGame]
+    var players: [Player]
     
     init(){
-        self.games = [IoTFeverGame] ()
+        self.players = [Player] ()
     }
     
     func getTop(amount: Int) -> [Player]{

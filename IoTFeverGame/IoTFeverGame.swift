@@ -10,74 +10,64 @@ import Foundation
 
 class IoTFeverGame : NSObject {
     
-    var subscribers     : GameSubscribe
+    let LEVEL_EASY = Level(name: 1, duration: 5, delayBetweenMoves: 2.0, possibleArmPositions: ArmPosition.Top,ArmPosition.Bottom)
     
+    let LEVEL_MEDIUM = Level(name: 2, duration: 5, delayBetweenMoves: 1.0,possibleArmPositions: ArmPosition.Top,ArmPosition.Bottom)
+    
+    let LEVEL_HARD = Level(name: 3, duration: 5, delayBetweenMoves: 0.5,possibleArmPositions: ArmPosition.Top,ArmPosition.Bottom)
+    
+    var currentLevelIndex : Int
     var levels          : [Level]
-    
-    var runningLevel    : Level
-    var startTime       : NSDate
-    var gameDuration    : Int
-    
-    var score           : Int
-    var tries           : Int
-    
+    var startTime       : NSDate?
+    var isRunning       : Bool
     var player          : Player
-        
-    static func start (username: String, vc: GameSubscribe) -> IoTFeverGame {
-        
-        var game = IoTFeverGame(username: username, vc: vc)
-        game.doStart()
-        return game
-    }
     
-    private init (username: String, vc: GameSubscribe) {
-        self.subscribers    = vc
-        self.levels         = [Level]()
-        self.levels.append(Level(name: 1, duration: 30, delayBetweenMoves: 3))
-        self.levels.append(Level(name: 2, duration: 30, delayBetweenMoves: 2))
-        self.levels.append(Level(name: 3, duration: 30, delayBetweenMoves: 1))
+    // when you start a game
+    
+    init (username: String) {
+        self.isRunning = false
+        self.levels = [Level]()
+        self.levels.append(LEVEL_EASY)
+        self.levels.append(LEVEL_MEDIUM)
+        self.levels.append(LEVEL_HARD)
         
-        self.runningLevel   = levels[0]
-
-        self.startTime      = NSDate()
-        
-        self.score          = 0
-        self.tries          = 3
-        self.gameDuration   = 90
-        
-        self.player         = Player(username: username)
-        
+        self.player = Player(username: username, lives: 3)
+        self.currentLevelIndex = 0
         super.init()
     }
     
-    // Protocol - Game Subscribe - Implementation
-
-    private func doStart() {
-        var timerCountdown  = NSTimer.scheduledTimerWithTimeInterval(1.00, target: self, selector: Selector("updateCountdown"), userInfo: nil, repeats: true)
-        var timerImage      = NSTimer.scheduledTimerWithTimeInterval(2.00, target: self, selector: Selector("updateMove"), userInfo: nil, repeats: true)
+    func start() -> Level {
+        self.startTime      = NSDate()
+        self.isRunning = true
+        var level = self.levels[currentLevelIndex]
+        return level
     }
     
-    func updateCountdown() {
-        subscribers.leftOverTime(gameDuration)
-        gameDuration--
+    func increaseHits() {
+        player.increaseHits()
     }
     
-    func updateMove() {
-        subscribers.moveChanged(self.runningLevel.getNextRandomMove())
+    func totalHits() -> Int {
+        return player.score
+    }
+    
+    func stopGame() {
+        isRunning = false
+    }
+    
+    func hasNextLevel() -> Bool {
+        return currentLevelIndex < levels.count - 1
+    }
+    
+    func getNextLevel() -> Level {
+        ++self.currentLevelIndex
+        return levels[self.currentLevelIndex]
+    }
+    
+    func getCurrentLevel() -> Level {
+        return levels[currentLevelIndex]
     }
     
     
-    // Hit - Validation
-    func nextLevel() {
-    }
     
-    func isCompleted() -> Bool {
-        
-        return true
-    }    
-    
-    func isWon(score: Int) -> Bool {
-        
-        return true
-    }
 }
