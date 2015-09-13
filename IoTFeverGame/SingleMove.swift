@@ -11,28 +11,36 @@ import Foundation
 class SingleMove : Move {
 
     var position : ArmPosition
-    var offSet   : NSDate
     
-    var success  : Bool
+    var completed  : Bool
     
-    init(position : ArmPosition, offSet : NSDate) {
+    var created : NSDate
+    
+    init(position : ArmPosition, created : NSDate) {
         self.position = position
-        self.offSet = offSet
-        self.success = false
+        self.completed = false
+        self.created = created
     }
     
-    func makeMove(data : [Double]) { 
+    func mimicMove(data : [Double]) {
         for sensorValue in data {
             if (position == ArmPosition.Top && sensorValue >= 0) {
-                self.success = true
+                self.completed = true
+                return
             } else if (position == ArmPosition.Bottom && sensorValue <= 0) {
-                self.success = true
+                self.completed = true
+                return
             }
         }
     }
     
-    func isSuccessful() -> Bool {
-        return success
+    func getCreated() -> NSDate {
+        return created
+    }
+    
+
+    func isCompleted() -> Bool {
+        return self.completed
     }
     
     func getImage() -> String {

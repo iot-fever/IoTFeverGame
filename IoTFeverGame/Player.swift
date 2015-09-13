@@ -12,16 +12,21 @@ class Player {
 
     var name            : String
     var score           : Int
+    var bonus           : Int
+    var hitsHistory     : [Bool]
     var lives           : Int
     
     init (username: String, lives : Int) {
         self.name  = username
         self.lives = lives
         self.score = 0
+        self.bonus = 0
+        self.hitsHistory = [Bool]()
     }
     
     func deductLive() {
         --lives
+        hitsHistory.append(false)
     }
     
     func isAlive() -> Bool {
@@ -30,5 +35,10 @@ class Player {
     
     func increaseHits() {
         ++score
+        hitsHistory.append(true)
+    }
+    
+    func addBonusPoints(bonusPoints: Int) {
+        self.bonus += bonusPoints
     }
 }

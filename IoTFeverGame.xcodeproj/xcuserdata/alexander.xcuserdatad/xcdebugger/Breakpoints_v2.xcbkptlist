@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IoTFeverGame/Level.swift"
-            timestampString = "463828420.83801"
+            timestampString = "463846136.257952"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "newMove()"
             landmarkType = "5">
          </BreakpointContent>
@@ -100,17 +100,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IoTFeverGame/IoTFeverGameViewController.swift"
-            timestampString = "463828474.953397"
+            timestampString = "463847278.982129"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
-            landmarkName = "onDataIncoming(_:)"
-            landmarkType = "5">
+            startingLineNumber = "160"
+            endingLineNumber = "160"
+            landmarkName = "IoTFeverGameViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -184,7 +184,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IoTFeverGame/IoTFeverGameViewController.swift"
-            timestampString = "463828474.953397"
+            timestampString = "463847278.982129"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "179"
@@ -216,12 +216,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IoTFeverGame/IoTFeverGameViewController.swift"
-            timestampString = "463828474.953397"
+            timestampString = "463847278.982129"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
-            landmarkName = "generateSensorDataFromDevice1()"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
+            landmarkName = "generateSensorDataFromDeviceRightArm()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -232,12 +232,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IoTFeverGame/IoTFeverGameViewController.swift"
-            timestampString = "463828474.953397"
+            timestampString = "463847278.982129"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
-            landmarkName = "generateSensorDataFromDevice1()"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
+            landmarkName = "generateSensorDataFromDeviceRightArm()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IoTFeverGame/IoTFeverGame.swift"
+            timestampString = "463832322.068433"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "init(username:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -248,12 +264,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IoTFeverGame/IoTFeverGameViewController.swift"
-            timestampString = "463828474.953397"
+            timestampString = "463839157.353712"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
-            landmarkName = "flashGreen()"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "validateLastAndCreateNewMove()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IoTFeverGame/ScoreBonusPointStrategy.swift"
+            timestampString = "463846977.125816"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "addHit(_:completedMove:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

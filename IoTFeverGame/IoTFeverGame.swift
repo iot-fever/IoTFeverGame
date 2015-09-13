@@ -12,15 +12,16 @@ class IoTFeverGame : NSObject {
     
     let LEVEL_EASY = Level(name: 1, duration: 5, delayBetweenMoves: 2.0, possibleArmPositions: ArmPosition.Top,ArmPosition.Bottom)
     
-    let LEVEL_MEDIUM = Level(name: 2, duration: 5, delayBetweenMoves: 1.0,possibleArmPositions: ArmPosition.Top,ArmPosition.Bottom)
+    let LEVEL_MEDIUM = Level(name: 2, duration: 5, delayBetweenMoves: 1.0, possibleArmPositions: ArmPosition.Top,ArmPosition.Bottom)
     
-    let LEVEL_HARD = Level(name: 3, duration: 5, delayBetweenMoves: 0.5,possibleArmPositions: ArmPosition.Top,ArmPosition.Bottom)
+    let LEVEL_HARD = Level(name: 3, duration: 5, delayBetweenMoves: 0.5, possibleArmPositions: ArmPosition.Top,ArmPosition.Bottom)
     
     var currentLevelIndex : Int
     var levels          : [Level]
     var startTime       : NSDate?
     var isRunning       : Bool
     var player          : Player
+    var scoreStrategy   : ScoreStrategy
     
     // when you start a game
     
@@ -30,7 +31,7 @@ class IoTFeverGame : NSObject {
         self.levels.append(LEVEL_EASY)
         self.levels.append(LEVEL_MEDIUM)
         self.levels.append(LEVEL_HARD)
-        
+        self.scoreStrategy = ScoreBonusPointStrategy()
         self.player = Player(username: username, lives: 3)
         self.currentLevelIndex = 0
         super.init()
@@ -44,11 +45,7 @@ class IoTFeverGame : NSObject {
     }
     
     func increaseHits() {
-        player.increaseHits()
-    }
-    
-    func totalHits() -> Int {
-        return player.score
+        self.scoreStrategy.addHit(player)
     }
     
     func stopGame() {

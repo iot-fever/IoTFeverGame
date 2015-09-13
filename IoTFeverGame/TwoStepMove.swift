@@ -10,29 +10,33 @@ import Foundation
 
 class TwoStepMove : Move {
     
-    var firstMove : SingleMove?
-    var secondMove : SingleMove?
+    var rightArm,leftArm : SingleMove
     
-    init(firstMove: SingleMove, secondMove: SingleMove) {
-        self.firstMove = firstMove
-        self.secondMove = secondMove
+    var created : NSDate
+    
+    init(rightArm : SingleMove, leftArm : SingleMove, created : NSDate) {
+        self.rightArm = rightArm
+        self.leftArm = leftArm
+        self.created = created
     }
     
-    func isSuccessful() -> Bool {
-         return firstMove!.isSuccessful() && secondMove!.isSuccessful()
+    func getCreated() -> NSDate {
+        return created
+    }
+    
+    func isCompleted() -> Bool {
+        return rightArm.isCompleted() && leftArm.isCompleted()
     }
     
     func getImage() -> String {
-        if (firstMove!.position == ArmPosition.Top && secondMove!.position == ArmPosition.Top) {
+        if (rightArm.position == ArmPosition.Top && leftArm.position == ArmPosition.Top) {
             return "TL_TR.jpg"
-        } else if (firstMove!.position == ArmPosition.Top && secondMove!.position == ArmPosition.Bottom) {
+        } else if (rightArm.position == ArmPosition.Top && leftArm.position == ArmPosition.Bottom) {
             return "TL_BR.jpg"
-        } else if (firstMove!.position == ArmPosition.Bottom && secondMove!.position == ArmPosition.Top) {
+        } else if (rightArm.position == ArmPosition.Bottom && leftArm.position == ArmPosition.Top) {
             return "BL_TR.jpg"
         } else {
             return "BL_BR.jpg"
         }
     }
-    
-    
 }

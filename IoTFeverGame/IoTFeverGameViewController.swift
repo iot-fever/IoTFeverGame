@@ -22,6 +22,7 @@ class IoTFeverGameViewController: UIViewController, IOTFeverDataAware, AnyObject
     
     // MARK: UI Properties
     @IBOutlet weak var score                : UILabel!
+    @IBOutlet weak var bonusPoints          : UILabel!
     @IBOutlet weak var try1Image            : UIImageView!
     @IBOutlet weak var try2Image            : UIImageView!
     @IBOutlet weak var try3Image            : UIImageView!
@@ -48,15 +49,15 @@ class IoTFeverGameViewController: UIViewController, IOTFeverDataAware, AnyObject
         currentGame = IoTFeverGame(username:"Andreas")
         let firstLevel = currentGame.start()
         self.timeCountLabel.text = String(firstLevel.duration)
-        validateLastAndCreateNewMove()
+        createNewMove(firstLevel)
         scheduleLevelTimers(firstLevel)
 
         subscribeToSensorDataStream()
     }
     
     func subscribeToSensorDataStream() {
-        NSTimer.scheduledTimerWithTimeInterval(1.00, target: self, selector: Selector("generateSensorDataFromDevice1"), userInfo: nil, repeats: true)
-        NSTimer.scheduledTimerWithTimeInterval(1.00, target: self, selector: Selector("generateSensorDataFromDevice2"), userInfo: nil, repeats: true)
+        NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("generateSensorDataFromDeviceRightArm"), userInfo: nil, repeats: true)
+        NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("generateSensorDataFromDeviceLeftArm"), userInfo: nil, repeats: true)
         //sensorDelegate.subscribe(self)
     }
     
@@ -80,7 +81,7 @@ class IoTFeverGameViewController: UIViewController, IOTFeverDataAware, AnyObject
         if (currentGame.hasNextLevel()) {
             let nextLevel = currentGame.getNextLevel()
             levelAmountLabel.text = String(nextLevel.name)
-            validateLastAndCreateNewMove()
+            createNewMove(nextLevel)
             scheduleLevelTimers(nextLevel)
         } else {
             currentGame.stopGame()
@@ -98,31 +99,54 @@ class IoTFeverGameViewController: UIViewController, IOTFeverDataAware, AnyObject
     
     func validateLastAndCreateNewMove() {
         var currentLevel = currentGame.getCurrentLevel()
-        var currentMove = currentLevel.currentMove
-        if (currentMove != nil && !currentMove!.isSuccessful()) {
-            flashRed()
-            currentGame.player.deductLive()
-            var livesLeft = currentGame.player.lives
-            if (livesLeft == 2) {
-                self.try3Image.hidden = true
-            } else if (livesLeft == 1) {
-                self.try2Image.hidden = true
-            } else {
-                self.try1Image.hidden = true
-                currentGame.stopGame()
-                unscheduleTimers()
-                renderGameOverUnsuccessful()
-                return
-            }
-
+        if (!currentLevel.currentMove!.isCompleted()) {
+            isMiss()
+        } else {
+            isHit()
         }
-        currentLevel.newMove()
-        self.imageView.image = UIImage(named: currentLevel.currentMove!.getImage())
+        createNewMove(currentLevel)
     }
     
-    func hideLifeInUI(lifeImage: UIImageView) {
-        lifeImage.hidden = true
+    func isMiss() {
+        flashRed()
+        currentGame.player.deductLive()
+        var livesLeft = currentGame.player.lives
+        if (livesLeft == 2) {
+            self.try3Image.hidden = true
+        } else if (livesLeft == 1) {
+            self.try2Image.hidden = true
+        } else {
+            self.try1Image.hidden = true
+            currentGame.stopGame()
+            unscheduleTimers()
+            renderGameOverUnsuccessful()
+            return
+        }
     }
+    
+    func flashRed() {
+        let result = Int(arc4random_uniform(UInt32(self.missMessages.count)))
+        self.GameOver.text = missMessages[result]
+    }
+    
+    func isHit() {
+        currentGame.increaseHits()
+        self.score.text = String(currentGame.player.score)
+        self.bonusPoints.text = String(currentGame.player.bonus)
+        flashGreen()
+    }
+    
+    func flashGreen() {
+        let result = Int(arc4random_uniform(UInt32(self.hitMessages.count)))
+        self.GameOver.text = hitMessages[result]
+    }
+    
+    func createNewMove(level : Level) {
+        level.newMove()
+        self.imageView.image = UIImage(named: level.currentMove!.getImage())
+        
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -134,47 +158,23 @@ class IoTFeverGameViewController: UIViewController, IOTFeverDataAware, AnyObject
        // process data from sensors. TODO: get identifier for sensor left and sensor right arm
     }
     
-    func generateSensorDataFromDevice1() {
+    func generateSensorDataFromDeviceRightArm() {
         var dummySensor = DummySensor()
         if (currentGame.isRunning) {
             var currentMove = currentGame.getCurrentLevel().currentMove as! TwoStepMove
-            
-            currentMove.firstMove!.makeMove(dummySensor.generateData())
-            if (currentMove.isSuccessful()) {
-                currentGame.increaseHits()
-                self.score.text = String(currentGame.totalHits())
-                flashGreen()
-            }
+            currentMove.rightArm.mimicMove(dummySensor.generateData())
         }
-
     }
     
-    func generateSensorDataFromDevice2() {
+    func generateSensorDataFromDeviceLeftArm() {
         var dummySensor = DummySensor()
         if (currentGame.isRunning) {
             var currentMove = currentGame.getCurrentLevel().currentMove as! TwoStepMove
-            
-            currentMove.secondMove!.makeMove(dummySensor.generateData())
-             if (currentMove.isSuccessful()) {
-                currentGame.increaseHits()
-                self.score.text = String(currentGame.totalHits())
-                flashGreen()
-            }
+            currentMove.leftArm.mimicMove(dummySensor.generateData())
         }
         
     }
-
-    
-    func flashGreen() {
-        let result = Int(arc4random_uniform(UInt32(self.hitMessages.count)))
-        self.GameOver.text = hitMessages[result]
-    }
-    
-    func flashRed() {
-        let result = Int(arc4random_uniform(UInt32(self.missMessages.count)))
-        self.GameOver.text = missMessages[result]
-    }
-    
+  
     func levelCountdown() {
         self.timeCountLabel.text = String(currentGame.getCurrentLevel().duration--)
     }
