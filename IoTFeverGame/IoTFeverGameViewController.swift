@@ -103,6 +103,17 @@ class IoTFeverGameViewController: UIViewController, IOTFeverDataAware, AnyObject
     }
     
     func renderGameOverUnsuccessful() {
+        let hulk = UIImageView()
+        
+        let url = NSBundle.mainBundle().URLForResource("hulk-disco", withExtension: "gif");
+        let gif = UIImage.animatedImageWithAnimatedGIFURL(url)
+        
+        let screenSize = UIScreen.mainScreen().bounds
+        hulk.image = gif
+        hulk.frame = CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height)
+        
+        self.view.addSubview(hulk)
+        self.view.bringSubviewToFront(hulk)
         self.GameOver.text = "You lost! Maybe next time."
     }
     
