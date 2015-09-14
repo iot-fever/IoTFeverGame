@@ -45,7 +45,6 @@ class IoTFeverGameViewController: UIViewController, IOTFeverDataAware, AnyObject
     var moveTimer : NSTimer?
     
     var emitterLayer : CAEmitterLayer?
-    var audioPlayer : AVAudioPlayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,21 +61,9 @@ class IoTFeverGameViewController: UIViewController, IOTFeverDataAware, AnyObject
         let vizView = VisualizerView()
         vizView.backgroundColor = UIColor.blackColor()
         self.view.addSubview(vizView)
-        self.view.sendSubviewToBack(vizView)
-        
-        playAudio()
+        self.view.sendSubviewToBack(vizView)    
     }
-    
-    func playAudio() {
-        let audioUrl = NSBundle.mainBundle().URLForResource("disco", withExtension: "mp3")
-        
-        var error:NSError?
-        audioPlayer = AVAudioPlayer(contentsOfURL: audioUrl, error: &error)
-        audioPlayer.numberOfLoops = -1
-        audioPlayer.prepareToPlay()
-        audioPlayer.play()
-    }
-        
+            
     func subscribeToSensorDataStream() {
         NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("generateSensorDataFromDeviceRightArm"), userInfo: nil, repeats: true)
         NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("generateSensorDataFromDeviceLeftArm"), userInfo: nil, repeats: true)
