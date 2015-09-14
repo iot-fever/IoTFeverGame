@@ -91,7 +91,6 @@
 		26E0C0871B9E82A200769688 /* SensorReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorReader.swift; sourceTree = "<group>"; };
 		26E9744C1B984C9D00E73157 /* Game.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Game.xcdatamodel; sourceTree = "<group>"; };
 		26EBAA2A1B981A3C0083CCCC /* IoTFeverGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IoTFeverGameViewController.swift; sourceTree = "<group>"; };
-		3D0357C71BA6EA1800CA6D1D /* IoTFeverGame-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IoTFeverGame-Bridging-Header.h"; sourceTree = "<group>"; };
 		3D0357D31BA6F4C800CA6D1D /* VisualizerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualizerView.swift; sourceTree = "<group>"; };
 		3D0357D51BA6FE4D00CA6D1D /* particleTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = particleTexture.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -146,7 +145,6 @@
 				26550F081B96F8BE0010D1D2 /* Images.xcassets */,
 				26550F0A1B96F8BE0010D1D2 /* LaunchScreen.xib */,
 				26550EFC1B96F8BE0010D1D2 /* Supporting Files */,
-				3D0357C71BA6EA1800CA6D1D /* IoTFeverGame-Bridging-Header.h */,
 			);
 			path = IoTFeverGame;
 			sourceTree = "<group>";
