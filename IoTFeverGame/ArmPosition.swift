@@ -10,6 +10,6 @@ import Foundation
 
 enum ArmPosition : String {
     
-    case Top = "TR.jpg"
-    case Bottom = "BR.jpg"
+    case Top = "TR.png"
+    case Bottom = "BR.png"
 }

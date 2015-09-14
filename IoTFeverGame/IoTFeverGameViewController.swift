@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import CoreBluetooth
+import AVFoundation
 
 class IoTFeverGameViewController: UIViewController, IOTFeverDataAware, AnyObject {
     
@@ -44,6 +45,7 @@ class IoTFeverGameViewController: UIViewController, IOTFeverDataAware, AnyObject
     var moveTimer : NSTimer?
     
     var emitterLayer : CAEmitterLayer?
+    var audioPlayer : AVAudioPlayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,12 +60,31 @@ class IoTFeverGameViewController: UIViewController, IOTFeverDataAware, AnyObject
         
         // Visualizer
         let vizView = VisualizerView()
-//        let vizView = UIView(frame: CGRect(x: 300, y: 300, width: 300, height: 300))
         vizView.backgroundColor = UIColor.blackColor()
         self.view.addSubview(vizView)
-        
-        self.view.sendSubviewToBack(vizView)                
+        self.view.sendSubviewToBack(vizView)
     }
+    
+    func configAudioPlayer() {
+        let audioUrl = NSBundle.mainBundle().URLForResource("bach1", withExtension: "mp3")
+        
+        var error:NSError?
+        audioPlayer = AVAudioPlayer(contentsOfURL: audioUrl, error: &error)
+        audioPlayer.prepareToPlay()
+        audioPlayer.play()
+    }
+    
+    /*
+    - (void)configureAudioPlayer {
+    NSURL *audioFileURL = [[NSBundle mainBundle] URLForResource:@"DemoSong" withExtension:@"m4a"];
+    NSError *error;
+    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioFileURL error:&error];
+    if (error) {
+    NSLog(@"%@", [error localizedDescription]);
+    }
+    [_audioPlayer setNumberOfLoops:-1];
+    }
+*/
     
     func subscribeToSensorDataStream() {
         NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("generateSensorDataFromDeviceRightArm"), userInfo: nil, repeats: true)
