@@ -52,7 +52,7 @@ class VisualizerView: UIView {
         let screenSize = UIScreen.mainScreen().bounds
         super.init(frame : CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height))
         
-        // Init Meter Table
+        // Init Meter Table and Visualizer values
         mMinDecibels = Float(minDecibels)
         mDecibelResolution = mMinDecibels / Float((tableSize - 1))
         mScaleFactor = 1 / mDecibelResolution
@@ -68,42 +68,6 @@ class VisualizerView: UIView {
             var adjAmp = (amp - minAmp) * invAmpRange
             meterTable[i] = pow(Float(adjAmp), Float(rroot))
         }
-        
-        /*
-        
-        CAEmitterCell *cell = [CAEmitterCell emitterCell];
-        cell.name = @"cell";
-        
-        
-        childCell.contents = (id)[[UIImage imageNamed:@"particleTexture.png"] CGImage];
-        
-        cell.emitterCells = @[childCell];
-        
-        cell.color = [[UIColor colorWithRed:1.0f green:0.53f blue:0.0f alpha:0.8f] CGColor];
-        cell.redRange = 0.46f;
-        cell.greenRange = 0.49f;
-        cell.blueRange = 0.67f;
-        cell.alphaRange = 0.55f;
-        
-        cell.redSpeed = 0.11f;
-        cell.greenSpeed = 0.07f;
-        cell.blueSpeed = -0.25f;
-        cell.alphaSpeed = 0.15f;
-        
-        cell.scale = 0.5f;
-        cell.scaleRange = 0.5f;
-        
-        cell.lifetime = 1.0f;
-        cell.lifetimeRange = .25f;
-        cell.birthRate = 80;
-        
-        cell.velocity = 100.0f;
-        cell.velocityRange = 300.0f;
-        cell.emissionRange = M_PI * 2;
-        
-        emitterLayer.emitterCells = @[cell];
-        
-*/
         
         // Init Particle Layer
         var width = screenSize.width;
