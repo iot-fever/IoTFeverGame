@@ -63,29 +63,20 @@ class IoTFeverGameViewController: UIViewController, IOTFeverDataAware, AnyObject
         vizView.backgroundColor = UIColor.blackColor()
         self.view.addSubview(vizView)
         self.view.sendSubviewToBack(vizView)
+        
+        playAudio()
     }
     
-    func configAudioPlayer() {
-        let audioUrl = NSBundle.mainBundle().URLForResource("bach1", withExtension: "mp3")
+    func playAudio() {
+        let audioUrl = NSBundle.mainBundle().URLForResource("disco", withExtension: "mp3")
         
         var error:NSError?
         audioPlayer = AVAudioPlayer(contentsOfURL: audioUrl, error: &error)
+        audioPlayer.numberOfLoops = -1
         audioPlayer.prepareToPlay()
         audioPlayer.play()
     }
-    
-    /*
-    - (void)configureAudioPlayer {
-    NSURL *audioFileURL = [[NSBundle mainBundle] URLForResource:@"DemoSong" withExtension:@"m4a"];
-    NSError *error;
-    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioFileURL error:&error];
-    if (error) {
-    NSLog(@"%@", [error localizedDescription]);
-    }
-    [_audioPlayer setNumberOfLoops:-1];
-    }
-*/
-    
+        
     func subscribeToSensorDataStream() {
         NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("generateSensorDataFromDeviceRightArm"), userInfo: nil, repeats: true)
         NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("generateSensorDataFromDeviceLeftArm"), userInfo: nil, repeats: true)
