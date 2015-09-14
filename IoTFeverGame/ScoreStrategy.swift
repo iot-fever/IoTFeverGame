@@ -1,5 +1,5 @@
 //
-//  Move.swift
+//  LifeBalanceStrategy.swift
 //  IoTFeverGame
 //
 //  Created by Alexander Edelmann on 13/9/15.
@@ -8,11 +8,8 @@
 
 import Foundation
 
-protocol Move {
+protocol ScoreStrategy {
     
-    func getCreated() -> NSDate
+    func addHit(player : Player)
     
-    func getImage() -> String
-    
-    func isCompleted() -> Bool
 }

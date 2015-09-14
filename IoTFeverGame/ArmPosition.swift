@@ -1,5 +1,5 @@
 //
-//  Move.swift
+//  ArmPosition.swift
 //  IoTFeverGame
 //
 //  Created by Alexander Edelmann on 13/9/15.
@@ -8,11 +8,8 @@
 
 import Foundation
 
-protocol Move {
+enum ArmPosition : String {
     
-    func getCreated() -> NSDate
-    
-    func getImage() -> String
-    
-    func isCompleted() -> Bool
+    case Top = "TR.jpg"
+    case Bottom = "BR.jpg"
 }

@@ -12,35 +12,22 @@ class Level {
 
     var name                : Int
     var duration            : Int
-    var delayBetweenMoves   : Int
-    var currentMove         : Move
-    var moves               : [Move]
+    var delayBetweenMoves   : Float
+    var possibleArmPositions : [ArmPosition]
+    
+    var currentMove : Move?
 
-    init (name: Int, duration: Int, delayBetweenMoves: Int) {
-        
+    init (name: Int, duration: Int, delayBetweenMoves: Float, possibleArmPositions : ArmPosition...) {
         self.name                   = name
         self.duration               = duration
         self.delayBetweenMoves      = delayBetweenMoves
-        self.moves                  = [Move]()
-        self.currentMove            = Move(name: "TR", path: "TR.jpg", tr: 1, tl: 0, br: 0, bl: 0)
-        
-        moves.append(Move(name: "TR", path: "TR.jpg", tr: 1, tl: 0, br: 0, bl: 0))
-        moves.append(Move(name: "TL", path: "TL.jpg", tr: 0, tl: 1, br: 0, bl: 0))
-        moves.append(Move(name: "BR", path: "BR.jpg", tr: 0, tl: 0, br: 1, bl: 0))
-        moves.append(Move(name: "BL", path: "BL.jpg", tr: 0, tl: 0, br: 0, bl: 1))
-        
-        moves.append(Move(name: "TL_TR", path: "TL_TR.jpg", tr: 1, tl: 1, br: 0, bl: 0))
-        moves.append(Move(name: "TL_BR", path: "TL_BR.jpg", tr: 0, tl: 1, br: 1, bl: 0))
-        moves.append(Move(name: "BL_BR", path: "BL_BR.jpg", tr: 0, tl: 1, br: 1, bl: 1))
-        moves.append(Move(name: "TR_BL", path: "TR_BL.jpg", tr: 1, tl: 0, br: 0, bl: 1))
-        
+        self.possibleArmPositions   = possibleArmPositions
     }
     
-    func getNextRandomMove() -> Move {
-    
-        return moves[Int(arc4random_uniform(7) + 0)]
+    func newMove(){
+        var randomMoveIndex = Int(arc4random_uniform(UInt32(possibleArmPositions.count)))
+        self.currentMove = TwoStepMove(rightArm: SingleMove(position: possibleArmPositions[randomMoveIndex],created: NSDate()),
+            leftArm: SingleMove(position: possibleArmPositions[randomMoveIndex],created: NSDate()),created : NSDate())
     }
-    
-   
-    
+
 }
