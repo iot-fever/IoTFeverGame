@@ -42,6 +42,8 @@
 		3D0357F31BA70A2900CA6D1D /* TL_TR.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D0357EC1BA70A2900CA6D1D /* TL_TR.png */; };
 		3D0357F41BA70A2900CA6D1D /* TR.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D0357ED1BA70A2900CA6D1D /* TR.png */; };
 		3D0357F61BA70EB300CA6D1D /* disco.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3D0357F51BA70EB300CA6D1D /* disco.mp3 */; };
+		3D6D3CA01BA7298C007AA2C8 /* disco-anim.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3D6D3C9F1BA7298C007AA2C8 /* disco-anim.gif */; };
+		3D6D3CA41BA72AAF007AA2C8 /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6D3CA31BA72AAF007AA2C8 /* UIImage+animatedGIF.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +97,10 @@
 		3D0357EC1BA70A2900CA6D1D /* TL_TR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TL_TR.png; sourceTree = "<group>"; };
 		3D0357ED1BA70A2900CA6D1D /* TR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TR.png; sourceTree = "<group>"; };
 		3D0357F51BA70EB300CA6D1D /* disco.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = disco.mp3; sourceTree = "<group>"; };
+		3D6D3C9F1BA7298C007AA2C8 /* disco-anim.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "disco-anim.gif"; sourceTree = "<group>"; };
+		3D6D3CA21BA72A8C007AA2C8 /* UIImage+animatedGIF.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+animatedGIF.h"; sourceTree = "<group>"; };
+		3D6D3CA31BA72AAF007AA2C8 /* UIImage+animatedGIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+animatedGIF.m"; sourceTree = "<group>"; };
+		3D6D3CAA1BA72B9C007AA2C8 /* IoTFeverGame-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IoTFeverGame-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +142,8 @@
 		26550EFB1B96F8BE0010D1D2 /* IoTFeverGame */ = {
 			isa = PBXGroup;
 			children = (
+				3D6D3CAA1BA72B9C007AA2C8 /* IoTFeverGame-Bridging-Header.h */,
+				3D6D3CA11BA72A78007AA2C8 /* Mixins */,
 				3D0357D21BA6F47100CA6D1D /* Views */,
 				26D77ECA1B993D530042F414 /* Services */,
 				26D77EBD1B9938EB0042F414 /* Model */,
@@ -217,6 +225,7 @@
 		26EBAA251B97FABB0083CCCC /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				3D6D3C9F1BA7298C007AA2C8 /* disco-anim.gif */,
 				3D0357F51BA70EB300CA6D1D /* disco.mp3 */,
 				3D0357E71BA70A2900CA6D1D /* BL.png */,
 				3D0357E81BA70A2900CA6D1D /* BL_BR.png */,
@@ -239,6 +248,15 @@
 				3D0357D31BA6F4C800CA6D1D /* VisualizerView.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		3D6D3CA11BA72A78007AA2C8 /* Mixins */ = {
+			isa = PBXGroup;
+			children = (
+				3D6D3CA21BA72A8C007AA2C8 /* UIImage+animatedGIF.h */,
+				3D6D3CA31BA72AAF007AA2C8 /* UIImage+animatedGIF.m */,
+			);
+			name = Mixins;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,6 +349,7 @@
 				3D0357F11BA70A2900CA6D1D /* TL.png in Resources */,
 				3D0357F21BA70A2900CA6D1D /* TL_BR.png in Resources */,
 				3D0357F41BA70A2900CA6D1D /* TR.png in Resources */,
+				3D6D3CA01BA7298C007AA2C8 /* disco-anim.gif in Resources */,
 				3D0357F61BA70EB300CA6D1D /* disco.mp3 in Resources */,
 				3D0357D61BA6FE4D00CA6D1D /* particleTexture.png in Resources */,
 				3D0357F01BA70A2900CA6D1D /* BR.png in Resources */,
@@ -366,6 +385,7 @@
 				1171C2BB1BA5831900E0537F /* ScoreStrategy.swift in Sources */,
 				3D0357D41BA6F4C800CA6D1D /* VisualizerView.swift in Sources */,
 				26E0C0881B9E82A200769688 /* SensorReader.swift in Sources */,
+				3D6D3CA41BA72AAF007AA2C8 /* UIImage+animatedGIF.m in Sources */,
 				1171C2B51BA5679F00E0537F /* TwoStepMove.swift in Sources */,
 				26D77EC91B99399D0042F414 /* IoTFeverGame.swift in Sources */,
 				269E0ABB1BA03B5100AF2804 /* SensorService.swift in Sources */,
@@ -503,7 +523,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "IoTFeverGame-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -518,7 +538,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "IoTFeverGame-Bridging-Header.h";
 			};
 			name = Release;
 		};
