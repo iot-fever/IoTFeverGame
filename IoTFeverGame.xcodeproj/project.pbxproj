@@ -39,6 +39,8 @@
 		26E0C0881B9E82A200769688 /* SensorReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E0C0871B9E82A200769688 /* SensorReader.swift */; };
 		26E9744D1B984C9D00E73157 /* Game.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 26E9744B1B984C9D00E73157 /* Game.xcdatamodeld */; };
 		26EBAA2B1B981A3C0083CCCC /* IoTFeverGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EBAA2A1B981A3C0083CCCC /* IoTFeverGameViewController.swift */; };
+		3D0357D41BA6F4C800CA6D1D /* VisualizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0357D31BA6F4C800CA6D1D /* VisualizerView.swift */; };
+		3D0357D61BA6FE4D00CA6D1D /* particleTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D0357D51BA6FE4D00CA6D1D /* particleTexture.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +91,9 @@
 		26E0C0871B9E82A200769688 /* SensorReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorReader.swift; sourceTree = "<group>"; };
 		26E9744C1B984C9D00E73157 /* Game.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Game.xcdatamodel; sourceTree = "<group>"; };
 		26EBAA2A1B981A3C0083CCCC /* IoTFeverGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IoTFeverGameViewController.swift; sourceTree = "<group>"; };
+		3D0357C71BA6EA1800CA6D1D /* IoTFeverGame-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IoTFeverGame-Bridging-Header.h"; sourceTree = "<group>"; };
+		3D0357D31BA6F4C800CA6D1D /* VisualizerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualizerView.swift; sourceTree = "<group>"; };
+		3D0357D51BA6FE4D00CA6D1D /* particleTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = particleTexture.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +135,7 @@
 		26550EFB1B96F8BE0010D1D2 /* IoTFeverGame */ = {
 			isa = PBXGroup;
 			children = (
+				3D0357D21BA6F47100CA6D1D /* Views */,
 				26D77ECA1B993D530042F414 /* Services */,
 				26D77EBD1B9938EB0042F414 /* Model */,
 				26EBAA251B97FABB0083CCCC /* Resource */,
@@ -140,6 +146,7 @@
 				26550F081B96F8BE0010D1D2 /* Images.xcassets */,
 				26550F0A1B96F8BE0010D1D2 /* LaunchScreen.xib */,
 				26550EFC1B96F8BE0010D1D2 /* Supporting Files */,
+				3D0357C71BA6EA1800CA6D1D /* IoTFeverGame-Bridging-Header.h */,
 			);
 			path = IoTFeverGame;
 			sourceTree = "<group>";
@@ -210,6 +217,7 @@
 		26EBAA251B97FABB0083CCCC /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				3D0357D51BA6FE4D00CA6D1D /* particleTexture.png */,
 				266F42B21B9FD47A002FCB7E /* tries.png */,
 				26D89F0A1B9D3ED400E77C3F /* BL_BR.jpg */,
 				26D89F0C1B9D3ED400E77C3F /* Bosch.png */,
@@ -222,6 +230,14 @@
 				26D89F1A1B9D3EF600E77C3F /* Bosch.png */,
 			);
 			name = Resource;
+			sourceTree = "<group>";
+		};
+		3D0357D21BA6F47100CA6D1D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3D0357D31BA6F4C800CA6D1D /* VisualizerView.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,6 +330,7 @@
 				26D89F181B9D3ED400E77C3F /* TL.jpg in Resources */,
 				26D89F171B9D3ED400E77C3F /* TL_TR.jpg in Resources */,
 				26D89F191B9D3ED400E77C3F /* TR.jpg in Resources */,
+				3D0357D61BA6FE4D00CA6D1D /* particleTexture.png in Resources */,
 				26D89F141B9D3ED400E77C3F /* Bosch.png in Resources */,
 				26550F091B96F8BE0010D1D2 /* Images.xcassets in Resources */,
 				266F42B31B9FD47A002FCB7E /* tries.png in Resources */,
@@ -345,6 +362,7 @@
 				26EBAA2B1B981A3C0083CCCC /* IoTFeverGameViewController.swift in Sources */,
 				26D77EBC1B9931EB0042F414 /* RankingTableViewController.swift in Sources */,
 				1171C2BB1BA5831900E0537F /* ScoreStrategy.swift in Sources */,
+				3D0357D41BA6F4C800CA6D1D /* VisualizerView.swift in Sources */,
 				26E0C0881B9E82A200769688 /* SensorReader.swift in Sources */,
 				1171C2B51BA5679F00E0537F /* TwoStepMove.swift in Sources */,
 				26D77EC91B99399D0042F414 /* IoTFeverGame.swift in Sources */,
@@ -483,6 +501,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "IoTFeverGame/IoTFeverGame-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -497,6 +516,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "IoTFeverGame/IoTFeverGame-Bridging-Header.h";
 			};
 			name = Release;
 		};

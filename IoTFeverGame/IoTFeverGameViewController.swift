@@ -43,6 +43,8 @@ class IoTFeverGameViewController: UIViewController, IOTFeverDataAware, AnyObject
     var levelTimer: NSTimer?
     var moveTimer : NSTimer?
     
+    var emitterLayer : CAEmitterLayer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Subscriber
@@ -53,6 +55,14 @@ class IoTFeverGameViewController: UIViewController, IOTFeverDataAware, AnyObject
         scheduleLevelTimers(firstLevel)
 
         subscribeToSensorDataStream()
+        
+        // Visualizer
+        let vizView = VisualizerView()
+//        let vizView = UIView(frame: CGRect(x: 300, y: 300, width: 300, height: 300))
+        vizView.backgroundColor = UIColor.blackColor()
+        self.view.addSubview(vizView)
+        
+        self.view.sendSubviewToBack(vizView)                
     }
     
     func subscribeToSensorDataStream() {
