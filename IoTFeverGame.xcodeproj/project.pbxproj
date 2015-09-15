@@ -12,6 +12,7 @@
 		1171C2B91BA56F5400E0537F /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1171C2B81BA56F5400E0537F /* Move.swift */; };
 		1171C2BB1BA5831900E0537F /* ScoreStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1171C2BA1BA5831900E0537F /* ScoreStrategy.swift */; };
 		1171C2BD1BA5852B00E0537F /* ScoreBonusPointStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1171C2BC1BA5852B00E0537F /* ScoreBonusPointStrategy.swift */; };
+		26427AC81BA7C7E100CF839C /* CountdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26427AC71BA7C7E100CF839C /* CountdownViewController.swift */; };
 		26550EFF1B96F8BE0010D1D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26550EFE1B96F8BE0010D1D2 /* AppDelegate.swift */; };
 		26550F041B96F8BE0010D1D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26550F031B96F8BE0010D1D2 /* ViewController.swift */; };
 		26550F071B96F8BE0010D1D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26550F051B96F8BE0010D1D2 /* Main.storyboard */; };
@@ -63,6 +64,7 @@
 		1171C2B81BA56F5400E0537F /* Move.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
 		1171C2BA1BA5831900E0537F /* ScoreStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreStrategy.swift; sourceTree = "<group>"; };
 		1171C2BC1BA5852B00E0537F /* ScoreBonusPointStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreBonusPointStrategy.swift; sourceTree = "<group>"; };
+		26427AC71BA7C7E100CF839C /* CountdownViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownViewController.swift; sourceTree = "<group>"; };
 		26550EF91B96F8BE0010D1D2 /* IoTFeverGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IoTFeverGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26550EFD1B96F8BE0010D1D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26550EFE1B96F8BE0010D1D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				26550F031B96F8BE0010D1D2 /* ViewController.swift */,
 				26EBAA2A1B981A3C0083CCCC /* IoTFeverGameViewController.swift */,
 				26D77EBB1B9931EB0042F414 /* RankingTableViewController.swift */,
+				26427AC71BA7C7E100CF839C /* CountdownViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				26D77EBC1B9931EB0042F414 /* RankingTableViewController.swift in Sources */,
 				1171C2BB1BA5831900E0537F /* ScoreStrategy.swift in Sources */,
 				3D0357D41BA6F4C800CA6D1D /* VisualizerView.swift in Sources */,
+				26427AC81BA7C7E100CF839C /* CountdownViewController.swift in Sources */,
 				26E0C0881B9E82A200769688 /* SensorReader.swift in Sources */,
 				3D6D3CA41BA72AAF007AA2C8 /* UIImage+animatedGIF.m in Sources */,
 				1171C2B51BA5679F00E0537F /* TwoStepMove.swift in Sources */,

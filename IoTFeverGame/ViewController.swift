@@ -14,16 +14,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: Properties
     @IBOutlet weak var playerNameText   : UILabel!
-    @IBOutlet weak var playButton       : UIButton!
     
     var discoBall : UIImageView = UIImageView()
     
     override func viewDidLoad() {
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.playButton.enabled = true
         self.playerNameText.text = "Waiting for User ..."
-
         
         let url = NSBundle.mainBundle().URLForResource("disco-anim", withExtension: "gif");
         let gif = UIImage.animatedImageWithAnimatedGIFURL(url)
@@ -38,7 +35,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         super.viewDidLoad()
         
-        NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("getUsername"), userInfo: nil, repeats: true)
+        NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("getUsername:"), userInfo: nil, repeats: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,7 +43,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func getUsername(){
+    func getUsername(timer: NSTimer){
         println("Get Username")
         
         var urlRequest = NSURLRequest(URL: NSURL(string: "http://192.168.1.32:1337/station/Vorto")!)
@@ -70,6 +67,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 }
                 else
                 {
+                    if post["status"])
                     if var postUser = post["user"] as? NSDictionary
                     {
                         if var nickname = postUser["nickname"] as? String{
@@ -78,13 +76,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
                             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                                 username = nickname
                                 self.playerNameText.text = "Hi, " + username
-                                
-                                
+                            
+                                timer.invalidate()
+                            self.performSegueWithIdentifier("countdownIdentifier", sender: self)
                                 
                             });
                         }
                         
                     }
+                    
+                    
                 }
             }
         })
