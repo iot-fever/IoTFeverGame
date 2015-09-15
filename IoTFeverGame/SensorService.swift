@@ -9,12 +9,19 @@
 import Foundation
 import CoreBluetooth
 
+let sensorLeftID = "808b70000084bec4"
+let sensorRightID = "8088b9000048b4b0"
+
+let sensorLeftUUID = "66CB73B3-8E80-BC0F-8D22-69991491A33E"
+let sensorRightUUID = "516AB7BD-7B80-285A-B652-20CE104FC6BF"
+
 var sensorDelegate: SensorDelegate = SensorDelegate.init()
 var centralManager: CBCentralManager!
 
 protocol IOTFeverDataAware {
     func onDataIncoming(data: [Double])
 }
+
 
 class SensorDelegate: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate {
     /******* CBCentralPeripheralDelegate *******/
@@ -27,7 +34,14 @@ class SensorDelegate: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate {
     // Barometer Service
     // Gyroscope Service
     // (Others are not implemented)
-    var sensorTagPeripheral     : CBPeripheral!
+    
+    var sensorTagPeripheralLeft : CBPeripheral!
+    var sensorTagPeripheralRight : CBPeripheral!
+
+    var sensorLeftFound = false
+    var sensorRightFound = false
+
+    
     var subscribers = [IOTFeverDataAware]()
     override init() {
         
@@ -43,11 +57,20 @@ class SensorDelegate: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate {
         }
     }
     
+    
+    
+    
+    func sensorsFound() -> Bool {
+        return sensorLeftFound && sensorRightFound
+    }
+    
+    // Check if the service discovered is valid i.e. one of the following:
+    // Accelerometer Service
+    // (Others are not implemented)
     func peripheral(peripheral: CBPeripheral!, didDiscoverServices error: NSError!) {
-        println("Looking at peripheral services")
-        
         for service in peripheral.services {
             let thisService = service as! CBService
+            
             if SensorReader.validService(thisService) {
                 // Discover characteristics of all valid services
                 peripheral.discoverCharacteristics(nil, forService: thisService)
@@ -58,7 +81,6 @@ class SensorDelegate: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate {
     
     // Enable notification and sensor for each characteristic of valid service
     func peripheral(peripheral: CBPeripheral!, didDiscoverCharacteristicsForService service: CBService!, error: NSError!) {
-        println("Enabling sensors")
         
         var enableValue = 1
         let enablyBytes = NSData(bytes: &enableValue, length: sizeof(UInt8))
@@ -69,36 +91,50 @@ class SensorDelegate: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate {
         for charateristic in service.characteristics {
             let thisCharacteristic = charateristic as! CBCharacteristic
             if SensorReader.validDataCharacteristic(thisCharacteristic) {
-                self.sensorTagPeripheral.setNotifyValue(true, forCharacteristic: thisCharacteristic)
+                peripheral.setNotifyValue(true, forCharacteristic: thisCharacteristic)
             }
             
             if SensorReader.validConfigCharacteristic(thisCharacteristic) {
+                
                 if thisCharacteristic.UUID == MovementConfigUUID {
-                    self.sensorTagPeripheral.writeValue(enablyBytesMovement, forCharacteristic: thisCharacteristic,
+                    peripheral.writeValue(enablyBytesMovement, forCharacteristic: thisCharacteristic,
                         type: CBCharacteristicWriteType.WithResponse)
                     
-                } else {
-                    self.sensorTagPeripheral.writeValue(enablyBytes, forCharacteristic: thisCharacteristic, type: CBCharacteristicWriteType.WithResponse)
+                }
+                else if thisCharacteristic.UUID == DeviceInfoSystemIDUUID {
+                    peripheral.readValueForCharacteristic(thisCharacteristic)
+                }
+                    
+                else {
+                    peripheral.writeValue(enablyBytes, forCharacteristic: thisCharacteristic, type: CBCharacteristicWriteType.WithResponse)
                 }
             }
         }
     }
     
-    func peripheral(peripheral: CBPeripheral!, didUpdateValueForCharacteristic characteristic: CBCharacteristic!, error: NSError!){
-        println("Connected")
+    // Get data values when they are updated
+    func peripheral(peripheral: CBPeripheral!, didUpdateValueForCharacteristic characteristic: CBCharacteristic!, error: NSError!) {
         
         if characteristic.UUID == MovementDataUUID {
             let movementData = SensorReader.getMovementData(characteristic.value)
+            
             let accelData = SensorReader.getAccelerometerData(movementData)
+            var accelerometerX = accelData[0]
             
-            self.publish(accelData)
+            if sensorLeftUUID == peripheral.identifier.UUIDString {
+                println("Left sensor: \(accelerometerX)");
+            }
+                
+            else if sensorRightUUID == peripheral.identifier.UUIDString {
+                println("Right sensor: \(accelerometerX)");
+            }
             
-           //println(String(format:"%f", accelData[0]))
+            //self.publish(accelData)
         }
     }
     
     // Check status of BLE hardware
-    func centralManagerDidUpdateState(central: CBCentralManager!){
+    func centralManagerDidUpdateState(central: CBCentralManager!) {
         if central.state == CBCentralManagerState.PoweredOn {
             // Scan for peripherals if BLE is turned on
             central.scanForPeripheralsWithServices(nil, options: nil)
@@ -110,22 +146,49 @@ class SensorDelegate: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate {
         }
     }
     
+    
     // Check out the discovered peripherals to find Sensor Tag
     func centralManager(central: CBCentralManager!, didDiscoverPeripheral peripheral: CBPeripheral!, advertisementData: [NSObject : AnyObject]!, RSSI: NSNumber!) {
         
+        var deviceUUID  = peripheral.identifier.UUIDString
+        
         if SensorReader.sensorTagFound(advertisementData) == true {
-            // Update Status Label
-            println("Sensor Tag Found")
-            // Stop scanning, set as the peripheral to use and establish connection
+            
+            println("Scanning...Detected \(deviceUUID)")
+            
+            if sensorLeftUUID == deviceUUID {
+                self.sensorTagPeripheralLeft = peripheral
+                self.sensorTagPeripheralLeft.delegate = self
+                println("Left Sensor Found")
+                sensorLeftFound = true
+            }
+                
+            else if sensorRightUUID == deviceUUID {
+                self.sensorTagPeripheralRight = peripheral
+                self.sensorTagPeripheralRight.delegate = self
+                println("Right Sensor Found")
+                sensorRightFound = true
+            }
+            
+            central.connectPeripheral(peripheral, options: nil)
+        }
+        
+        if sensorsFound() {
+            println("Left and Right sensors found.")
             central.stopScan()
-            self.sensorTagPeripheral = peripheral
-            self.sensorTagPeripheral.delegate = self
-            central.connectPeripheral(self.sensorTagPeripheral, options: nil)
         }
-        else {
-            println("Sensor Tag NOT Found")
-            //showAlertWithText(header: "Warning", message: "SensorTag Not Found")
-        }
+        
+        
+        /*if SensorTag.sensorTagFound(advertisementData) == true {
+        // Update Status Label
+        self.statusLabel.text = "Sensor Tag Found"
+        
+        // Stop scanning, set as the peripheral to use and establish connection
+        //self.centralManager.stopScan()
+        self.sensorTagPeripheral = peripheral
+        self.sensorTagPeripheral.delegate = self
+        self.centralManager.connectPeripheral(peripheral, options: nil)
+        }*/
     }
     
     // Discover services of the peripheral
