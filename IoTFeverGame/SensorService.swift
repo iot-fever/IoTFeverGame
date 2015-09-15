@@ -10,8 +10,8 @@ import Foundation
 import CoreBluetooth
 
 // The system info of the 2 sensors
-let sensorLeftID    = "808b70000084bec4"
-let sensorRightID   = "8088b9000048b4b0"
+//let sensorLeftID = "808b70000084bec4"
+//let sensorRightID = "8088b9000048b4b0"
 
 var dummyCalled = false
 // DUMMY -> Have to be TRUE  if you want to use Dummy Data
@@ -19,8 +19,8 @@ var dummyCalled = false
 let DUMMY = true
 
 // The UUID of the 2 sensors
-let sensorLeftUUID  = "30EF98A7-C4E4-9CF8-271A-489E1FFA57CF"
-let sensorRightUUID = "6561B0E5-0EF4-51B7-F493-CFD7ED72B5C7"
+let sensorLeftUUID = NSUserDefaults.standardUserDefaults().stringForKey("left_sensor_uuid")
+let sensorRightUUID = NSUserDefaults.standardUserDefaults().stringForKey("right_sensor_uuid")
 
 var sensorDelegate: SensorDelegate = SensorDelegate.init()
 var centralManager: CBCentralManager!

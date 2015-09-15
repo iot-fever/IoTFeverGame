@@ -28,8 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NSUserDefaults.standardUserDefaults().registerDefaults([
             "number_lives": 3,
             "game_length": 60,
-            "left_sensor_uuid": "66CB73B3-8E80-BC0F-8D22-69991491A33E",
-            "right_sensor_uuid": "516AB7BD-7B80-285A-B652-20CE104FC6BF",
+            "left_sensor_uuid": "30EF98A7-C4E4-9CF8-271A-489E1FFA57CF",
+            "right_sensor_uuid": "6561B0E5-0EF4-51B7-F493-CFD7ED72B5C7",
             "enabled_external_services": true,
             "ip_add_name_service": "192.168.1.12:8080",
             "ip_add_score_service": "192.168.1.12:8080"
