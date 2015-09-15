@@ -50,6 +50,7 @@ class SensorReader {
     // Check if the characteristic has a valid config UUID
     class func validConfigCharacteristic (characteristic : CBCharacteristic) -> Bool {
         if  characteristic.UUID == MovementConfigUUID ||
+            characteristic.UUID == MovementPeriodUUID ||
             characteristic.UUID == DeviceInfoSystemIDUUID {
                 return true
         }

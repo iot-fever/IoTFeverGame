@@ -137,6 +137,9 @@ class SensorDelegate: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate {
         var enableValueMovement = 127
         let enablyBytesMovement = NSData(bytes: &enableValueMovement, length: sizeof(UInt16))
         
+        var periodValueMovement = 10
+        let periodBytesMovement = NSData(bytes: &periodValueMovement, length: sizeof(UInt8))
+        
         for charateristic in service.characteristics {
             let thisCharacteristic = charateristic as! CBCharacteristic
             if SensorReader.validDataCharacteristic(thisCharacteristic) {
@@ -148,7 +151,10 @@ class SensorDelegate: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate {
                 if thisCharacteristic.UUID == MovementConfigUUID {
                     peripheral.writeValue(enablyBytesMovement, forCharacteristic: thisCharacteristic,
                         type: CBCharacteristicWriteType.WithResponse)
-                    
+                }
+                if thisCharacteristic.UUID == MovementPeriodUUID {
+                    peripheral.writeValue(periodBytesMovement, forCharacteristic: thisCharacteristic,
+                        type: CBCharacteristicWriteType.WithResponse)
                 }
                 else if thisCharacteristic.UUID == DeviceInfoSystemIDUUID {
                     peripheral.readValueForCharacteristic(thisCharacteristic)
@@ -159,6 +165,8 @@ class SensorDelegate: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate {
                 }
             }
         }
+        
+        
     }
     
     // Get data values when they are updated
