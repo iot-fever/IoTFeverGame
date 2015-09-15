@@ -174,8 +174,20 @@ class IoTFeverGameViewController: UIViewController, IOTFeverDataAware, AnyObject
     }
     
     // Protocol IOTFeverDataAware
-    func onDataIncoming(data: [Double]) {
-       // process data from sensors. TODO: get identifier for sensor left and sensor right arm
+    func onDataRightIncoming(data: [Double]) {
+       // process data from RIGHT sensors. TODO: get identifier for sensor left and sensor right arm
+        if (currentGame.isRunning) {
+            var currentMove = currentGame.getCurrentLevel().currentMove as! TwoStepMove
+            currentMove.rightArm.mimicMove(data)
+        }
+    }
+    
+    func onDataLeftIncoming(data: [Double]) {
+        // process data from LEFT sensors. TODO: get identifier for sensor left and sensor right arm
+        if (currentGame.isRunning) {
+            var currentMove = currentGame.getCurrentLevel().currentMove as! TwoStepMove
+            currentMove.rightArm.mimicMove(data)
+        }
     }
     
     func generateSensorDataFromDeviceRightArm() {

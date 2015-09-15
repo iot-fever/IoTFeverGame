@@ -13,7 +13,8 @@ var sensorDelegate: SensorDelegate = SensorDelegate.init()
 var centralManager: CBCentralManager!
 
 protocol IOTFeverDataAware {
-    func onDataIncoming(data: [Double])
+    func onDataRightIncoming(data: [Double])
+    func onDataLeftIncoming(data: [Double])
 }
 
 class SensorDelegate: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate {
@@ -37,9 +38,15 @@ class SensorDelegate: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate {
         self.subscribers.append(vc)
     }
     
-    func publish(data: [Double]) {
+    func publishRight(data: [Double]) {
         for vc in self.subscribers {
-            vc.onDataIncoming(data)
+            vc.onDataRightIncoming(data)
+        }
+    }
+    
+    func publishLeft(data: [Double]) {
+        for vc in self.subscribers {
+            vc.onDataLeftIncoming(data)
         }
     }
     
@@ -91,7 +98,11 @@ class SensorDelegate: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate {
             let movementData = SensorReader.getMovementData(characteristic.value)
             let accelData = SensorReader.getAccelerometerData(movementData)
             
-            self.publish(accelData)
+            // if characteristic.UUID == Right
+            self.publishRight(accelData)
+            
+            // if characteristic.UUID == Left
+            self.publishLeft(accelData)
             
            //println(String(format:"%f", accelData[0]))
         }
