@@ -11,6 +11,9 @@ import CoreData
 import CoreBluetooth
 import AVFoundation
 
+var currentGame                         : IoTFeverGame!
+
+
 class IoTFeverGameViewController: UIViewController, IOTFeverDataAware, AnyObject {
     
     var hitMessages : [String] = ["Whatta move!",
@@ -38,7 +41,6 @@ class IoTFeverGameViewController: UIViewController, IOTFeverDataAware, AnyObject
     
     @IBOutlet weak var GameOver             : UILabel!
     
-    var currentGame                         : IoTFeverGame!
     
     var gameTimer : NSTimer?
     var levelTimer: NSTimer?
@@ -48,15 +50,19 @@ class IoTFeverGameViewController: UIViewController, IOTFeverDataAware, AnyObject
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Subscriber
-        currentGame = IoTFeverGame(username:"Andreas")
+        sensorDelegate.subscribe(self)
+        
+        currentGame = IoTFeverGame(username: username)
         let firstLevel = currentGame.start()
         self.timeCountLabel.text = String(firstLevel.duration)
         createNewMove(firstLevel)
         scheduleLevelTimers(firstLevel)
 
-        subscribeToSensorDataStream()
+        //subscribeToSensorDataStream()
         
+
         // Visualizer
         let vizView = VisualizerView()
         vizView.backgroundColor = UIColor.blackColor()
@@ -94,27 +100,12 @@ class IoTFeverGameViewController: UIViewController, IOTFeverDataAware, AnyObject
             scheduleLevelTimers(nextLevel)
         } else {
             currentGame.stopGame()
-            renderGameOverSuccessful()
+            renderGameOver()
         }
     }
     
-    func renderGameOverSuccessful() {
-        self.GameOver.text = "You won!"
-    }
-    
-    func renderGameOverUnsuccessful() {
-        let hulk = UIImageView()
-        
-        let url = NSBundle.mainBundle().URLForResource("hulk-disco", withExtension: "gif");
-        let gif = UIImage.animatedImageWithAnimatedGIFURL(url)
-        
-        let screenSize = UIScreen.mainScreen().bounds
-        hulk.image = gif
-        hulk.frame = CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height)
-        
-        self.view.addSubview(hulk)
-        self.view.bringSubviewToFront(hulk)
-        self.GameOver.text = "You lost! Maybe next time."
+    func renderGameOver() {
+        self.performSegueWithIdentifier("gameEndIdentifier", sender: self)
     }
     
     func validateLastAndCreateNewMove() {
@@ -128,6 +119,7 @@ class IoTFeverGameViewController: UIViewController, IOTFeverDataAware, AnyObject
     }
     
     func isMiss() {
+        println("MMMIIIISSSS")
         flashRed()
         currentGame.player.deductLive()
         var livesLeft = currentGame.player.lives
@@ -139,7 +131,7 @@ class IoTFeverGameViewController: UIViewController, IOTFeverDataAware, AnyObject
             self.try1Image.hidden = true
             currentGame.stopGame()
             unscheduleTimers()
-            renderGameOverUnsuccessful()
+            renderGameOver()
             return
         }
     }
@@ -150,6 +142,7 @@ class IoTFeverGameViewController: UIViewController, IOTFeverDataAware, AnyObject
     }
     
     func isHit() {
+        println("HHHHIIITTTTTTTT")
         currentGame.increaseHits()
         self.score.text = String(currentGame.player.score)
         self.bonusPoints.text = String(currentGame.player.bonus)
@@ -164,9 +157,7 @@ class IoTFeverGameViewController: UIViewController, IOTFeverDataAware, AnyObject
     func createNewMove(level : Level) {
         level.newMove()
         self.imageView.image = UIImage(named: level.currentMove!.getImage())
-        
     }
-
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -174,10 +165,21 @@ class IoTFeverGameViewController: UIViewController, IOTFeverDataAware, AnyObject
     }
     
     // Protocol IOTFeverDataAware
-    func onDataIncoming(data: [Double]) {
-       // process data from sensors. TODO: get identifier for sensor left and sensor right arm
+    func onDataRightIncoming(data: [Double]) {
+        if (currentGame.isRunning) {
+            var currentMove = currentGame.getCurrentLevel().currentMove as! TwoStepMove
+            currentMove.rightArm.mimicMove(data)
+        }
     }
     
+    func onDataLeftIncoming(data: [Double]) {
+        if (currentGame.isRunning) {
+            var currentMove = currentGame.getCurrentLevel().currentMove as! TwoStepMove
+            currentMove.leftArm.mimicMove(data)
+        }
+    }
+    
+    /*
     func generateSensorDataFromDeviceRightArm() {
         var dummySensor = DummySensor()
         if (currentGame.isRunning) {
@@ -194,7 +196,8 @@ class IoTFeverGameViewController: UIViewController, IOTFeverDataAware, AnyObject
         }
         
     }
-  
+    */
+    
     func levelCountdown() {
         self.timeCountLabel.text = String(currentGame.getCurrentLevel().duration--)
     }

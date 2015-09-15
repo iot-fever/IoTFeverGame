@@ -8,8 +8,8 @@
 
 import Foundation
 
-enum ArmPosition : String {
+enum ArmPosition {
     
-    case Top = "TR.png"
-    case Bottom = "BR.png"
+    case Top
+    case Bottom
 }

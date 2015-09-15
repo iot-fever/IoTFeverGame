@@ -73,12 +73,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IoTFeverGame/SensorService.swift"
-            timestampString = "463490584.720817"
+            timestampString = "463994267.809487"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "subscribe(_:)"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "SensorDelegate"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IoTFeverGame/SingleMove.swift"
+            timestampString = "463996581.466539"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "mimicMove(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

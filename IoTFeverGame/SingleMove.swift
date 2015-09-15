@@ -24,10 +24,11 @@ class SingleMove : Move {
     
     func mimicMove(data : [Double]) {
         for sensorValue in data {
-            if (position == ArmPosition.Top && sensorValue >= 0) {
+            if (position == ArmPosition.Top && sensorValue >= 50) {
+                println(position)
                 self.completed = true
                 return
-            } else if (position == ArmPosition.Bottom && sensorValue <= 0) {
+            } else if (position == ArmPosition.Bottom && sensorValue <= -50) {
                 self.completed = true
                 return
             }
@@ -44,7 +45,7 @@ class SingleMove : Move {
     }
     
     func getImage() -> String {
-        return position.rawValue
+        return ""
     }
     
 }

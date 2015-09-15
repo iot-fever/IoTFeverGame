@@ -14,14 +14,19 @@ let sensorLeftID = "808b70000084bec4"
 let sensorRightID = "8088b9000048b4b0"
 
 // The UUID of the 2 sensors
-let sensorLeftUUID = "66CB73B3-8E80-BC0F-8D22-69991491A33E"
-let sensorRightUUID = "516AB7BD-7B80-285A-B652-20CE104FC6BF"
+let sensorLeftUUID = "30EF98A7-C4E4-9CF8-271A-489E1FFA57CF"
+let sensorRightUUID = "6561B0E5-0EF4-51B7-F493-CFD7ED72B5C7"
 
 var sensorDelegate: SensorDelegate = SensorDelegate.init()
 var centralManager: CBCentralManager!
 
 protocol IOTFeverDataAware {
-    func onDataIncoming(data: [Double])
+    func onDataRightIncoming(data: [Double])
+    func onDataLeftIncoming(data: [Double])
+}
+
+protocol IOTFeverStart {
+    func startGame()
 }
 
 class SensorDelegate: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate {
@@ -38,20 +43,41 @@ class SensorDelegate: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate {
     var sensorRightFound = false
     
     var subscribers = [IOTFeverDataAware]()
+    var subscriber  = [IOTFeverStart]()
+
     override init() {
         
     }
     
+    //IOTFeverDataAware
     func subscribe(vc: IOTFeverDataAware) {
         self.subscribers.append(vc)
     }
     
-    func publish(data: [Double]) {
+    func publishRight(data: [Double]) {
         for vc in self.subscribers {
-            vc.onDataIncoming(data)
+            vc.onDataRightIncoming(data)
+        }
+    }
+    
+    func publishLeft(data: [Double]) {
+        for vc in self.subscribers {
+            vc.onDataLeftIncoming(data)
         }
     }
 
+    
+    //IOTFeverStart
+    func subscribe(vc: IOTFeverStart) {
+        self.subscriber.append(vc)
+    }
+    
+    func publishStart() {
+        for vc in self.subscriber {
+            vc.startGame()
+        }
+    }
+    
     func sensorsFound() -> Bool {
         return sensorLeftFound && sensorRightFound
     }
@@ -97,6 +123,7 @@ class SensorDelegate: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate {
         
         if sensorsFound() {
             println("Left and Right sensors found.")
+            self.publishStart()
             central.stopScan()
         }
     }
@@ -179,13 +206,13 @@ class SensorDelegate: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate {
             
             if sensorLeftUUID == peripheral.identifier.UUIDString {
                 println("Left sensor: \(accelerometerX)");
+                self.publishLeft(accelData)
             }
                 
             else if sensorRightUUID == peripheral.identifier.UUIDString {
                 println("Right sensor: \(accelerometerX)");
+                self.publishRight(accelData)
             }
-            
-            //self.publish(accelData)
         }
     }
 

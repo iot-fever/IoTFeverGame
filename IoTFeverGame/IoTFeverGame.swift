@@ -10,11 +10,11 @@ import Foundation
 
 class IoTFeverGame : NSObject {
     
-    let LEVEL_EASY = Level(name: 1, duration: 5, delayBetweenMoves: 2.0, possibleArmPositions: ArmPosition.Top,ArmPosition.Bottom)
+    let LEVEL_EASY = Level(name: 1, duration: 30, delayBetweenMoves: 2.0, possibleArmPositions: ArmPosition.Top,ArmPosition.Bottom)
     
-    let LEVEL_MEDIUM = Level(name: 2, duration: 5, delayBetweenMoves: 1.0, possibleArmPositions: ArmPosition.Top,ArmPosition.Bottom)
+    let LEVEL_MEDIUM = Level(name: 2, duration: 30, delayBetweenMoves: 1.0, possibleArmPositions: ArmPosition.Top,ArmPosition.Bottom)
     
-    let LEVEL_HARD = Level(name: 3, duration: 5, delayBetweenMoves: 0.5, possibleArmPositions: ArmPosition.Top,ArmPosition.Bottom)
+    let LEVEL_HARD = Level(name: 3, duration: 30, delayBetweenMoves: 0.5, possibleArmPositions: ArmPosition.Top,ArmPosition.Bottom)
     
     var currentLevelIndex : Int
     var levels          : [Level]

@@ -30,13 +30,13 @@ class TwoStepMove : Move {
     
     func getImage() -> String {
         if (rightArm.position == ArmPosition.Top && leftArm.position == ArmPosition.Top) {
-            return "TL_TR.png"
+            return "TL_TR_1.png"
         } else if (rightArm.position == ArmPosition.Top && leftArm.position == ArmPosition.Bottom) {
-            return "TL_BR.png"
+            return "BL_TR_1.png"
         } else if (rightArm.position == ArmPosition.Bottom && leftArm.position == ArmPosition.Top) {
-            return "BL_TR.png"
+            return "TL_BR_1.png"
         } else {
-            return "BL_BR.png"
+            return "BL_BR_1.png"
         }
     }
 }
