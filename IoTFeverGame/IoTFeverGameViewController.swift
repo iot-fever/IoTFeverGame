@@ -14,7 +14,7 @@ import AVFoundation
 var currentGame                         : IoTFeverGame!
 
 
-class IoTFeverGameViewController: UIViewController, IOTFeverDataAware, AnyObject {
+class IoTFeverGameViewController: UIViewController, SensorDataListener, AnyObject {
     
     var hitMessages : [String] = ["Whatta move!",
                                   "You're on fire!",
@@ -51,31 +51,21 @@ class IoTFeverGameViewController: UIViewController, IOTFeverDataAware, AnyObject
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Subscriber
-        sensorDelegate.subscribe(self)
+        let sensorService = gameEnvironment!.sensorService
+        sensorService.subscribe(self)
+        sensorService.connect()
         
         currentGame = IoTFeverGame(username: "test")
         let firstLevel = currentGame.start()
         self.timeCountLabel.text = String(firstLevel.duration)
         createNewMove(firstLevel)
         scheduleLevelTimers(firstLevel)
-
-        if DUMMY {
-            subscribeToSensorDataStream()
-        }
-        //
         
-
         // Visualizer
         let vizView = VisualizerView()
         vizView.backgroundColor = UIColor.blackColor()
         self.view.addSubview(vizView)
         self.view.sendSubviewToBack(vizView)    
-    }
-            
-    func subscribeToSensorDataStream() {
-        NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("generateSensorDataFromDeviceRightArm"), userInfo: nil, repeats: true)
-        NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("generateSensorDataFromDeviceLeftArm"), userInfo: nil, repeats: true)
     }
     
     func scheduleLevelTimers(level : Level) {
@@ -164,7 +154,6 @@ class IoTFeverGameViewController: UIViewController, IOTFeverDataAware, AnyObject
         // Dispose of any resources that can be recreated.
     }
     
-    // Protocol IOTFeverDataAware
     func onDataRightIncoming(data: [Double]) {
         if (currentGame.isRunning) {
             var currentMove = currentGame.getCurrentLevel().currentMove as! TwoStepMove
@@ -177,23 +166,6 @@ class IoTFeverGameViewController: UIViewController, IOTFeverDataAware, AnyObject
             var currentMove = currentGame.getCurrentLevel().currentMove as! TwoStepMove
             currentMove.leftArm.mimicMove(data)
         }
-    }
-    
-    func generateSensorDataFromDeviceRightArm() {
-        println("generate")
-        var dummySensor = DummySensor()
-        if (currentGame.isRunning) {
-            var currentMove = currentGame.getCurrentLevel().currentMove as! TwoStepMove
-            currentMove.rightArm.mimicMove(dummySensor.generateData())
-        }
-    }
-    
-    func generateSensorDataFromDeviceLeftArm() {
-        var dummySensor = DummySensor()
-        if (currentGame.isRunning) {
-            var currentMove = currentGame.getCurrentLevel().currentMove as! TwoStepMove
-            currentMove.leftArm.mimicMove(dummySensor.generateData())
-        }        
     }
     
     func levelCountdown() {

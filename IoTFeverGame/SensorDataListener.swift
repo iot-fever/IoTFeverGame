@@ -1,5 +1,5 @@
 //
-//  SensorService.swift
+//  SensorDataListener.swift
 //  IoTFeverGame
 //
 //  Created by Alexander Edelmann on 15/9/15.
@@ -8,11 +8,10 @@
 
 import Foundation
 
-protocol SensorService {
+protocol SensorDataListener {
     
-    func subscribe(SensorDataListener)
+    func onDataRightIncoming(data: [Double])
     
-    func connect() -> Bool
-    
-    func disconnect() -> Bool
+    func onDataLeftIncoming(data: [Double])
 }
+
