@@ -19,7 +19,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         centralManager = CBCentralManager(delegate: sensorDelegate, queue: nil)
 
         // Override point for customization after application launch.
+        registerAppDefaults()
+        
         return true
+    }
+    
+    func registerAppDefaults() {
+        NSUserDefaults.standardUserDefaults().registerDefaults([
+            "number_lives": 3,
+            "game_length": 60,
+            "left_sensor_uuid": "66CB73B3-8E80-BC0F-8D22-69991491A33E",
+            "right_sensor_uuid": "516AB7BD-7B80-285A-B652-20CE104FC6BF",
+            "enabled_external_services": true,
+            "ip_add_name_service": "192.168.1.12:8080",
+            "ip_add_score_service": "192.168.1.12:8080"
+        ])
+        NSUserDefaults.standardUserDefaults().synchronize()
     }
 
     func applicationWillResignActive(application: UIApplication) {

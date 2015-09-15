@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PreferenceSpecifiers</key>
+	<array>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Game Play</string>
+		</dict>
+		<dict>
+			<key>Titles</key>
+			<array>
+				<string>3</string>
+				<string>5</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<integer>3</integer>
+				<integer>5</integer>
+			</array>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Number Of Lives</string>
+			<key>Key</key>
+			<string>number_lives</string>
+			<key>DefaultValue</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>Titles</key>
+			<array>
+				<string>30</string>
+				<string>60</string>
+				<string>90</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<integer>30</integer>
+				<integer>60</integer>
+				<integer>90</integer>
+			</array>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Game Length (secs)</string>
+			<key>Key</key>
+			<string>game_length</string>
+			<key>DefaultValue</key>
+			<integer>60</integer>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Sensors</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>AutocapitalizationType</key>
+			<string>None</string>
+			<key>AutocorrectionType</key>
+			<string>No</string>
+			<key>DefaultValue</key>
+			<string>66CB73B3-8E80-BC0F-8D22-69991491A33E</string>
+			<key>IsSecure</key>
+			<false/>
+			<key>Key</key>
+			<string>left_sensor_uuid</string>
+			<key>KeyboardType</key>
+			<string>Alphabet</string>
+			<key>Title</key>
+			<string>Left Sensor UUID</string>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+		</dict>
+		<dict>
+			<key>AutocapitalizationType</key>
+			<string>None</string>
+			<key>AutocorrectionType</key>
+			<string>No</string>
+			<key>DefaultValue</key>
+			<string>516AB7BD-7B80-285A-B652-20CE104FC6BF</string>
+			<key>IsSecure</key>
+			<false/>
+			<key>Key</key>
+			<string>right_sensor_uuid</string>
+			<key>KeyboardType</key>
+			<string>Alphabet</string>
+			<key>Title</key>
+			<string>Right Sensor UUID</string>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>External Services</string>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<true/>
+			<key>Key</key>
+			<string>enabled_external_services</string>
+			<key>Title</key>
+			<string>Enabled</string>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<string>192.168.1.12:8080</string>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Name Service IP Address</string>
+			<key>Key</key>
+			<string>ip_add_name_service</string>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<string>192.168.1.12:8080</string>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Score Service IP Address</string>
+			<key>Key</key>
+			<string>ip_add_score_service</string>
+		</dict>
+	</array>
+	<key>StringsTable</key>
+	<string>Root</string>
+</dict>
+</plist>

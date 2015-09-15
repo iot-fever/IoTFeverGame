@@ -12,6 +12,7 @@
 		1171C2BB1BA5831900E0537F /* ScoreStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1171C2BA1BA5831900E0537F /* ScoreStrategy.swift */; };
 		1171C2BD1BA5852B00E0537F /* ScoreBonusPointStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1171C2BC1BA5852B00E0537F /* ScoreBonusPointStrategy.swift */; };
 		26427AC81BA7C7E100CF839C /* CountdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26427AC71BA7C7E100CF839C /* CountdownViewController.swift */; };
+		13745EFF1BA7D59E008F3042 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 13745EFE1BA7D59E008F3042 /* Settings.bundle */; };
 		26550EFF1B96F8BE0010D1D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26550EFE1B96F8BE0010D1D2 /* AppDelegate.swift */; };
 		26550F041B96F8BE0010D1D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26550F031B96F8BE0010D1D2 /* ViewController.swift */; };
 		26550F071B96F8BE0010D1D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26550F051B96F8BE0010D1D2 /* Main.storyboard */; };
@@ -65,6 +66,7 @@
 		1171C2BA1BA5831900E0537F /* ScoreStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreStrategy.swift; sourceTree = "<group>"; };
 		1171C2BC1BA5852B00E0537F /* ScoreBonusPointStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreBonusPointStrategy.swift; sourceTree = "<group>"; };
 		26427AC71BA7C7E100CF839C /* CountdownViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownViewController.swift; sourceTree = "<group>"; };
+		13745EFE1BA7D59E008F3042 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		26550EF91B96F8BE0010D1D2 /* IoTFeverGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IoTFeverGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26550EFD1B96F8BE0010D1D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26550EFE1B96F8BE0010D1D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 		26550EF01B96F8BE0010D1D2 = {
 			isa = PBXGroup;
 			children = (
+				13745EFE1BA7D59E008F3042 /* Settings.bundle */,
 				26550EFB1B96F8BE0010D1D2 /* IoTFeverGame */,
 				26550F141B96F8BE0010D1D2 /* IoTFeverGameTests */,
 				26550EFA1B96F8BE0010D1D2 /* Products */,
@@ -349,6 +352,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13745EFF1BA7D59E008F3042 /* Settings.bundle in Resources */,
 				26550F071B96F8BE0010D1D2 /* Main.storyboard in Resources */,
 				3D0357D81BA7065D00CA6D1D /* tries.png in Resources */,
 				3D0357EE1BA70A2900CA6D1D /* BL.png in Resources */,
