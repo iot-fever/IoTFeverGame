@@ -54,13 +54,16 @@ class IoTFeverGameViewController: UIViewController, IOTFeverDataAware, AnyObject
         // Subscriber
         sensorDelegate.subscribe(self)
         
-        currentGame = IoTFeverGame(username: username)
+        currentGame = IoTFeverGame(username: "test")
         let firstLevel = currentGame.start()
         self.timeCountLabel.text = String(firstLevel.duration)
         createNewMove(firstLevel)
         scheduleLevelTimers(firstLevel)
 
-        //subscribeToSensorDataStream()
+        if DUMMY {
+            subscribeToSensorDataStream()
+        }
+        //
         
 
         // Visualizer
@@ -73,7 +76,6 @@ class IoTFeverGameViewController: UIViewController, IOTFeverDataAware, AnyObject
     func subscribeToSensorDataStream() {
         NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("generateSensorDataFromDeviceRightArm"), userInfo: nil, repeats: true)
         NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("generateSensorDataFromDeviceLeftArm"), userInfo: nil, repeats: true)
-        //sensorDelegate.subscribe(self)
     }
     
     func scheduleLevelTimers(level : Level) {
@@ -119,7 +121,6 @@ class IoTFeverGameViewController: UIViewController, IOTFeverDataAware, AnyObject
     }
     
     func isMiss() {
-        println("MMMIIIISSSS")
         flashRed()
         currentGame.player.deductLive()
         var livesLeft = currentGame.player.lives
@@ -142,7 +143,6 @@ class IoTFeverGameViewController: UIViewController, IOTFeverDataAware, AnyObject
     }
     
     func isHit() {
-        println("HHHHIIITTTTTTTT")
         currentGame.increaseHits()
         self.score.text = String(currentGame.player.score)
         self.bonusPoints.text = String(currentGame.player.bonus)
@@ -179,8 +179,8 @@ class IoTFeverGameViewController: UIViewController, IOTFeverDataAware, AnyObject
         }
     }
     
-    /*
     func generateSensorDataFromDeviceRightArm() {
+        println("generate")
         var dummySensor = DummySensor()
         if (currentGame.isRunning) {
             var currentMove = currentGame.getCurrentLevel().currentMove as! TwoStepMove
@@ -193,10 +193,8 @@ class IoTFeverGameViewController: UIViewController, IOTFeverDataAware, AnyObject
         if (currentGame.isRunning) {
             var currentMove = currentGame.getCurrentLevel().currentMove as! TwoStepMove
             currentMove.leftArm.mimicMove(dummySensor.generateData())
-        }
-        
+        }        
     }
-    */
     
     func levelCountdown() {
         self.timeCountLabel.text = String(currentGame.getCurrentLevel().duration--)

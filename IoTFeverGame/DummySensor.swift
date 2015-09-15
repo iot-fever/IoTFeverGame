@@ -10,11 +10,12 @@ import Foundation
 
 class DummySensor {
 
-    
     func generateData() -> [Double] {
         var data = [Double](count: 2,repeatedValue: 0.0)
         data[0] = Double(randomNumber(-5,upper: 5))
         data[1] = Double(randomNumber(-5,upper: 5))
+        println("DUMMY")
+        println(data)
         return data
     }
     

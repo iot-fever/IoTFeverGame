@@ -46,11 +46,16 @@ class ViewController: UIViewController, UITextFieldDelegate, IOTFeverStart {
     
     // Protocol IOTFeverStart
     func startGame() {
-        self.performSegueWithIdentifier("countdownIdentifier", sender: self)
-        
-        //NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: Selector("getUsername:"), userInfo: nil, repeats: true)
+        if !DUMMY {
+          NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: Selector("getUsername:"), userInfo: nil, repeats: true)
+        } else {
+          getUsernameDummy()
+        }
     }
     
+    func getUsernameDummy(){
+        self.performSegueWithIdentifier("countdownIdentifier", sender: self)
+    }
     
     func getUsername(timer: NSTimer){
         var urlRequest = NSURLRequest(URL: NSURL(string: requestURL)!)
