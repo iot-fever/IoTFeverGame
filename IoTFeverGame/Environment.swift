@@ -50,26 +50,21 @@ class IntegratedConfiguration : NSObject, Configuration {
     //tries to get the username from a remote service, if successful it calls the game to start
     func getUsername(timer : NSTimer) {
         var urlRequest = NSURLRequest(URL: NSURL(string: requestURL)!)
-        
+        println("get Username")
         NSURLConnection.sendAsynchronousRequest(urlRequest, queue: NSOperationQueue(), completionHandler:{
             (response:NSURLResponse!, data: NSData!, error: NSError!) -> Void in
             if let anError = error {
                 // got an error in getting the data, need to handle it
                 println("error calling GET")
-            }
-            else // no error returned by URL request
-            {
+            } else {
                 // parse the result as json, since that's what the API provides
                 var jsonError: NSError?
                 let post = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError) as! NSDictionary
-                if let aJSONError = jsonError
-                {
+                if let aJSONError = jsonError {
                     // got an error while parsing the data, need to handle it
                     println("error parsing data")
-                }
-                else
-                {
-                    if post["status"] as? String == "Running" {
+                } else {
+                    //if post["status"] as? String == "Running" {
                         if var postUser = post["user"] as? NSDictionary {
                             if var nickname = postUser["nickname"] as? String{
                                 println("The nickname is: " + nickname)
@@ -80,7 +75,7 @@ class IntegratedConfiguration : NSObject, Configuration {
                                 });
                             }
                         }
-                    }
+                    //}
                     
                 }
             }

@@ -13,14 +13,14 @@ class CountdownViewController: UIViewController {
     @IBOutlet weak var lblUsername  : UILabel!
     @IBOutlet weak var lblCountDown : UILabel!
     
-    var count = 5
+    var count = 4
     var timer : NSTimer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.lblUsername.text = "Welcome \(gameEnvironment!.username)"
-        self.lblCountDown.text = "6"
+        self.lblCountDown.text = "4"
         
         timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
     }
@@ -30,11 +30,10 @@ class CountdownViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func update(){
-        if(count>0){
+    func update() {
+        if(count > 0) {
             self.lblCountDown.text = String(count--)
-        }
-        else{
+        } else {
             timer.invalidate()
             self.performSegueWithIdentifier("startGameIdentifier", sender: self)
         }
