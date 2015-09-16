@@ -137,6 +137,7 @@ class VisualizerView: UIView {
             var level = self.meterTableValueAt(power)
             scale = level * 2;
         }
+        
         emitterLayer.setValue(scale, forKeyPath: "emitterCells.cell.emitterCells.childCell.scale")
     }
     
@@ -153,6 +154,11 @@ class VisualizerView: UIView {
         audioPlayer.prepareToPlay()
         audioPlayer.play()
     }
+    
+    func stopAudio(){
+        audioPlayer.stop()
+    }
+    
     
     required init(coder aDecoder: NSCoder) {
         fatalError("This class does not support NSCoding")

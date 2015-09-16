@@ -47,6 +47,7 @@ class IoTFeverGameViewController: UIViewController, SensorDataListener, AnyObjec
     var moveTimer : NSTimer?
     
     var emitterLayer : CAEmitterLayer?
+    let vizView = VisualizerView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,8 +63,10 @@ class IoTFeverGameViewController: UIViewController, SensorDataListener, AnyObjec
         scheduleLevelTimers(firstLevel)
         
         // Visualizer
-        let vizView = VisualizerView()
+        
         vizView.backgroundColor = UIColor.blackColor()
+   
+
         self.view.addSubview(vizView)
         self.view.sendSubviewToBack(vizView)    
     }
@@ -81,6 +84,7 @@ class IoTFeverGameViewController: UIViewController, SensorDataListener, AnyObjec
         gameTimer!.invalidate()
         levelTimer!.invalidate()
         moveTimer!.invalidate()
+        
     }
     
     func levelEnded() {
@@ -97,6 +101,7 @@ class IoTFeverGameViewController: UIViewController, SensorDataListener, AnyObjec
     }
     
     func renderGameOver() {
+        vizView.stopAudio()
         self.performSegueWithIdentifier("gameEndIdentifier", sender: self)
     }
     
