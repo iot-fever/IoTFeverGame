@@ -41,8 +41,8 @@ class DummySensorService : NSObject, SensorService {
 
     private func generateData() -> [Double] {
         var data = [Double](count: 2,repeatedValue: 0.0)
-        data[0] = Double(randomNumber(-5,upper: 5))
-        data[1] = Double(randomNumber(-5,upper: 5))
+        data[0] = Double(randomNumber(-100,upper: 100))
+        data[1] = Double(randomNumber(-100,upper: 100))
         println("DUMMY")
         println(data)
         return data
