@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         registerAppDefaults()
         
-        configuration = TestConfiguration()
+        configuration = IntegratedConfiguration()
         
         return true
     }
@@ -30,8 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             "left_sensor_uuid": "30EF98A7-C4E4-9CF8-271A-489E1FFA57CF",
             "right_sensor_uuid": "6561B0E5-0EF4-51B7-F493-CFD7ED72B5C7",
             "enabled_external_services": true,
-            "ip_add_name_service": "192.168.1.12:8080",
-            "ip_add_score_service": "192.168.1.12:8080"
+            "rest_api_url_get_name": "http://192.168.1.32:1337/station/Vorto",
+            "rest_api_url_post_score": "http://192.168.1.32:1337/highscore/vorto"
+            
         ])
         NSUserDefaults.standardUserDefaults().synchronize()
     }
