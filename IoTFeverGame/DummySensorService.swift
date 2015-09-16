@@ -17,12 +17,12 @@ class DummySensorService : NSObject, SensorService {
     
     func subscribe(listener : SensorDataListener) {
         self.listener = listener
-    }
-    
-    func connect() -> Bool {
         rightArmTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("generateSensorDataFromDeviceRightArm"), userInfo: nil, repeats: true)
         leftArmTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("generateSensorDataFromDeviceLeftArm"), userInfo: nil, repeats: true)
-        return true
+    }
+    
+    func connect(callback : () -> ()){
+        callback()
     }
     
     func generateSensorDataFromDeviceRightArm() {

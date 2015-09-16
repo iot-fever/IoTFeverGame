@@ -12,7 +12,7 @@ protocol SensorService {
     
     func subscribe(SensorDataListener)
     
-    func connect() -> Bool
+    func connect(callback : () -> ())
     
     func disconnect() -> Bool
 }

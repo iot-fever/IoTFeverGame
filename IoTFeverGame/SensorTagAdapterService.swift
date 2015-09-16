@@ -11,27 +11,27 @@ import CoreBluetooth
 
 class SensorTagAdapterService : SensorService {
     
-    var listener : SensorDataListener?
+    var sensorDelegate : SensorDelegate
     
-    var sensorTagService : SensorDelegate
+    var centralManager : CBCentralManager?
     
     init() {
-        self.sensorTagService = sensorDelegate
+        sensorDelegate = SensorDelegate()
     }
     
     func subscribe(listener: SensorDataListener) {
-        self.listener = listener
+        sensorDelegate.subscribe(listener)
     }
     
-    func connect() -> Bool {
-        centralManager = CBCentralManager(delegate: sensorTagService, queue: nil)
-        sensorTagService.subscribe(listener!)
-        return sensorTagService.sensorsFound()
+    func connect(callback : () -> ()) {
+        centralManager = CBCentralManager(delegate: sensorDelegate, queue: nil)
+        self.sensorDelegate.addConnectedCallback(callback)
+        
     }
     
     func disconnect() -> Bool {
-        centralManager.stopScan()
-        sensorTagService.unsubscribe()
+        centralManager!.stopScan()
+        sensorDelegate.unsubscribe()
         return true
     }
 }
