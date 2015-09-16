@@ -19,10 +19,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     func startGame(e : GameEnvironment) {
         gameEnvironment = e
-        dispatch_async(dispatch_get_main_queue(), {
-           self.performSegueWithIdentifier("startGameIdentifier", sender: self)
-        })
-
+        self.performSegueWithIdentifier("startGameIdentifier", sender: self)
 
     }
     
@@ -42,10 +39,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.view.addSubview(discoBall)
         self.view.sendSubviewToBack(discoBall)
         self.view.backgroundColor = UIColor.brownColor()
-        
-        // subscribe if canStart = true
-        //
-        
+                
         super.viewDidLoad()
     }
 

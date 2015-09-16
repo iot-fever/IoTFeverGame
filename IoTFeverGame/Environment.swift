@@ -49,8 +49,13 @@ class IntegratedConfiguration : NSObject, Configuration {
     
     var gameEnvironment : GameEnvironment?
     
+    var gotTheUsername : Bool = false;
+    var operationInProgress : Bool = false;
+    
+    var usernameCheckTimer : NSTimer?;
+    
     func sensorsConnected() {
-        NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: Selector("getUsername:"), userInfo: nil, repeats: true)
+         usernameCheckTimer = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: Selector("checkUsername"), userInfo: nil, repeats: true)
     }
     
     func canStartGame(startGame: (GameEnvironment) -> ()) {
@@ -59,8 +64,20 @@ class IntegratedConfiguration : NSObject, Configuration {
         self.gameEnvironment!.sensorService.connect(self.sensorsConnected)
     }
     
+    func checkUsername(){
+        
+        if(self.gotTheUsername == false && operationInProgress == false){
+            getUsername()
+        }
+        else if(self.gotTheUsername == true){
+            usernameCheckTimer?.invalidate();
+        }
+    }
+    
     //tries to get the username from a remote service, if successful it calls the game to start
-    func getUsername(timer : NSTimer) {
+    func getUsername() {
+        
+        operationInProgress = true;
         var urlRequest = NSURLRequest(URL: NSURL(string: requestURL)!)
         println("get Username")
         NSURLConnection.sendAsynchronousRequest(urlRequest, queue: NSOperationQueue(), completionHandler:{
@@ -80,19 +97,24 @@ class IntegratedConfiguration : NSObject, Configuration {
                         if var postUser = post["user"] as? NSDictionary {
                             if var nickname = postUser["nickname"] as? String{
                                 println("The nickname is: " + nickname)
-                                
+                                self.gotTheUsername = true
                                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                                    timer.invalidate()
                                     self.gameEnvironment!.username = nickname
                                     self.startGame!(self.gameEnvironment!)
+                                    
                                 });
                             }
                         }
                     //}
                     
                 }
+            
             }
+            self.operationInProgress = false;
         })
+    }
+    
+    func onStart(){
     }
 }
 
