@@ -17,9 +17,6 @@ import CoreBluetooth
 let sensorLeftUUID = NSUserDefaults.standardUserDefaults().stringForKey("left_sensor_uuid")
 let sensorRightUUID = NSUserDefaults.standardUserDefaults().stringForKey("right_sensor_uuid")
 
-var sensorDelegate = SensorDelegate.init()
-var centralManager: CBCentralManager!
-
 class NooPSensorDataListener : SensorDataListener {
     
     func onDataRightIncoming(data: [Double]) {
@@ -44,10 +41,16 @@ class SensorDelegate: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate {
     var sensorLeftFound = false
     var sensorRightFound = false
     
-    var listener : SensorDataListener?
+    var listener : SensorDataListener = NooPSensorDataListener()
 
+    var whenSensorsConnected:(()->Void)?
+    
     override init() {
         
+    }
+    
+    func addConnectedCallback(callback : () -> ()) {
+        self.whenSensorsConnected = callback
     }
     
     func subscribe(listener: SensorDataListener) {
@@ -99,6 +102,10 @@ class SensorDelegate: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate {
             }
             
             central.connectPeripheral(peripheral, options: nil)
+            
+            if (self.sensorsFound()) {
+                self.whenSensorsConnected!()
+            }
         }
 
     }
@@ -190,11 +197,11 @@ class SensorDelegate: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate {
     }
     
     private func publishRight(data: [Double]) {
-        listener!.onDataRightIncoming(data)
+        listener.onDataRightIncoming(data)
     }
     
     private func publishLeft(data: [Double]) {
-        listener!.onDataLeftIncoming(data)
+        listener.onDataLeftIncoming(data)
     }
 
 }

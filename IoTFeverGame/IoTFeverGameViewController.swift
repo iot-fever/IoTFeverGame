@@ -53,7 +53,6 @@ class IoTFeverGameViewController: UIViewController, SensorDataListener, AnyObjec
         
         let sensorService = gameEnvironment!.sensorService
         sensorService.subscribe(self)
-        sensorService.connect()
         
         currentGame = IoTFeverGame(username: "test")
         let firstLevel = currentGame.start()

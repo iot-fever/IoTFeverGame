@@ -31,8 +31,13 @@ protocol Configuration {
 
 class TestConfiguration : Configuration {
     
+    func sensorsConnected() {
+    }
+    
     func canStartGame(startGame:(GameEnvironment) -> ()) {
-        startGame(GameEnvironment(sensorService: DummySensorService(),rankingService : DummyRankingService(), username: "Alex"))
+        var sensorService = DummySensorService()
+        sensorService.connect(sensorsConnected)
+        startGame(GameEnvironment(sensorService: sensorService,rankingService : DummyRankingService(), username: "Alex"))
     }
 }
 
@@ -42,9 +47,16 @@ class IntegratedConfiguration : NSObject, Configuration {
     
     var startGame:((GameEnvironment)->Void)?
     
+    var gameEnvironment : GameEnvironment?
+    
+    func sensorsConnected() {
+        NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: Selector("getUsername:"), userInfo: nil, repeats: true)
+    }
+    
     func canStartGame(startGame: (GameEnvironment) -> ()) {
         self.startGame = startGame
-        NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: Selector("getUsername:"), userInfo: nil, repeats: true)
+        gameEnvironment = GameEnvironment(sensorService: SensorTagAdapterService(),rankingService : RemoteRankingService(), username : "Alex")
+        self.gameEnvironment!.sensorService.connect(self.sensorsConnected)
     }
     
     //tries to get the username from a remote service, if successful it calls the game to start
@@ -71,7 +83,8 @@ class IntegratedConfiguration : NSObject, Configuration {
                                 
                                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                                     timer.invalidate()
-                                    self.startGame!(GameEnvironment(sensorService: SensorTagAdapterService(),rankingService : RemoteRankingService(), username: nickname))
+                                    self.gameEnvironment!.username = nickname
+                                    self.startGame!(self.gameEnvironment!)
                                 });
                             }
                         }

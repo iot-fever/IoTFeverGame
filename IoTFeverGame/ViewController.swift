@@ -39,6 +39,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.view.sendSubviewToBack(discoBall)
         self.view.backgroundColor = UIColor.brownColor()
         
+        // subscribe if canStart = true
+        //
+        
         super.viewDidLoad()
     }
 
