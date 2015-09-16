@@ -14,7 +14,7 @@ class GameEndViewController : UIViewController {
     @IBOutlet weak var lblResult        : UILabel!
     @IBOutlet weak var lblScore         : UILabel!
     @IBOutlet weak var lblScoreResult   : UILabel!
-    
+    @IBOutlet weak var btnRestart: UIButton!
 
     
     override func viewDidLoad() {
@@ -28,10 +28,12 @@ class GameEndViewController : UIViewController {
         }
         
         self.lblScoreResult.text = String(currentGame.player.score)
-        
+        self.btnRestart.setTitle("Restart Game", forState: .Normal)
+       
         // TODO replace with Publisher (Protocol)
-        
         gameEnvironment!.rankingService.publish(currentGame.player)
+        
+        
     }
     
     override func didReceiveMemoryWarning() {

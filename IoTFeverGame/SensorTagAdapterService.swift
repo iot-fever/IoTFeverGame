@@ -13,21 +13,25 @@ class SensorTagAdapterService : SensorService {
     
     var listener : SensorDataListener?
     
-    var sensorTagService : SensorDelegate?
+    var sensorTagService : SensorDelegate
+    
+    init() {
+        self.sensorTagService = sensorDelegate
+    }
     
     func subscribe(listener: SensorDataListener) {
         self.listener = listener
     }
     
     func connect() -> Bool {
-        centralManager = CBCentralManager(delegate: sensorDelegate, queue: nil)
-        sensorTagService!.subscribe(listener!)
-        return sensorTagService!.sensorsFound()
+        centralManager = CBCentralManager(delegate: sensorTagService, queue: nil)
+        sensorTagService.subscribe(listener!)
+        return sensorTagService.sensorsFound()
     }
     
     func disconnect() -> Bool {
         centralManager.stopScan()
-        sensorTagService!.unsubscribe()
+        sensorTagService.unsubscribe()
         return true
     }
 }
