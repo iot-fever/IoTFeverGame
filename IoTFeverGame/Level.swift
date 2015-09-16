@@ -25,9 +25,10 @@ class Level {
     }
     
     func newMove(){
-        var randomMoveIndex = Int(arc4random_uniform(UInt32(possibleArmPositions.count)))
-        self.currentMove = TwoStepMove(rightArm: SingleMove(position: possibleArmPositions[randomMoveIndex],created: NSDate()),
-            leftArm: SingleMove(position: possibleArmPositions[randomMoveIndex],created: NSDate()),created : NSDate())
+        var randomMoveIndexRightArm = Int(arc4random_uniform(UInt32(possibleArmPositions.count)))
+         var randomMoveIndexLeftArm = Int(arc4random_uniform(UInt32(possibleArmPositions.count)))
+        self.currentMove = TwoStepMove(rightArm: SingleMove(position: possibleArmPositions[randomMoveIndexRightArm],created: NSDate()),
+            leftArm: SingleMove(position: possibleArmPositions[randomMoveIndexLeftArm],created: NSDate()),created : NSDate())
     }
 
 }
