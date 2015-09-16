@@ -41,22 +41,53 @@ class IoTFeverGameViewController: UIViewController, SensorDataListener, AnyObjec
     
     @IBOutlet weak var GameOver             : UILabel!
     
+    @IBOutlet weak var lblUsername  : UILabel!
+    @IBOutlet weak var lblCountDown : UILabel!
+    @IBOutlet weak var lblgetReady: UILabel!
+
     
     var gameTimer : NSTimer?
     var levelTimer: NSTimer?
     var moveTimer : NSTimer?
+    var countdownTimer : NSTimer?
     
     var emitterLayer : CAEmitterLayer?
     let vizView = VisualizerView()
     
+    var countdown : Int = 3
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        showCountdown()
         
+        view.backgroundColor = UIColor.blackColor()
+
+    }
+    
+    func showCountdown(){
+        self.lblUsername.text = "Welcome \(gameEnvironment!.username)"
+        self.lblCountDown.text = String(countdown+1)
+        
+        countdownTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("updateCountDown"), userInfo: nil, repeats: true)
+    }
+    func updateCountDown() {
+        if(countdown > 0) {
+            self.lblCountDown.text = String(countdown--)
+        } else {
+            countdownTimer!.invalidate()
+            self.lblCountDown.hidden = true
+            self.lblUsername.hidden = true
+            self.lblgetReady.hidden = true
+            startRealGame()
+        }
+    }
+    
+    func startRealGame(){
         let sensorService = gameEnvironment!.sensorService
         sensorService.subscribe(self)
         sensorService.connect()
         
-        currentGame = IoTFeverGame(username: "test")
+        currentGame = IoTFeverGame(username: gameEnvironment!.username)
         let firstLevel = currentGame.start()
         self.timeCountLabel.text = String(firstLevel.duration)
         createNewMove(firstLevel)
@@ -65,10 +96,10 @@ class IoTFeverGameViewController: UIViewController, SensorDataListener, AnyObjec
         // Visualizer
         
         vizView.backgroundColor = UIColor.blackColor()
-   
-
+        
+        
         self.view.addSubview(vizView)
-        self.view.sendSubviewToBack(vizView)    
+        self.view.sendSubviewToBack(vizView)
     }
     
     func scheduleLevelTimers(level : Level) {
