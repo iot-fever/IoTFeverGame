@@ -13,14 +13,14 @@ class CountdownViewController: UIViewController {
     @IBOutlet weak var lblUsername  : UILabel!
     @IBOutlet weak var lblCountDown : UILabel!
     
-    var count = 4
+    var count : Int = 1
     var timer : NSTimer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.lblUsername.text = "Welcome \(gameEnvironment!.username)"
-        self.lblCountDown.text = "4"
+        self.lblCountDown.text = String(count+1)
         
         timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
     }

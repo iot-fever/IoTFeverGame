@@ -19,7 +19,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     func startGame(e : GameEnvironment) {
         gameEnvironment = e
-        self.performSegueWithIdentifier("countdownIdentifier", sender: self)
+        dispatch_async(dispatch_get_main_queue(), {
+           self.performSegueWithIdentifier("startGameIdentifier", sender: self)
+        })
+
 
     }
     
@@ -34,6 +37,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let screenSize = UIScreen.mainScreen().bounds
         discoBall.image = gif
         discoBall.frame = CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height)
+        discoBall.contentMode = UIViewContentMode.ScaleAspectFill
 
         self.view.addSubview(discoBall)
         self.view.sendSubviewToBack(discoBall)
