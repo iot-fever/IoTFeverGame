@@ -8,11 +8,20 @@
 
 import Foundation
 
-protocol Move {
-    
-    func getCreated() -> NSDate
+protocol DanceMove : AnyObject {
     
     func getImage() -> String
     
+    func getInvolvedBodyParts() -> [MovingBodyPart]
+    
     func isCompleted() -> Bool
+}
+
+protocol MovingBodyPart {
+    
+    func isCompleted() -> Bool
+    
+    func mimic(data : [Double])
+    
+    func getImage() -> String
 }

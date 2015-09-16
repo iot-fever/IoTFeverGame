@@ -137,7 +137,7 @@ class IoTFeverGameViewController: UIViewController, SensorDataListener, AnyObjec
     
     func validateLastAndCreateNewMove() {
         var currentLevel = currentGame.getCurrentLevel()
-        if (!currentLevel.currentMove!.isCompleted()) {
+        if (!currentLevel.currentMove.isCompleted()) {
             isMiss()
         } else {
             isHit()
@@ -181,7 +181,7 @@ class IoTFeverGameViewController: UIViewController, SensorDataListener, AnyObjec
     
     func createNewMove(level : Level) {
         level.newMove()
-        self.imageView.image = UIImage(named: level.currentMove!.getImage())
+        self.imageView.image = UIImage(named: level.currentMove.getImage()+".png")
     }
 
     override func didReceiveMemoryWarning() {
@@ -191,15 +191,31 @@ class IoTFeverGameViewController: UIViewController, SensorDataListener, AnyObjec
     
     func onDataRightIncoming(data: [Double]) {
         if (currentGame.isRunning) {
-            var currentMove = currentGame.getCurrentLevel().currentMove as! TwoStepMove
-            currentMove.rightArm.mimicMove(data)
+            var currentMove = currentGame.getCurrentLevel().currentMove
+            
+            for bodyPart in currentMove.getInvolvedBodyParts() {
+                if bodyPart is MovingArmBodyPart {
+                    if (bodyPart as! MovingArmBodyPart).rightSide {
+                        bodyPart.mimic(data)
+                    }
+                    
+                }
+            }
         }
     }
     
     func onDataLeftIncoming(data: [Double]) {
         if (currentGame.isRunning) {
-            var currentMove = currentGame.getCurrentLevel().currentMove as! TwoStepMove
-            currentMove.leftArm.mimicMove(data)
+            var currentMove = currentGame.getCurrentLevel().currentMove
+            
+            for bodyPart in currentMove.getInvolvedBodyParts() {
+                if bodyPart is MovingArmBodyPart {
+                    if (bodyPart as! MovingArmBodyPart).rightSide == false {
+                        bodyPart.mimic(data)
+                    }
+                    
+                }
+            }
         }
     }
     

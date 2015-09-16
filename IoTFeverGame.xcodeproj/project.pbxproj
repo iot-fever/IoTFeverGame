@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1171C2B51BA5679F00E0537F /* TwoStepMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1171C2B41BA5679F00E0537F /* TwoStepMove.swift */; };
-		1171C2B91BA56F5400E0537F /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1171C2B81BA56F5400E0537F /* Move.swift */; };
+		1171C2B51BA5679F00E0537F /* DanceMoveImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1171C2B41BA5679F00E0537F /* DanceMoveImpl.swift */; };
+		1171C2B91BA56F5400E0537F /* DanceMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1171C2B81BA56F5400E0537F /* DanceMove.swift */; };
 		1171C2BB1BA5831900E0537F /* ScoreStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1171C2BA1BA5831900E0537F /* ScoreStrategy.swift */; };
 		1171C2BD1BA5852B00E0537F /* ScoreBonusPointStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1171C2BC1BA5852B00E0537F /* ScoreBonusPointStrategy.swift */; };
 		11E8AE331BA8455B00B190D6 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E8AE321BA8455B00B190D6 /* Environment.swift */; };
@@ -16,6 +16,11 @@
 		11E8AE371BA8468E00B190D6 /* SensorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E8AE361BA8468E00B190D6 /* SensorService.swift */; };
 		11E8AE391BA851C800B190D6 /* SensorTagAdapterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E8AE381BA851C800B190D6 /* SensorTagAdapterService.swift */; };
 		11E8AE3B1BA86D4000B190D6 /* RankingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E8AE3A1BA86D4000B190D6 /* RankingService.swift */; };
+		11E8AE3F1BA9A56A00B190D6 /* SingleArmDanceMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E8AE3E1BA9A56A00B190D6 /* SingleArmDanceMove.swift */; };
+		11E8AE461BA9B8FC00B190D6 /* BL.png in Resources */ = {isa = PBXBuildFile; fileRef = 11E8AE421BA9B8FC00B190D6 /* BL.png */; };
+		11E8AE471BA9B8FC00B190D6 /* BR.png in Resources */ = {isa = PBXBuildFile; fileRef = 11E8AE431BA9B8FC00B190D6 /* BR.png */; };
+		11E8AE481BA9B8FC00B190D6 /* TL.png in Resources */ = {isa = PBXBuildFile; fileRef = 11E8AE441BA9B8FC00B190D6 /* TL.png */; };
+		11E8AE491BA9B8FC00B190D6 /* TR.png in Resources */ = {isa = PBXBuildFile; fileRef = 11E8AE451BA9B8FC00B190D6 /* TR.png */; };
 		13745EFF1BA7D59E008F3042 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 13745EFE1BA7D59E008F3042 /* Settings.bundle */; };
 		26427AC81BA7C7E100CF839C /* CountdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26427AC71BA7C7E100CF839C /* CountdownViewController.swift */; };
 		26550EFF1B96F8BE0010D1D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26550EFE1B96F8BE0010D1D2 /* AppDelegate.swift */; };
@@ -31,7 +36,7 @@
 		26D77EC11B9939210042F414 /* ScoreRanking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D77EC01B9939210042F414 /* ScoreRanking.swift */; };
 		26D77EC31B99394E0042F414 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D77EC21B99394E0042F414 /* Level.swift */; };
 		26D77EC51B9939680042F414 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D77EC41B9939680042F414 /* Player.swift */; };
-		26D77EC71B9939850042F414 /* SingleMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D77EC61B9939850042F414 /* SingleMove.swift */; };
+		26D77EC71B9939850042F414 /* MovingArmBodyPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D77EC61B9939850042F414 /* MovingArmBodyPart.swift */; };
 		26D77EC91B99399D0042F414 /* IoTFeverGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D77EC81B99399D0042F414 /* IoTFeverGame.swift */; };
 		26D77ED61B9947110042F414 /* DummySensorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D77ED51B9947110042F414 /* DummySensorService.swift */; };
 		26D89F141B9D3ED400E77C3F /* Bosch.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D89F0C1B9D3ED400E77C3F /* Bosch.png */; };
@@ -63,8 +68,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1171C2B41BA5679F00E0537F /* TwoStepMove.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoStepMove.swift; sourceTree = "<group>"; };
-		1171C2B81BA56F5400E0537F /* Move.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
+		1171C2B41BA5679F00E0537F /* DanceMoveImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DanceMoveImpl.swift; sourceTree = "<group>"; };
+		1171C2B81BA56F5400E0537F /* DanceMove.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DanceMove.swift; sourceTree = "<group>"; };
 		1171C2BA1BA5831900E0537F /* ScoreStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreStrategy.swift; sourceTree = "<group>"; };
 		1171C2BC1BA5852B00E0537F /* ScoreBonusPointStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreBonusPointStrategy.swift; sourceTree = "<group>"; };
 		11E8AE321BA8455B00B190D6 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
@@ -72,6 +77,11 @@
 		11E8AE361BA8468E00B190D6 /* SensorService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorService.swift; sourceTree = "<group>"; };
 		11E8AE381BA851C800B190D6 /* SensorTagAdapterService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorTagAdapterService.swift; sourceTree = "<group>"; };
 		11E8AE3A1BA86D4000B190D6 /* RankingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingService.swift; sourceTree = "<group>"; };
+		11E8AE3E1BA9A56A00B190D6 /* SingleArmDanceMove.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleArmDanceMove.swift; sourceTree = "<group>"; };
+		11E8AE421BA9B8FC00B190D6 /* BL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BL.png; path = ../../../Desktop/BL.png; sourceTree = "<group>"; };
+		11E8AE431BA9B8FC00B190D6 /* BR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BR.png; path = ../../../Desktop/BR.png; sourceTree = "<group>"; };
+		11E8AE441BA9B8FC00B190D6 /* TL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TL.png; path = ../../../Desktop/TL.png; sourceTree = "<group>"; };
+		11E8AE451BA9B8FC00B190D6 /* TR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TR.png; path = ../../../Desktop/TR.png; sourceTree = "<group>"; };
 		13745EFE1BA7D59E008F3042 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		26427AC71BA7C7E100CF839C /* CountdownViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownViewController.swift; sourceTree = "<group>"; };
 		26550EF91B96F8BE0010D1D2 /* IoTFeverGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IoTFeverGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,7 +101,7 @@
 		26D77EC01B9939210042F414 /* ScoreRanking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreRanking.swift; sourceTree = "<group>"; };
 		26D77EC21B99394E0042F414 /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		26D77EC41B9939680042F414 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
-		26D77EC61B9939850042F414 /* SingleMove.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleMove.swift; sourceTree = "<group>"; };
+		26D77EC61B9939850042F414 /* MovingArmBodyPart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovingArmBodyPart.swift; sourceTree = "<group>"; };
 		26D77EC81B99399D0042F414 /* IoTFeverGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IoTFeverGame.swift; sourceTree = "<group>"; };
 		26D77ED51B9947110042F414 /* DummySensorService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummySensorService.swift; sourceTree = "<group>"; };
 		26D89F0C1B9D3ED400E77C3F /* Bosch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bosch.png; sourceTree = "<group>"; };
@@ -205,12 +215,13 @@
 				26D77EC01B9939210042F414 /* ScoreRanking.swift */,
 				26D77EC21B99394E0042F414 /* Level.swift */,
 				26D77EC41B9939680042F414 /* Player.swift */,
-				26D77EC61B9939850042F414 /* SingleMove.swift */,
-				1171C2B41BA5679F00E0537F /* TwoStepMove.swift */,
-				1171C2B81BA56F5400E0537F /* Move.swift */,
+				26D77EC61B9939850042F414 /* MovingArmBodyPart.swift */,
+				1171C2B41BA5679F00E0537F /* DanceMoveImpl.swift */,
+				1171C2B81BA56F5400E0537F /* DanceMove.swift */,
 				1171C2BA1BA5831900E0537F /* ScoreStrategy.swift */,
 				1171C2BC1BA5852B00E0537F /* ScoreBonusPointStrategy.swift */,
 				11E8AE321BA8455B00B190D6 /* Environment.swift */,
+				11E8AE3E1BA9A56A00B190D6 /* SingleArmDanceMove.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -245,6 +256,10 @@
 		26EBAA251B97FABB0083CCCC /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				11E8AE421BA9B8FC00B190D6 /* BL.png */,
+				11E8AE431BA9B8FC00B190D6 /* BR.png */,
+				11E8AE441BA9B8FC00B190D6 /* TL.png */,
+				11E8AE451BA9B8FC00B190D6 /* TR.png */,
 				64A8C1F81BA95A3000CB8023 /* BL_BR.png */,
 				64A8C1F91BA95A3000CB8023 /* BL_TR.png */,
 				64A8C1F41BA95A2700CB8023 /* TL_BR.png */,
@@ -358,18 +373,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11E8AE461BA9B8FC00B190D6 /* BL.png in Resources */,
 				13745EFF1BA7D59E008F3042 /* Settings.bundle in Resources */,
 				26550F071B96F8BE0010D1D2 /* Main.storyboard in Resources */,
+				11E8AE491BA9B8FC00B190D6 /* TR.png in Resources */,
 				3D0357D81BA7065D00CA6D1D /* tries.png in Resources */,
 				26550F0C1B96F8BE0010D1D2 /* LaunchScreen.xib in Resources */,
 				64A8C1F31BA9141500CB8023 /* Vorto.png in Resources */,
 				64A8C1F71BA95A2700CB8023 /* TL_TR.png in Resources */,
 				3D6D3CA01BA7298C007AA2C8 /* disco-anim.gif in Resources */,
 				3D0357F61BA70EB300CA6D1D /* disco.mp3 in Resources */,
+				11E8AE481BA9B8FC00B190D6 /* TL.png in Resources */,
 				64A8C1F61BA95A2700CB8023 /* TL_BR.png in Resources */,
 				3D0357D61BA6FE4D00CA6D1D /* particleTexture.png in Resources */,
 				64A8C1FA1BA95A3000CB8023 /* BL_BR.png in Resources */,
 				26D89F141B9D3ED400E77C3F /* Bosch.png in Resources */,
+				11E8AE471BA9B8FC00B190D6 /* BR.png in Resources */,
 				64A8C1FB1BA95A3000CB8023 /* BL_TR.png in Resources */,
 				26550F091B96F8BE0010D1D2 /* Images.xcassets in Resources */,
 			);
@@ -389,14 +408,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1171C2B91BA56F5400E0537F /* Move.swift in Sources */,
+				1171C2B91BA56F5400E0537F /* DanceMove.swift in Sources */,
 				11E8AE371BA8468E00B190D6 /* SensorService.swift in Sources */,
 				11E8AE3B1BA86D4000B190D6 /* RankingService.swift in Sources */,
 				11E8AE331BA8455B00B190D6 /* Environment.swift in Sources */,
 				26CD12171BA7EBBF00C5C4A6 /* GameEndViewController.swift in Sources */,
 				11E8AE351BA8460E00B190D6 /* SensorDataListener.swift in Sources */,
-				26D77EC71B9939850042F414 /* SingleMove.swift in Sources */,
+				26D77EC71B9939850042F414 /* MovingArmBodyPart.swift in Sources */,
 				26550F041B96F8BE0010D1D2 /* ViewController.swift in Sources */,
+				11E8AE3F1BA9A56A00B190D6 /* SingleArmDanceMove.swift in Sources */,
 				1171C2BD1BA5852B00E0537F /* ScoreBonusPointStrategy.swift in Sources */,
 				26D77ED61B9947110042F414 /* DummySensorService.swift in Sources */,
 				26E0C07D1B9E7BE000769688 /* DataService.swift in Sources */,
@@ -409,7 +429,7 @@
 				26427AC81BA7C7E100CF839C /* CountdownViewController.swift in Sources */,
 				26E0C0881B9E82A200769688 /* SensorReader.swift in Sources */,
 				3D6D3CA41BA72AAF007AA2C8 /* UIImage+animatedGIF.m in Sources */,
-				1171C2B51BA5679F00E0537F /* TwoStepMove.swift in Sources */,
+				1171C2B51BA5679F00E0537F /* DanceMoveImpl.swift in Sources */,
 				26D77EC91B99399D0042F414 /* IoTFeverGame.swift in Sources */,
 				269E0ABB1BA03B5100AF2804 /* SensorTagService.swift in Sources */,
 				26E9744D1B984C9D00E73157 /* Game.xcdatamodeld in Sources */,

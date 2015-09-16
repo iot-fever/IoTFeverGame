@@ -8,8 +8,8 @@
 
 import Foundation
 
-enum ArmPosition {
+enum ArmPosition : String {
     
-    case Top
-    case Bottom
+    case Top = "Top"
+    case Bottom = "Bottom"
 }
