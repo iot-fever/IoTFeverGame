@@ -32,6 +32,7 @@ protocol Configuration {
 class TestConfiguration : Configuration {
     
     func canStartGame(startGame:(GameEnvironment) -> ()) {
+        println("test")
         startGame(GameEnvironment(sensorService: DummySensorService(),rankingService : DummyRankingService(), username: "Alex"))
     }
 }
