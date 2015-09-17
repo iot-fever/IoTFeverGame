@@ -29,5 +29,9 @@ class SingleArmDanceMove : DanceMove {
     func getImage() -> String {
         return arm.getImage()
     }
+    
+    func reset() {
+        self.arm.reset()
+    }
 }
 

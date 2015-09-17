@@ -15,6 +15,8 @@ protocol DanceMove : AnyObject {
     func getInvolvedBodyParts() -> [MovingBodyPart]
     
     func isCompleted() -> Bool
+    
+    func reset()
 }
 
 protocol MovingBodyPart {
@@ -24,4 +26,6 @@ protocol MovingBodyPart {
     func mimic(data : [Double])
     
     func getImage() -> String
+    
+    func reset()
 }

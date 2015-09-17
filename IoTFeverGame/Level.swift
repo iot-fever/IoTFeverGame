@@ -29,19 +29,23 @@ class Level {
         var randomDanceMove = Int(arc4random_uniform(UInt32(possibleDanceMoves.count)))
         
         var createdMove = possibleDanceMoves[randomDanceMove]
+        createdMove!.reset()
         
-//        if (matchesLastMove(createdMove!)) {
-//            newMove() // we don't want moves of same kind in a row
-//        }
+        if (matchesLastMove(createdMove!)) {
+            newMove() // we don't want moves of same kind in a row
+        } else {
+            self.currentMove = createdMove!
+        }
         
-        self.currentMove = createdMove!
+       
     }
     
     func matchesLastMove(createdMove : DanceMove) -> Bool {
-        var same =  createdMove === self.currentMove
-        println("\(createdMove) vs. \(self.currentMove) matches = \(same)")
         
-        return same
+        if createdMove.getImage() == currentMove.getImage() { 
+            return true
+        }
+        return false
     }
 
 }
