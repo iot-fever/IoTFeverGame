@@ -29,6 +29,12 @@ class DanceMoveImpl : DanceMove {
         return true
     }
     
+    func reset() {
+        for bodyPart in bodyParts {
+            bodyPart.reset()
+        }
+    }
+    
     func getImage() -> String {
         var image : String = ""
         

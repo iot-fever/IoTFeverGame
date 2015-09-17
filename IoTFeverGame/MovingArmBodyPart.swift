@@ -26,15 +26,14 @@ class MovingArmBodyPart : MovingBodyPart {
     }
     
     func mimic(data : [Double]) {
-        for sensorValue in data {
-            if (position == ArmPosition.Top && sensorValue >= 50) {
-                println(position)
-                self.completed = true
-                return
-            } else if (position == ArmPosition.Bottom && sensorValue <= -50) {
-                self.completed = true
-                return
-            }
+        var xValue = data[0]
+        if (position == ArmPosition.Top && xValue >= 50) {
+            println(position)
+            self.completed = true
+            return
+        } else if (position == ArmPosition.Bottom && xValue <= -50) {
+            self.completed = true
+            return
         }
     }
    
@@ -44,6 +43,11 @@ class MovingArmBodyPart : MovingBodyPart {
 
     func isCompleted() -> Bool {
         return self.completed
+    }
+    
+    func reset() {
+        
+        self.completed = false
     }
     
 }
