@@ -200,7 +200,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yVV-OK-11y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-125" y="296"/>
+            <point key="canvasLocation" x="-125" y="304"/>
         </scene>
         <!--Game End View Controller-->
         <scene sceneID="8bk-Hv-GCu">
@@ -226,7 +226,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="omm-4A-DGb" kind="show" id="aCe-xZ-Wo2"/>
+                                    <action selector="restartGame:" destination="TKD-QV-JYe" eventType="touchUpInside" id="haM-5E-Dg8"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ikb-lx-2ZD">
@@ -250,6 +250,7 @@
                         <outlet property="lblResult" destination="qaB-pj-wCs" id="6tg-v5-mWc"/>
                         <outlet property="lblScore" destination="vis-QH-9iI" id="CQp-MU-sFY"/>
                         <outlet property="lblScoreResult" destination="Ikb-lx-2ZD" id="R0R-sy-sjT"/>
+                        <segue destination="omm-4A-DGb" kind="show" identifier="restartGameIdentifier" id="JSX-OH-VcB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ghm-aL-GlS" userLabel="First Responder" sceneMemberID="firstResponder"/>
