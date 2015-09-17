@@ -12,6 +12,8 @@ protocol SensorService {
     
     func subscribe(SensorDataListener)
     
+    func isConnected() -> Bool
+    
     func connect(callback : () -> ())
     
     func disconnect() -> Bool

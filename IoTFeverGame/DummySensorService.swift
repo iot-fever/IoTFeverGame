@@ -25,6 +25,10 @@ class DummySensorService : NSObject, SensorService {
         callback()
     }
     
+    func isConnected() -> Bool {
+        return true
+    }
+    
     func generateSensorDataFromDeviceRightArm() {
         listener!.onDataRightIncoming(generateData())
     }

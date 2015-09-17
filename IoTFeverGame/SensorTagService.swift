@@ -120,6 +120,8 @@ class SensorDelegate: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate {
     // If disconnected, start searching again
     func centralManager(central: CBCentralManager!, didDisconnectPeripheral peripheral: CBPeripheral!, error: NSError!) {
         println("Disconnected")
+        self.sensorLeftFound = false
+        self.sensorRightFound = false
         central.scanForPeripheralsWithServices(nil, options: nil)
     }
     

@@ -11,11 +11,13 @@ import CoreBluetooth
 
 class SensorTagAdapterService : SensorService {
     
+    static let current : SensorService = SensorTagAdapterService()
+    
     var sensorDelegate : SensorDelegate
     
     var centralManager : CBCentralManager?
     
-    init() {
+    private init() {
         sensorDelegate = SensorDelegate()
     }
     
@@ -27,6 +29,10 @@ class SensorTagAdapterService : SensorService {
         centralManager = CBCentralManager(delegate: sensorDelegate, queue: nil)
         self.sensorDelegate.addConnectedCallback(callback)
         
+    }
+    
+    func isConnected() -> Bool {
+        return self.sensorDelegate.sensorsFound()
     }
     
     func disconnect() -> Bool {

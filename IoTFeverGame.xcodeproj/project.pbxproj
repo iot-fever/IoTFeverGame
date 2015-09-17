@@ -18,7 +18,6 @@
 		11E8AE3B1BA86D4000B190D6 /* RankingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E8AE3A1BA86D4000B190D6 /* RankingService.swift */; };
 		11E8AE3F1BA9A56A00B190D6 /* SingleArmDanceMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E8AE3E1BA9A56A00B190D6 /* SingleArmDanceMove.swift */; };
 		13745EFF1BA7D59E008F3042 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 13745EFE1BA7D59E008F3042 /* Settings.bundle */; };
-		26427AC81BA7C7E100CF839C /* CountdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26427AC71BA7C7E100CF839C /* CountdownViewController.swift */; };
 		26550EFF1B96F8BE0010D1D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26550EFE1B96F8BE0010D1D2 /* AppDelegate.swift */; };
 		26550F041B96F8BE0010D1D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26550F031B96F8BE0010D1D2 /* ViewController.swift */; };
 		26550F071B96F8BE0010D1D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26550F051B96F8BE0010D1D2 /* Main.storyboard */; };
@@ -55,6 +54,8 @@
 		64A8C2071BAA697500CB8023 /* BR.png in Resources */ = {isa = PBXBuildFile; fileRef = 64A8C2051BAA697500CB8023 /* BR.png */; };
 		64A8C20A1BAA698300CB8023 /* TL.png in Resources */ = {isa = PBXBuildFile; fileRef = 64A8C2081BAA698300CB8023 /* TL.png */; };
 		64A8C20B1BAA698300CB8023 /* TR.png in Resources */ = {isa = PBXBuildFile; fileRef = 64A8C2091BAA698300CB8023 /* TR.png */; };
+		64DB5D0B1BAAD99E00E2C6C3 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DB5D0A1BAAD99E00E2C6C3 /* UserService.swift */; };
+		64DB5D0D1BAADCA500E2C6C3 /* UserServiceRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DB5D0C1BAADCA500E2C6C3 /* UserServiceRest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,7 +80,6 @@
 		11E8AE3A1BA86D4000B190D6 /* RankingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingService.swift; sourceTree = "<group>"; };
 		11E8AE3E1BA9A56A00B190D6 /* SingleArmDanceMove.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleArmDanceMove.swift; sourceTree = "<group>"; };
 		13745EFE1BA7D59E008F3042 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		26427AC71BA7C7E100CF839C /* CountdownViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownViewController.swift; sourceTree = "<group>"; };
 		26550EF91B96F8BE0010D1D2 /* IoTFeverGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IoTFeverGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26550EFD1B96F8BE0010D1D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26550EFE1B96F8BE0010D1D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +123,8 @@
 		64A8C2051BAA697500CB8023 /* BR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BR.png; sourceTree = "<group>"; };
 		64A8C2081BAA698300CB8023 /* TL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TL.png; sourceTree = "<group>"; };
 		64A8C2091BAA698300CB8023 /* TR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TR.png; sourceTree = "<group>"; };
+		64DB5D0A1BAAD99E00E2C6C3 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		64DB5D0C1BAADCA500E2C6C3 /* UserServiceRest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserServiceRest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +239,8 @@
 				11E8AE361BA8468E00B190D6 /* SensorService.swift */,
 				11E8AE381BA851C800B190D6 /* SensorTagAdapterService.swift */,
 				11E8AE3A1BA86D4000B190D6 /* RankingService.swift */,
+				64DB5D0A1BAAD99E00E2C6C3 /* UserService.swift */,
+				64DB5D0C1BAADCA500E2C6C3 /* UserServiceRest.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -245,7 +249,6 @@
 			isa = PBXGroup;
 			children = (
 				26550F031B96F8BE0010D1D2 /* ViewController.swift */,
-				26427AC71BA7C7E100CF839C /* CountdownViewController.swift */,
 				26EBAA2A1B981A3C0083CCCC /* IoTFeverGameViewController.swift */,
 				26D77EBB1B9931EB0042F414 /* RankingTableViewController.swift */,
 				26CD12161BA7EBBF00C5C4A6 /* GameEndViewController.swift */,
@@ -424,12 +427,13 @@
 				26EBAA2B1B981A3C0083CCCC /* IoTFeverGameViewController.swift in Sources */,
 				26D77EBC1B9931EB0042F414 /* RankingTableViewController.swift in Sources */,
 				1171C2BB1BA5831900E0537F /* ScoreStrategy.swift in Sources */,
+				64DB5D0B1BAAD99E00E2C6C3 /* UserService.swift in Sources */,
 				3D0357D41BA6F4C800CA6D1D /* VisualizerView.swift in Sources */,
 				26CD12191BA8094400C5C4A6 /* ArmPosition.swift in Sources */,
-				26427AC81BA7C7E100CF839C /* CountdownViewController.swift in Sources */,
 				26E0C0881B9E82A200769688 /* SensorReader.swift in Sources */,
 				3D6D3CA41BA72AAF007AA2C8 /* UIImage+animatedGIF.m in Sources */,
 				1171C2B51BA5679F00E0537F /* DanceMoveImpl.swift in Sources */,
+				64DB5D0D1BAADCA500E2C6C3 /* UserServiceRest.swift in Sources */,
 				26D77EC91B99399D0042F414 /* IoTFeverGame.swift in Sources */,
 				269E0ABB1BA03B5100AF2804 /* SensorTagService.swift in Sources */,
 				26E9744D1B984C9D00E73157 /* Game.xcdatamodeld in Sources */,

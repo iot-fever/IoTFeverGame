@@ -19,7 +19,6 @@ class GameEndViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        gameEnvironment!.sensorService.disconnect()
         
         if currentGame.player.score == 100 {
             self.lblResult.text = "You Won!!"
@@ -31,7 +30,7 @@ class GameEndViewController : UIViewController {
         self.btnRestart.setTitle("Restart Game", forState: .Normal)
        
         // TODO replace with Publisher (Protocol)
-        gameEnvironment!.rankingService.publish(currentGame.player)
+        configuration!.getRankingService().publish(currentGame.player)
         
         
     }
@@ -42,6 +41,7 @@ class GameEndViewController : UIViewController {
     }
 
     @IBAction func restartGame(sender: AnyObject) {
+        user = User(running: false)
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             self.performSegueWithIdentifier("restartGameIdentifier", sender: self)
         });
