@@ -8,27 +8,40 @@
 
 import Foundation
 
+
 class Level {
 
     var name                : Int
     var duration            : Int
     var delayBetweenMoves   : Float
-    var possibleArmPositions : [ArmPosition]
+    var possibleDanceMoves  : [Int: DanceMove]
     
-    var currentMove : Move?
+    var currentMove : DanceMove = DanceMoveImpl(bodyParts : MovingArmBodyPart(position: ArmPosition.Top, image: "TR",rightSide : true))
 
-    init (name: Int, duration: Int, delayBetweenMoves: Float, possibleArmPositions : ArmPosition...) {
+    init (name: Int, duration: Int, delayBetweenMoves: Float, possibleDanceMoves : [Int:DanceMove]) {
         self.name                   = name
         self.duration               = duration
         self.delayBetweenMoves      = delayBetweenMoves
-        self.possibleArmPositions   = possibleArmPositions
+        self.possibleDanceMoves     = possibleDanceMoves
     }
     
     func newMove(){
-        var randomMoveIndexRightArm = Int(arc4random_uniform(UInt32(possibleArmPositions.count)))
-         var randomMoveIndexLeftArm = Int(arc4random_uniform(UInt32(possibleArmPositions.count)))
-        self.currentMove = TwoStepMove(rightArm: SingleMove(position: possibleArmPositions[randomMoveIndexRightArm],created: NSDate()),
-            leftArm: SingleMove(position: possibleArmPositions[randomMoveIndexLeftArm],created: NSDate()),created : NSDate())
+        var randomDanceMove = Int(arc4random_uniform(UInt32(possibleDanceMoves.count)))
+        
+        var createdMove = possibleDanceMoves[randomDanceMove]
+        
+//        if (matchesLastMove(createdMove!)) {
+//            newMove() // we don't want moves of same kind in a row
+//        }
+        
+        self.currentMove = createdMove!
+    }
+    
+    func matchesLastMove(createdMove : DanceMove) -> Bool {
+        var same =  createdMove === self.currentMove
+        println("\(createdMove) vs. \(self.currentMove) matches = \(same)")
+        
+        return same
     }
 
 }

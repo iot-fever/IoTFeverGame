@@ -19,7 +19,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     func startGame(e : GameEnvironment) {
         gameEnvironment = e
-        self.performSegueWithIdentifier("startGameIdentifier", sender: self)
+        
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.performSegueWithIdentifier("startGameIdentifier", sender: self) 
+        });
 
     }
     

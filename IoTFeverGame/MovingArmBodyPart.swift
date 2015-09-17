@@ -8,21 +8,24 @@
 
 import Foundation
 
-class SingleMove : Move {
-
+class MovingArmBodyPart : MovingBodyPart {
+    
     var position : ArmPosition
     
     var completed  : Bool
     
-    var created : NSDate
+    var image : String
     
-    init(position : ArmPosition, created : NSDate) {
+    var rightSide : Bool
+    
+    init(position : ArmPosition, image : String, rightSide : Bool) {
         self.position = position
         self.completed = false
-        self.created = created
+        self.image = image
+        self.rightSide = rightSide
     }
     
-    func mimicMove(data : [Double]) {
+    func mimic(data : [Double]) {
         for sensorValue in data {
             if (position == ArmPosition.Top && sensorValue >= 50) {
                 println(position)
@@ -34,18 +37,13 @@ class SingleMove : Move {
             }
         }
     }
-    
-    func getCreated() -> NSDate {
-        return created
+   
+    func getImage() -> String {
+        return self.image
     }
-    
 
     func isCompleted() -> Bool {
         return self.completed
-    }
-    
-    func getImage() -> String {
-        return ""
     }
     
 }
