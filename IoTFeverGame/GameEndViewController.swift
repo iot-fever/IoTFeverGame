@@ -41,4 +41,9 @@ class GameEndViewController : UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func restartGame(sender: AnyObject) {
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.performSegueWithIdentifier("restartGameIdentifier", sender: self)
+        });
+    }
 }
