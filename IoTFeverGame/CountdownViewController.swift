@@ -19,7 +19,7 @@ class CountdownViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.lblUsername.text = "Welcome \(gameEnvironment!.username)"
+        self.lblUsername.text =  "Hey \(gameEnvironment!.username), ready to dance?"
         self.lblCountDown.text = String(count+1)
         
         timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("update"), userInfo: nil, repeats: true)

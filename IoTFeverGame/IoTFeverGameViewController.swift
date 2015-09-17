@@ -65,7 +65,7 @@ class IoTFeverGameViewController: UIViewController, SensorDataListener, AnyObjec
     }
     
     func showCountdown(){
-        self.lblUsername.text = "Welcome \(gameEnvironment!.username)"
+        self.lblUsername.text =  "Hey \(gameEnvironment!.username), ready to dance?"
         self.lblCountDown.text = String(countdown+1)
         
         countdownTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("updateCountDown"), userInfo: nil, repeats: true)
