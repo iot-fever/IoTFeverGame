@@ -27,7 +27,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewDidLoad() {
-        self.playerNameText.text = "Waiting for User ..."
+        self.playerNameText.text = "Waiting for Player"
     
         configuration!.canStartGame(startGame)
         

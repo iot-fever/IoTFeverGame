@@ -22,9 +22,9 @@ class GameEndViewController : UIViewController {
         gameEnvironment!.sensorService.disconnect()
         
         if currentGame.player.score == 100 {
-            self.lblResult.text = "You Won!!"
+            self.lblResult.text = "You are a Dance God!"
         } else {
-            self.lblResult.text = "Game Over!!"
+            self.lblResult.text = "Game Over!"
         }
         
         self.lblScoreResult.text = String(currentGame.player.score)
