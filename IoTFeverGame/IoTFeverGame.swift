@@ -12,8 +12,8 @@ class LevelBuilder {
     
     static let TOP_RIGHT    : MovingBodyPart = MovingArmBodyPart(position: ArmPosition.Top, image: "TR", rightSide : true)
     static let TOP_LEFT     : MovingBodyPart = MovingArmBodyPart(position: ArmPosition.Top, image: "TL", rightSide : false)
-    static let BOTTOM_RIGHT : MovingBodyPart = MovingArmBodyPart(position: ArmPosition.Top, image: "BR", rightSide : true)
-    static let BOTTOM_LEFT  : MovingBodyPart = MovingArmBodyPart(position: ArmPosition.Top, image: "BL", rightSide : false)
+    static let BOTTOM_RIGHT : MovingBodyPart = MovingArmBodyPart(position: ArmPosition.Bottom, image: "BR", rightSide : true)
+    static let BOTTOM_LEFT  : MovingBodyPart = MovingArmBodyPart(position: ArmPosition.Bottom, image: "BL", rightSide : false)
     
     static func createLevelOne() -> Level {
         var danceMoves = [Int: DanceMove]()
