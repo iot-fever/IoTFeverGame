@@ -164,10 +164,45 @@ class IoTFeverGameViewController: UIViewController, SensorDataListener, AnyObjec
     
     func flashRed() {
         let result = Int(arc4random_uniform(UInt32(self.missMessages.count)))
+        
+        var indicatorView = UIView()
+        indicatorView.frame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height)
+        indicatorView.backgroundColor = UIColor.redColor()
+        self.view.addSubview(indicatorView)
+        
+        UIView.animateWithDuration(0.3, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+            indicatorView.alpha = 0.5
+        }, completion: {
+            (value: Bool) in
+            UIView.animateWithDuration(0.3, delay: 0, options:UIViewAnimationOptions.CurveEaseOut, animations:{
+                indicatorView.alpha = 0
+            }, completion: {
+                (value: Bool) in
+                indicatorView.removeFromSuperview()
+            })
+        })
         self.GameOver.text = missMessages[result]
     }
     
     func isHit() {
+        var indicatorView = UIView()
+        indicatorView.frame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height)
+        indicatorView.backgroundColor = UIColor.greenColor()
+        self.view.addSubview(indicatorView)
+        
+        UIView.animateWithDuration(0.3, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+            indicatorView.alpha = 0.5
+            }, completion: {
+                (value: Bool) in
+                UIView.animateWithDuration(0.3, delay: 0, options:UIViewAnimationOptions.CurveEaseOut, animations:{
+                    indicatorView.alpha = 0
+                    }, completion: {
+                        (value: Bool) in
+                        indicatorView.removeFromSuperview()
+                })
+        })
+        
+        
         currentGame.increaseHits()
         self.score.text = String(currentGame.player.score)
         self.bonusPoints.text = String(currentGame.player.bonus)
@@ -175,6 +210,7 @@ class IoTFeverGameViewController: UIViewController, SensorDataListener, AnyObjec
     }
     
     func flashGreen() {
+                println("FLASH GREEN!")
         let result = Int(arc4random_uniform(UInt32(self.hitMessages.count)))
         self.GameOver.text = hitMessages[result]
     }

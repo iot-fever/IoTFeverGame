@@ -18,13 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         registerAppDefaults()
         
-        configuration = IntegratedConfiguration()
+        configuration = TestConfiguration()
         
         return true
     }
-    
-
-    
+        
     func registerAppDefaults() {
         NSUserDefaults.standardUserDefaults().registerDefaults([
             "number_lives": 3,
