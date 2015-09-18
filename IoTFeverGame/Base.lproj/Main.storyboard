@@ -234,6 +234,7 @@
                                 </state>
                                 <connections>
                                     <action selector="restartGame:" destination="TKD-QV-JYe" eventType="touchUpInside" id="haM-5E-Dg8"/>
+                                    <action selector="restartGameBtn:" destination="TKD-QV-JYe" eventType="touchUpInside" id="TjH-Ch-ak4"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ikb-lx-2ZD">

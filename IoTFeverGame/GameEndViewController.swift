@@ -16,6 +16,7 @@ class GameEndViewController : UIViewController {
     @IBOutlet weak var lblScoreResult   : UILabel!
     @IBOutlet weak var btnRestart: UIButton!
 
+    var timer : NSTimer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,7 @@ class GameEndViewController : UIViewController {
         // TODO replace with Publisher (Protocol)
         configuration!.getRankingService().publish(currentGame.player)
         
+        timer = NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector: Selector("restartGame"), userInfo: nil, repeats: false)
         
     }
     
@@ -39,11 +41,16 @@ class GameEndViewController : UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    @IBAction func restartGame(sender: AnyObject) {
+    
+    @IBAction func restartGameBtn(sender: AnyObject) {
+        restartGame()
+    }
+    func restartGame(){
+        timer?.invalidate()
         user = User(running: false)
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             self.performSegueWithIdentifier("restartGameIdentifier", sender: self)
         });
+        
     }
 }
