@@ -16,6 +16,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var playerNameText   : UILabel!
     
     @IBOutlet weak var lblStatus: UILabel!
+    
     var discoBall : UIImageView = UIImageView()
     
     var timer : NSTimer?
@@ -60,6 +61,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func checkUserAndSensortag(){
         
         configuration!.getUserService().getUser()
+        setSensorStatus()
         
         if (user.running) {
             if (!configuration!.getSensorService().isConnected()) {
@@ -69,6 +71,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
+    
+    func setSensorStatus(){
+        if configuration!.getSensorService().isConnected() {
+            lblStatus.text = "Connected"
+        }
+        else{
+            lblStatus.text = "Disconnected"
+        }
+    }
+    
 
 }
 
