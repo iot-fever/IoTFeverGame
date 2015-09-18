@@ -65,6 +65,14 @@ class SensorDelegate: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate {
         return sensorLeftFound && sensorRightFound
     }
     
+    func sensorRightStatus() -> Bool {
+        return sensorRightFound
+    }
+    
+    func sensorLeftStatus() -> Bool {
+        return sensorLeftFound
+    }
+    
     // Check status of BLE hardware
     func centralManagerDidUpdateState(central: CBCentralManager!) {
         if central.state == CBCentralManagerState.PoweredOn {

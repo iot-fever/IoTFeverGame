@@ -210,7 +210,7 @@ class IoTFeverGameViewController: UIViewController, SensorDataListener, AnyObjec
     }
     
     func flashGreen() {
-                println("FLASH GREEN!")
+        println("FLASH GREEN!")
         let result = Int(arc4random_uniform(UInt32(self.hitMessages.count)))
         self.GameOver.text = hitMessages[result]
     }

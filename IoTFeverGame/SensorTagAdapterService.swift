@@ -28,7 +28,6 @@ class SensorTagAdapterService : SensorService {
     func connect(callback : () -> ()) {
         centralManager = CBCentralManager(delegate: sensorDelegate, queue: nil)
         self.sensorDelegate.addConnectedCallback(callback)
-        
     }
     
     func isConnected() -> Bool {
@@ -40,4 +39,14 @@ class SensorTagAdapterService : SensorService {
         sensorDelegate.unsubscribe()
         return true
     }
+    
+    func sensorRightStatus() -> Bool {
+        return self.sensorDelegate.sensorRightStatus()
+    }
+    
+    func sensorLeftStatus() -> Bool {
+        return self.sensorDelegate.sensorLeftStatus()
+    }
+    
+    
 }
