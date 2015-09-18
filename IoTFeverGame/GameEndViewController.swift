@@ -42,10 +42,7 @@ class GameEndViewController : UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    @IBAction func restartGameBtn(sender: AnyObject) {
-        restartGame()
-    }
+
     func restartGame(){
         timer?.invalidate()
         user = User(running: false)
