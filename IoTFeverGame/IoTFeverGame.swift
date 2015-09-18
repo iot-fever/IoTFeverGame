@@ -22,7 +22,7 @@ class LevelBuilder {
         danceMoves[2] = DanceMoveImpl(bodyParts: TOP_LEFT)
         danceMoves[3] = DanceMoveImpl(bodyParts: BOTTOM_LEFT)
         
-        return Level(name: 1, duration: 30, delayBetweenMoves: 1.0, possibleDanceMoves : danceMoves)
+        return Level(name: 1, duration: 15, delayBetweenMoves: 2.0, possibleDanceMoves : danceMoves)
     }
     
     static func createLevelTwo() -> Level {
@@ -32,7 +32,7 @@ class LevelBuilder {
         danceMoves[2] = DanceMoveImpl(bodyParts: BOTTOM_LEFT,TOP_RIGHT)
         danceMoves[3] = DanceMoveImpl(bodyParts: TOP_LEFT,BOTTOM_RIGHT)
         
-        return Level(name: 2, duration: 30, delayBetweenMoves: 1.0, possibleDanceMoves : danceMoves)
+        return Level(name: 2, duration: 30, delayBetweenMoves: 1.5, possibleDanceMoves : danceMoves)
     }
     
     static func createLevelThree() -> Level {
