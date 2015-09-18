@@ -65,9 +65,9 @@ class IoTFeverGameViewController: UIViewController, SensorDataListener, AnyObjec
     }
     
     func showCountdown(){
-        self.lblUsername.text =  "Hey \(gameEnvironment!.username), ready to dance?"
-        self.lblCountDown.text = String(countdown+1)
-        
+        self.lblUsername.text =  "Hey \(user.nickname!), ready to dance?"
+        self.lblCountDown.text = String(countdown)
+        countdown--
         countdownTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("updateCountDown"), userInfo: nil, repeats: true)
     }
     func updateCountDown() {
@@ -83,10 +83,10 @@ class IoTFeverGameViewController: UIViewController, SensorDataListener, AnyObjec
     }
     
     func startRealGame(){
-        let sensorService = gameEnvironment!.sensorService
+        let sensorService = configuration!.getSensorService()
         sensorService.subscribe(self)
         
-        currentGame = IoTFeverGame(username: gameEnvironment!.username)
+        currentGame = IoTFeverGame(username: user.nickname!)
         let firstLevel = currentGame.start()
         self.timeCountLabel.text = String(firstLevel.duration)
         createNewMove(firstLevel)

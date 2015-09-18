@@ -44,12 +44,7 @@ class TestConfiguration : Configuration {
     func getRankingService() -> RankingService {
         return DummyRankingService()
     }
-    
-//    func canStartGame(startGame:(GameEnvironment) -> ()) {
-//        var sensorService = DummySensorService()
-//        sensorService.connect(sensorsConnected)
-//        startGame(GameEnvironment(sensorService: sensorService,rankingService : DummyRankingService(), username: "Alex"))
-//    }
+
 }
 
 class DummyUserService : UserService {
@@ -74,24 +69,6 @@ class IntegratedConfiguration : NSObject, Configuration {
     func getRankingService() -> RankingService {
         return RemoteRankingService()
     }
-
-    
-//    var startGame:((GameEnvironment)->Void)?
-//    
-//    var gameEnvironment : GameEnvironment?
-//
-//    func canStartGame(startGame: (GameEnvironment) -> ()) {
-//        self.startGame = startGame
-//
-//        gameEnvironment = GameEnvironment(sensorService: SensorTagAdapterService.current,rankingService : RemoteRankingService(), username : "Alex")
-//        
-//        if (self.gameEnvironment!.sensorService.isConnected()) {
-//            getUsername()
-//        } else {
-//            self.gameEnvironment!.sensorService.connect(getUsername)
-//        }
-//        
-//    }
 
 }
 

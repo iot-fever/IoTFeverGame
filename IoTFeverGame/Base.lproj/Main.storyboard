@@ -50,7 +50,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="lblStatus" destination="g9k-3h-Hdi" id="DqV-I7-P8T"/>
+                        <outlet property="lblStatus" destination="g9k-3h-Hdi" id="3Vp-tj-2JO"/>
                         <outlet property="playerNameText" destination="9Nb-jo-xcV" id="Pxy-gw-5Bv"/>
                         <segue destination="RYh-ta-kXl" kind="show" identifier="startGameIdentifier" id="W7C-kN-i8Y"/>
                     </connections>

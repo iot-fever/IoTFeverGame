@@ -8,7 +8,7 @@
 
 import UIKit
 
-var user : User = User(running : false)
+var user : User = User(running: false)
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
@@ -16,7 +16,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var playerNameText   : UILabel!
     
     @IBOutlet weak var lblStatus: UILabel!
-    
     var discoBall : UIImageView = UIImageView()
     
     var timer : NSTimer?
@@ -26,10 +25,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             self.performSegueWithIdentifier("startGameIdentifier", sender: self)
         });
+        
     }
+
     
     override func viewDidLoad() {
-        self.playerNameText.text = "Waiting for User ..."
+        self.playerNameText.text = "Waiting for Player"
+    
         
         let url = NSBundle.mainBundle().URLForResource("disco-anim", withExtension: "gif");
         let gif = UIImage.animatedImageWithAnimatedGIFURL(url)
@@ -54,6 +56,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    
     func checkUserAndSensortag(){
         
         configuration!.getUserService().getUser()
@@ -66,5 +69,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
+
 }
 
