@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A9EBD447-621D-4800-B3E3-3F6D1ABF3A21</string>
+	<key>IDESourceControlProjectName</key>
+	<string>IoTFeverGame</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>5A551AB41EFCFF94809A60D7B519463329E14961</key>
+		<string>https://github.com/iot-fever/IoTFeverGame.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>IoTFeverGame.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>5A551AB41EFCFF94809A60D7B519463329E14961</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/iot-fever/IoTFeverGame.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>5A551AB41EFCFF94809A60D7B519463329E14961</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5A551AB41EFCFF94809A60D7B519463329E14961</string>
+			<key>IDESourceControlWCCName</key>
+			<string>IoTFeverGame</string>
+		</dict>
+	</array>
+</dict>
+</plist>

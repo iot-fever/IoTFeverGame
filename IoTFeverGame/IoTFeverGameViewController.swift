@@ -18,11 +18,13 @@ class IoTFeverGameViewController: UIViewController, SensorDataListener, AnyObjec
     
     var hitMessages : [String] = ["Whatta move!",
                                   "You're on fire!",
-                                  "It's getting hot in here"]
+                                  "It's getting hot in here",
+                                  "Groooovy"]
     
     var missMessages : [String] = ["Oops",
                                    "Ouch!",
-                                   "Ain't your day huh"]
+                                   "Ain't your day huh",
+                                   "You call that dancing?" ]
     
     // MARK: UI Properties
     @IBOutlet weak var score                : UILabel!
@@ -65,7 +67,7 @@ class IoTFeverGameViewController: UIViewController, SensorDataListener, AnyObjec
     }
     
     func showCountdown(){
-        self.lblUsername.text =  "Hey \(user.nickname!), ready to dance?"
+        self.lblUsername.text =  "Hi \(user.nickname!)"
         self.lblCountDown.text = String(countdown)
         countdown--
         countdownTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("updateCountDown"), userInfo: nil, repeats: true)
