@@ -42,6 +42,14 @@ class DummySensorService : NSObject, SensorService {
         leftArmTimer!.invalidate()
         return true
     }
+    
+    func sensorLeftStatus() -> Bool {
+        return true
+    }
+    
+    func sensorRightStatus() -> Bool {
+        return true
+    }
 
     private func generateData() -> [Double] {
         var data = [Double](count: 2,repeatedValue: 0.0)

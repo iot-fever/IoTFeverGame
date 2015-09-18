@@ -14,8 +14,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: Properties
     @IBOutlet weak var playerNameText   : UILabel!
-    
-    @IBOutlet weak var lblStatus: UILabel!
+    @IBOutlet weak var IVPlayerReceived: UIImageView!
+    @IBOutlet weak var IVSensorLeftFound: UIImageView!
+    @IBOutlet weak var IVSensorRightFound: UIImageView!
     
     var discoBall : UIImageView = UIImageView()
     
@@ -26,13 +27,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             self.performSegueWithIdentifier("startGameIdentifier", sender: self)
         });
-        
     }
 
     
     override func viewDidLoad() {
         self.playerNameText.text = "Waiting for Player"
-    
+        
+        self.IVPlayerReceived.image = UIImage(named: "button-stop.png")
+
+        setSensorStatus()
         
         let url = NSBundle.mainBundle().URLForResource("disco-anim", withExtension: "gif");
         let gif = UIImage.animatedImageWithAnimatedGIFURL(url)
@@ -59,25 +62,37 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     
     func checkUserAndSensortag(){
-        
+   
         configuration!.getUserService().getUser()
+        
         setSensorStatus()
         
         if (user.running) {
+            self.IVPlayerReceived.image = UIImage(named: "button-start.png")
             if (!configuration!.getSensorService().isConnected()) {
                 configuration!.getSensorService().connect(startGame)
             } else {
                 startGame()
             }
         }
+        else{
+            self.IVPlayerReceived.image = UIImage(named: "button-stop.png")
+        }
     }
     
     func setSensorStatus(){
-        if configuration!.getSensorService().isConnected() {
-            lblStatus.text = "Connected"
+     
+        if (configuration!.getSensorService().sensorRightStatus()) {
+            self.IVSensorRightFound.image = UIImage(named: "button-start.png")
         }
         else{
-            lblStatus.text = "Disconnected"
+            self.IVSensorRightFound.image = UIImage(named: "button-stop.png")
+        }
+        if (configuration!.getSensorService().sensorLeftStatus()) {
+            self.IVSensorLeftFound.image = UIImage(named: "button-start.png")
+        }
+        else{
+            self.IVSensorLeftFound.image = UIImage(named: "button-stop.png")
         }
     }
     
