@@ -28,7 +28,7 @@ class IoTFeverGameViewController: UIViewController, SensorDataListener, AnyObjec
     
     // MARK: UI Properties
     @IBOutlet weak var score                : UILabel!
-    @IBOutlet weak var bonusPoints          : UILabel!
+    //@IBOutlet weak var bonusPoints          : UILabel!
     @IBOutlet weak var try1Image            : UIImageView!
     @IBOutlet weak var try2Image            : UIImageView!
     @IBOutlet weak var try3Image            : UIImageView!
@@ -207,7 +207,7 @@ class IoTFeverGameViewController: UIViewController, SensorDataListener, AnyObjec
         
         currentGame.increaseHits()
         self.score.text = String(currentGame.player.score)
-        self.bonusPoints.text = String(currentGame.player.bonus)
+        //self.bonusPoints.text = String(currentGame.player.bonus)
         flashGreen()
     }
     
