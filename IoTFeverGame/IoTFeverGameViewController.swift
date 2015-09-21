@@ -13,7 +13,6 @@ import AVFoundation
 
 var currentGame                         : IoTFeverGame!
 
-
 class IoTFeverGameViewController: UIViewController, SensorDataListener, AnyObject {
     
     var hitMessages : [String] = ["Whatta move!",
@@ -164,6 +163,43 @@ class IoTFeverGameViewController: UIViewController, SensorDataListener, AnyObjec
         }
     }
     
+    func flashBulb(color: Int) {
+        
+        // MQTTKit Example
+        
+        
+        var mqttInstance :MQTTClient!
+        var bulbTopic = "$EDC/iot-fever/20BA/iotfever/lights/1/state"
+        
+        var clientID = UIDevice.currentDevice().identifierForVendor.UUIDString
+        mqttInstance = MQTTClient(clientId: clientID)
+        let kMQTTServerHost = "192.168.1.39"
+        
+        mqttInstance.connectToHost(kMQTTServerHost, completionHandler: { (code: MQTTConnectionReturnCode) -> Void in
+            if code.value == ConnectionAccepted.value {
+                println("CONNECTED")
+                // RED
+                if color == 0 {
+                    if  mqttInstance.connected {
+                        mqttInstance.publishString("miss", toTopic: bulbTopic, withQos: ExactlyOnce, retain: false, completionHandler: { mid in
+
+                        })
+                    }
+                    
+                } // GREEN
+                else {
+                    if  mqttInstance.connected {
+                        mqttInstance.publishString("hit", toTopic: bulbTopic, withQos: ExactlyOnce, retain: false, completionHandler: { mid in
+
+                        })
+                    }
+                }
+            } else {
+                println("return code \(code.value)")
+            }
+        })
+    }
+    
     func flashRed() {
         let result = Int(arc4random_uniform(UInt32(self.missMessages.count)))
         
@@ -183,6 +219,7 @@ class IoTFeverGameViewController: UIViewController, SensorDataListener, AnyObjec
                 indicatorView.removeFromSuperview()
             })
         })
+        self.flashBulb(0)
         self.GameOver.text = missMessages[result]
     }
     
@@ -213,6 +250,7 @@ class IoTFeverGameViewController: UIViewController, SensorDataListener, AnyObjec
     
     func flashGreen() {
         println("FLASH GREEN!")
+        self.flashBulb(1)
         let result = Int(arc4random_uniform(UInt32(self.hitMessages.count)))
         self.GameOver.text = hitMessages[result]
     }

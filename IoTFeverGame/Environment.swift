@@ -59,7 +59,7 @@ class IntegratedConfiguration : NSObject, Configuration {
     
     
     func getUserService() -> UserService {
-        return UserServiceRest()
+        return DummyUserService()
     }
     
     func getSensorService() -> SensorService {
