@@ -31,7 +31,7 @@ class RemoteRankingService : RankingService {
         postsUrlRequest.HTTPMethod = "POST"
         
         // static calculation of highscore
-        var newPost: NSDictionary = ["score": ((player.score / 25)*100)];
+        var newPost: NSDictionary = ["score": (player.score * 4)];
         var postJSONError: NSError?
         var jsonPost = NSJSONSerialization.dataWithJSONObject(newPost, options: nil, error:  &postJSONError)
         postsUrlRequest.HTTPBody = jsonPost
