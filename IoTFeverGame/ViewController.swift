@@ -39,6 +39,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         self.IVPlayerReceived.image = UIImage(named: "button-stop.png")
 
+        gameStarted = false
+        
         setSensorStatus()
         
         let url = NSBundle.mainBundle().URLForResource("disco-anim", withExtension: "gif");
