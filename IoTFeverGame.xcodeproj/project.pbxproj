@@ -24,9 +24,9 @@
 		26550F091B96F8BE0010D1D2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26550F081B96F8BE0010D1D2 /* Images.xcassets */; };
 		26550F0C1B96F8BE0010D1D2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26550F0A1B96F8BE0010D1D2 /* LaunchScreen.xib */; };
 		26550F181B96F8BE0010D1D2 /* IoTFeverGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26550F171B96F8BE0010D1D2 /* IoTFeverGameTests.swift */; };
-		267292881BAFBE7C00921F6C /* libMQTTKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 267292831BAFBE6B00921F6C /* libMQTTKit.a */; };
 		2672928E1BAFE0E700921F6C /* libmosquitto in Resources */ = {isa = PBXBuildFile; fileRef = 2672928C1BAFE0E700921F6C /* libmosquitto */; };
 		2672928F1BAFE0E700921F6C /* MQTTKit in Resources */ = {isa = PBXBuildFile; fileRef = 2672928D1BAFE0E700921F6C /* MQTTKit */; };
+		267292951BB001F700921F6C /* libMQTTKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 267292831BAFBE6B00921F6C /* libMQTTKit.a */; };
 		269E0ABB1BA03B5100AF2804 /* SensorTagService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269E0ABA1BA03B5100AF2804 /* SensorTagService.swift */; };
 		26CD12171BA7EBBF00C5C4A6 /* GameEndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CD12161BA7EBBF00C5C4A6 /* GameEndViewController.swift */; };
 		26CD12191BA8094400C5C4A6 /* ArmPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CD12181BA8094400C5C4A6 /* ArmPosition.swift */; };
@@ -120,6 +120,7 @@
 		2672928B1BAFDDF200921F6C /* MQTTKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTKit.h; sourceTree = "<group>"; };
 		2672928C1BAFE0E700921F6C /* libmosquitto */ = {isa = PBXFileReference; lastKnownFileType = folder; path = libmosquitto; sourceTree = "<group>"; };
 		2672928D1BAFE0E700921F6C /* MQTTKit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MQTTKit; sourceTree = "<group>"; };
+		267292931BB001EF00921F6C /* libMQTTKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMQTTKit.a; sourceTree = "<group>"; };
 		269E0ABA1BA03B5100AF2804 /* SensorTagService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorTagService.swift; sourceTree = "<group>"; };
 		26CD12161BA7EBBF00C5C4A6 /* GameEndViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameEndViewController.swift; sourceTree = "<group>"; };
 		26CD12181BA8094400C5C4A6 /* ArmPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArmPosition.swift; sourceTree = "<group>"; };
@@ -164,7 +165,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				267292881BAFBE7C00921F6C /* libMQTTKit.a in Frameworks */,
+				267292951BB001F700921F6C /* libMQTTKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +202,7 @@
 		26550EFB1B96F8BE0010D1D2 /* IoTFeverGame */ = {
 			isa = PBXGroup;
 			children = (
+				267292911BB001E100921F6C /* lib */,
 				2672928C1BAFE0E700921F6C /* libmosquitto */,
 				2672928D1BAFE0E700921F6C /* MQTTKit */,
 				2672928B1BAFDDF200921F6C /* MQTTKit.h */,
@@ -253,6 +255,14 @@
 				267292851BAFBE6B00921F6C /* MQTTKitTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		267292911BB001E100921F6C /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				267292931BB001EF00921F6C /* libMQTTKit.a */,
+			);
+			name = lib;
 			sourceTree = "<group>";
 		};
 		26D77EBD1B9938EB0042F414 /* Model */ = {
@@ -651,6 +661,10 @@
 				INFOPLIST_FILE = IoTFeverGame/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/IoTFeverGame",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "IoTFeverGame-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -666,6 +680,10 @@
 				INFOPLIST_FILE = IoTFeverGame/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/IoTFeverGame",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "IoTFeverGame-Bridging-Header.h";
 			};
