@@ -31,8 +31,11 @@ class GameEndViewController : UIViewController {
         
         self.lblScoreResult.text = String(currentGame.player.score) + "/ 25"
        
+        gameStarted = false
         // TODO replace with Publisher (Protocol)
         configuration!.getRankingService().publish(currentGame.player)
+        
+        
         
         timer = NSTimer.scheduledTimerWithTimeInterval(8.0, target: self, selector: Selector("restartGame"), userInfo: nil, repeats: false)
         
