@@ -7,3 +7,5 @@
 //
 
 #import "UIImage+animatedGIF.h"
+#import <Foundation/Foundation.h>
+#import "MQTTKit.h"

@@ -24,6 +24,9 @@
 		26550F091B96F8BE0010D1D2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26550F081B96F8BE0010D1D2 /* Images.xcassets */; };
 		26550F0C1B96F8BE0010D1D2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26550F0A1B96F8BE0010D1D2 /* LaunchScreen.xib */; };
 		26550F181B96F8BE0010D1D2 /* IoTFeverGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26550F171B96F8BE0010D1D2 /* IoTFeverGameTests.swift */; };
+		267292881BAFBE7C00921F6C /* libMQTTKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 267292831BAFBE6B00921F6C /* libMQTTKit.a */; };
+		2672928E1BAFE0E700921F6C /* libmosquitto in Resources */ = {isa = PBXBuildFile; fileRef = 2672928C1BAFE0E700921F6C /* libmosquitto */; };
+		2672928F1BAFE0E700921F6C /* MQTTKit in Resources */ = {isa = PBXBuildFile; fileRef = 2672928D1BAFE0E700921F6C /* MQTTKit */; };
 		269E0ABB1BA03B5100AF2804 /* SensorTagService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269E0ABA1BA03B5100AF2804 /* SensorTagService.swift */; };
 		26CD12171BA7EBBF00C5C4A6 /* GameEndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CD12161BA7EBBF00C5C4A6 /* GameEndViewController.swift */; };
 		26CD12191BA8094400C5C4A6 /* ArmPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CD12181BA8094400C5C4A6 /* ArmPosition.swift */; };
@@ -68,6 +71,27 @@
 			remoteGlobalIDString = 26550EF81B96F8BE0010D1D2;
 			remoteInfo = IoTFeverGame;
 		};
+		267292821BAFBE6B00921F6C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2672927D1BAFBE6B00921F6C /* MQTTKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 93EEBC981816CAB00055100D;
+			remoteInfo = MQTTKit;
+		};
+		267292841BAFBE6B00921F6C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2672927D1BAFBE6B00921F6C /* MQTTKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 93EEBCA81816CAB00055100D;
+			remoteInfo = MQTTKitTests;
+		};
+		267292861BAFBE7700921F6C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2672927D1BAFBE6B00921F6C /* MQTTKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 93EEBC971816CAB00055100D;
+			remoteInfo = MQTTKit;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +116,10 @@
 		26550F111B96F8BE0010D1D2 /* IoTFeverGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IoTFeverGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		26550F161B96F8BE0010D1D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26550F171B96F8BE0010D1D2 /* IoTFeverGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IoTFeverGameTests.swift; sourceTree = "<group>"; };
+		2672927D1BAFBE6B00921F6C /* MQTTKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MQTTKit.xcodeproj; path = ../MQTTKit/MQTTKit.xcodeproj; sourceTree = "<group>"; };
+		2672928B1BAFDDF200921F6C /* MQTTKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTKit.h; sourceTree = "<group>"; };
+		2672928C1BAFE0E700921F6C /* libmosquitto */ = {isa = PBXFileReference; lastKnownFileType = folder; path = libmosquitto; sourceTree = "<group>"; };
+		2672928D1BAFE0E700921F6C /* MQTTKit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MQTTKit; sourceTree = "<group>"; };
 		269E0ABA1BA03B5100AF2804 /* SensorTagService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorTagService.swift; sourceTree = "<group>"; };
 		26CD12161BA7EBBF00C5C4A6 /* GameEndViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameEndViewController.swift; sourceTree = "<group>"; };
 		26CD12181BA8094400C5C4A6 /* ArmPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArmPosition.swift; sourceTree = "<group>"; };
@@ -136,6 +164,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				267292881BAFBE7C00921F6C /* libMQTTKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +185,7 @@
 				26550EFB1B96F8BE0010D1D2 /* IoTFeverGame */,
 				26550F141B96F8BE0010D1D2 /* IoTFeverGameTests */,
 				26550EFA1B96F8BE0010D1D2 /* Products */,
+				2672927D1BAFBE6B00921F6C /* MQTTKit.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -171,6 +201,9 @@
 		26550EFB1B96F8BE0010D1D2 /* IoTFeverGame */ = {
 			isa = PBXGroup;
 			children = (
+				2672928C1BAFE0E700921F6C /* libmosquitto */,
+				2672928D1BAFE0E700921F6C /* MQTTKit */,
+				2672928B1BAFDDF200921F6C /* MQTTKit.h */,
 				3D6D3CAA1BA72B9C007AA2C8 /* IoTFeverGame-Bridging-Header.h */,
 				3D6D3CA11BA72A78007AA2C8 /* Mixins */,
 				3D0357D21BA6F47100CA6D1D /* Views */,
@@ -211,6 +244,15 @@
 				26550F161B96F8BE0010D1D2 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2672927E1BAFBE6B00921F6C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				267292831BAFBE6B00921F6C /* libMQTTKit.a */,
+				267292851BAFBE6B00921F6C /* MQTTKitTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		26D77EBD1B9938EB0042F414 /* Model */ = {
@@ -315,6 +357,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				267292871BAFBE7700921F6C /* PBXTargetDependency */,
 			);
 			name = IoTFeverGame;
 			productName = IoTFeverGame;
@@ -369,6 +412,12 @@
 			mainGroup = 26550EF01B96F8BE0010D1D2;
 			productRefGroup = 26550EFA1B96F8BE0010D1D2 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 2672927E1BAFBE6B00921F6C /* Products */;
+					ProjectRef = 2672927D1BAFBE6B00921F6C /* MQTTKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				26550EF81B96F8BE0010D1D2 /* IoTFeverGame */,
@@ -376,6 +425,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		267292831BAFBE6B00921F6C /* libMQTTKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libMQTTKit.a;
+			remoteRef = 267292821BAFBE6B00921F6C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		267292851BAFBE6B00921F6C /* MQTTKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = MQTTKitTests.xctest;
+			remoteRef = 267292841BAFBE6B00921F6C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		26550EF71B96F8BE0010D1D2 /* Resources */ = {
@@ -386,6 +452,7 @@
 				64A8C2061BAA697500CB8023 /* BL.png in Resources */,
 				26550F071B96F8BE0010D1D2 /* Main.storyboard in Resources */,
 				64A8C2071BAA697500CB8023 /* BR.png in Resources */,
+				2672928E1BAFE0E700921F6C /* libmosquitto in Resources */,
 				3D0357D81BA7065D00CA6D1D /* tries.png in Resources */,
 				26550F0C1B96F8BE0010D1D2 /* LaunchScreen.xib in Resources */,
 				64A8C1F31BA9141500CB8023 /* Vorto.png in Resources */,
@@ -400,6 +467,7 @@
 				64A8C1FA1BA95A3000CB8023 /* BL_BR.png in Resources */,
 				26D89F141B9D3ED400E77C3F /* Bosch.png in Resources */,
 				644B75361BAC00C100A971EE /* button-start.png in Resources */,
+				2672928F1BAFE0E700921F6C /* MQTTKit in Resources */,
 				64A8C1FB1BA95A3000CB8023 /* BL_TR.png in Resources */,
 				26550F091B96F8BE0010D1D2 /* Images.xcassets in Resources */,
 			);
@@ -467,6 +535,11 @@
 			isa = PBXTargetDependency;
 			target = 26550EF81B96F8BE0010D1D2 /* IoTFeverGame */;
 			targetProxy = 26550F121B96F8BE0010D1D2 /* PBXContainerItemProxy */;
+		};
+		267292871BAFBE7700921F6C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MQTTKit;
+			targetProxy = 267292861BAFBE7700921F6C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

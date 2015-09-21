@@ -24,6 +24,7 @@ class RemoteRankingService : RankingService {
     
     let postURL : String = "http://192.168.1.32:1337/highscore/vorto"
     
+    
     func publish(player : Player) {
         println("Post Highscore")
         
@@ -59,6 +60,5 @@ class RemoteRankingService : RankingService {
                 }
             }
         })
-
     }
 }
