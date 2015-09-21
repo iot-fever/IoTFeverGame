@@ -9,6 +9,7 @@
 import UIKit
 
 var user : User = User(running: false)
+var gameStarted : Bool = false
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
@@ -24,9 +25,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     func startGame() {
         timer!.invalidate()
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            self.performSegueWithIdentifier("startGameIdentifier", sender: self)
-        });
+        if !gameStarted {
+            gameStarted = true
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.performSegueWithIdentifier("startGameIdentifier", sender: self)
+            });
+        }
     }
 
     
@@ -62,7 +66,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     
     func checkUserAndSensortag(){
-   
+
         configuration!.getUserService().getUser()
         
         setSensorStatus()
