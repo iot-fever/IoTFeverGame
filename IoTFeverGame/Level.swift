@@ -15,14 +15,16 @@ class Level {
     var duration            : Int
     var delayBetweenMoves   : Float
     var possibleDanceMoves  : [Int: DanceMove]
+    var color               : String
     
     var currentMove : DanceMove = DanceMoveImpl(bodyParts : MovingArmBodyPart(position: ArmPosition.Top, image: "TR",rightSide : true))
 
-    init (name: Int, duration: Int, delayBetweenMoves: Float, possibleDanceMoves : [Int:DanceMove]) {
+    init (name: Int, duration: Int, delayBetweenMoves: Float, color: String, possibleDanceMoves : [Int:DanceMove]) {
         self.name                   = name
         self.duration               = duration
         self.delayBetweenMoves      = delayBetweenMoves
         self.possibleDanceMoves     = possibleDanceMoves
+        self.color                  = color
     }
     
     func newMove(){

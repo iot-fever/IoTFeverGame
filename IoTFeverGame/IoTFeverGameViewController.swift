@@ -89,6 +89,31 @@ class IoTFeverGameViewController: UIViewController, SensorDataListener, AnyObjec
         
         currentGame = IoTFeverGame(username: user.nickname!)
         let firstLevel = currentGame.start()
+        
+        var mqttInstance :MQTTClient!
+        var bulbTopic = "$EDC/iot-fever/20BA/iotfever/lights/1/state"
+        
+        var clientID = UIDevice.currentDevice().identifierForVendor.UUIDString
+        mqttInstance = MQTTClient(clientId: clientID)
+        let kMQTTServerHost = "192.168.1.39"
+        
+        mqttInstance.connectToHost(kMQTTServerHost, completionHandler: { (code: MQTTConnectionReturnCode) -> Void in
+            if code.value == ConnectionAccepted.value {
+                println("CONNECTED")
+                // RED
+//                if  mqttInstance.connected {
+                        mqttInstance.publishString("{\"on\":true,\"hue\":\(firstLevel.color)}", toTopic: bulbTopic, withQos: ExactlyOnce, retain: false, completionHandler: { mid in
+                            mqttInstance.disconnectWithCompletionHandler({ mid in
+                                // <#code#>
+                            })
+                        })
+//                    }
+               
+            } else {
+                println("return code \(code.value)")
+            }
+        })
+        
         self.timeCountLabel.text = String(firstLevel.duration)
         createNewMove(firstLevel)
         scheduleLevelTimers(firstLevel)
@@ -123,6 +148,31 @@ class IoTFeverGameViewController: UIViewController, SensorDataListener, AnyObjec
         if (currentGame.hasNextLevel()) {
             let nextLevel = currentGame.getNextLevel()
             levelAmountLabel.text = String(nextLevel.name)
+            
+            var mqttInstance :MQTTClient!
+            var bulbTopic = "$EDC/iot-fever/20BA/iotfever/lights/1/state"
+            
+            var clientID = UIDevice.currentDevice().identifierForVendor.UUIDString
+            mqttInstance = MQTTClient(clientId: clientID)
+            let kMQTTServerHost = "192.168.1.39"
+            
+            mqttInstance.connectToHost(kMQTTServerHost, completionHandler: { (code: MQTTConnectionReturnCode) -> Void in
+                if code.value == ConnectionAccepted.value {
+                    println("CONNECTED")
+                    // RED
+                    if  mqttInstance.connected {
+                        mqttInstance.publishString("{\"on\":true,\"hue\":\(nextLevel.color))}", toTopic: bulbTopic, withQos: ExactlyOnce, retain: false, completionHandler: { mid in
+                            mqttInstance.disconnectWithCompletionHandler({ mid in
+                                // <#code#>
+                            })
+                        })
+                    }
+                    
+                } else {
+                    println("return code \(code.value)")
+                }
+            })
+            
             createNewMove(nextLevel)
             scheduleLevelTimers(nextLevel)
         } else {
@@ -130,6 +180,7 @@ class IoTFeverGameViewController: UIViewController, SensorDataListener, AnyObjec
             renderGameOver()
         }
     }
+    
     
     func renderGameOver() {
         vizView.stopAudio()
@@ -219,7 +270,7 @@ class IoTFeverGameViewController: UIViewController, SensorDataListener, AnyObjec
                 indicatorView.removeFromSuperview()
             })
         })
-        self.flashBulb(0)
+        //self.flashBulb(0)
         self.GameOver.text = missMessages[result]
     }
     
@@ -250,7 +301,7 @@ class IoTFeverGameViewController: UIViewController, SensorDataListener, AnyObjec
     
     func flashGreen() {
         println("FLASH GREEN!")
-        self.flashBulb(1)
+        //self.flashBulb(1)
         let result = Int(arc4random_uniform(UInt32(self.hitMessages.count)))
         self.GameOver.text = hitMessages[result]
     }
