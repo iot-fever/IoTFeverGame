@@ -49,7 +49,6 @@ class DummyUserService : UserService {
 
 class IntegratedConfiguration : NSObject, Configuration {
     
-    
     func getUserService()       -> UserService    {
         return DummyUserService()
     }

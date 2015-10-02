@@ -27,6 +27,7 @@
 		2672928F1BAFE0E700921F6C /* MQTTKit in Resources */ = {isa = PBXBuildFile; fileRef = 2672928D1BAFE0E700921F6C /* MQTTKit */; };
 		267292951BB001F700921F6C /* libMQTTKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 267292831BAFBE6B00921F6C /* libMQTTKit.a */; };
 		2680F5871BBE6B0200004DD0 /* KuraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680F5861BBE6B0200004DD0 /* KuraService.swift */; };
+		26B233D11BBE86060098FE7E /* SensorTagService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B233D01BBE86060098FE7E /* SensorTagService.swift */; };
 		26CD12171BA7EBBF00C5C4A6 /* EndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CD12161BA7EBBF00C5C4A6 /* EndViewController.swift */; };
 		26CD12191BA8094400C5C4A6 /* ArmPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CD12181BA8094400C5C4A6 /* ArmPosition.swift */; };
 		26D77EC11B9939210042F414 /* ScoreRanking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D77EC01B9939210042F414 /* ScoreRanking.swift */; };
@@ -116,6 +117,7 @@
 		2672928D1BAFE0E700921F6C /* MQTTKit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MQTTKit; sourceTree = "<group>"; };
 		267292931BB001EF00921F6C /* libMQTTKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMQTTKit.a; sourceTree = "<group>"; };
 		2680F5861BBE6B0200004DD0 /* KuraService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KuraService.swift; sourceTree = "<group>"; };
+		26B233D01BBE86060098FE7E /* SensorTagService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorTagService.swift; sourceTree = "<group>"; };
 		26CD12161BA7EBBF00C5C4A6 /* EndViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndViewController.swift; sourceTree = "<group>"; };
 		26CD12181BA8094400C5C4A6 /* ArmPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArmPosition.swift; sourceTree = "<group>"; };
 		26D77EC01B9939210042F414 /* ScoreRanking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreRanking.swift; sourceTree = "<group>"; };
@@ -277,10 +279,11 @@
 		26D77ECA1B993D530042F414 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				26B233D01BBE86060098FE7E /* SensorTagService.swift */,
 				26D77ED51B9947110042F414 /* DummySensorService.swift */,
 				11E8AE341BA8460E00B190D6 /* SensorDataListener.swift */,
-				11E8AE361BA8468E00B190D6 /* SensorService.swift */,
 				11E8AE381BA851C800B190D6 /* SensorTagAdapterService.swift */,
+				11E8AE361BA8468E00B190D6 /* SensorService.swift */,
 				64DB5D0A1BAAD99E00E2C6C3 /* UserService.swift */,
 				2680F5861BBE6B0200004DD0 /* KuraService.swift */,
 			);
@@ -496,6 +499,7 @@
 				26550EFF1B96F8BE0010D1D2 /* AppDelegate.swift in Sources */,
 				26EBAA2B1B981A3C0083CCCC /* GameViewController.swift in Sources */,
 				1171C2BB1BA5831900E0537F /* ScoreStrategy.swift in Sources */,
+				26B233D11BBE86060098FE7E /* SensorTagService.swift in Sources */,
 				64DB5D0B1BAAD99E00E2C6C3 /* UserService.swift in Sources */,
 				3D0357D41BA6F4C800CA6D1D /* VisualizerView.swift in Sources */,
 				26CD12191BA8094400C5C4A6 /* ArmPosition.swift in Sources */,

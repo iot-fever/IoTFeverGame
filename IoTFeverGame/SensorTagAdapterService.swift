@@ -13,36 +13,36 @@ class SensorTagAdapterService : SensorService {
     
     static let current  : SensorService = SensorTagAdapterService()
     
-    var sensorDelegate  : SensorDelegate
+    var kuraService     : KuraService
     
     private init() {
-        sensorDelegate = SensorDelegate()
+       self.kuraService = KuraService.current
     }
     
     func subscribe(listener: SensorDataListener) {
-        sensorDelegate.subscribe(listener)
+        kuraService.subscribe(listener)
     }
     
     func connect(callback : () -> ()) {
         KuraService.current.getSensors()
-        self.sensorDelegate.addConnectedCallback(callback)
+        self.kuraService.addConnectedCallback(callback)
     }
     
     func isConnected() -> Bool {
-        return self.sensorDelegate.sensorsFound()
+        return self.kuraService.sensorsFound()
     }
     
     func disconnect() -> Bool {
-        sensorDelegate.unsubscribe()
+        self.kuraService.unsubscribe()
         return true
     }
     
     func sensorRightStatus() -> Bool {
-        return self.sensorDelegate.sensorRightStatus()
+        return self.kuraService.sensorRightStatus()
     }
     
     func sensorLeftStatus() -> Bool {
-        return self.sensorDelegate.sensorLeftStatus()
+        return self.kuraService.sensorLeftStatus()
     }
     
     

@@ -27,7 +27,6 @@ class GameViewController: UIViewController, SensorDataListener, AnyObject {
     
     // MARK: UI Properties
     @IBOutlet weak var score                : UILabel!
-    //@IBOutlet weak var bonusPoints          : UILabel!
     @IBOutlet weak var try1Image            : UIImageView!
     @IBOutlet weak var try2Image            : UIImageView!
     @IBOutlet weak var try3Image            : UIImageView!
@@ -42,20 +41,20 @@ class GameViewController: UIViewController, SensorDataListener, AnyObject {
     
     @IBOutlet weak var GameOver             : UILabel!
     
-    @IBOutlet weak var lblUsername  : UILabel!
-    @IBOutlet weak var lblCountDown : UILabel!
-    @IBOutlet weak var lblgetReady: UILabel!
+    @IBOutlet weak var lblUsername          : UILabel!
+    @IBOutlet weak var lblCountDown         : UILabel!
+    @IBOutlet weak var lblgetReady          : UILabel!
 
     
-    var gameTimer : NSTimer?
-    var levelTimer: NSTimer?
-    var moveTimer : NSTimer?
-    var countdownTimer : NSTimer?
+    var gameTimer                           : NSTimer?
+    var levelTimer                          : NSTimer?
+    var moveTimer                           : NSTimer?
+    var countdownTimer                      : NSTimer?
     
-    var emitterLayer : CAEmitterLayer?
-    let vizView = VisualizerView()
+    var emitterLayer                        : CAEmitterLayer?
+    let vizView                             = VisualizerView()
     
-    var countdown : Int = 3
+    var countdown                           : Int = 3
     
     override func viewDidLoad() {
         super.viewDidLoad()

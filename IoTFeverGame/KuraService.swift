@@ -12,18 +12,20 @@ import Foundation
 let sensorLeftUUID = NSUserDefaults.standardUserDefaults().stringForKey("left_sensor_uuid")
 let sensorRightUUID = NSUserDefaults.standardUserDefaults().stringForKey("right_sensor_uuid")
 
-class NooPSensorDataListener : SensorDataListener {
-    
-    func onDataRightIncoming(data: [Double]) {
-        // swallowing the incoming data
-    }
-    
-    func onDataLeftIncoming(data: [Double]) {
-        // swallowing the incoming data
-    }
+protocol KuraServiceDelegate {
+    func getSensor(game: DiceGame)
+    func game(game: DiceGame, didStartNewTurnWithDiceRoll diceRoll: Int)
+    func gameDidEnd(game: DiceGame)
 }
 
-class KuraService {
+protocol SensorDataListener {
+    
+    func onDataRightIncoming(data: [Double])
+    
+    func onDataLeftIncoming(data: [Double])
+}
+
+class KuraService : SensorService {
 
     static var current      :KuraService = KuraService()
     
@@ -42,7 +44,6 @@ class KuraService {
         self.kMQTTServerHost = "192.168.1.38"
     }
     
-    
     func addConnectedCallback(callback : () -> ()) {
         self.whenSensorsConnected = callback
     }
@@ -55,20 +56,19 @@ class KuraService {
         self.listener = NooPSensorDataListener()
     }
     
-    func sensorsFound() -> Bool {
+    func sensorsFound()         -> Bool {
         return sensorLeftFound && sensorRightFound
     }
     
-    func sensorRightStatus() -> Bool {
+    func sensorRightStatus()    -> Bool {
         return sensorRightFound
     }
     
-    func sensorLeftStatus() -> Bool {
+    func sensorLeftStatus()     -> Bool {
         return sensorLeftFound
     }
-
     
-    func getSensors(){
+    func connect()              -> Bool {
         println("// STATUS - try to connect")
 
         var clientID                    = UIDevice.currentDevice().identifierForVendor.UUIDString
@@ -102,11 +102,23 @@ class KuraService {
         })
     }
     
-    func flashRed(){
+    func peripheral() {
+    
+        // if leftSensor ==
+        // accelData -> Streams Sensor Data Left
+        // self.publishLeft(accelData)
+        
+        // if rightSensor ==
+        // accelData -> Streams Sensor Data Right
+        // self.publishRight(accelData)
 
     }
     
-    func flashGreen(){
+    private func publishRight(data: [Double]) {
+        listener.onDataRightIncoming(data)
+    }
     
+    private func publishLeft(data: [Double]) {
+        listener.onDataLeftIncoming(data)
     }
 }

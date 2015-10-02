@@ -12,13 +12,13 @@ protocol SensorService {
     
     func subscribe(SensorDataListener)
     
-    func isConnected() -> Bool
+    func isConnected()                  -> Bool
     
-    func connect(callback : () -> ())
+    func connect()                      -> Bool
     
-    func disconnect() -> Bool
+    func disconnect()                   -> Bool
     
-    func sensorRightStatus() -> Bool
+    func sensorRightStatus()            -> Bool
     
-    func sensorLeftStatus() -> Bool 
+    func sensorLeftStatus()             -> Bool
 }

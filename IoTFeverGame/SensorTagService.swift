@@ -17,35 +17,30 @@ import CoreBluetooth
 //let sensorLeftUUID = NSUserDefaults.standardUserDefaults().stringForKey("left_sensor_uuid")
 //let sensorRightUUID = NSUserDefaults.standardUserDefaults().stringForKey("right_sensor_uuid")
 
-class NooPSensorDataListener : SensorDataListener {
-    
-    func onDataRightIncoming(data: [Double]) {
-        // swallowing the incoming data
-    }
-    
-    func onDataLeftIncoming(data: [Double]) {
-        // swallowing the incoming data
-    }
-}
+//class NooPSensorDataListener : SensorDataListener {
+//    
+//    func onDataRightIncoming(data: [Double]) {
+//        // swallowing the incoming data
+//    }
+//    
+//    func onDataLeftIncoming(data: [Double]) {
+//        // swallowing the incoming data
+//    }
+//}
 
-class SensorDelegate: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate {
-    /******* CBCentralPeripheralDelegate *******/
+class SensorDelegate {
     
-    // Check if the service discovered is valid i.e. one of the following:
-    // Movement Service
-    // (Others are not implemented)
-    
-    var sensorTagPeripheralLeft : CBPeripheral!
-    var sensorTagPeripheralRight : CBPeripheral!
+    var sensorTagPeripheralLeft     : CBPeripheral!
+    var sensorTagPeripheralRight    : CBPeripheral!
 
-    var sensorLeftFound = false
-    var sensorRightFound = false
+    var sensorLeftFound     = false
+    var sensorRightFound    = false
     
     var listener : SensorDataListener = NooPSensorDataListener()
 
     var whenSensorsConnected:(()->Void)?
     
-    override init() {
+    internal init() {
         
     }
     
@@ -73,25 +68,9 @@ class SensorDelegate: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate {
         return sensorLeftFound
     }
     
-    // Check status of BLE hardware
-    func centralManagerDidUpdateState(central: CBCentralManager!) {
-        if central.state == CBCentralManagerState.PoweredOn {
-            // Scan for peripherals if BLE is turned on
-            central.scanForPeripheralsWithServices(nil, options: nil)
-            println("Searching for BLE Devices")
-        }
-        else {
-            // Can have different conditions for all states if needed - show generic alert for now
-            println("Bluetooth switched off or not initialized")
-        }
-    }
-    
-    // Check out the discovered peripherals to find Sensor Tag
-    func centralManager(central: CBCentralManager!, didDiscoverPeripheral peripheral: CBPeripheral!, advertisementData: [NSObject : AnyObject]!, RSSI: NSNumber!) {
+    func detect() {
         
-        var deviceUUID  = peripheral.identifier.UUIDString
         
-        if SensorReader.sensorTagFound(advertisementData) == true {
             
             println("Scanning...Detected \(deviceUUID)")
             
@@ -214,4 +193,4 @@ class SensorDelegate: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate {
         listener.onDataLeftIncoming(data)
     }
 
-}
+
