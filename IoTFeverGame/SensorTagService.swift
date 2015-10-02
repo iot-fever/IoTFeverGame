@@ -14,8 +14,8 @@ import CoreBluetooth
 //let sensorRightID = "8088b9000048b4b0"
 
 // The UUID of the 2 sensors
-let sensorLeftUUID = NSUserDefaults.standardUserDefaults().stringForKey("left_sensor_uuid")
-let sensorRightUUID = NSUserDefaults.standardUserDefaults().stringForKey("right_sensor_uuid")
+//let sensorLeftUUID = NSUserDefaults.standardUserDefaults().stringForKey("left_sensor_uuid")
+//let sensorRightUUID = NSUserDefaults.standardUserDefaults().stringForKey("right_sensor_uuid")
 
 class NooPSensorDataListener : SensorDataListener {
     

@@ -14,8 +14,8 @@ protocol UserService {
 }
 
 class User {
-    var nickname : String?
-    var running :  Bool
+    var nickname    : String?
+    var running     :  Bool
     
     init(running : Bool) {
         self.running = running

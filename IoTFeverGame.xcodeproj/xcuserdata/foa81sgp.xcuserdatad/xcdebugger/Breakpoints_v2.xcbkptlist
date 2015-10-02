@@ -108,7 +108,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "85"
             endingLineNumber = "85"
-            landmarkName = "centralManager(_:didDiscoverPeripheral:advertisementData:RSSI:)"
+            landmarkName = "centralManagerDidUpdateState(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -124,7 +124,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "84"
             endingLineNumber = "84"
-            landmarkName = "centralManager(_:didDiscoverPeripheral:advertisementData:RSSI:)"
+            landmarkName = "centralManagerDidUpdateState(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -140,8 +140,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "89"
             endingLineNumber = "89"
-            landmarkName = "centralManager(_:didDiscoverPeripheral:advertisementData:RSSI:)"
-            landmarkType = "5">
+            landmarkName = "SensorDelegate"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -156,8 +156,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "88"
             endingLineNumber = "88"
-            landmarkName = "centralManager(_:didDiscoverPeripheral:advertisementData:RSSI:)"
-            landmarkType = "5">
+            landmarkName = "SensorDelegate"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -215,29 +215,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IoTFeverGame/SensorTagAdapterService.swift"
-            timestampString = "464081647.001139"
+            timestampString = "465467610.47209"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "init()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "IoTFeverGame/SensorTagService.swift"
-            timestampString = "464081454.619096"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "centralManagerDidUpdateState(_:)"
-            landmarkType = "5">
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "SensorTagAdapterService"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -247,13 +231,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IoTFeverGame/SensorTagAdapterService.swift"
-            timestampString = "464081647.001139"
+            timestampString = "465467610.47209"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "init()"
-            landmarkType = "5">
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "SensorTagAdapterService"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -263,11 +247,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IoTFeverGame/SensorTagAdapterService.swift"
-            timestampString = "464082022.136851"
+            timestampString = "465467610.47209"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
             landmarkName = "init()"
             landmarkType = "5">
          </BreakpointContent>
@@ -278,13 +262,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "IoTFeverGame/ViewController.swift"
+            filePath = "IoTFeverGame/StartViewController.swift"
             timestampString = "464074136.718247"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "28"
             endingLineNumber = "28"
-            landmarkName = "viewDidLoad()"
+            landmarkName = "startGame()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -294,13 +278,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "IoTFeverGame/ViewController.swift"
+            filePath = "IoTFeverGame/StartViewController.swift"
             timestampString = "464074137.342325"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "27"
             endingLineNumber = "27"
-            landmarkName = "viewDidLoad()"
+            landmarkName = "startGame()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -311,29 +295,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IoTFeverGame/Environment.swift"
-            timestampString = "464081454.619096"
+            timestampString = "465467610.47209"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "canStartGame(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "IoTFeverGame/SensorTagService.swift"
-            timestampString = "464081454.619096"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "centralManagerDidUpdateState(_:)"
-            landmarkType = "5">
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "IntegratedConfiguration"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -348,7 +316,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "115"
             endingLineNumber = "115"
-            landmarkName = "centralManager(_:didConnectPeripheral:)"
+            landmarkName = "centralManager(_:didDiscoverPeripheral:advertisementData:RSSI:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -364,7 +332,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "122"
             endingLineNumber = "122"
-            landmarkName = "centralManager(_:didDisconnectPeripheral:error:)"
+            landmarkName = "centralManager(_:didConnectPeripheral:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -374,13 +342,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "IoTFeverGame/ViewController.swift"
+            filePath = "IoTFeverGame/StartViewController.swift"
             timestampString = "464076345.384682"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "31"
             endingLineNumber = "31"
-            landmarkName = "viewDidLoad()"
+            landmarkName = "startGame()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -391,12 +359,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IoTFeverGame/Environment.swift"
-            timestampString = "464081498.409772"
+            timestampString = "465467610.47209"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "sensorsConnected()"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "getUser()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -423,28 +391,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IoTFeverGame/SensorTagAdapterService.swift"
-            timestampString = "464081658.636965"
+            timestampString = "465467610.47209"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
             landmarkName = "connect(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "IoTFeverGame/SensorTagService.swift"
-            timestampString = "464081769.333963"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "centralManagerDidUpdateState(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

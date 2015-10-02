@@ -11,11 +11,9 @@ import CoreBluetooth
 
 class SensorTagAdapterService : SensorService {
     
-    static let current : SensorService = SensorTagAdapterService()
+    static let current  : SensorService = SensorTagAdapterService()
     
-    var sensorDelegate : SensorDelegate
-    
-    var centralManager : CBCentralManager?
+    var sensorDelegate  : SensorDelegate
     
     private init() {
         sensorDelegate = SensorDelegate()
@@ -26,7 +24,7 @@ class SensorTagAdapterService : SensorService {
     }
     
     func connect(callback : () -> ()) {
-        centralManager = CBCentralManager(delegate: sensorDelegate, queue: nil)
+        KuraService.current.getSensors()
         self.sensorDelegate.addConnectedCallback(callback)
     }
     
@@ -35,7 +33,6 @@ class SensorTagAdapterService : SensorService {
     }
     
     func disconnect() -> Bool {
-        centralManager!.stopScan()
         sensorDelegate.unsubscribe()
         return true
     }

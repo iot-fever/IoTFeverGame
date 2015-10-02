@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Foitzik Andreas. All rights reserved.
 //
 
+//Deprecated Version 
+/*
 import Foundation
 
 class UserServiceRest : UserService {
@@ -46,3 +48,4 @@ class UserServiceRest : UserService {
     }
 
 }
+*/
