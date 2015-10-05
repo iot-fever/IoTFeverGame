@@ -53,6 +53,9 @@ class KuraService  {
     var listener            : SensorDataListenerProtocol = NooPSensorDataListener()
     var delegate            : SensorStatusDelegate?
     
+    var leftArmTimer : NSTimer?
+    var rightArmTimer : NSTimer?
+    
     var whenSensorsConnected:(()->Void)?
     
     private init() {
@@ -101,15 +104,16 @@ class KuraService  {
                         
                     // if leftSensor ==
                         self.sensorLeftFound = true
-                        self.listener.onDataRightIncoming(self.generateData())
                         
                     // if rightSensor ==
                         self.sensorRightFound = true
-                        self.listener.onDataRightIncoming(self.generateData())
+
+                        
                         
                         if (self.sensorsFound()) {
-                            self.delegate?.connect(self)
-                            self.whenSensorsConnected!()
+                            self.getSensorDataStream()
+//                            self.delegate?.connect(self)
+//                            self.whenSensorsConnected!()
                         }
                     })
                 }
@@ -120,6 +124,28 @@ class KuraService  {
                 self.delegate?.detect(self)
             }
         })
+    }
+    
+    func getSensorDataStream(){
+    
+        self.rightArmTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("generateSensorDataFromDeviceRightArm"), userInfo: nil, repeats: true)
+        
+        self.leftArmTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("generateSensorDataFromDeviceLeftArm"), userInfo: nil, repeats: true)
+        
+    }
+    
+    func generateSensorDataFromDeviceRightArm() {
+        listener.onDataRightIncoming(generateData())
+    }
+    
+    func generateSensorDataFromDeviceLeftArm() {
+        listener.onDataLeftIncoming(generateData())
+    }
+    
+    func disconnect() -> Bool {
+        rightArmTimer!.invalidate()
+        leftArmTimer!.invalidate()
+        return true
     }
     
 //    private func publishRight(data: [Double]) {
