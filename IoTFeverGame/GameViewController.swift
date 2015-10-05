@@ -84,7 +84,7 @@ class GameViewController: UIViewController, SensorDataListenerProtocol, AnyObjec
     }
     
     func startRealGame(){
-        let sensorService = configuration!.getSensorService()
+        let sensorService = configuration!.getSensorProtocol()
         sensorService.subscribe(self)
         
         currentGame = IoTFeverGame(username: user.nickname!)

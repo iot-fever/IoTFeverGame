@@ -12,9 +12,7 @@
 		1171C2BB1BA5831900E0537F /* ScoreStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1171C2BA1BA5831900E0537F /* ScoreStrategy.swift */; };
 		1171C2BD1BA5852B00E0537F /* ScoreBonusPointStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1171C2BC1BA5852B00E0537F /* ScoreBonusPointStrategy.swift */; };
 		11E8AE331BA8455B00B190D6 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E8AE321BA8455B00B190D6 /* Environment.swift */; };
-		11E8AE351BA8460E00B190D6 /* SensorDataListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E8AE341BA8460E00B190D6 /* SensorDataListener.swift */; };
-		11E8AE371BA8468E00B190D6 /* SensorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E8AE361BA8468E00B190D6 /* SensorService.swift */; };
-		11E8AE391BA851C800B190D6 /* SensorTagAdapterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E8AE381BA851C800B190D6 /* SensorTagAdapterService.swift */; };
+		11E8AE391BA851C800B190D6 /* SensorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E8AE381BA851C800B190D6 /* SensorService.swift */; };
 		11E8AE3F1BA9A56A00B190D6 /* SingleArmDanceMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E8AE3E1BA9A56A00B190D6 /* SingleArmDanceMove.swift */; };
 		13745EFF1BA7D59E008F3042 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 13745EFE1BA7D59E008F3042 /* Settings.bundle */; };
 		26550EFF1B96F8BE0010D1D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26550EFE1B96F8BE0010D1D2 /* AppDelegate.swift */; };
@@ -27,7 +25,10 @@
 		2672928F1BAFE0E700921F6C /* MQTTKit in Resources */ = {isa = PBXBuildFile; fileRef = 2672928D1BAFE0E700921F6C /* MQTTKit */; };
 		267292951BB001F700921F6C /* libMQTTKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 267292831BAFBE6B00921F6C /* libMQTTKit.a */; };
 		2680F5871BBE6B0200004DD0 /* KuraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680F5861BBE6B0200004DD0 /* KuraService.swift */; };
-		26B233D11BBE86060098FE7E /* SensorTagService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B233D01BBE86060098FE7E /* SensorTagService.swift */; };
+		2689A2551BC278090083A29C /* UserServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2689A2541BC278090083A29C /* UserServiceProtocol.swift */; };
+		2689A2581BC278270083A29C /* SensorServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2689A2571BC278270083A29C /* SensorServiceProtocol.swift */; };
+		2689A25A1BC278340083A29C /* SensorDataListenerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2689A2591BC278340083A29C /* SensorDataListenerProtocol.swift */; };
+		2689A25C1BC2784C0083A29C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2689A25B1BC2784C0083A29C /* User.swift */; };
 		26CD12171BA7EBBF00C5C4A6 /* EndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CD12161BA7EBBF00C5C4A6 /* EndViewController.swift */; };
 		26CD12191BA8094400C5C4A6 /* ArmPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CD12181BA8094400C5C4A6 /* ArmPosition.swift */; };
 		26D77EC11B9939210042F414 /* ScoreRanking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D77EC01B9939210042F414 /* ScoreRanking.swift */; };
@@ -56,7 +57,6 @@
 		64A8C2071BAA697500CB8023 /* BR.png in Resources */ = {isa = PBXBuildFile; fileRef = 64A8C2051BAA697500CB8023 /* BR.png */; };
 		64A8C20A1BAA698300CB8023 /* TL.png in Resources */ = {isa = PBXBuildFile; fileRef = 64A8C2081BAA698300CB8023 /* TL.png */; };
 		64A8C20B1BAA698300CB8023 /* TR.png in Resources */ = {isa = PBXBuildFile; fileRef = 64A8C2091BAA698300CB8023 /* TR.png */; };
-		64DB5D0B1BAAD99E00E2C6C3 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DB5D0A1BAAD99E00E2C6C3 /* UserService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,9 +96,7 @@
 		1171C2BA1BA5831900E0537F /* ScoreStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreStrategy.swift; sourceTree = "<group>"; };
 		1171C2BC1BA5852B00E0537F /* ScoreBonusPointStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreBonusPointStrategy.swift; sourceTree = "<group>"; };
 		11E8AE321BA8455B00B190D6 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
-		11E8AE341BA8460E00B190D6 /* SensorDataListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorDataListener.swift; sourceTree = "<group>"; };
-		11E8AE361BA8468E00B190D6 /* SensorService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorService.swift; sourceTree = "<group>"; };
-		11E8AE381BA851C800B190D6 /* SensorTagAdapterService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorTagAdapterService.swift; sourceTree = "<group>"; };
+		11E8AE381BA851C800B190D6 /* SensorService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorService.swift; sourceTree = "<group>"; };
 		11E8AE3E1BA9A56A00B190D6 /* SingleArmDanceMove.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleArmDanceMove.swift; sourceTree = "<group>"; };
 		13745EFE1BA7D59E008F3042 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		26550EF91B96F8BE0010D1D2 /* IoTFeverGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IoTFeverGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,7 +115,10 @@
 		2672928D1BAFE0E700921F6C /* MQTTKit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MQTTKit; sourceTree = "<group>"; };
 		267292931BB001EF00921F6C /* libMQTTKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMQTTKit.a; sourceTree = "<group>"; };
 		2680F5861BBE6B0200004DD0 /* KuraService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KuraService.swift; sourceTree = "<group>"; };
-		26B233D01BBE86060098FE7E /* SensorTagService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorTagService.swift; sourceTree = "<group>"; };
+		2689A2541BC278090083A29C /* UserServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserServiceProtocol.swift; sourceTree = "<group>"; };
+		2689A2571BC278270083A29C /* SensorServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorServiceProtocol.swift; sourceTree = "<group>"; };
+		2689A2591BC278340083A29C /* SensorDataListenerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorDataListenerProtocol.swift; sourceTree = "<group>"; };
+		2689A25B1BC2784C0083A29C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		26CD12161BA7EBBF00C5C4A6 /* EndViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndViewController.swift; sourceTree = "<group>"; };
 		26CD12181BA8094400C5C4A6 /* ArmPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArmPosition.swift; sourceTree = "<group>"; };
 		26D77EC01B9939210042F414 /* ScoreRanking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreRanking.swift; sourceTree = "<group>"; };
@@ -149,7 +150,6 @@
 		64A8C2051BAA697500CB8023 /* BR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BR.png; sourceTree = "<group>"; };
 		64A8C2081BAA698300CB8023 /* TL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TL.png; sourceTree = "<group>"; };
 		64A8C2091BAA698300CB8023 /* TR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TR.png; sourceTree = "<group>"; };
-		64DB5D0A1BAAD99E00E2C6C3 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +201,7 @@
 				3D6D3CAA1BA72B9C007AA2C8 /* IoTFeverGame-Bridging-Header.h */,
 				3D6D3CA11BA72A78007AA2C8 /* Mixins */,
 				3D0357D21BA6F47100CA6D1D /* Views */,
+				2689A25E1BC278BE0083A29C /* Protocols */,
 				26D77ECA1B993D530042F414 /* Services */,
 				26D77EBD1B9938EB0042F414 /* Model */,
 				26EBAA251B97FABB0083CCCC /* Resource */,
@@ -257,9 +258,20 @@
 			name = lib;
 			sourceTree = "<group>";
 		};
+		2689A25E1BC278BE0083A29C /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				2689A2541BC278090083A29C /* UserServiceProtocol.swift */,
+				2689A2571BC278270083A29C /* SensorServiceProtocol.swift */,
+				2689A2591BC278340083A29C /* SensorDataListenerProtocol.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		26D77EBD1B9938EB0042F414 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2689A25B1BC2784C0083A29C /* User.swift */,
 				26CD12181BA8094400C5C4A6 /* ArmPosition.swift */,
 				26D77EC81B99399D0042F414 /* IoTFeverGame.swift */,
 				26D77EC01B9939210042F414 /* ScoreRanking.swift */,
@@ -279,12 +291,8 @@
 		26D77ECA1B993D530042F414 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				26B233D01BBE86060098FE7E /* SensorTagService.swift */,
 				26D77ED51B9947110042F414 /* DummySensorService.swift */,
-				11E8AE341BA8460E00B190D6 /* SensorDataListener.swift */,
-				11E8AE381BA851C800B190D6 /* SensorTagAdapterService.swift */,
-				11E8AE361BA8468E00B190D6 /* SensorService.swift */,
-				64DB5D0A1BAAD99E00E2C6C3 /* UserService.swift */,
+				11E8AE381BA851C800B190D6 /* SensorService.swift */,
 				2680F5861BBE6B0200004DD0 /* KuraService.swift */,
 			);
 			name = Services;
@@ -487,11 +495,10 @@
 			files = (
 				2680F5871BBE6B0200004DD0 /* KuraService.swift in Sources */,
 				1171C2B91BA56F5400E0537F /* DanceMove.swift in Sources */,
-				11E8AE371BA8468E00B190D6 /* SensorService.swift in Sources */,
 				11E8AE331BA8455B00B190D6 /* Environment.swift in Sources */,
 				26CD12171BA7EBBF00C5C4A6 /* EndViewController.swift in Sources */,
-				11E8AE351BA8460E00B190D6 /* SensorDataListener.swift in Sources */,
 				26D77EC71B9939850042F414 /* MovingArmBodyPart.swift in Sources */,
+				2689A25C1BC2784C0083A29C /* User.swift in Sources */,
 				26550F041B96F8BE0010D1D2 /* StartViewController.swift in Sources */,
 				11E8AE3F1BA9A56A00B190D6 /* SingleArmDanceMove.swift in Sources */,
 				1171C2BD1BA5852B00E0537F /* ScoreBonusPointStrategy.swift in Sources */,
@@ -499,16 +506,17 @@
 				26550EFF1B96F8BE0010D1D2 /* AppDelegate.swift in Sources */,
 				26EBAA2B1B981A3C0083CCCC /* GameViewController.swift in Sources */,
 				1171C2BB1BA5831900E0537F /* ScoreStrategy.swift in Sources */,
-				26B233D11BBE86060098FE7E /* SensorTagService.swift in Sources */,
-				64DB5D0B1BAAD99E00E2C6C3 /* UserService.swift in Sources */,
+				2689A2551BC278090083A29C /* UserServiceProtocol.swift in Sources */,
 				3D0357D41BA6F4C800CA6D1D /* VisualizerView.swift in Sources */,
 				26CD12191BA8094400C5C4A6 /* ArmPosition.swift in Sources */,
+				2689A2581BC278270083A29C /* SensorServiceProtocol.swift in Sources */,
 				3D6D3CA41BA72AAF007AA2C8 /* UIImage+animatedGIF.m in Sources */,
 				1171C2B51BA5679F00E0537F /* DanceMoveImpl.swift in Sources */,
 				26D77EC91B99399D0042F414 /* IoTFeverGame.swift in Sources */,
 				26E9744D1B984C9D00E73157 /* Game.xcdatamodeld in Sources */,
+				2689A25A1BC278340083A29C /* SensorDataListenerProtocol.swift in Sources */,
 				26D77EC31B99394E0042F414 /* Level.swift in Sources */,
-				11E8AE391BA851C800B190D6 /* SensorTagAdapterService.swift in Sources */,
+				11E8AE391BA851C800B190D6 /* SensorService.swift in Sources */,
 				26D77EC51B9939680042F414 /* Player.swift in Sources */,
 				26D77EC11B9939210042F414 /* ScoreRanking.swift in Sources */,
 			);

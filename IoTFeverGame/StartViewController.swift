@@ -71,15 +71,15 @@ class StartViewController: UIViewController, UITextFieldDelegate {
     
     func checkUserAndSensortag(){
 
-        configuration!.getUserService().getUser()
+        configuration!.getUserProtocol().getUser()
         
         setSensorStatus()
         
         if (user.running) {
             self.IVPlayerReceived.image = UIImage(named: startButton)
             
-            if (!configuration!.getSensorService().isConnected()) {
-                configuration!.getSensorService().connect(startGame)
+            if (!configuration!.getSensorProtocol().isConnected()) {
+                configuration!.getSensorProtocol().connect(startGame)
             } else {
                 startGame()
             }
@@ -90,13 +90,13 @@ class StartViewController: UIViewController, UITextFieldDelegate {
     
     func setSensorStatus(){
      
-        if (configuration!.getSensorService().sensorRightStatus()) {
+        if (configuration!.getSensorProtocol().sensorRightStatus()) {
             self.IVSensorRightFound.image = UIImage(named: startButton)
         } else {
             self.IVSensorRightFound.image = UIImage(named: stopButton)
         }
         
-        if (configuration!.getSensorService().sensorLeftStatus()) {
+        if (configuration!.getSensorProtocol().sensorLeftStatus()) {
             self.IVSensorLeftFound.image = UIImage(named: startButton)
         } else {
             self.IVSensorLeftFound.image = UIImage(named: stopButton)

@@ -8,6 +8,27 @@
 
 import Foundation
 
+protocol SensorStatusDelegate {
+    func detect(kuraService: KuraService)
+    func connect(kuraService: KuraService)
+    func disconnect(kuraService: KuraService)
+}
+
+class SensorStatus : SensorStatusDelegate {
+    func detect(kuraService: KuraService){
+        println("detecting sensors ... ")
+        kuraService.connect()
+    }
+    
+    func connect(kuraService: KuraService){
+        println("connected to both sensors ... ")
+    }
+    
+    func disconnect(kuraService: KuraService){
+        println("no connection ... ")
+    }
+}
+
 class NooPSensorDataListener : SensorDataListenerProtocol {
 
     func onDataRightIncoming(data: [Double]) {
@@ -30,6 +51,7 @@ class KuraService  {
     var sensorRightFound    = false
     
     var listener            : SensorDataListenerProtocol = NooPSensorDataListener()
+    var delegate            : SensorStatusDelegate?
     
     var whenSensorsConnected:(()->Void)?
     
@@ -64,7 +86,7 @@ class KuraService  {
     
     func connect()              {
         println("// STATUS - try to connect")
-
+        
         var clientID                    = UIDevice.currentDevice().identifierForVendor.UUIDString
         var mqttInstance :MQTTClient    = MQTTClient(clientId: clientID)
         
@@ -86,6 +108,7 @@ class KuraService  {
                         self.listener.onDataRightIncoming(self.generateData())
                         
                         if (self.sensorsFound()) {
+                            self.delegate?.connect(self)
                             self.whenSensorsConnected!()
                         }
                     })
@@ -94,6 +117,7 @@ class KuraService  {
             } else {
                 println("// STATUS - NOT CONNECTED")
                 println(code.value)
+                self.delegate?.detect(self)
             }
         })
     }

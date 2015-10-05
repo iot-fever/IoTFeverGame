@@ -23,18 +23,18 @@ var configuration : Configuration?
 
 protocol Configuration {
     
-    func getUserService()       -> UserServiceProtocol
-    func getSensorService()     -> SensorServiceProtocol
+    func getUserProtocol()       -> UserServiceProtocol
+    func getSensorProtocol()     -> SensorServiceProtocol
 }
 
 
 class TestConfiguration : Configuration {
     
-    func getUserService()       -> UserServiceProtocol {
+    func getUserProtocol()       -> UserServiceProtocol {
         return DummyUserService()
     }
     
-    func getSensorService()     -> SensorServiceProtocol {
+    func getSensorProtocol()     -> SensorServiceProtocol {
         return DummySensorService()
     }
 }
@@ -49,12 +49,12 @@ class DummyUserService : UserServiceProtocol {
 
 class IntegratedConfiguration : NSObject, Configuration {
     
-    func getUserService()       -> UserServiceProtocol    {
+    func getUserProtocol()       -> UserServiceProtocol    {
         return DummyUserService()
     }
     
-    func getSensorService()     -> SensorServiceProtocol  {
-        return SensorTagAdapterService.current
+    func getSensorProtocol()     -> SensorServiceProtocol  {
+        return SensorService.current
     }
 }
 
