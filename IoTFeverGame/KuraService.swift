@@ -13,16 +13,8 @@ let sensorLeftUUID = NSUserDefaults.standardUserDefaults().stringForKey("left_se
 let sensorRightUUID = NSUserDefaults.standardUserDefaults().stringForKey("right_sensor_uuid")
 
 protocol KuraServiceDelegate {
-    func getSensor(game: DiceGame)
-    func game(game: DiceGame, didStartNewTurnWithDiceRoll diceRoll: Int)
-    func gameDidEnd(game: DiceGame)
-}
-
-protocol SensorDataListener {
-    
-    func onDataRightIncoming(data: [Double])
-    
-    func onDataLeftIncoming(data: [Double])
+    func connect(kuraService: KuraService)
+    func peripheral(kuraService: KuraService)
 }
 
 class KuraService : SensorService {
@@ -40,6 +32,7 @@ class KuraService : SensorService {
     var whenSensorsConnected:(()->Void)?
     
     private init() {
+        delegate?.gameDidStart(self)
         self.bulbTopic       = "$EDC/iot-fever/20BA/iotfever/lights/1/state"
         self.kMQTTServerHost = "192.168.1.38"
     }
@@ -79,20 +72,26 @@ class KuraService : SensorService {
                 println("// STATUS - CONNECTED")
                 
                 if  mqttInstance.connected {
-                    mqttInstance.publishString("{\"on\":true,\"hue\":\(25500)}", toTopic: self.bulbTopic, withQos: ExactlyOnce, retain: false, completionHandler: { mid in
-                        mqttInstance.disconnectWithCompletionHandler({ mid in
-                            println("// STATUS - DATA RECEIVED")
-                            
-                            // if leftSensor == 
-                                self.sensorLeftFound = true
-                            // if rightSensor ==
-                                self.sensorRightFound = true
-                            
-                            if (self.sensorsFound()) {
-                                self.whenSensorsConnected!()
-                            }
-                        })
+                    
+                    mqttInstance.subscribe(self.bulbTopic, withCompletionHandler: { grantedQos in
+                        println("subscribed to topic \(self.bulbTopic)");
+                        
                     })
+                    
+//                    mqttInstance.publishString("{\"on\":true,\"hue\":\(25500)}", toTopic: self.bulbTopic, withQos: ExactlyOnce, retain: false, completionHandler: { mid in
+//                        mqttInstance.disconnectWithCompletionHandler({ mid in
+//                            println("// STATUS - DATA RECEIVED")
+//                            
+//                            // if leftSensor == 
+//                                self.sensorLeftFound = true
+//                            // if rightSensor ==
+//                                self.sensorRightFound = true
+//                            
+//                            if (self.sensorsFound()) {
+//                                self.whenSensorsConnected!()
+//                            }
+//                        })
+//                    })
                 }
                 
             } else {

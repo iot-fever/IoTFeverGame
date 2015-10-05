@@ -70,6 +70,7 @@ class GameViewController: UIViewController, SensorDataListener, AnyObject {
         countdown--
         countdownTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("updateCountDown"), userInfo: nil, repeats: true)
     }
+    
     func updateCountDown() {
         if(countdown > 0) {
             self.lblCountDown.text = String(countdown--)
