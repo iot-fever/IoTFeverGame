@@ -8,14 +8,14 @@
 
 import Foundation
 
-class DummySensorService : NSObject, SensorService {
+class DummySensorService : NSObject, SensorServiceProtocol {
     
-    var listener : SensorDataListener?
+    var listener : SensorDataListenerProtocol?
     
     var leftArmTimer : NSTimer?
     var rightArmTimer : NSTimer?
     
-    func subscribe(listener : SensorDataListener) {
+    func subscribe(listener : SensorDataListenerProtocol) {
         self.listener = listener
         rightArmTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("generateSensorDataFromDeviceRightArm"), userInfo: nil, repeats: true)
         leftArmTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("generateSensorDataFromDeviceLeftArm"), userInfo: nil, repeats: true)

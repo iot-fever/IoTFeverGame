@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol SensorDataListener {
+protocol SensorDataListenerProtocol {
     
     func onDataRightIncoming(data: [Double])
     

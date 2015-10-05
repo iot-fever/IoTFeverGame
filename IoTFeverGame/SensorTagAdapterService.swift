@@ -9,9 +9,9 @@
 import Foundation
 import CoreBluetooth
 
-class SensorTagAdapterService : SensorService {
+class SensorTagAdapterService : SensorServiceProtocol {
     
-    static let current  : SensorService = SensorTagAdapterService()
+    static let current  : SensorServiceProtocol = SensorTagAdapterService()
     
     var kuraService     : KuraService
     
@@ -19,12 +19,12 @@ class SensorTagAdapterService : SensorService {
        self.kuraService = KuraService.current
     }
     
-    func subscribe(listener: SensorDataListener) {
+    func subscribe(listener: SensorDataListenerProtocol) {
         kuraService.subscribe(listener)
     }
     
     func connect(callback : () -> ()) {
-        KuraService.current.getSensors()
+        KuraService.current.connect()
         self.kuraService.addConnectedCallback(callback)
     }
     

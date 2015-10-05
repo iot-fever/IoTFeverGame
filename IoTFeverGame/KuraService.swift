@@ -8,16 +8,18 @@
 
 import Foundation
 
-// The UUID of the 2 sensors
-let sensorLeftUUID = NSUserDefaults.standardUserDefaults().stringForKey("left_sensor_uuid")
-let sensorRightUUID = NSUserDefaults.standardUserDefaults().stringForKey("right_sensor_uuid")
+class NooPSensorDataListener : SensorDataListenerProtocol {
 
-protocol KuraServiceDelegate {
-    func connect(kuraService: KuraService)
-    func peripheral(kuraService: KuraService)
+    func onDataRightIncoming(data: [Double]) {
+        // swallowing the incoming data
+    }
+
+    func onDataLeftIncoming(data: [Double]) {
+        // swallowing the incoming data
+    }
 }
 
-class KuraService : SensorService {
+class KuraService  {
 
     static var current      :KuraService = KuraService()
     
@@ -27,12 +29,11 @@ class KuraService : SensorService {
     var sensorLeftFound     = false
     var sensorRightFound    = false
     
-    var listener            : SensorDataListener = NooPSensorDataListener()
+    var listener            : SensorDataListenerProtocol = NooPSensorDataListener()
     
     var whenSensorsConnected:(()->Void)?
     
     private init() {
-        delegate?.gameDidStart(self)
         self.bulbTopic       = "$EDC/iot-fever/20BA/iotfever/lights/1/state"
         self.kMQTTServerHost = "192.168.1.38"
     }
@@ -41,7 +42,7 @@ class KuraService : SensorService {
         self.whenSensorsConnected = callback
     }
     
-    func subscribe(listener: SensorDataListener) {
+    func subscribe(listener: SensorDataListenerProtocol) {
         self.listener = listener
     }
     
@@ -61,7 +62,7 @@ class KuraService : SensorService {
         return sensorLeftFound
     }
     
-    func connect()              -> Bool {
+    func connect()              {
         println("// STATUS - try to connect")
 
         var clientID                    = UIDevice.currentDevice().identifierForVendor.UUIDString
@@ -76,22 +77,18 @@ class KuraService : SensorService {
                     mqttInstance.subscribe(self.bulbTopic, withCompletionHandler: { grantedQos in
                         println("subscribed to topic \(self.bulbTopic)");
                         
+                    // if leftSensor ==
+                        self.sensorLeftFound = true
+                        self.listener.onDataRightIncoming(self.generateData())
+                        
+                    // if rightSensor ==
+                        self.sensorRightFound = true
+                        self.listener.onDataRightIncoming(self.generateData())
+                        
+                        if (self.sensorsFound()) {
+                            self.whenSensorsConnected!()
+                        }
                     })
-                    
-//                    mqttInstance.publishString("{\"on\":true,\"hue\":\(25500)}", toTopic: self.bulbTopic, withQos: ExactlyOnce, retain: false, completionHandler: { mid in
-//                        mqttInstance.disconnectWithCompletionHandler({ mid in
-//                            println("// STATUS - DATA RECEIVED")
-//                            
-//                            // if leftSensor == 
-//                                self.sensorLeftFound = true
-//                            // if rightSensor ==
-//                                self.sensorRightFound = true
-//                            
-//                            if (self.sensorsFound()) {
-//                                self.whenSensorsConnected!()
-//                            }
-//                        })
-//                    })
                 }
                 
             } else {
@@ -101,23 +98,35 @@ class KuraService : SensorService {
         })
     }
     
-    func peripheral() {
+//    private func publishRight(data: [Double]) {
+//        //listener.onDataRightIncoming(data)
+//        listener.onDataRightIncoming(generateData())
+//    }
     
-        // if leftSensor ==
-        // accelData -> Streams Sensor Data Left
-        // self.publishLeft(accelData)
-        
-        // if rightSensor ==
-        // accelData -> Streams Sensor Data Right
-        // self.publishRight(accelData)
-
+    private func publishRight() {
+        listener.onDataRightIncoming(generateData())
     }
     
-    private func publishRight(data: [Double]) {
-        listener.onDataRightIncoming(data)
+//    private func publishLeft(data: [Double]) {
+//        //listener.onDataLeftIncoming(data)
+//        listener.onDataLeftIncoming(generateData())
+//    }
+    
+    private func publishLeft() {
+        listener.onDataLeftIncoming(generateData())
     }
     
-    private func publishLeft(data: [Double]) {
-        listener.onDataLeftIncoming(data)
+    private func generateData() -> [Double] {
+        var data = [Double](count: 2,repeatedValue: 0.0)
+        data[0] = Double(randomNumber(-100,upper: 100))
+        data[1] = Double(randomNumber(-100,upper: 100))
+        println("DUMMY")
+        println(data)
+        return data
+    }
+    
+    func randomNumber (lower : Int , upper : Int) -> Int {
+        let result = Int(arc4random_uniform(UInt32(upper - lower + 1))) +   lower
+        return result
     }
 }

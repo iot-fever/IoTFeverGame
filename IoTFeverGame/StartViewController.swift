@@ -19,6 +19,9 @@ class StartViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var IVSensorLeftFound    : UIImageView!
     @IBOutlet weak var IVSensorRightFound   : UIImageView!
     
+    let startButton : String = "button-start.png"
+    let stopButton  : String = "button-stop.png"
+    
     var discoBall : UIImageView = UIImageView()
     
     var timer : NSTimer?
@@ -36,7 +39,7 @@ class StartViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         self.playerNameText.text = "Waiting for new Game..."
         
-        self.IVPlayerReceived.image = UIImage(named: "button-stop.png")
+        self.IVPlayerReceived.image = UIImage(named: stopButton)
 
         gameStarted = false
         
@@ -73,7 +76,7 @@ class StartViewController: UIViewController, UITextFieldDelegate {
         setSensorStatus()
         
         if (user.running) {
-            self.IVPlayerReceived.image = UIImage(named: "button-start.png")
+            self.IVPlayerReceived.image = UIImage(named: startButton)
             
             if (!configuration!.getSensorService().isConnected()) {
                 configuration!.getSensorService().connect(startGame)
@@ -81,22 +84,22 @@ class StartViewController: UIViewController, UITextFieldDelegate {
                 startGame()
             }
         } else {
-            self.IVPlayerReceived.image = UIImage(named: "button-stop.png")
+            self.IVPlayerReceived.image = UIImage(named: stopButton)
         }
     }
     
     func setSensorStatus(){
      
         if (configuration!.getSensorService().sensorRightStatus()) {
-            self.IVSensorRightFound.image = UIImage(named: "button-start.png")
+            self.IVSensorRightFound.image = UIImage(named: startButton)
         } else {
-            self.IVSensorRightFound.image = UIImage(named: "button-stop.png")
+            self.IVSensorRightFound.image = UIImage(named: stopButton)
         }
         
         if (configuration!.getSensorService().sensorLeftStatus()) {
-            self.IVSensorLeftFound.image = UIImage(named: "button-start.png")
+            self.IVSensorLeftFound.image = UIImage(named: startButton)
         } else {
-            self.IVSensorLeftFound.image = UIImage(named: "button-stop.png")
+            self.IVSensorLeftFound.image = UIImage(named: stopButton)
         }
     }
     

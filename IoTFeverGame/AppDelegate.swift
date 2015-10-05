@@ -19,9 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         registerAppDefaults()
         
-        connectMqtt()
-        
-        configuration = TestConfiguration()
+        configuration = IntegratedConfiguration()
         
         return true
     }
@@ -38,37 +36,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         ])
         NSUserDefaults.standardUserDefaults().synchronize()
-    }
-    
-    func connectMqtt(){
-        println("// try to connect")
-        
-        var mqttInstance :MQTTClient!
-        var bulbTopic = "$EDC/iot-fever/20BA/iotfever/lights/1/state"
-        
-        var clientID = UIDevice.currentDevice().identifierForVendor.UUIDString
-        mqttInstance = MQTTClient(clientId: clientID)
-        let kMQTTServerHost = "192.168.1.38"
-        
-        mqttInstance.connectToHost(kMQTTServerHost, completionHandler: { (code: MQTTConnectionReturnCode) -> Void in
-            if code.value == ConnectionAccepted.value {
-                println("// CONNECTED")
-                
-                // RED
-                if  mqttInstance.connected {
-                    mqttInstance.publishString("{\"on\":true,\"hue\":\(25500)}", toTopic: bulbTopic, withQos: ExactlyOnce, retain: false, completionHandler: { mid in
-                        mqttInstance.disconnectWithCompletionHandler({ mid in
-                        //
-                        })
-                    })
-                }
-                
-            } else {
-                println("// NOT CONNECTED")
-                println("return code \(code.value)")
-            }
-        })
-
     }
     
     func applicationWillResignActive(application: UIApplication) {

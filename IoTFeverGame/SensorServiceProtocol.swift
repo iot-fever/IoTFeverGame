@@ -8,13 +8,13 @@
 
 import Foundation
 
-protocol SensorService {
+protocol SensorServiceProtocol {
     
-    func subscribe(SensorDataListener)
+    func subscribe(SensorDataListenerProtocol)
     
     func isConnected()                  -> Bool
     
-    func connect()                      -> Bool
+    func connect(callback : () -> ())
     
     func disconnect()                   -> Bool
     

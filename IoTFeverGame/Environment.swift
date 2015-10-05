@@ -10,10 +10,10 @@ import Foundation
 
 class GameEnvironment {
     
-    var sensorService   : SensorService
+    var sensorService   : SensorServiceProtocol
     var username        : String
     
-    init(sensorService : SensorService, username : String) {
+    init(sensorService : SensorServiceProtocol, username : String) {
         self.sensorService  = sensorService
         self.username       = username
     }
@@ -23,23 +23,23 @@ var configuration : Configuration?
 
 protocol Configuration {
     
-    func getUserService()       -> UserService
-    func getSensorService()     -> SensorService
+    func getUserService()       -> UserServiceProtocol
+    func getSensorService()     -> SensorServiceProtocol
 }
 
 
 class TestConfiguration : Configuration {
     
-    func getUserService()       -> UserService {
+    func getUserService()       -> UserServiceProtocol {
         return DummyUserService()
     }
     
-    func getSensorService()     -> SensorService {
+    func getSensorService()     -> SensorServiceProtocol {
         return DummySensorService()
     }
 }
 
-class DummyUserService : UserService {
+class DummyUserService : UserServiceProtocol {
     
     func getUser() {
         user            = User(running: true)
@@ -49,11 +49,11 @@ class DummyUserService : UserService {
 
 class IntegratedConfiguration : NSObject, Configuration {
     
-    func getUserService()       -> UserService    {
+    func getUserService()       -> UserServiceProtocol    {
         return DummyUserService()
     }
     
-    func getSensorService()     -> SensorService  {
+    func getSensorService()     -> SensorServiceProtocol  {
         return SensorTagAdapterService.current
     }
 }
