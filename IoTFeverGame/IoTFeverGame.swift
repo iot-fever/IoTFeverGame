@@ -53,12 +53,12 @@ class LevelBuilder {
 
 class IoTFeverGame : NSObject {
     
-    var currentLevelIndex : Int
-    var levels          : [Level]
-    var startTime       : NSDate?
-    var isRunning       : Bool
-    var player          : Player
-    var scoreStrategy   : ScoreStrategy
+    var currentLevelIndex   : Int
+    var levels              : [Level]
+    var startTime           : NSDate?
+    var isRunning           : Bool
+    var player              : Player
+    var scoreStrategy       : ScoreStrategy
     
     // when you start a game
     
@@ -71,7 +71,7 @@ class IoTFeverGame : NSObject {
         self.levels.append(LevelBuilder.createLevelThree())
         
         self.scoreStrategy = ScoreBonusPointStrategy()
-        self.player = Player(username: username, lives: 3)
+        self.player = Player(username: username, lives: NSUserDefaults.standardUserDefaults().stringForKey(settings_number_lives)!.toInt()!)
         self.currentLevelIndex = 0
         super.init()
     }

@@ -10,16 +10,22 @@ import UIKit
 import CoreData
 
 
+let settings_integrated_mode    :String = "integrated_mode"
+let settings_number_lives       :String = "number_lives"
+let settings_game_length        :String = "game_length"
+let settings_left_sensor_uuid   :String = "left_sensor_uuid"
+let settings_right_sensor_uuid  :String = "right_sensor_uuid"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         registerAppDefaults()
         
-        if NSUserDefaults.standardUserDefaults().boolForKey("integrated_mode") {
+        if NSUserDefaults.standardUserDefaults().boolForKey(settings_integrated_mode) {
             configuration = IntegratedConfiguration()
         } else {
             configuration = TestConfiguration()
@@ -31,14 +37,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //TODO - integrated those settings into App logic
         
         NSUserDefaults.standardUserDefaults().registerDefaults([
-            "integrated_mode": true,
-            "number_lives": 3,
-            "game_length": 60,
-            "left_sensor_uuid": "30EF98A7-C4E4-9CF8-271A-489E1FFA57CF",
-            "right_sensor_uuid": "6561B0E5-0EF4-51B7-F493-CFD7ED72B5C7",
-            "enabled_external_services": true,
-            "rest_api_url_get_name": "http://192.168.1.32:1337/station/Vorto",
-            "rest_api_url_post_score": "http://192.168.1.32:1337/highscore/vorto"
+            settings_integrated_mode    : true,                                         // integrated in AppDelegate.swift
+            settings_number_lives       : 3,                                            // integrated in IoTFeverGame.swift
+            settings_game_length        : 60,                                           
+            settings_left_sensor_uuid   : "30EF98A7-C4E4-9CF8-271A-489E1FFA57CF",       // currently not in use
+            settings_right_sensor_uuid  : "6561B0E5-0EF4-51B7-F493-CFD7ED72B5C7",       // currently not in use
+            "enabled_external_services" : true,
+            "rest_api_url_get_name"     : "http://192.168.1.32:1337/station/Vorto",
+            "rest_api_url_post_score"   : "http://192.168.1.32:1337/highscore/vorto"
             
         ])
         NSUserDefaults.standardUserDefaults().synchronize()
