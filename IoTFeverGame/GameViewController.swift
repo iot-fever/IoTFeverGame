@@ -214,7 +214,6 @@ class GameViewController: UIViewController, SensorDataListenerProtocol, AnyObjec
     }
     
     func flashGreen() {
-        println("FLASH GREEN!")
         let result = Int(arc4random_uniform(UInt32(self.hitMessages.count)))
         self.GameOver.text = hitMessages[result]
     }

@@ -8,18 +8,17 @@
 
 import Foundation
 
-
 class Level {
 
     var name                : Int
     var duration            : Int
     var delayBetweenMoves   : Float
-    var possibleDanceMoves  : [Int: DanceMove]
+    var possibleDanceMoves  : [Int: DanceMoveProtocol]
     var color               : String
     
-    var currentMove : DanceMove = DanceMoveImpl(bodyParts : MovingArmBodyPart(position: ArmPosition.Top, image: "TR",rightSide : true))
+    var currentMove : DanceMoveProtocol = DanceMoveImpl(bodyParts : MovingArmBodyPart(position: ArmPosition.Top, image: "TR",rightSide : true))
 
-    init (name: Int, duration: Int, delayBetweenMoves: Float, color: String, possibleDanceMoves : [Int:DanceMove]) {
+    init (name: Int, duration: Int, delayBetweenMoves: Float, color: String, possibleDanceMoves : [Int:DanceMoveProtocol]) {
         self.name                   = name
         self.duration               = duration
         self.delayBetweenMoves      = delayBetweenMoves
@@ -42,7 +41,7 @@ class Level {
        
     }
     
-    func matchesLastMove(createdMove : DanceMove) -> Bool {
+    func matchesLastMove(createdMove : DanceMoveProtocol) -> Bool {
         
         if createdMove.getImage() == currentMove.getImage() { 
             return true

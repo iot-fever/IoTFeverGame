@@ -28,6 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
         
     func registerAppDefaults() {
+        //TODO - integrated those settings into App logic
+        
         NSUserDefaults.standardUserDefaults().registerDefaults([
             "integrated_mode": true,
             "number_lives": 3,

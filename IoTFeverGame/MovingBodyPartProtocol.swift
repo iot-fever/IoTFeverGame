@@ -8,18 +8,7 @@
 
 import Foundation
 
-protocol DanceMove : AnyObject {
-    
-    func getImage() -> String
-    
-    func getInvolvedBodyParts() -> [MovingBodyPart]
-    
-    func isCompleted() -> Bool
-    
-    func reset()
-}
-
-protocol MovingBodyPart {
+protocol MovingBodyPartProtocol {
     
     func isCompleted() -> Bool
     

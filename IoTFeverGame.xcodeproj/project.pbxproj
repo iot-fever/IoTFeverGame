@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1171C2B51BA5679F00E0537F /* DanceMoveImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1171C2B41BA5679F00E0537F /* DanceMoveImpl.swift */; };
-		1171C2B91BA56F5400E0537F /* DanceMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1171C2B81BA56F5400E0537F /* DanceMove.swift */; };
+		1171C2B91BA56F5400E0537F /* MovingBodyPartProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1171C2B81BA56F5400E0537F /* MovingBodyPartProtocol.swift */; };
 		1171C2BB1BA5831900E0537F /* ScoreStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1171C2BA1BA5831900E0537F /* ScoreStrategy.swift */; };
 		1171C2BD1BA5852B00E0537F /* ScoreBonusPointStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1171C2BC1BA5852B00E0537F /* ScoreBonusPointStrategy.swift */; };
 		11E8AE331BA8455B00B190D6 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E8AE321BA8455B00B190D6 /* Environment.swift */; };
@@ -24,6 +24,8 @@
 		2672928F1BAFE0E700921F6C /* MQTTKit in Resources */ = {isa = PBXBuildFile; fileRef = 2672928D1BAFE0E700921F6C /* MQTTKit */; };
 		267292951BB001F700921F6C /* libMQTTKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 267292831BAFBE6B00921F6C /* libMQTTKit.a */; };
 		2680F5871BBE6B0200004DD0 /* KuraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680F5861BBE6B0200004DD0 /* KuraService.swift */; };
+		268349351BC36A5B0054C355 /* DanceMoveProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268349341BC36A5B0054C355 /* DanceMoveProtocol.swift */; };
+		268349381BC37A3C0054C355 /* SensorDataListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268349371BC37A3C0054C355 /* SensorDataListener.swift */; };
 		2689A2551BC278090083A29C /* UserServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2689A2541BC278090083A29C /* UserServiceProtocol.swift */; };
 		2689A2581BC278270083A29C /* SensorServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2689A2571BC278270083A29C /* SensorServiceProtocol.swift */; };
 		2689A25A1BC278340083A29C /* SensorDataListenerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2689A2591BC278340083A29C /* SensorDataListenerProtocol.swift */; };
@@ -92,7 +94,7 @@
 
 /* Begin PBXFileReference section */
 		1171C2B41BA5679F00E0537F /* DanceMoveImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DanceMoveImpl.swift; sourceTree = "<group>"; };
-		1171C2B81BA56F5400E0537F /* DanceMove.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DanceMove.swift; sourceTree = "<group>"; };
+		1171C2B81BA56F5400E0537F /* MovingBodyPartProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovingBodyPartProtocol.swift; sourceTree = "<group>"; };
 		1171C2BA1BA5831900E0537F /* ScoreStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreStrategy.swift; sourceTree = "<group>"; };
 		1171C2BC1BA5852B00E0537F /* ScoreBonusPointStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreBonusPointStrategy.swift; sourceTree = "<group>"; };
 		11E8AE321BA8455B00B190D6 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
@@ -114,6 +116,8 @@
 		2672928D1BAFE0E700921F6C /* MQTTKit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MQTTKit; sourceTree = "<group>"; };
 		267292931BB001EF00921F6C /* libMQTTKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMQTTKit.a; sourceTree = "<group>"; };
 		2680F5861BBE6B0200004DD0 /* KuraService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KuraService.swift; sourceTree = "<group>"; };
+		268349341BC36A5B0054C355 /* DanceMoveProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DanceMoveProtocol.swift; sourceTree = "<group>"; };
+		268349371BC37A3C0054C355 /* SensorDataListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorDataListener.swift; sourceTree = "<group>"; };
 		2689A2541BC278090083A29C /* UserServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserServiceProtocol.swift; sourceTree = "<group>"; };
 		2689A2571BC278270083A29C /* SensorServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorServiceProtocol.swift; sourceTree = "<group>"; };
 		2689A2591BC278340083A29C /* SensorDataListenerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorDataListenerProtocol.swift; sourceTree = "<group>"; };
@@ -279,11 +283,12 @@
 				26D77EC41B9939680042F414 /* Player.swift */,
 				26D77EC61B9939850042F414 /* MovingArmBodyPart.swift */,
 				1171C2B41BA5679F00E0537F /* DanceMoveImpl.swift */,
-				1171C2B81BA56F5400E0537F /* DanceMove.swift */,
 				1171C2BA1BA5831900E0537F /* ScoreStrategy.swift */,
 				1171C2BC1BA5852B00E0537F /* ScoreBonusPointStrategy.swift */,
 				11E8AE321BA8455B00B190D6 /* Environment.swift */,
 				11E8AE3E1BA9A56A00B190D6 /* SingleArmDanceMove.swift */,
+				1171C2B81BA56F5400E0537F /* MovingBodyPartProtocol.swift */,
+				268349341BC36A5B0054C355 /* DanceMoveProtocol.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -294,6 +299,7 @@
 				26D77ED51B9947110042F414 /* DummySensorService.swift */,
 				2689A25F1BC2831C0083A29C /* SensorService.swift */,
 				2680F5861BBE6B0200004DD0 /* KuraService.swift */,
+				268349371BC37A3C0054C355 /* SensorDataListener.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -494,9 +500,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2680F5871BBE6B0200004DD0 /* KuraService.swift in Sources */,
-				1171C2B91BA56F5400E0537F /* DanceMove.swift in Sources */,
+				1171C2B91BA56F5400E0537F /* MovingBodyPartProtocol.swift in Sources */,
 				11E8AE331BA8455B00B190D6 /* Environment.swift in Sources */,
 				26CD12171BA7EBBF00C5C4A6 /* EndViewController.swift in Sources */,
+				268349351BC36A5B0054C355 /* DanceMoveProtocol.swift in Sources */,
 				26D77EC71B9939850042F414 /* MovingArmBodyPart.swift in Sources */,
 				2689A25C1BC2784C0083A29C /* User.swift in Sources */,
 				26550F041B96F8BE0010D1D2 /* StartViewController.swift in Sources */,
@@ -505,6 +512,7 @@
 				26D77ED61B9947110042F414 /* DummySensorService.swift in Sources */,
 				26550EFF1B96F8BE0010D1D2 /* AppDelegate.swift in Sources */,
 				26EBAA2B1B981A3C0083CCCC /* GameViewController.swift in Sources */,
+				268349381BC37A3C0054C355 /* SensorDataListener.swift in Sources */,
 				1171C2BB1BA5831900E0537F /* ScoreStrategy.swift in Sources */,
 				2689A2551BC278090083A29C /* UserServiceProtocol.swift in Sources */,
 				3D0357D41BA6F4C800CA6D1D /* VisualizerView.swift in Sources */,

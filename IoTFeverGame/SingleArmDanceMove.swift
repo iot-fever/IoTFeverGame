@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SingleArmDanceMove : DanceMove {
+class SingleArmDanceMove : DanceMoveProtocol {
     
     var arm : MovingArmBodyPart
     
@@ -16,8 +16,8 @@ class SingleArmDanceMove : DanceMove {
         self.arm = arm
     }
     
-    func getInvolvedBodyParts() -> [MovingBodyPart] {
-        var involvedParts = [MovingBodyPart]()
+    func getInvolvedBodyParts() -> [MovingBodyPartProtocol] {
+        var involvedParts = [MovingBodyPartProtocol]()
         involvedParts.append(arm)
         return involvedParts
     }

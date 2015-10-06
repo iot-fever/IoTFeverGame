@@ -10,13 +10,13 @@ import Foundation
 
 class LevelBuilder {
     
-    static let TOP_RIGHT    : MovingBodyPart = MovingArmBodyPart(position: ArmPosition.Top, image: "TR", rightSide : true)
-    static let TOP_LEFT     : MovingBodyPart = MovingArmBodyPart(position: ArmPosition.Top, image: "TL", rightSide : false)
-    static let BOTTOM_RIGHT : MovingBodyPart = MovingArmBodyPart(position: ArmPosition.Bottom, image: "BR", rightSide : true)
-    static let BOTTOM_LEFT  : MovingBodyPart = MovingArmBodyPart(position: ArmPosition.Bottom, image: "BL", rightSide : false)
+    static let TOP_RIGHT    : MovingBodyPartProtocol = MovingArmBodyPart(position: ArmPosition.Top, image: "TR", rightSide : true)
+    static let TOP_LEFT     : MovingBodyPartProtocol = MovingArmBodyPart(position: ArmPosition.Top, image: "TL", rightSide : false)
+    static let BOTTOM_RIGHT : MovingBodyPartProtocol = MovingArmBodyPart(position: ArmPosition.Bottom, image: "BR", rightSide : true)
+    static let BOTTOM_LEFT  : MovingBodyPartProtocol = MovingArmBodyPart(position: ArmPosition.Bottom, image: "BL", rightSide : false)
     
     static func createLevelOne() -> Level {
-        var danceMoves = [Int: DanceMove]()
+        var danceMoves = [Int: DanceMoveProtocol]()
         danceMoves[0] = DanceMoveImpl(bodyParts: TOP_RIGHT)
         danceMoves[1] = DanceMoveImpl(bodyParts: BOTTOM_RIGHT)
         danceMoves[2] = DanceMoveImpl(bodyParts: TOP_LEFT)
@@ -26,7 +26,7 @@ class LevelBuilder {
     }
     
     static func createLevelTwo() -> Level {
-        var danceMoves = [Int: DanceMove]()
+        var danceMoves = [Int: DanceMoveProtocol]()
         danceMoves[0] = DanceMoveImpl(bodyParts: TOP_LEFT,TOP_RIGHT)
         danceMoves[1] = DanceMoveImpl(bodyParts: BOTTOM_LEFT,BOTTOM_RIGHT)
         danceMoves[2] = DanceMoveImpl(bodyParts: BOTTOM_LEFT,TOP_RIGHT)
@@ -36,7 +36,7 @@ class LevelBuilder {
     }
     
     static func createLevelThree() -> Level {
-        var danceMoves = [Int: DanceMove]()
+        var danceMoves = [Int: DanceMoveProtocol]()
         danceMoves[0] = DanceMoveImpl(bodyParts: TOP_RIGHT)
         danceMoves[1] = DanceMoveImpl(bodyParts: BOTTOM_RIGHT)
         danceMoves[2] = DanceMoveImpl(bodyParts: TOP_LEFT)

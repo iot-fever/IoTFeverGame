@@ -8,15 +8,15 @@
 
 import Foundation
 
-class DanceMoveImpl : DanceMove {
+class DanceMoveImpl : DanceMoveProtocol {
     
-    var bodyParts : [MovingBodyPart]
+    var bodyParts : [MovingBodyPartProtocol]
     
-    init(bodyParts : MovingBodyPart...) {
+    init(bodyParts : MovingBodyPartProtocol...) {
         self.bodyParts = bodyParts
     }
     
-    func getInvolvedBodyParts() -> [MovingBodyPart] {
+    func getInvolvedBodyParts() -> [MovingBodyPartProtocol] {
         return bodyParts
     }
     

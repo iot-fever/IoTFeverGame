@@ -17,8 +17,9 @@
       "scale" : "3x"
     },
     {
-      "idiom" : "iphone",
       "size" : "40x40",
+      "idiom" : "iphone",
+      "filename" : "vorto-app copy.png",
       "scale" : "2x"
     },
     {
@@ -27,8 +28,9 @@
       "scale" : "3x"
     },
     {
-      "idiom" : "iphone",
       "size" : "57x57",
+      "idiom" : "iphone",
+      "filename" : "vorto-app copy 2.png",
       "scale" : "1x"
     },
     {

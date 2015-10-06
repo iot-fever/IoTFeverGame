@@ -19,16 +19,16 @@ class GameEnvironment {
     }
 }
 
-var configuration : Configuration?
+var configuration : ConfigurationProtocol?
 
-protocol Configuration {
+protocol ConfigurationProtocol {
     
     func getUserProtocol()       -> UserServiceProtocol
     func getSensorProtocol()     -> SensorServiceProtocol
 }
 
 
-class TestConfiguration : Configuration {
+class TestConfiguration : ConfigurationProtocol {
     
     func getUserProtocol()       -> UserServiceProtocol {
         return DummyUserService()
@@ -44,10 +44,11 @@ class DummyUserService : UserServiceProtocol {
     func getUser() {
         user            = User(running: true)
         user.nickname   = "Alex"
+        println("Got User Alex")
     }
 }
 
-class IntegratedConfiguration : NSObject, Configuration {
+class IntegratedConfiguration : NSObject, ConfigurationProtocol {
     
     func getUserProtocol()       -> UserServiceProtocol    {
         return DummyUserService()

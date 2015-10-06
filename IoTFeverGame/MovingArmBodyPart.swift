@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MovingArmBodyPart : MovingBodyPart {
+class MovingArmBodyPart : MovingBodyPartProtocol {
     
     var position : ArmPosition
     

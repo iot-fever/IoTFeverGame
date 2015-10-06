@@ -19,6 +19,7 @@ class StartViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var IVSensorLeftFound    : UIImageView!
     @IBOutlet weak var IVSensorRightFound   : UIImageView!
     
+    // static name for status images 
     let startButton : String = "button-start.png"
     let stopButton  : String = "button-stop.png"
     

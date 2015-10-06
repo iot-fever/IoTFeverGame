@@ -13,37 +13,35 @@ class SensorService : SensorServiceProtocol {
     
     static let current  : SensorServiceProtocol = SensorService()
     
-    var kuraService     : KuraService
-    
     private init() {
-       self.kuraService = KuraService.current
+    
     }
     
     func subscribe(listener: SensorDataListenerProtocol) {
-        kuraService.subscribe(listener)
+        KuraService.current.subscribe(listener)
     }
     
     func connect(callback : () -> ()) {
-        KuraService.current.connect()
-        self.kuraService.addConnectedCallback(callback)
+        while !isConnected() {
+            KuraService.current.detect()
+        }
+        KuraService.current.addConnectedCallback(callback)
     }
     
     func isConnected() -> Bool {
-        return self.kuraService.sensorsFound()
+        return KuraService.current.sensorsFound()
     }
     
     func disconnect() -> Bool {
-        self.kuraService.unsubscribe()
+        KuraService.current.unsubscribe()
         return true
     }
     
     func sensorRightStatus() -> Bool {
-        return self.kuraService.sensorRightStatus()
+        return KuraService.current.sensorRightStatus()
     }
     
     func sensorLeftStatus() -> Bool {
-        return self.kuraService.sensorLeftStatus()
+        return KuraService.current.sensorLeftStatus()
     }
-    
-    
 }
