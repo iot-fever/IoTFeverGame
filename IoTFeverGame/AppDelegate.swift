@@ -19,13 +19,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         registerAppDefaults()
         
-        configuration = IntegratedConfiguration()
-        
+        if NSUserDefaults.standardUserDefaults().boolForKey("integrated_mode") {
+            configuration = IntegratedConfiguration()
+        } else {
+            configuration = TestConfiguration()
+        }
         return true
     }
         
     func registerAppDefaults() {
         NSUserDefaults.standardUserDefaults().registerDefaults([
+            "integrated_mode": true,
             "number_lives": 3,
             "game_length": 60,
             "left_sensor_uuid": "30EF98A7-C4E4-9CF8-271A-489E1FFA57CF",
