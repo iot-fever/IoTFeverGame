@@ -8,15 +8,10 @@
 
 import Foundation
 
-protocol KuraServiceProtocol{
-    func detect()
-    func connected()
-    func disconnect()
-}
 
-class KuraService : NSObject, KuraServiceProtocol {
+class MqttService : NSObject {
 
-    static var current      :KuraService = KuraService()
+    static var current      :MqttService = MqttService()
     
     let bulbTopic           :String
     let kMQTTServerHost     :String
@@ -60,6 +55,8 @@ class KuraService : NSObject, KuraServiceProtocol {
         return sensorLeftFound
     }
     
+    // TODO - implement a stream, that my method gets triggered as soon as something changes 
+    
     func detect() {
         
         println("// STATUS - DETECT")
@@ -67,33 +64,44 @@ class KuraService : NSObject, KuraServiceProtocol {
         var clientID                    = UIDevice.currentDevice().identifierForVendor.UUIDString
         var mqttInstance :MQTTClient    = MQTTClient(clientId: clientID)
         
-        mqttInstance.connectToHost(kMQTTServerHost, completionHandler: { (code: MQTTConnectionReturnCode) -> Void in
-            if code.value == ConnectionAccepted.value {
-                println("// STATUS - CONNECTED")
-                
-                if  mqttInstance.connected {
-                    
-                    mqttInstance.subscribe(self.bulbTopic, withCompletionHandler: { grantedQos in
-                        println("subscribed to topic \(self.bulbTopic)");
-                        
-                        // if leftSensor ==
-                        self.sensorLeftFound = true
-                        
-                        // if rightSensor ==
-                        self.sensorRightFound = true
-                        
-                        if (self.sensorsFound()) {
-                            self.connected()
-                            self.whenSensorsConnected!()
-                        }
-                    })
-                }
-                
-            } else {
-                println("// STATUS - NOT CONNECTED")
-                println(code.value)
-            }
-        })
+        // if leftSensor ==
+        self.sensorLeftFound = true
+        
+        // if rightSensor ==
+        self.sensorRightFound = true
+        
+        if (self.sensorsFound()) {
+            self.connected()
+            //self.whenSensorsConnected!()
+        }
+
+//        mqttInstance.connectToHost(kMQTTServerHost, completionHandler: { (code: MQTTConnectionReturnCode) -> Void in
+//            if code.value == ConnectionAccepted.value {
+//                println("// STATUS - CONNECTED")
+//                
+//                if  mqttInstance.connected {
+//                    
+//                    mqttInstance.subscribe(self.bulbTopic, withCompletionHandler: { grantedQos in
+//                        println("subscribed to topic \(self.bulbTopic)");
+//                        
+//                        // if leftSensor ==
+//                        self.sensorLeftFound = true
+//                        
+//                        // if rightSensor ==
+//                        self.sensorRightFound = true
+//                        
+//                        if (self.sensorsFound()) {
+//                            self.connected()
+//                            self.whenSensorsConnected!()
+//                        }
+//                    })
+//                }
+//                
+//            } else {
+//                println("// STATUS - NOT CONNECTED")
+//                println(code.value)
+//            }
+//        })
     }
     
     func connected() {
@@ -107,14 +115,6 @@ class KuraService : NSObject, KuraServiceProtocol {
     }
     
     func generateSensorDataFromDeviceLeftArm() {
-        listener.onDataLeftIncoming(generateData())
-    }
-    
-    func publishRight() {
-        listener.onDataRightIncoming(generateData())
-    }
-    
-    func publishLeft() {
         listener.onDataLeftIncoming(generateData())
     }
     

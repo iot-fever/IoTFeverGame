@@ -18,30 +18,28 @@ class SensorService : SensorServiceProtocol {
     }
     
     func subscribe(listener: SensorDataListenerProtocol) {
-        KuraService.current.subscribe(listener)
+        MqttService.current.subscribe(listener)
     }
     
     func connect(callback : () -> ()) {
-        while !isConnected() {
-            KuraService.current.detect()
-        }
-        KuraService.current.addConnectedCallback(callback)
+        MqttService.current.detect()
+        MqttService.current.addConnectedCallback(callback)
     }
     
     func isConnected() -> Bool {
-        return KuraService.current.sensorsFound()
+        return MqttService.current.sensorsFound()
     }
     
     func disconnect() -> Bool {
-        KuraService.current.unsubscribe()
+        MqttService.current.unsubscribe()
         return true
     }
     
     func sensorRightStatus() -> Bool {
-        return KuraService.current.sensorRightStatus()
+        return MqttService.current.sensorRightStatus()
     }
     
     func sensorLeftStatus() -> Bool {
-        return KuraService.current.sensorLeftStatus()
+        return MqttService.current.sensorLeftStatus()
     }
 }
