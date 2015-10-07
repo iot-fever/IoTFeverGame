@@ -27,7 +27,7 @@ class MqttService : NSObject {
     var whenSensorsConnected:(()->Void)?
     
     private override init() {
-        self.bulbTopic       = "$EDC/iot-fever/20BA/iotfever/lights/1/state"
+        self.bulbTopic       = "ysd/20ba/ti_sensortag_v2/c4:be:84:71:97:81/accelerometer"
         self.kMQTTServerHost = "192.168.1.38"
     }
     
@@ -55,8 +55,6 @@ class MqttService : NSObject {
         return sensorLeftFound
     }
     
-    // TODO - implement a stream, that my method gets triggered as soon as something changes 
-    
     func detect() {
         
         println("// STATUS - DETECT")
@@ -64,44 +62,39 @@ class MqttService : NSObject {
         var clientID                    = UIDevice.currentDevice().identifierForVendor.UUIDString
         var mqttInstance :MQTTClient    = MQTTClient(clientId: clientID)
         
-        // if leftSensor ==
-        self.sensorLeftFound = true
+        mqttInstance.connectToHost(kMQTTServerHost, completionHandler: { (code: MQTTConnectionReturnCode) -> Void in
+            if code.value == ConnectionAccepted.value {
+                println("// STATUS - CONNECTED")
         
-        // if rightSensor ==
-        self.sensorRightFound = true
+                if  mqttInstance.connected {
+                    
+                    mqttInstance.subscribe(self.bulbTopic, withCompletionHandler: { grantedQos in
+                        println("subscribed to topic \(self.bulbTopic)");
+                        
+                        // if leftSensor ==
+                        self.sensorLeftFound = true
+                        
+                        // if rightSensor ==
+                        self.sensorRightFound = true
+                        
+                        if (self.sensorsFound()) {
+                            self.connected()
+                            self.whenSensorsConnected!()
+                        }
+                    })
+                    
+                    mqttInstance.messageHandler = { (message : MQTTMessage!) -> Void in
+                        println("Message /(message.payloadString())")
+                    }
+                }
+                
+            } else {
+                println("// STATUS - NOT CONNECTED")
+                println(code.value)
+            }
+        })
         
-        if (self.sensorsFound()) {
-            self.connected()
-            //self.whenSensorsConnected!()
-        }
-
-//        mqttInstance.connectToHost(kMQTTServerHost, completionHandler: { (code: MQTTConnectionReturnCode) -> Void in
-//            if code.value == ConnectionAccepted.value {
-//                println("// STATUS - CONNECTED")
-//                
-//                if  mqttInstance.connected {
-//                    
-//                    mqttInstance.subscribe(self.bulbTopic, withCompletionHandler: { grantedQos in
-//                        println("subscribed to topic \(self.bulbTopic)");
-//                        
-//                        // if leftSensor ==
-//                        self.sensorLeftFound = true
-//                        
-//                        // if rightSensor ==
-//                        self.sensorRightFound = true
-//                        
-//                        if (self.sensorsFound()) {
-//                            self.connected()
-//                            self.whenSensorsConnected!()
-//                        }
-//                    })
-//                }
-//                
-//            } else {
-//                println("// STATUS - NOT CONNECTED")
-//                println(code.value)
-//            }
-//        })
+       
     }
     
     func connected() {

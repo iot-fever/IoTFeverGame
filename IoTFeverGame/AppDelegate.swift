@@ -9,7 +9,6 @@
 import UIKit
 import CoreData
 
-
 let settings_integrated_mode    :String = "integrated_mode"
 let settings_number_lives       :String = "number_lives"
 let settings_game_length        :String = "game_length"
