@@ -34,7 +34,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
         
     func registerAppDefaults() {
-        //TODO - integrated those settings into App logic
         
         NSUserDefaults.standardUserDefaults().registerDefaults([
             settings_integrated_mode    : true,                                         // integrated in AppDelegate.swift
@@ -42,11 +41,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             settings_game_length        : 60,                                           
             settings_left_sensor_uuid   : "30EF98A7-C4E4-9CF8-271A-489E1FFA57CF",       // currently not in use
             settings_right_sensor_uuid  : "6561B0E5-0EF4-51B7-F493-CFD7ED72B5C7",       // currently not in use
-            "enabled_external_services" : true,
+            "enabled_external_services" : false,
             "rest_api_url_get_name"     : "http://192.168.1.32:1337/station/Vorto",
             "rest_api_url_post_score"   : "http://192.168.1.32:1337/highscore/vorto"
-            
+            // TODO - further settings
+                // IP of MQTT Server
+                // TOPIC of MQTT Server
         ])
+        
+        
         NSUserDefaults.standardUserDefaults().synchronize()
     }
     
