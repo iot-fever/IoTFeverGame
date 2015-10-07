@@ -77,24 +77,28 @@ class MqttService : NSObject {
                         // if rightSensor ==
                         self.sensorRightFound = true
                         
-                        if (self.sensorsFound()) {
-                            self.connected()
-                            self.whenSensorsConnected!()
+//                        if (self.sensorsFound()) {
+//                            self.connected()
+//                            self.whenSensorsConnected!()
+//                        }
+                        
+                        mqttInstance.messageHandler = { (message : MQTTMessage!) -> Void in
+                            println("Message /(message.payloadString())")
+                            println(message.payloadString())
+                            
+                        
+                            var person = Person.parseFromData(bytes) // from NSDatas
+                            
+                            person.data() //return NSData
+                           
                         }
                     })
-                    
-                    mqttInstance.messageHandler = { (message : MQTTMessage!) -> Void in
-                        println("Message /(message.payloadString())")
-                    }
                 }
-                
             } else {
                 println("// STATUS - NOT CONNECTED")
                 println(code.value)
             }
         })
-        
-       
     }
     
     func connected() {

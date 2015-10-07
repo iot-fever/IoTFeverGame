@@ -42,6 +42,8 @@
 		26D89F141B9D3ED400E77C3F /* Bosch.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D89F0C1B9D3ED400E77C3F /* Bosch.png */; };
 		26E9744D1B984C9D00E73157 /* Game.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 26E9744B1B984C9D00E73157 /* Game.xcdatamodeld */; };
 		26EBAA2B1B981A3C0083CCCC /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EBAA2A1B981A3C0083CCCC /* GameViewController.swift */; };
+		26F82E421BC518DC00235125 /* Kuradatatypes.Kurapayload.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F82E411BC518DC00235125 /* Kuradatatypes.Kurapayload.proto.swift */; };
+		26F82E441BC5198600235125 /* Person.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F82E431BC5198600235125 /* Person.proto.swift */; };
 		3D0357D41BA6F4C800CA6D1D /* VisualizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0357D31BA6F4C800CA6D1D /* VisualizerView.swift */; };
 		3D0357D61BA6FE4D00CA6D1D /* particleTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D0357D51BA6FE4D00CA6D1D /* particleTexture.png */; };
 		3D0357D81BA7065D00CA6D1D /* tries.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D0357D71BA7065D00CA6D1D /* tries.png */; };
@@ -135,6 +137,8 @@
 		26D89F1A1B9D3EF600E77C3F /* Bosch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bosch.png; sourceTree = "<group>"; };
 		26E9744C1B984C9D00E73157 /* Game.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Game.xcdatamodel; sourceTree = "<group>"; };
 		26EBAA2A1B981A3C0083CCCC /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		26F82E411BC518DC00235125 /* Kuradatatypes.Kurapayload.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kuradatatypes.Kurapayload.proto.swift; sourceTree = "<group>"; };
+		26F82E431BC5198600235125 /* Person.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.proto.swift; sourceTree = "<group>"; };
 		3D0357D31BA6F4C800CA6D1D /* VisualizerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualizerView.swift; sourceTree = "<group>"; };
 		3D0357D51BA6FE4D00CA6D1D /* particleTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = particleTexture.png; sourceTree = "<group>"; };
 		3D0357D71BA7065D00CA6D1D /* tries.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tries.png; sourceTree = "<group>"; };
@@ -296,6 +300,8 @@
 		26D77ECA1B993D530042F414 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				26F82E431BC5198600235125 /* Person.proto.swift */,
+				26F82E411BC518DC00235125 /* Kuradatatypes.Kurapayload.proto.swift */,
 				26D77ED51B9947110042F414 /* DummySensorService.swift */,
 				2689A25F1BC2831C0083A29C /* SensorService.swift */,
 				2680F5861BBE6B0200004DD0 /* MqttService.swift */,
@@ -513,6 +519,7 @@
 				26550EFF1B96F8BE0010D1D2 /* AppDelegate.swift in Sources */,
 				26EBAA2B1B981A3C0083CCCC /* GameViewController.swift in Sources */,
 				268349381BC37A3C0054C355 /* SensorDataListener.swift in Sources */,
+				26F82E421BC518DC00235125 /* Kuradatatypes.Kurapayload.proto.swift in Sources */,
 				1171C2BB1BA5831900E0537F /* ScoreStrategy.swift in Sources */,
 				2689A2551BC278090083A29C /* UserServiceProtocol.swift in Sources */,
 				3D0357D41BA6F4C800CA6D1D /* VisualizerView.swift in Sources */,
@@ -520,6 +527,7 @@
 				2689A2581BC278270083A29C /* SensorServiceProtocol.swift in Sources */,
 				3D6D3CA41BA72AAF007AA2C8 /* UIImage+animatedGIF.m in Sources */,
 				1171C2B51BA5679F00E0537F /* DanceMoveImpl.swift in Sources */,
+				26F82E441BC5198600235125 /* Person.proto.swift in Sources */,
 				26D77EC91B99399D0042F414 /* IoTFeverGame.swift in Sources */,
 				26E9744D1B984C9D00E73157 /* Game.xcdatamodeld in Sources */,
 				2689A25A1BC278340083A29C /* SensorDataListenerProtocol.swift in Sources */,
