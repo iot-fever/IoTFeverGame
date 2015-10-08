@@ -71,7 +71,7 @@ class IoTFeverGame : NSObject {
         self.levels.append(LevelBuilder.createLevelThree())
         
         self.scoreStrategy = ScoreBonusPointStrategy()
-        self.player = Player(username: username, lives: NSUserDefaults.standardUserDefaults().stringForKey(settings_number_lives)!.toInt()!)
+        self.player = Player(username: username, lives: Int(NSUserDefaults.standardUserDefaults().stringForKey(settings_number_lives)!)!)
         self.currentLevelIndex = 0
         super.init()
     }

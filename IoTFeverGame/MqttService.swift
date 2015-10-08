@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 class MqttService : NSObject {
 
     static var current      :MqttService = MqttService()
@@ -57,19 +56,20 @@ class MqttService : NSObject {
     
     func detect() {
         
-        println("// STATUS - DETECT")
+        /*
+        print("// STATUS - DETECT")
         
         var clientID                    = UIDevice.currentDevice().identifierForVendor.UUIDString
         var mqttInstance :MQTTClient    = MQTTClient(clientId: clientID)
         
         mqttInstance.connectToHost(kMQTTServerHost, completionHandler: { (code: MQTTConnectionReturnCode) -> Void in
             if code.value == ConnectionAccepted.value {
-                println("// STATUS - CONNECTED")
+                print("// STATUS - CONNECTED")
         
                 if  mqttInstance.connected {
                     
                     mqttInstance.subscribe(self.bulbTopic, withCompletionHandler: { grantedQos in
-                        println("subscribed to topic \(self.bulbTopic)");
+                        prprintsubscribed to topic \(self.bulbTopic)");
                         
                         // if leftSensor ==
                         self.sensorLeftFound = true
@@ -83,13 +83,13 @@ class MqttService : NSObject {
 //                        }
                         
                         mqttInstance.messageHandler = { (message : MQTTMessage!) -> Void in
-                            println("Message /(message.payloadString())")
-                            println(message.payloadString())
+                            print("Message /(message.payloadString())")
+                            print(message.payloadString())
                             
                         
-                            var person = Person.parseFromData(bytes) // from NSDatas
+                            //var person = Person.parseFromData(bytes) // from NSDatas
                             
-                            person.data() //return NSData
+                            //person.data() //return NSData
                            
                         }
                     })
@@ -99,6 +99,7 @@ class MqttService : NSObject {
                 println(code.value)
             }
         })
+        */
     }
     
     func connected() {
@@ -119,8 +120,8 @@ class MqttService : NSObject {
         var data = [Double](count: 2,repeatedValue: 0.0)
         data[0] = Double(randomNumber(-100,upper: 100))
         data[1] = Double(randomNumber(-100,upper: 100))
-        println("DUMMY - Integrated Mode")
-        println(data)
+        print("DUMMY - Integrated Mode")
+        print(data)
         return data
     }
     

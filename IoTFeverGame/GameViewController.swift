@@ -13,7 +13,7 @@ import AVFoundation
 
 var currentGame                         : IoTFeverGame!
 
-class GameViewController: UIViewController, SensorDataListenerProtocol, AnyObject {
+class GameViewController: UIViewController, SensorDataListenerProtocol {
     
     var hitMessages : [String] = ["Whatta move!",
                                   "You're on fire!",

@@ -55,8 +55,8 @@ class DummySensorService : NSObject, SensorServiceProtocol {
         var data = [Double](count: 2,repeatedValue: 0.0)
         data[0] = Double(randomNumber(-100,upper: 100))
         data[1] = Double(randomNumber(-100,upper: 100))
-        println("DUMMY - Test Mode")
-        println(data)
+        print("DUMMY - Test Mode")
+        print(data)
         return data
     }
     

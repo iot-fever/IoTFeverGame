@@ -142,11 +142,20 @@ class VisualizerView: UIView {
     }
     
     func playAudio() {
-        let audioUrl = NSBundle.mainBundle().URLForResource("disco", withExtension: "mp3")
         
-        var error:NSError?
-        audioPlayer = AVAudioPlayer(contentsOfURL: audioUrl, error: &error)
-        println(error);
+        let dirPaths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+        let docsDir = dirPaths[0]
+        let soundFilePath = (docsDir as NSString).stringByAppendingPathComponent("disco.mp3")
+        let soundFileURL = NSURL(fileURLWithPath: soundFilePath)
+        
+        do {
+            try audioPlayer = AVAudioPlayer(contentsOfURL: soundFileURL, fileTypeHint:nil)
+        } catch {
+            //Handle the error
+        }
+        
+
+        
         audioPlayer.numberOfLoops = -1
         
         audioPlayer.meteringEnabled = true

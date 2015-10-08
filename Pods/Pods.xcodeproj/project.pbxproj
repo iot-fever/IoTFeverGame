@@ -1,0 +1,550 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0B03E29E5ED16C98EC99F7CB1673BA75 /* WireFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30DCB7C3F3FF11C6915295FF581DC2B /* WireFormat.swift */; };
+		29526EB8FAC7EE0600C7E1304E83E873 /* ExtensionRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FCD18FADB6C6AEDC8278EF170EF3B0 /* ExtensionRegistry.swift */; };
+		3056903831E4990F205CA19E9D33E62A /* Pods-IoTFeverGame-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 202924E06B8509F5DD6EEBF7E6C46796 /* Pods-IoTFeverGame-dummy.m */; };
+		3DCCC285106021CC438A52C2E76814FA /* CodedInputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752AB218065E67A184975EB27A55738D /* CodedInputStream.swift */; };
+		5B4202E094711530BE552A30AA5DDAD9 /* Google.Protobuf.Descriptor.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315423C3B7D0D1BEB563BE717B7CEBA4 /* Google.Protobuf.Descriptor.proto.swift */; };
+		5E9DC68D70A9E99F2C5697CFFB28491E /* RingBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B38B702DD95CE1E0D4B1FE1FE7BC251 /* RingBuffer.swift */; };
+		93BFE8A379A03363F704E06E5252AC1D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C1475F57431B650F8A671AD7E0CC715 /* Foundation.framework */; };
+		A4815468AC84C35174F7C4F6FDED0A59 /* UnknownFieldSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37316A3C1A0A85AE9301AACC606CB9B5 /* UnknownFieldSet.swift */; };
+		A5209B072DDF78E628C928722C0758C3 /* ExtendableMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A3CFE6936D6264FF9E0E1811A701E1 /* ExtendableMessage.swift */; };
+		B89EDFED1EBB83A0BFF98B60525F5593 /* ProtocolBuffers-Swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D86E833A94348D0AA3E5B5664B79ACE /* ProtocolBuffers-Swift-dummy.m */; };
+		BCEDBB8DE996CAD9DC56AA6ABF7B14C3 /* GeneratedMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D257A2D26570D71584DE725C9E94C9 /* GeneratedMessage.swift */; };
+		BDE3F81A97635E76840D68CB4B56FEE1 /* ConcreateExtensionField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9179779522B62D13B37425FD6F069B /* ConcreateExtensionField.swift */; };
+		C003BB369C87178DE43D23F5F306AD7C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C1475F57431B650F8A671AD7E0CC715 /* Foundation.framework */; };
+		C7E114D71B6EA1E97D32CEBA70394695 /* ProtocolBuffers-Swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A9DFB5307803905282535CE13F308A7 /* ProtocolBuffers-Swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D04E3A8CF0B7B16F875AD9F1D8F5FC1E /* AbstractMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F408383F12BDCF5EB9BD4F82F527F134 /* AbstractMessage.swift */; };
+		DE350D53BA8E5AF7A6E0D39E59B261C7 /* Google.Protobuf.SwiftDescriptor.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35386D9A916001063746661B644071B6 /* Google.Protobuf.SwiftDescriptor.proto.swift */; };
+		F568CFCEA6436D9B5F54356E25E22783 /* Pods-IoTFeverGame-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B466832CA6921CEBBADB2DEA6003718 /* Pods-IoTFeverGame-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F6AFE2BB930CCD2516EEDE1F68E0FF8A /* CodedOutputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718BF72D435CD8081B6E7348B87F7B33 /* CodedOutputStream.swift */; };
+		F8C79CEA2886D9DD1EAD36CF8FE98746 /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663589990CCACDDDD00120B6F4D79F12 /* Field.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C8C34813B90AEAF2EFF6A39687F6CB29 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 12E78EC57A4833A5F2B0D528B9833786;
+			remoteInfo = "ProtocolBuffers-Swift";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0B38B702DD95CE1E0D4B1FE1FE7BC251 /* RingBuffer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RingBuffer.swift; path = "src/ProtocolBuffers/runtime-pb-swift/RingBuffer.swift"; sourceTree = "<group>"; };
+		0BF38C7B9696819F7808AF24D778E45A /* ProtocolBuffers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ProtocolBuffers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		13D257A2D26570D71584DE725C9E94C9 /* GeneratedMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GeneratedMessage.swift; path = "src/ProtocolBuffers/runtime-pb-swift/GeneratedMessage.swift"; sourceTree = "<group>"; };
+		17C4D923190313530215EA8A663D5169 /* ProtocolBuffers-Swift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "ProtocolBuffers-Swift.xcconfig"; sourceTree = "<group>"; };
+		202924E06B8509F5DD6EEBF7E6C46796 /* Pods-IoTFeverGame-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-IoTFeverGame-dummy.m"; sourceTree = "<group>"; };
+		27F45FC2339217EAFFF0C4DD8A934B9B /* ProtocolBuffers-Swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ProtocolBuffers-Swift-prefix.pch"; sourceTree = "<group>"; };
+		2B38E84BF8155C07889075B7B7C9B8C6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2D86E833A94348D0AA3E5B5664B79ACE /* ProtocolBuffers-Swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ProtocolBuffers-Swift-dummy.m"; sourceTree = "<group>"; };
+		315423C3B7D0D1BEB563BE717B7CEBA4 /* Google.Protobuf.Descriptor.proto.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Google.Protobuf.Descriptor.proto.swift; path = "src/ProtocolBuffers/runtime-pb-swift/Google.Protobuf.Descriptor.proto.swift"; sourceTree = "<group>"; };
+		35386D9A916001063746661B644071B6 /* Google.Protobuf.SwiftDescriptor.proto.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Google.Protobuf.SwiftDescriptor.proto.swift; path = "src/ProtocolBuffers/runtime-pb-swift/Google.Protobuf.SwiftDescriptor.proto.swift"; sourceTree = "<group>"; };
+		37316A3C1A0A85AE9301AACC606CB9B5 /* UnknownFieldSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UnknownFieldSet.swift; path = "src/ProtocolBuffers/runtime-pb-swift/UnknownFieldSet.swift"; sourceTree = "<group>"; };
+		4A9DFB5307803905282535CE13F308A7 /* ProtocolBuffers-Swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ProtocolBuffers-Swift-umbrella.h"; sourceTree = "<group>"; };
+		4C1475F57431B650F8A671AD7E0CC715 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		663589990CCACDDDD00120B6F4D79F12 /* Field.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Field.swift; path = "src/ProtocolBuffers/runtime-pb-swift/Field.swift"; sourceTree = "<group>"; };
+		6D76477D8D2217312FF6303535D22C5E /* Pods-IoTFeverGame.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-IoTFeverGame.debug.xcconfig"; sourceTree = "<group>"; };
+		6FB2165A6DEB902E00378EA78844A62C /* ProtocolBuffers-Swift-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "ProtocolBuffers-Swift-Private.xcconfig"; sourceTree = "<group>"; };
+		6FDB753A5956160D7E61EDCF8E0E655C /* Pods_IoTFeverGame.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IoTFeverGame.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		718BF72D435CD8081B6E7348B87F7B33 /* CodedOutputStream.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CodedOutputStream.swift; path = "src/ProtocolBuffers/runtime-pb-swift/CodedOutputStream.swift"; sourceTree = "<group>"; };
+		752AB218065E67A184975EB27A55738D /* CodedInputStream.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CodedInputStream.swift; path = "src/ProtocolBuffers/runtime-pb-swift/CodedInputStream.swift"; sourceTree = "<group>"; };
+		7E3DE7E528FA4F0C5F797E55BF266934 /* Pods-IoTFeverGame-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-IoTFeverGame-frameworks.sh"; sourceTree = "<group>"; };
+		8B466832CA6921CEBBADB2DEA6003718 /* Pods-IoTFeverGame-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-IoTFeverGame-umbrella.h"; sourceTree = "<group>"; };
+		966AFF04882B74C4E3728FA573FC5926 /* ProtocolBuffers-Swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "ProtocolBuffers-Swift.modulemap"; sourceTree = "<group>"; };
+		99A3CFE6936D6264FF9E0E1811A701E1 /* ExtendableMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExtendableMessage.swift; path = "src/ProtocolBuffers/runtime-pb-swift/ExtendableMessage.swift"; sourceTree = "<group>"; };
+		9D9179779522B62D13B37425FD6F069B /* ConcreateExtensionField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConcreateExtensionField.swift; path = "src/ProtocolBuffers/runtime-pb-swift/ConcreateExtensionField.swift"; sourceTree = "<group>"; };
+		B4FCD18FADB6C6AEDC8278EF170EF3B0 /* ExtensionRegistry.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExtensionRegistry.swift; path = "src/ProtocolBuffers/runtime-pb-swift/ExtensionRegistry.swift"; sourceTree = "<group>"; };
+		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BFF9CDF28E82F3B75C9056205155BC2C /* Pods-IoTFeverGame-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-IoTFeverGame-resources.sh"; sourceTree = "<group>"; };
+		C2F54818906F34C7951A5B6EDB2DAC4D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C30DCB7C3F3FF11C6915295FF581DC2B /* WireFormat.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WireFormat.swift; path = "src/ProtocolBuffers/runtime-pb-swift/WireFormat.swift"; sourceTree = "<group>"; };
+		C3F94553B0F271E32082FFC7915707B1 /* Pods-IoTFeverGame-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-IoTFeverGame-acknowledgements.markdown"; sourceTree = "<group>"; };
+		C40EB01D0C0402B3CB82B969244CA828 /* Pods-IoTFeverGame.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-IoTFeverGame.release.xcconfig"; sourceTree = "<group>"; };
+		D0A29BE4284358E796C5EB4277145CBE /* Pods-IoTFeverGame.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-IoTFeverGame.modulemap"; sourceTree = "<group>"; };
+		DA416F328E284A227A6DFB8D477060CB /* Pods-IoTFeverGame-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-IoTFeverGame-acknowledgements.plist"; sourceTree = "<group>"; };
+		F408383F12BDCF5EB9BD4F82F527F134 /* AbstractMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AbstractMessage.swift; path = "src/ProtocolBuffers/runtime-pb-swift/AbstractMessage.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5FE2B21456C373D0A983DAC25082AFFA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C003BB369C87178DE43D23F5F306AD7C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		61EEEFF9A86E7F75D70F6EFB7518B737 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93BFE8A379A03363F704E06E5252AC1D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0E6CDA3DD7B7F4184A602D47F8923B64 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				9C6CBFBD16F029085797E796862BE47A /* Pods-IoTFeverGame */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		46D3B1E57FF98D61A7BCC8617D541CA1 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				2B38E84BF8155C07889075B7B7C9B8C6 /* Info.plist */,
+				966AFF04882B74C4E3728FA573FC5926 /* ProtocolBuffers-Swift.modulemap */,
+				17C4D923190313530215EA8A663D5169 /* ProtocolBuffers-Swift.xcconfig */,
+				6FB2165A6DEB902E00378EA78844A62C /* ProtocolBuffers-Swift-Private.xcconfig */,
+				2D86E833A94348D0AA3E5B5664B79ACE /* ProtocolBuffers-Swift-dummy.m */,
+				27F45FC2339217EAFFF0C4DD8A934B9B /* ProtocolBuffers-Swift-prefix.pch */,
+				4A9DFB5307803905282535CE13F308A7 /* ProtocolBuffers-Swift-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/ProtocolBuffers-Swift";
+			sourceTree = "<group>";
+		};
+		53F661C0CA7190D2CF05023FB33D61E4 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				4C1475F57431B650F8A671AD7E0CC715 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				B38C22E0B48BB931A82799740BA5D9E1 /* Pods */,
+				CCA510CFBEA2D207524CDA0D73C3B561 /* Products */,
+				0E6CDA3DD7B7F4184A602D47F8923B64 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		9C6CBFBD16F029085797E796862BE47A /* Pods-IoTFeverGame */ = {
+			isa = PBXGroup;
+			children = (
+				C2F54818906F34C7951A5B6EDB2DAC4D /* Info.plist */,
+				D0A29BE4284358E796C5EB4277145CBE /* Pods-IoTFeverGame.modulemap */,
+				C3F94553B0F271E32082FFC7915707B1 /* Pods-IoTFeverGame-acknowledgements.markdown */,
+				DA416F328E284A227A6DFB8D477060CB /* Pods-IoTFeverGame-acknowledgements.plist */,
+				202924E06B8509F5DD6EEBF7E6C46796 /* Pods-IoTFeverGame-dummy.m */,
+				7E3DE7E528FA4F0C5F797E55BF266934 /* Pods-IoTFeverGame-frameworks.sh */,
+				BFF9CDF28E82F3B75C9056205155BC2C /* Pods-IoTFeverGame-resources.sh */,
+				8B466832CA6921CEBBADB2DEA6003718 /* Pods-IoTFeverGame-umbrella.h */,
+				6D76477D8D2217312FF6303535D22C5E /* Pods-IoTFeverGame.debug.xcconfig */,
+				C40EB01D0C0402B3CB82B969244CA828 /* Pods-IoTFeverGame.release.xcconfig */,
+			);
+			name = "Pods-IoTFeverGame";
+			path = "Target Support Files/Pods-IoTFeverGame";
+			sourceTree = "<group>";
+		};
+		B38C22E0B48BB931A82799740BA5D9E1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BE35BEC6628709B9FD267342EF3CE62A /* ProtocolBuffers-Swift */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				53F661C0CA7190D2CF05023FB33D61E4 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BE35BEC6628709B9FD267342EF3CE62A /* ProtocolBuffers-Swift */ = {
+			isa = PBXGroup;
+			children = (
+				F408383F12BDCF5EB9BD4F82F527F134 /* AbstractMessage.swift */,
+				752AB218065E67A184975EB27A55738D /* CodedInputStream.swift */,
+				718BF72D435CD8081B6E7348B87F7B33 /* CodedOutputStream.swift */,
+				9D9179779522B62D13B37425FD6F069B /* ConcreateExtensionField.swift */,
+				99A3CFE6936D6264FF9E0E1811A701E1 /* ExtendableMessage.swift */,
+				B4FCD18FADB6C6AEDC8278EF170EF3B0 /* ExtensionRegistry.swift */,
+				663589990CCACDDDD00120B6F4D79F12 /* Field.swift */,
+				13D257A2D26570D71584DE725C9E94C9 /* GeneratedMessage.swift */,
+				315423C3B7D0D1BEB563BE717B7CEBA4 /* Google.Protobuf.Descriptor.proto.swift */,
+				35386D9A916001063746661B644071B6 /* Google.Protobuf.SwiftDescriptor.proto.swift */,
+				0B38B702DD95CE1E0D4B1FE1FE7BC251 /* RingBuffer.swift */,
+				37316A3C1A0A85AE9301AACC606CB9B5 /* UnknownFieldSet.swift */,
+				C30DCB7C3F3FF11C6915295FF581DC2B /* WireFormat.swift */,
+				46D3B1E57FF98D61A7BCC8617D541CA1 /* Support Files */,
+			);
+			path = "ProtocolBuffers-Swift";
+			sourceTree = "<group>";
+		};
+		CCA510CFBEA2D207524CDA0D73C3B561 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6FDB753A5956160D7E61EDCF8E0E655C /* Pods_IoTFeverGame.framework */,
+				0BF38C7B9696819F7808AF24D778E45A /* ProtocolBuffers.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		62CA1A26D36F8E45DB00AEBC0893D08E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F568CFCEA6436D9B5F54356E25E22783 /* Pods-IoTFeverGame-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEC8AFAB9EBA5F489617049CF2EAB675 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7E114D71B6EA1E97D32CEBA70394695 /* ProtocolBuffers-Swift-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		12E78EC57A4833A5F2B0D528B9833786 /* ProtocolBuffers-Swift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6C4DD0861A087B83FA28D1AD83D13100 /* Build configuration list for PBXNativeTarget "ProtocolBuffers-Swift" */;
+			buildPhases = (
+				07483CC7A14A5DA597A2CE6267D61AC8 /* Sources */,
+				5FE2B21456C373D0A983DAC25082AFFA /* Frameworks */,
+				CEC8AFAB9EBA5F489617049CF2EAB675 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ProtocolBuffers-Swift";
+			productName = "ProtocolBuffers-Swift";
+			productReference = 0BF38C7B9696819F7808AF24D778E45A /* ProtocolBuffers.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		9A78A8F77F476F5C298AB6E4A9E53CB1 /* Pods-IoTFeverGame */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0EA09941488C24A9C169FFCBFBB64B1F /* Build configuration list for PBXNativeTarget "Pods-IoTFeverGame" */;
+			buildPhases = (
+				916F205B9C69607B6EA16A27A1D67A1C /* Sources */,
+				61EEEFF9A86E7F75D70F6EFB7518B737 /* Frameworks */,
+				62CA1A26D36F8E45DB00AEBC0893D08E /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				61971077BB035CFD8A9896747AF7846B /* PBXTargetDependency */,
+			);
+			name = "Pods-IoTFeverGame";
+			productName = "Pods-IoTFeverGame";
+			productReference = 6FDB753A5956160D7E61EDCF8E0E655C /* Pods_IoTFeverGame.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = CCA510CFBEA2D207524CDA0D73C3B561 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9A78A8F77F476F5C298AB6E4A9E53CB1 /* Pods-IoTFeverGame */,
+				12E78EC57A4833A5F2B0D528B9833786 /* ProtocolBuffers-Swift */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		07483CC7A14A5DA597A2CE6267D61AC8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D04E3A8CF0B7B16F875AD9F1D8F5FC1E /* AbstractMessage.swift in Sources */,
+				3DCCC285106021CC438A52C2E76814FA /* CodedInputStream.swift in Sources */,
+				F6AFE2BB930CCD2516EEDE1F68E0FF8A /* CodedOutputStream.swift in Sources */,
+				BDE3F81A97635E76840D68CB4B56FEE1 /* ConcreateExtensionField.swift in Sources */,
+				A5209B072DDF78E628C928722C0758C3 /* ExtendableMessage.swift in Sources */,
+				29526EB8FAC7EE0600C7E1304E83E873 /* ExtensionRegistry.swift in Sources */,
+				F8C79CEA2886D9DD1EAD36CF8FE98746 /* Field.swift in Sources */,
+				BCEDBB8DE996CAD9DC56AA6ABF7B14C3 /* GeneratedMessage.swift in Sources */,
+				5B4202E094711530BE552A30AA5DDAD9 /* Google.Protobuf.Descriptor.proto.swift in Sources */,
+				DE350D53BA8E5AF7A6E0D39E59B261C7 /* Google.Protobuf.SwiftDescriptor.proto.swift in Sources */,
+				B89EDFED1EBB83A0BFF98B60525F5593 /* ProtocolBuffers-Swift-dummy.m in Sources */,
+				5E9DC68D70A9E99F2C5697CFFB28491E /* RingBuffer.swift in Sources */,
+				A4815468AC84C35174F7C4F6FDED0A59 /* UnknownFieldSet.swift in Sources */,
+				0B03E29E5ED16C98EC99F7CB1673BA75 /* WireFormat.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		916F205B9C69607B6EA16A27A1D67A1C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3056903831E4990F205CA19E9D33E62A /* Pods-IoTFeverGame-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		61971077BB035CFD8A9896747AF7846B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "ProtocolBuffers-Swift";
+			target = 12E78EC57A4833A5F2B0D528B9833786 /* ProtocolBuffers-Swift */;
+			targetProxy = C8C34813B90AEAF2EFF6A39687F6CB29 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1217BC98531B95E9DFCC1559572C3E49 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D76477D8D2217312FF6303535D22C5E /* Pods-IoTFeverGame.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-IoTFeverGame/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-IoTFeverGame/Pods-IoTFeverGame.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_IoTFeverGame;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		1FFB0FC44F30F16A54822DDC2280B18D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FB2165A6DEB902E00378EA78844A62C /* ProtocolBuffers-Swift-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 2.2.0;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 2;
+				DYLIB_CURRENT_VERSION = "$(CURRENT_PROJECT_VERSION)";
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/ProtocolBuffers-Swift/ProtocolBuffers-Swift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ProtocolBuffers-Swift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ProtocolBuffers-Swift/ProtocolBuffers-Swift.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = ProtocolBuffers;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		423B469722F4A56D2B068EEBFD0F4CE1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FB2165A6DEB902E00378EA78844A62C /* ProtocolBuffers-Swift-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 2.2.0;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 2;
+				DYLIB_CURRENT_VERSION = "$(CURRENT_PROJECT_VERSION)";
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/ProtocolBuffers-Swift/ProtocolBuffers-Swift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ProtocolBuffers-Swift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ProtocolBuffers-Swift/ProtocolBuffers-Swift.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = ProtocolBuffers;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		511103F7F15A7E8F83B268EA03462CAB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AA05AF9C3A14EE0E32F42C6E6D42D34F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		D0352CD9FCCCF1483F8DA04374772610 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C40EB01D0C0402B3CB82B969244CA828 /* Pods-IoTFeverGame.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-IoTFeverGame/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-IoTFeverGame/Pods-IoTFeverGame.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_IoTFeverGame;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0EA09941488C24A9C169FFCBFBB64B1F /* Build configuration list for PBXNativeTarget "Pods-IoTFeverGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1217BC98531B95E9DFCC1559572C3E49 /* Debug */,
+				D0352CD9FCCCF1483F8DA04374772610 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA05AF9C3A14EE0E32F42C6E6D42D34F /* Debug */,
+				511103F7F15A7E8F83B268EA03462CAB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6C4DD0861A087B83FA28D1AD83D13100 /* Build configuration list for PBXNativeTarget "ProtocolBuffers-Swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FFB0FC44F30F16A54822DDC2280B18D /* Debug */,
+				423B469722F4A56D2B068EEBFD0F4CE1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

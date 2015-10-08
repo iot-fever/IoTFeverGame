@@ -42,8 +42,6 @@
 		26D89F141B9D3ED400E77C3F /* Bosch.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D89F0C1B9D3ED400E77C3F /* Bosch.png */; };
 		26E9744D1B984C9D00E73157 /* Game.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 26E9744B1B984C9D00E73157 /* Game.xcdatamodeld */; };
 		26EBAA2B1B981A3C0083CCCC /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EBAA2A1B981A3C0083CCCC /* GameViewController.swift */; };
-		26F82E421BC518DC00235125 /* Kuradatatypes.Kurapayload.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F82E411BC518DC00235125 /* Kuradatatypes.Kurapayload.proto.swift */; };
-		26F82E441BC5198600235125 /* Person.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F82E431BC5198600235125 /* Person.proto.swift */; };
 		3D0357D41BA6F4C800CA6D1D /* VisualizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0357D31BA6F4C800CA6D1D /* VisualizerView.swift */; };
 		3D0357D61BA6FE4D00CA6D1D /* particleTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D0357D51BA6FE4D00CA6D1D /* particleTexture.png */; };
 		3D0357D81BA7065D00CA6D1D /* tries.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D0357D71BA7065D00CA6D1D /* tries.png */; };
@@ -61,6 +59,7 @@
 		64A8C2071BAA697500CB8023 /* BR.png in Resources */ = {isa = PBXBuildFile; fileRef = 64A8C2051BAA697500CB8023 /* BR.png */; };
 		64A8C20A1BAA698300CB8023 /* TL.png in Resources */ = {isa = PBXBuildFile; fileRef = 64A8C2081BAA698300CB8023 /* TL.png */; };
 		64A8C20B1BAA698300CB8023 /* TR.png in Resources */ = {isa = PBXBuildFile; fileRef = 64A8C2091BAA698300CB8023 /* TR.png */; };
+		817435CC25B3B1D4A18F8C2B /* Pods_IoTFeverGame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E104C827F163BE69119B4DF6 /* Pods_IoTFeverGame.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,10 +134,9 @@
 		26D77ED51B9947110042F414 /* DummySensorService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummySensorService.swift; sourceTree = "<group>"; };
 		26D89F0C1B9D3ED400E77C3F /* Bosch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bosch.png; sourceTree = "<group>"; };
 		26D89F1A1B9D3EF600E77C3F /* Bosch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bosch.png; sourceTree = "<group>"; };
+		26DC0EBF1BC616C6009A2485 /* ProtocolBuffers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolBuffers.h; sourceTree = "<group>"; };
 		26E9744C1B984C9D00E73157 /* Game.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Game.xcdatamodel; sourceTree = "<group>"; };
 		26EBAA2A1B981A3C0083CCCC /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		26F82E411BC518DC00235125 /* Kuradatatypes.Kurapayload.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kuradatatypes.Kurapayload.proto.swift; sourceTree = "<group>"; };
-		26F82E431BC5198600235125 /* Person.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.proto.swift; sourceTree = "<group>"; };
 		3D0357D31BA6F4C800CA6D1D /* VisualizerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualizerView.swift; sourceTree = "<group>"; };
 		3D0357D51BA6FE4D00CA6D1D /* particleTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = particleTexture.png; sourceTree = "<group>"; };
 		3D0357D71BA7065D00CA6D1D /* tries.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tries.png; sourceTree = "<group>"; };
@@ -158,6 +156,9 @@
 		64A8C2051BAA697500CB8023 /* BR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BR.png; sourceTree = "<group>"; };
 		64A8C2081BAA698300CB8023 /* TL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TL.png; sourceTree = "<group>"; };
 		64A8C2091BAA698300CB8023 /* TR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TR.png; sourceTree = "<group>"; };
+		8993B54D38B0309A4476A46B /* Pods-IoTFeverGame.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IoTFeverGame.release.xcconfig"; path = "Pods/Target Support Files/Pods-IoTFeverGame/Pods-IoTFeverGame.release.xcconfig"; sourceTree = "<group>"; };
+		970E3EEA56121C48DC8FB523 /* Pods-IoTFeverGame.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IoTFeverGame.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IoTFeverGame/Pods-IoTFeverGame.debug.xcconfig"; sourceTree = "<group>"; };
+		E104C827F163BE69119B4DF6 /* Pods_IoTFeverGame.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IoTFeverGame.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				267292951BB001F700921F6C /* libMQTTKit.a in Frameworks */,
+				817435CC25B3B1D4A18F8C2B /* Pods_IoTFeverGame.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,6 +181,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		165C47FC92EDBDA6C4CF010E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E104C827F163BE69119B4DF6 /* Pods_IoTFeverGame.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		26550EF01B96F8BE0010D1D2 = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +197,8 @@
 				26550F141B96F8BE0010D1D2 /* IoTFeverGameTests */,
 				26550EFA1B96F8BE0010D1D2 /* Products */,
 				2672927D1BAFBE6B00921F6C /* MQTTKit.xcodeproj */,
+				866C4B4608E2B131864FF4FA /* Pods */,
+				165C47FC92EDBDA6C4CF010E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -206,6 +218,7 @@
 				2672928C1BAFE0E700921F6C /* libmosquitto */,
 				2672928D1BAFE0E700921F6C /* MQTTKit */,
 				2672928B1BAFDDF200921F6C /* MQTTKit.h */,
+				26DC0EBF1BC616C6009A2485 /* ProtocolBuffers.h */,
 				3D6D3CAA1BA72B9C007AA2C8 /* IoTFeverGame-Bridging-Header.h */,
 				3D6D3CA11BA72A78007AA2C8 /* Mixins */,
 				3D0357D21BA6F47100CA6D1D /* Views */,
@@ -300,8 +313,6 @@
 		26D77ECA1B993D530042F414 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				26F82E431BC5198600235125 /* Person.proto.swift */,
-				26F82E411BC518DC00235125 /* Kuradatatypes.Kurapayload.proto.swift */,
 				26D77ED51B9947110042F414 /* DummySensorService.swift */,
 				2689A25F1BC2831C0083A29C /* SensorService.swift */,
 				2680F5861BBE6B0200004DD0 /* MqttService.swift */,
@@ -361,6 +372,15 @@
 			name = Mixins;
 			sourceTree = "<group>";
 		};
+		866C4B4608E2B131864FF4FA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				970E3EEA56121C48DC8FB523 /* Pods-IoTFeverGame.debug.xcconfig */,
+				8993B54D38B0309A4476A46B /* Pods-IoTFeverGame.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -368,9 +388,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 26550F1B1B96F8BE0010D1D2 /* Build configuration list for PBXNativeTarget "IoTFeverGame" */;
 			buildPhases = (
+				AE73538D06F4374871D75F4B /* Check Pods Manifest.lock */,
 				26550EF51B96F8BE0010D1D2 /* Sources */,
 				26550EF61B96F8BE0010D1D2 /* Frameworks */,
 				26550EF71B96F8BE0010D1D2 /* Resources */,
+				FD81BA8820222F98B88E423D /* Embed Pods Frameworks */,
+				E754A5F8DC8B0FA6DD4499B9 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -406,7 +429,8 @@
 		26550EF11B96F8BE0010D1D2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Foitzik Andreas";
 				TargetAttributes = {
 					26550EF81B96F8BE0010D1D2 = {
@@ -500,6 +524,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		AE73538D06F4374871D75F4B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E754A5F8DC8B0FA6DD4499B9 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IoTFeverGame/Pods-IoTFeverGame-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FD81BA8820222F98B88E423D /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IoTFeverGame/Pods-IoTFeverGame-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		26550EF51B96F8BE0010D1D2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -519,7 +591,6 @@
 				26550EFF1B96F8BE0010D1D2 /* AppDelegate.swift in Sources */,
 				26EBAA2B1B981A3C0083CCCC /* GameViewController.swift in Sources */,
 				268349381BC37A3C0054C355 /* SensorDataListener.swift in Sources */,
-				26F82E421BC518DC00235125 /* Kuradatatypes.Kurapayload.proto.swift in Sources */,
 				1171C2BB1BA5831900E0537F /* ScoreStrategy.swift in Sources */,
 				2689A2551BC278090083A29C /* UserServiceProtocol.swift in Sources */,
 				3D0357D41BA6F4C800CA6D1D /* VisualizerView.swift in Sources */,
@@ -527,7 +598,6 @@
 				2689A2581BC278270083A29C /* SensorServiceProtocol.swift in Sources */,
 				3D6D3CA41BA72AAF007AA2C8 /* UIImage+animatedGIF.m in Sources */,
 				1171C2B51BA5679F00E0537F /* DanceMoveImpl.swift in Sources */,
-				26F82E441BC5198600235125 /* Person.proto.swift in Sources */,
 				26D77EC91B99399D0042F414 /* IoTFeverGame.swift in Sources */,
 				26E9744D1B984C9D00E73157 /* Game.xcdatamodeld in Sources */,
 				2689A25A1BC278340083A29C /* SensorDataListenerProtocol.swift in Sources */,
@@ -601,6 +671,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -662,6 +733,7 @@
 		};
 		26550F1C1B96F8BE0010D1D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 970E3EEA56121C48DC8FB523 /* Pods-IoTFeverGame.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -673,6 +745,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/IoTFeverGame",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bosch.si.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "IoTFeverGame-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -681,6 +754,7 @@
 		};
 		26550F1D1B96F8BE0010D1D2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8993B54D38B0309A4476A46B /* Pods-IoTFeverGame.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -692,6 +766,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/IoTFeverGame",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bosch.si.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "IoTFeverGame-Bridging-Header.h";
 			};
@@ -712,6 +787,7 @@
 				INFOPLIST_FILE = IoTFeverGameTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IoTFeverGame.app/IoTFeverGame";
 			};
@@ -728,6 +804,7 @@
 				INFOPLIST_FILE = IoTFeverGameTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IoTFeverGame.app/IoTFeverGame";
 			};

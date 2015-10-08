@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "5A551AB41EFCFF94809A60D7B519463329E14961",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "5A551AB41EFCFF94809A60D7B519463329E14961" : 0,
+    "80A040416107829698890A38A4D194EE192DE4A0" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "E7BD9190-2293-47B7-995D-0C6DC8D24F0E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "5A551AB41EFCFF94809A60D7B519463329E14961" : "IoTFeverGame\/",
+    "80A040416107829698890A38A4D194EE192DE4A0" : "MQTTKit\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "IoTFeverGame",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "IoTFeverGame.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/iot-fever\/IoTFeverGame",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5A551AB41EFCFF94809A60D7B519463329E14961"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/jmesnil\/MQTTKit.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "80A040416107829698890A38A4D194EE192DE4A0"
+    }
+  ]
+}

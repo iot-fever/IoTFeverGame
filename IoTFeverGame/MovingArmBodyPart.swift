@@ -28,7 +28,7 @@ class MovingArmBodyPart : MovingBodyPartProtocol {
     func mimic(data : [Double]) {
         var xValue = data[0]
         if (position == ArmPosition.Top && xValue >= 50) {
-            println(position)
+            print(position)
             self.completed = true
             return
         } else if (position == ArmPosition.Bottom && xValue <= -50) {

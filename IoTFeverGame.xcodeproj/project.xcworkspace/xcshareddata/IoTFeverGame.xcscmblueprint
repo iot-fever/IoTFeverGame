@@ -1,0 +1,37 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "5A551AB41EFCFF94809A60D7B519463329E14961",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "5A551AB41EFCFF94809A60D7B519463329E14961" : 0,
+    "80A040416107829698890A38A4D194EE192DE4A0" : 0,
+    "0666B8749607A9097FA47BC516240266C4E79D1D" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "A9EBD447-621D-4800-B3E3-3F6D1ABF3A21",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "5A551AB41EFCFF94809A60D7B519463329E14961" : "IoTFeverGame",
+    "80A040416107829698890A38A4D194EE192DE4A0" : "MQTTKit",
+    "0666B8749607A9097FA47BC516240266C4E79D1D" : "tmp\/protobuf-swift"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "IoTFeverGame",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "IoTFeverGame.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/alexeyxo\/protobuf-swift.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0666B8749607A9097FA47BC516240266C4E79D1D"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/iot-fever\/IoTFeverGame",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5A551AB41EFCFF94809A60D7B519463329E14961"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/jmesnil\/MQTTKit.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "80A040416107829698890A38A4D194EE192DE4A0"
+    }
+  ]
+}

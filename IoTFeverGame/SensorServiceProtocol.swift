@@ -10,7 +10,7 @@ import Foundation
 
 protocol SensorServiceProtocol {
     
-    func subscribe(SensorDataListenerProtocol)
+    func subscribe(_: SensorDataListenerProtocol)
     
     func isConnected()                  -> Bool
     

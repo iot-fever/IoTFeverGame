@@ -44,7 +44,7 @@ class DummyUserService : UserServiceProtocol {
     func getUser() {
         user            = User(running: true)
         user.nickname   = "Alex"
-        println("Got User Alex")
+        print("Got User Alex")
     }
 }
 
