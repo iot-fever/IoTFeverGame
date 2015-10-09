@@ -14,6 +14,7 @@
 		11E8AE331BA8455B00B190D6 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E8AE321BA8455B00B190D6 /* Environment.swift */; };
 		11E8AE3F1BA9A56A00B190D6 /* SingleArmDanceMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E8AE3E1BA9A56A00B190D6 /* SingleArmDanceMove.swift */; };
 		13745EFF1BA7D59E008F3042 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 13745EFE1BA7D59E008F3042 /* Settings.bundle */; };
+		2611C3AF1BC678CF00F4F14C /* Kuradatatypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2611C3AE1BC678CF00F4F14C /* Kuradatatypes.swift */; settings = {ASSET_TAGS = (); }; };
 		26550EFF1B96F8BE0010D1D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26550EFE1B96F8BE0010D1D2 /* AppDelegate.swift */; };
 		26550F041B96F8BE0010D1D2 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26550F031B96F8BE0010D1D2 /* StartViewController.swift */; };
 		26550F071B96F8BE0010D1D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26550F051B96F8BE0010D1D2 /* Main.storyboard */; };
@@ -101,6 +102,7 @@
 		11E8AE321BA8455B00B190D6 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		11E8AE3E1BA9A56A00B190D6 /* SingleArmDanceMove.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleArmDanceMove.swift; sourceTree = "<group>"; };
 		13745EFE1BA7D59E008F3042 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		2611C3AE1BC678CF00F4F14C /* Kuradatatypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kuradatatypes.swift; sourceTree = "<group>"; };
 		26550EF91B96F8BE0010D1D2 /* IoTFeverGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IoTFeverGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26550EFD1B96F8BE0010D1D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26550EFE1B96F8BE0010D1D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 		26D77ECA1B993D530042F414 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				2611C3AE1BC678CF00F4F14C /* Kuradatatypes.swift */,
 				26D77ED51B9947110042F414 /* DummySensorService.swift */,
 				2689A25F1BC2831C0083A29C /* SensorService.swift */,
 				2680F5861BBE6B0200004DD0 /* MqttService.swift */,
@@ -599,6 +602,7 @@
 				3D6D3CA41BA72AAF007AA2C8 /* UIImage+animatedGIF.m in Sources */,
 				1171C2B51BA5679F00E0537F /* DanceMoveImpl.swift in Sources */,
 				26D77EC91B99399D0042F414 /* IoTFeverGame.swift in Sources */,
+				2611C3AF1BC678CF00F4F14C /* Kuradatatypes.swift in Sources */,
 				26E9744D1B984C9D00E73157 /* Game.xcdatamodeld in Sources */,
 				2689A25A1BC278340083A29C /* SensorDataListenerProtocol.swift in Sources */,
 				26D77EC31B99394E0042F414 /* Level.swift in Sources */,

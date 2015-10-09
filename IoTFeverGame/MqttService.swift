@@ -12,7 +12,8 @@ class MqttService : NSObject {
 
     static var current      :MqttService = MqttService()
     
-    let bulbTopic           :String
+    let bulbTopicLeft       :String
+    let bulbTopicRight      :String
     let kMQTTServerHost     :String
     
     var sensorLeftFound     = false
@@ -26,8 +27,9 @@ class MqttService : NSObject {
     var whenSensorsConnected:(()->Void)?
     
     private override init() {
-        self.bulbTopic       = "ysd/20ba/ti_sensortag_v2/c4:be:84:71:97:81/accelerometer"
-        self.kMQTTServerHost = "192.168.1.38"
+        self.bulbTopicLeft          = "ysd/20ba/ti_sensortag_v2/c4:be:84:71:97:81/accelerometer"
+        self.bulbTopicRight         = "ysd/20ba/ti_sensortag_v2/b0:b4:48:b9:88:80/accelerometer"
+        self.kMQTTServerHost        = "192.168.1.38"
     }
     
     func addConnectedCallback(callback : () -> ()) {
@@ -56,52 +58,69 @@ class MqttService : NSObject {
     
     func detect() {
         
-        /*
         print("// STATUS - DETECT")
         
-        var clientID                    = UIDevice.currentDevice().identifierForVendor.UUIDString
-        var mqttInstance :MQTTClient    = MQTTClient(clientId: clientID)
+        let clientID                    = UIDevice.currentDevice().identifierForVendor!.UUIDString
+        // var mqttInstance :MQTTClient    = MQTTClient(clientId: clientID)
+
+        let mqttInstanceLEFT    :MQTTClient    = MQTTClient(clientId: clientID)
+        let mqttInstanceRIGHT   :MQTTClient    = MQTTClient(clientId: clientID)
         
-        mqttInstance.connectToHost(kMQTTServerHost, completionHandler: { (code: MQTTConnectionReturnCode) -> Void in
-            if code.value == ConnectionAccepted.value {
-                print("// STATUS - CONNECTED")
-        
-                if  mqttInstance.connected {
+        print("TRY - LEFT")
+        mqttInstanceLEFT.connectToHost(kMQTTServerHost, completionHandler: { (code: MQTTConnectionReturnCode) -> Void in
+            // if code.value == ConnectionAccepted.value {
+            print("// STATUS LEFT - CONNECTED")
+            
+            if mqttInstanceLEFT.connected {
+                
+                mqttInstanceLEFT.subscribe(self.bulbTopicRight, withCompletionHandler: { grantedQos in
+                    print("subscribed to topic LEFT \(self.bulbTopicRight)");
                     
-                    mqttInstance.subscribe(self.bulbTopic, withCompletionHandler: { grantedQos in
-                        prprintsubscribed to topic \(self.bulbTopic)");
+                    self.sensorLeftFound = true
+                    
+                    mqttInstanceLEFT.messageHandler = { (message : MQTTMessage!) -> Void in
+                        print("Message LEFT")
+                        print("payload LEFT - \(message.payload)")
                         
-                        // if leftSensor ==
-                        self.sensorLeftFound = true
-                        
-                        // if rightSensor ==
-                        self.sensorRightFound = true
-                        
-//                        if (self.sensorsFound()) {
-//                            self.connected()
-//                            self.whenSensorsConnected!()
-//                        }
-                        
-                        mqttInstance.messageHandler = { (message : MQTTMessage!) -> Void in
-                            print("Message /(message.payloadString())")
-                            print(message.payloadString())
-                            
-                        
-                            //var person = Person.parseFromData(bytes) // from NSDatas
-                            
-                            //person.data() //return NSData
-                           
+                        do {
+                            var payload = try Kuradatatypes.KuraPayload.parseFromData(message.payload)
+                            print("payload result \(payload)")
+                        } catch _ {
+                            print("Error reveicing data LEFT ")
                         }
-                    })
-                }
-            } else {
-                println("// STATUS - NOT CONNECTED")
-                println(code.value)
+                    }
+                })
             }
         })
-        */
+        
+        print("TRY - RIGHT")
+        mqttInstanceRIGHT.connectToHost(kMQTTServerHost, completionHandler: { (code: MQTTConnectionReturnCode) -> Void in
+            // if code.value == ConnectionAccepted.value {
+            print("// STATUS RIGHT - CONNECTED")
+            
+            if  mqttInstanceRIGHT.connected {
+                
+                mqttInstanceRIGHT.subscribe(self.bulbTopicRight, withCompletionHandler: { grantedQos in
+                    print("subscribed to topic RIGHT \(self.bulbTopicRight)");
+                    
+                    self.sensorRightFound = true
+                    
+                    mqttInstanceRIGHT.messageHandler = { (message : MQTTMessage!) -> Void in
+                        print("Message RIGHT")
+                        print("payload RIGHT - \(message.payload)")
+                        
+                        do {
+                            var payload = try Kuradatatypes.KuraPayload.parseFromData(message.payload)
+                            print("payload result \(payload)")
+                        } catch let error as ErrorType {
+                            print("Error reveicing data RIGHT \(error)")
+                        }
+                    }
+                })
+            }
+        })
     }
-    
+
     func connected() {
         rightArmTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("generateSensorDataFromDeviceRightArm"), userInfo: nil, repeats: true)
         

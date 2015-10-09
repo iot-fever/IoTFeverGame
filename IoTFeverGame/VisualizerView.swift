@@ -143,25 +143,29 @@ class VisualizerView: UIView {
     
     func playAudio() {
         
-        let dirPaths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
-        let docsDir = dirPaths[0]
-        let soundFilePath = (docsDir as NSString).stringByAppendingPathComponent("disco.mp3")
-        let soundFileURL = NSURL(fileURLWithPath: soundFilePath)
+//        let dirPaths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+//        let docsDir = dirPaths[0]
+//        let soundFilePath = (docsDir as NSString).stringByAppendingPathComponent("disco.mp3")
+//        let soundFileURL = NSURL(fileURLWithPath: soundFilePath)
         
         do {
-            try audioPlayer = AVAudioPlayer(contentsOfURL: soundFileURL, fileTypeHint:nil)
+            try
+            
+            audioPlayer = AVAudioPlayer(contentsOfURL: NSURL (fileURLWithPath: NSBundle.mainBundle().pathForResource("disco", ofType: "mp3")!), fileTypeHint:nil)
+
+            // audioPlayer = AVAudioPlayer(contentsOfURL: soundFileURL, fileTypeHint:nil)
+           
+            audioPlayer.numberOfLoops = -1
+            
+            audioPlayer.meteringEnabled = true
+            
+            audioPlayer.prepareToPlay()
+            audioPlayer.play()
         } catch {
             //Handle the error
+            print("Error creating AVAudioPlayer")
         }
         
-
-        
-        audioPlayer.numberOfLoops = -1
-        
-        audioPlayer.meteringEnabled = true
-        
-        audioPlayer.prepareToPlay()
-        audioPlayer.play()
     }
     
     func stopAudio(){
