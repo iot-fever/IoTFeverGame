@@ -76,7 +76,6 @@ internal extension Kuradatatypes {
 
   final internal class KuraPayload : ExtendableMessage, GeneratedMessageProtocol{
 
-
     //Nested type declaration start
 
       final internal class KuraMetric : GeneratedMessage, GeneratedMessageProtocol {

@@ -52,14 +52,17 @@ class DummySensorService : NSObject, SensorServiceProtocol {
     }
 
     private func generateData() -> Float {
-        var data = Float(randomNumber(-100,upper: 100))
+        // TODO - define data range
+        var data = Float(randomNumber(-50,upper: 50))
         print("DUMMY - Test Mode")
         print(data)
         return data
     }
     
-    func randomNumber (lower : Int , upper : Int) -> Int {
-        let result = Int(arc4random_uniform(UInt32(upper - lower + 1))) +   lower
-        return result
+    func randomNumber (lower : Int , upper : Int) -> Float {
+        let result = Float(arc4random_uniform(UInt32(upper - lower + 1))) +   Float(lower)
+        var value : Float = Float(result / 100)
+        print("VALLUUUUEEE \(value)")
+        return value
     }
 }

@@ -22,7 +22,7 @@ class SensorService : SensorServiceProtocol {
     }
     
     func connect(callback : () -> ()) {
-        MqttService.current.detect()
+        MqttService.current.connect()
         MqttService.current.addConnectedCallback(callback)
     }
     

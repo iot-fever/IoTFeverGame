@@ -56,7 +56,7 @@ class MqttService : NSObject {
         return sensorLeftFound
     }
     
-    func detect() {
+    func connect() {
         
         print("// STATUS - DETECT")
         
@@ -66,7 +66,6 @@ class MqttService : NSObject {
         let mqttInstanceLEFT    :MQTTClient    = MQTTClient(clientId: clientID)
         let mqttInstanceRIGHT   :MQTTClient    = MQTTClient(clientId: clientID)
         
-        print("TRY - LEFT")
         mqttInstanceLEFT.connectToHost(kMQTTServerHost, completionHandler: { (code: MQTTConnectionReturnCode) -> Void in
             // if code.value == ConnectionAccepted.value {
             print("// STATUS LEFT - CONNECTED")
@@ -74,13 +73,11 @@ class MqttService : NSObject {
             if mqttInstanceLEFT.connected {
                 
                 mqttInstanceLEFT.subscribe(self.bulbTopicLeft, withCompletionHandler: { grantedQos in
-                    print("subscribed to topic LEFT \(self.bulbTopicLeft)");
+                    print("topic - LEFT \(self.bulbTopicLeft)");
                     
                     self.sensorLeftFound = true
                     
                     mqttInstanceLEFT.messageHandler = { (message : MQTTMessage!) -> Void in
-                        print("Message LEFT")
-                        print("payload LEFT - \(message.payload)")
                         
                         do {
                             var payload = try Kuradatatypes.KuraPayload.parseFromData(message.payload)
@@ -94,7 +91,6 @@ class MqttService : NSObject {
             }
         })
         
-        print("TRY - RIGHT")
         mqttInstanceRIGHT.connectToHost(kMQTTServerHost, completionHandler: { (code: MQTTConnectionReturnCode) -> Void in
             // if code.value == ConnectionAccepted.value {
             print("// STATUS RIGHT - CONNECTED")
@@ -102,13 +98,11 @@ class MqttService : NSObject {
             if  mqttInstanceRIGHT.connected {
                 
                 mqttInstanceRIGHT.subscribe(self.bulbTopicRight, withCompletionHandler: { grantedQos in
-                    print("subscribed to topic RIGHT \(self.bulbTopicRight)");
+                    print("topic - RIGHT \(self.bulbTopicRight)");
                     
                     self.sensorRightFound = true
                     
                     mqttInstanceRIGHT.messageHandler = { (message : MQTTMessage!) -> Void in
-                        print("Message RIGHT")
-                        print("payload RIGHT - \(message.payload)")
                         
                         do {
                             var payload = try Kuradatatypes.KuraPayload.parseFromData(message.payload)
@@ -120,34 +114,6 @@ class MqttService : NSObject {
                 })
             }
         })
-    }
-
-    func connected() {
-        rightArmTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("generateSensorDataFromDeviceRightArm"), userInfo: nil, repeats: true)
-        
-        leftArmTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("generateSensorDataFromDeviceLeftArm"), userInfo: nil, repeats: true)
-    }
-    
-    func generateSensorDataFromDeviceRightArm() {
-        //listener.onDataRightIncoming(generateData())
-    }
-    
-    func generateSensorDataFromDeviceLeftArm() {
-        //listener.onDataLeftIncoming(generateData())
-    }
-    
-    func generateData() -> [Double] {
-        var data = [Double](count: 2,repeatedValue: 0.0)
-        data[0] = Double(randomNumber(-100,upper: 100))
-        data[1] = Double(randomNumber(-100,upper: 100))
-        print("DUMMY - Integrated Mode")
-        print(data)
-        return data
-    }
-    
-     func randomNumber (lower : Int , upper : Int) -> Int {
-        let result = Int(arc4random_uniform(UInt32(upper - lower + 1))) +   lower
-        return result
     }
     
     func disconnect() {

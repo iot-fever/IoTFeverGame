@@ -26,11 +26,12 @@ class MovingArmBodyPart : MovingBodyPartProtocol {
     }
     
     func mimic(data : Float) {
-        if (position == ArmPosition.Top && data >= 50) {
+        // TODO - check data unit
+        if (position == ArmPosition.Top && data >= 0.1) {
             print(position)
             self.completed = true
             return
-        } else if (position == ArmPosition.Bottom && data <= -50) {
+        } else if (position == ArmPosition.Bottom && data <= -0.01) {
             self.completed = true
             return
         }
