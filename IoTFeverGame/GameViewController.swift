@@ -228,7 +228,7 @@ class GameViewController: UIViewController, SensorDataListenerProtocol {
         // Dispose of any resources that can be recreated.
     }
     
-    func onDataRightIncoming(data: [Double]) {
+    func onDataRightIncoming(data: Float) {
         if (currentGame.isRunning) {
             var currentMove = currentGame.getCurrentLevel().currentMove
             
@@ -243,7 +243,7 @@ class GameViewController: UIViewController, SensorDataListenerProtocol {
         }
     }
     
-    func onDataLeftIncoming(data: [Double]) {
+    func onDataLeftIncoming(data: Float) {
         if (currentGame.isRunning) {
             var currentMove = currentGame.getCurrentLevel().currentMove
             

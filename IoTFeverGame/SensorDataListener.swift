@@ -10,11 +10,11 @@ import Foundation
 
 class SensorDataListener : SensorDataListenerProtocol {
     
-    func onDataRightIncoming(data: [Double]) {
+    func onDataRightIncoming(data: Float) {
         // swallowing the incoming data
     }
     
-    func onDataLeftIncoming(data: [Double]) {
+    func onDataLeftIncoming(data: Float) {
         // swallowing the incoming data
     }
 }

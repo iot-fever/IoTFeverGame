@@ -10,8 +10,8 @@ import Foundation
 
 protocol SensorDataListenerProtocol {
     
-    func onDataRightIncoming(data: [Double])
+    func onDataRightIncoming(data: Float)
     
-    func onDataLeftIncoming(data: [Double])
+    func onDataLeftIncoming(data: Float)
 }
 

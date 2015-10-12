@@ -12,7 +12,7 @@ protocol MovingBodyPartProtocol {
     
     func isCompleted() -> Bool
     
-    func mimic(data : [Double])
+    func mimic(data : Float)
     
     func getImage() -> String
     

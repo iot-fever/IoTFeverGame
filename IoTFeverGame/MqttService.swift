@@ -73,8 +73,8 @@ class MqttService : NSObject {
             
             if mqttInstanceLEFT.connected {
                 
-                mqttInstanceLEFT.subscribe(self.bulbTopicRight, withCompletionHandler: { grantedQos in
-                    print("subscribed to topic LEFT \(self.bulbTopicRight)");
+                mqttInstanceLEFT.subscribe(self.bulbTopicLeft, withCompletionHandler: { grantedQos in
+                    print("subscribed to topic LEFT \(self.bulbTopicLeft)");
                     
                     self.sensorLeftFound = true
                     
@@ -84,7 +84,8 @@ class MqttService : NSObject {
                         
                         do {
                             var payload = try Kuradatatypes.KuraPayload.parseFromData(message.payload)
-                            print("payload result \(payload)")
+                            print("payload result \(payload.metric[2].floatValue)")
+                            self.listener.onDataLeftIncoming(payload.metric[2].floatValue)
                         } catch _ {
                             print("Error reveicing data LEFT ")
                         }
@@ -128,11 +129,11 @@ class MqttService : NSObject {
     }
     
     func generateSensorDataFromDeviceRightArm() {
-        listener.onDataRightIncoming(generateData())
+        //listener.onDataRightIncoming(generateData())
     }
     
     func generateSensorDataFromDeviceLeftArm() {
-        listener.onDataLeftIncoming(generateData())
+        //listener.onDataLeftIncoming(generateData())
     }
     
     func generateData() -> [Double] {

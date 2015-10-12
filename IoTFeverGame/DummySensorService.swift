@@ -51,10 +51,8 @@ class DummySensorService : NSObject, SensorServiceProtocol {
         return true
     }
 
-    private func generateData() -> [Double] {
-        var data = [Double](count: 2,repeatedValue: 0.0)
-        data[0] = Double(randomNumber(-100,upper: 100))
-        data[1] = Double(randomNumber(-100,upper: 100))
+    private func generateData() -> Float {
+        var data = Float(randomNumber(-100,upper: 100))
         print("DUMMY - Test Mode")
         print(data)
         return data
