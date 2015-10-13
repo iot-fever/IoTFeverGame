@@ -10,7 +10,9 @@ import Foundation
 
 class ScoreRanking {
 
-    var players: [Player]
+    static let current : ScoreRanking = ScoreRanking()
+    
+    var players: [Player]?
     
     init(){
         self.players = [Player] ()
@@ -18,8 +20,14 @@ class ScoreRanking {
     
     func getTop(amount: Int) -> [Player]{
         
-        var player = [Player]()
+        var topPlayer = [Player]()
+    
+        players!.sortInPlace{ $0.name < $1.name }
+
+        for index in 1...amount {
+            topPlayer.append(players![index])
+        }
         
-        return player
+        return topPlayer
     }
 }

@@ -9,37 +9,37 @@
 import Foundation
 import CoreBluetooth
 
-class SensorService : SensorServiceProtocol {
+class MqttSensorService : SensorServiceProtocol {
     
-    static let current  : SensorServiceProtocol = SensorService()
+    static let current  : SensorServiceProtocol = MqttSensorService()
     
     private init() {
     
     }
     
     func subscribe(listener: SensorDataListenerProtocol) {
-        MqttService.current.subscribe(listener)
+        MQTT.current.subscribe(listener)
     }
     
     func connect(callback : () -> ()) {
-        MqttService.current.connect()
-        MqttService.current.addConnectedCallback(callback)
+        MQTT.current.connect()
+        MQTT.current.addConnectedCallback(callback)
     }
     
     func isConnected() -> Bool {
-        return MqttService.current.sensorsFound()
+        return MQTT.current.sensorsFound()
     }
     
     func disconnect() -> Bool {
-        MqttService.current.unsubscribe()
+        MQTT.current.unsubscribe()
         return true
     }
     
     func sensorRightStatus() -> Bool {
-        return MqttService.current.sensorRightStatus()
+        return MQTT.current.sensorRightStatus()
     }
     
     func sensorLeftStatus() -> Bool {
-        return MqttService.current.sensorLeftStatus()
+        return MQTT.current.sensorLeftStatus()
     }
 }

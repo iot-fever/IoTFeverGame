@@ -8,9 +8,9 @@
 
 import Foundation
 
-class MqttService : NSObject {
+class MQTT : NSObject {
 
-    static var current      :MqttService = MqttService()
+    static var current      :MQTT = MQTT()
     
     let bulbTopicLeft       :String
     let bulbTopicRight      :String
@@ -83,7 +83,7 @@ class MqttService : NSObject {
                             var payload = try Kuradatatypes.KuraPayload.parseFromData(message.payload)
                             print("payload result LEFT \(payload.metric[2].floatValue)")
                             self.listener.onDataLeftIncoming(payload.metric[2].floatValue)
-                        } catch _ {
+                        } catch let error as ErrorType {
                             print("Error reveicing data LEFT ")
                         }
                     }
@@ -115,6 +115,10 @@ class MqttService : NSObject {
                 })
             }
         })
+    }
+    
+    func isConnected() -> Bool {
+        return self.sensorsFound()
     }
     
     func disconnect() {

@@ -8,56 +8,61 @@
 
 import Foundation
 
-protocol RankingService {
+protocol RankingServiceProtocol {
     
     func publish(player : Player)
 }
 
-class DummyRankingService : RankingService {
+class DummyRankingService : RankingServiceProtocol {
     
     func publish(player : Player) {
         
     }
 }
 
-class RemoteRankingService : RankingService {
+class RemoteRankingService : RankingServiceProtocol {
     
     let postURL : String = "http://192.168.1.32:1337/highscore/vorto"
     
     func publish(player : Player) {
-        println("Post Highscore")
+        print("Post Highscore")
         
-        var postsUrlRequest = NSMutableURLRequest(URL: NSURL(string: postURL )!)
-        postsUrlRequest.HTTPMethod = "POST"
+//        var postsUrlRequest = NSMutableURLRequest(URL: NSURL(string: postURL )!)
+//        postsUrlRequest.HTTPMethod = "POST"
+//        
+//        // static calculation of highscore
+//        var newPost: NSDictionary = ["score": (player.score * 4)];
+//        var postJSONError: NSError?
+//        
+//        do {
+//            var jsonPost = try NSJSONSerialization.dataWithJSONObject(newPost, options: nil)
+//            
+//            postsUrlRequest.HTTPBody = jsonPost
+//            postsUrlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+//            
+//            try NSURLConnection.sendAsynchronousRequest(postsUrlRequest, queue: NSOperationQueue(), completionHandler: {
+//                (response:NSURLResponse!, data: NSData!) -> Void in
+//                
+//                let post = try NSJSONSerialization.JSONObjectWithData(data, options: nil) as! NSDictionary
+//            })
+//
+//        } catch let error as ErrorType {
+//            print("Error \(error)")
+//        }
         
-        // static calculation of highscore
-        var newPost: NSDictionary = ["score": (player.score * 4)];
-        var postJSONError: NSError?
-        var jsonPost = NSJSONSerialization.dataWithJSONObject(newPost, options: nil, error:  &postJSONError)
-        postsUrlRequest.HTTPBody = jsonPost
-        postsUrlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        NSURLConnection.sendAsynchronousRequest(postsUrlRequest, queue: NSOperationQueue(), completionHandler:{
-            (response:NSURLResponse!, data: NSData!, error: NSError!) -> Void in
-            if let anError = error {
-                // got an error in getting the data, need to handle it
-                println("error calling POST")
-            }
-            else
-            {
-                // parse the result as json, since that's what the API provides
-                var jsonError: NSError?
-                let post = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError) as! NSDictionary
-                if let aJSONError = jsonError
-                {
-                    // got an error while parsing the data, need to handle it
-                    println("error parsing response from POST")
-                }
-                else
-                {
-                    // we should get the post back, so print it to make sure all the fields are as we set to and see the id
-                    println("The post is: " + post.description)
-                }
-            }
-        })
+    }
+}
+
+class KuraRankingService : RankingServiceProtocol {
+    
+    func publish(player : Player) {
+        print("Post Highscore")
+        print("Highscore of ... \(player.score)")
+        
+        var ranking = ScoreRanking.current.getTop(3)
+        
+        for index in ranking {
+            print("Player \(index.name)")
+        }
     }
 }

@@ -15,7 +15,7 @@ protocol SensorServiceProtocol {
     func isConnected()                  -> Bool
     
     func connect(callback : () -> ())
-    
+        
     func disconnect()                   -> Bool
     
     func sensorRightStatus()            -> Bool

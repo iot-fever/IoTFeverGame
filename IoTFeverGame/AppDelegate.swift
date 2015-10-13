@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-let settings_integrated_mode    :String = "integrated_mode"
+let settings_env_conf           :String = "env_conf"
 let settings_number_lives       :String = "number_lives"
 let settings_game_length        :String = "game_length"
 let settings_left_sensor_uuid   :String = "left_sensor_uuid"
@@ -24,9 +24,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         registerAppDefaults()
         
-        if NSUserDefaults.standardUserDefaults().boolForKey(settings_integrated_mode) {
+        if NSUserDefaults.standardUserDefaults().stringForKey(settings_env_conf) == "integrated_conf" {
             configuration = IntegratedConfiguration()
-        } else {
+        } else if NSUserDefaults.standardUserDefaults().stringForKey(settings_env_conf) == "kura_conf" {
+            configuration = KuraConfiguration()
+        } else if NSUserDefaults.standardUserDefaults().stringForKey(settings_env_conf) == "test_conf" {
             configuration = TestConfiguration()
         }
         return true
@@ -35,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func registerAppDefaults() {
         
         NSUserDefaults.standardUserDefaults().registerDefaults([
-            settings_integrated_mode    : true,                                         // integrated in AppDelegate.swift
+            settings_env_conf           : "kura_conf",                                  // integrated in AppDelegate.swift
             settings_number_lives       : 3,                                            // integrated in IoTFeverGame.swift
             settings_game_length        : 60,                                           
             settings_left_sensor_uuid   : "30EF98A7-C4E4-9CF8-271A-489E1FFA57CF",       // currently not in use
@@ -44,11 +46,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             "rest_api_url_get_name"     : "http://192.168.1.32:1337/station/Vorto",
             "rest_api_url_post_score"   : "http://192.168.1.32:1337/highscore/vorto"
             // TODO - further settings
-                // IP of MQTT Server
-                // TOPIC of MQTT Server
+            // TODO - IP of MQTT Server
+            // TODO - TOPIC of MQTT Server
         ])
         
-        
+        NSUserDefaults.standardUserDefaults().setValue("kura_conf", forKey: settings_env_conf)
         NSUserDefaults.standardUserDefaults().synchronize()
     }
     

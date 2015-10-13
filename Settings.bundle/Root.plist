@@ -5,6 +5,28 @@
 	<key>PreferenceSpecifiers</key>
 	<array>
 		<dict>
+			<key>Titles</key>
+			<array>
+				<string>Integrated Configuration</string>
+				<string>Kura Configuration</string>
+				<string>Test Configuration</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>integrated_conf</string>
+				<string>kura_conf</string>
+				<string>test_conf</string>
+			</array>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Environment Configuration</string>
+			<key>Key</key>
+			<string>env_conf</string>
+			<key>DefaultValue</key>
+			<string></string>
+		</dict>
+		<dict>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 			<key>Title</key>
@@ -57,16 +79,6 @@
 			<string>Sensors</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
-		</dict>
-		<dict>
-			<key>Type</key>
-			<string>PSToggleSwitchSpecifier</string>
-			<key>Title</key>
-			<string>Integrated Mode</string>
-			<key>Key</key>
-			<string>integrated_mode</string>
-			<key>DefaultValue</key>
-			<true/>
 		</dict>
 		<dict>
 			<key>AutocapitalizationType</key>
