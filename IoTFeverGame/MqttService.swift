@@ -28,7 +28,7 @@ class MqttService : NSObject {
     
     private override init() {
         self.bulbTopicLeft          = "ysd/20ba/ti_sensortag_v2/c4:be:84:71:97:81/accelerometer"
-        self.bulbTopicRight         = "ysd/20ba/ti_sensortag_v2/b0:b4:48:b9:88:80/accelerometer"
+        self.bulbTopicRight         = "ysd/a03f/ti_sensortag_v2/b0:b4:48:b9:88:80/accelerometer"
         self.kMQTTServerHost        = "192.168.1.38"
     }
     
@@ -81,7 +81,7 @@ class MqttService : NSObject {
                         
                         do {
                             var payload = try Kuradatatypes.KuraPayload.parseFromData(message.payload)
-                            print("payload result \(payload.metric[2].floatValue)")
+                            print("payload result LEFT \(payload.metric[2].floatValue)")
                             self.listener.onDataLeftIncoming(payload.metric[2].floatValue)
                         } catch _ {
                             print("Error reveicing data LEFT ")
@@ -106,7 +106,8 @@ class MqttService : NSObject {
                         
                         do {
                             var payload = try Kuradatatypes.KuraPayload.parseFromData(message.payload)
-                            print("payload result \(payload)")
+                            print("payload result RIGHT \(payload.metric[2].floatValue)")
+                            self.listener.onDataRightIncoming(payload.metric[2].floatValue)
                         } catch let error as ErrorType {
                             print("Error reveicing data RIGHT \(error)")
                         }
