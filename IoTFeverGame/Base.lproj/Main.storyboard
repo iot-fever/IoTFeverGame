@@ -52,19 +52,26 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xAI-Ia-l7e">
-                                <rect key="frame" x="230" y="58" width="109" height="30"/>
-                                <state key="normal" title="Start Game"/>
-                                <connections>
-                                    <action selector="registerUser:" destination="omm-4A-DGb" eventType="touchUpInside" id="Z4s-bS-x6X"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Nb-jo-xcV">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Nb-jo-xcV">
                                 <rect key="frame" x="5" y="97" width="286" height="68"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="29"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IIU-LT-6HQ">
+                                <rect key="frame" x="68" y="147" width="433" height="43"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="29"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xAI-Ia-l7e">
+                                <rect key="frame" x="227" y="59" width="115" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Start Game"/>
+                                <connections>
+                                    <action selector="registerUser:" destination="omm-4A-DGb" eventType="touchUpInside" id="Z4s-bS-x6X"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -78,6 +85,8 @@
                         <outlet property="IVSensorLeftFound" destination="53e-Fb-nMJ" id="chQ-JA-Jcy"/>
                         <outlet property="IVSensorRightFound" destination="pV7-Sr-MBf" id="NJ4-ql-5Gm"/>
                         <outlet property="btnStartGame" destination="xAI-Ia-l7e" id="nJ8-dr-0Ad"/>
+                        <outlet property="lblEnterUsername" destination="9Nb-jo-xcV" id="acj-s2-bJ9"/>
+                        <outlet property="lblWaitingforUser" destination="IIU-LT-6HQ" id="rqS-Ki-hfi"/>
                         <outlet property="playerNameText" destination="9Nb-jo-xcV" id="Pxy-gw-5Bv"/>
                         <outlet property="txtVUsername" destination="THT-PG-Ka0" id="cPE-im-9f5"/>
                         <segue destination="RYh-ta-kXl" kind="show" identifier="startGameIdentifier" id="W7C-kN-i8Y"/>
@@ -231,11 +240,20 @@
                                 <rect key="frame" x="165" y="192" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2mS-nw-ByR">
+                                <rect key="frame" x="414" y="124" width="139" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="New Game"/>
+                                <connections>
+                                    <action selector="newGame:" destination="TKD-QV-JYe" eventType="touchUpInside" id="A3k-bX-VDu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="btnNewGame" destination="2mS-nw-ByR" id="33l-ac-0gS"/>
                         <outlet property="lblResult" destination="qaB-pj-wCs" id="6tg-v5-mWc"/>
                         <outlet property="lblScore" destination="vis-QH-9iI" id="CQp-MU-sFY"/>
                         <outlet property="lblScoreResult" destination="Ikb-lx-2ZD" id="R0R-sy-sjT"/>

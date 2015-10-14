@@ -20,15 +20,16 @@ class StartViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var IVSensorRightFound   : UIImageView!
     @IBOutlet weak var txtVUsername         : UITextField!
     @IBOutlet weak var btnStartGame         : UIButton!
+    @IBOutlet weak var lblWaitingforUser    : UILabel!
+    @IBOutlet weak var lblEnterUsername     : UILabel!
     
     // static name for status images
     let startButton : String = "button-start.png"
     let stopButton  : String = "button-stop.png"
     
-    var discoBall : UIImageView = UIImageView()
+    var discoBall   : UIImageView = UIImageView()
     
-    var timer : NSTimer?
-    
+    var timer       : NSTimer?
 
     @IBAction func registerUser(sender: AnyObject) {
         user.nickname = txtVUsername.text
@@ -46,13 +47,27 @@ class StartViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewDidLoad() {
-        self.playerNameText.text = "Enter Username : "
-        
-        self.IVPlayerReceived.image = UIImage(named: stopButton)
 
+        if NSUserDefaults.standardUserDefaults().stringForKey(settings_env_conf) == "integrated_conf" {
+            self.btnStartGame.hidden        = true
+            self.txtVUsername.hidden        = true
+            self.lblWaitingforUser.hidden   = true
+            
+            self.lblWaitingforUser.hidden   = false
+            self.lblWaitingforUser.text     = "Waiting for User ..."
+            
+        } else if NSUserDefaults.standardUserDefaults().stringForKey(settings_env_conf) == "kura_conf" ||
+            NSUserDefaults.standardUserDefaults().stringForKey(settings_env_conf) == "test_conf" {
+            
+            self.lblWaitingforUser.hidden   = true
+            self.playerNameText.text        = "Enter Username : "
+        }
+
+        // necessary start configuration
+        self.IVPlayerReceived.image = UIImage(named: stopButton)
         gameStarted = false
         
-        setSensorStatus()
+        checkSensorStatus()
         
         let url = NSBundle.mainBundle().URLForResource("disco-anim", withExtension: "gif");
         let gif = UIImage.animatedImageWithAnimatedGIFURL(url)
@@ -82,7 +97,7 @@ class StartViewController: UIViewController, UITextFieldDelegate {
 
         configuration!.getUserProtocol().getUser()
         
-        setSensorStatus()
+        checkSensorStatus()
         
         if (user.running) {
             self.IVPlayerReceived.image = UIImage(named: startButton)
@@ -90,15 +105,19 @@ class StartViewController: UIViewController, UITextFieldDelegate {
             if (!configuration!.getSensorProtocol().isConnected()) {
                 configuration!.getSensorProtocol().connect(startGame)
             } else {
-//                startGame()
-                btnStartGame.enabled = true
+                if NSUserDefaults.standardUserDefaults().stringForKey(settings_env_conf) == "integrated_conf" {
+                    startGame()
+                } else if NSUserDefaults.standardUserDefaults().stringForKey(settings_env_conf) == "kura_conf" ||
+                    NSUserDefaults.standardUserDefaults().stringForKey(settings_env_conf) == "test_conf" {
+                    btnStartGame.enabled = true
+                }
             }
         } else {
             self.IVPlayerReceived.image = UIImage(named: stopButton)
         }
     }
     
-    func setSensorStatus(){
+    func checkSensorStatus(){
      
         if (configuration!.getSensorProtocol().sensorRightStatus()) {
             self.IVSensorRightFound.image = UIImage(named: startButton)

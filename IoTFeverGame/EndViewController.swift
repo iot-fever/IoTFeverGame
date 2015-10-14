@@ -14,6 +14,7 @@ class EndViewController : UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var lblScore                 : UILabel!
     @IBOutlet weak var lblScoreResult           : UILabel!
     @IBOutlet weak var tblVhighScoreRanking     : UITableView!
+    @IBOutlet weak var btnNewGame: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,14 @@ class EndViewController : UIViewController, UITableViewDataSource, UITableViewDe
             self.lblResult.text = "You are a Dance God!"
         } else {
             self.lblResult.text = "Game Over!"
+        }
+        
+        if NSUserDefaults.standardUserDefaults().stringForKey(settings_env_conf) == "integrated_conf" {
+            self.btnNewGame.hidden = true
+            NSTimer.scheduledTimerWithTimeInterval(8.0, target: self, selector: Selector("restartGame:"), userInfo: nil, repeats: false)
+        } else if NSUserDefaults.standardUserDefaults().stringForKey(settings_env_conf) == "kura_conf" ||
+            NSUserDefaults.standardUserDefaults().stringForKey(settings_env_conf) == "test_conf" {
+            self.btnNewGame.hidden = false
         }
         
         configuration!.getRankingService().publish(currentGame.player)
@@ -35,9 +44,12 @@ class EndViewController : UIViewController, UITableViewDataSource, UITableViewDe
         tblVhighScoreRanking.dataSource = self
     
         gameStarted = false
-        
-        NSTimer.scheduledTimerWithTimeInterval(8.0, target: self, selector: Selector("restartGame:"), userInfo: nil, repeats: false)
-        
+    }
+    
+    @IBAction func newGame(sender: AnyObject) {
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.performSegueWithIdentifier("restartGameIdentifier", sender: self)
+        });
     }
     
     override func didReceiveMemoryWarning() {
