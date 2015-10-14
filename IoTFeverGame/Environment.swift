@@ -47,28 +47,10 @@ class TestConfiguration : ConfigurationProtocol {
     }
 }
 
-class DummyUserService : UserServiceProtocol {
-    
-    func getUser() {
-        user            = User(running: true)
-//        user.nickname   = "Alex"
-//        print("Got User Alex")
-        print("Got User \(user.nickname)")
-    }
-}
-
-class DisplayUserService : UserServiceProtocol {
-    
-    func getUser() {
-        user            = User(running: true)
-        print("Got User \(user.nickname)")
-    }
-}
-
-class IntegratedConfiguration : NSObject, ConfigurationProtocol {
+class IntegratedConfiguration : ConfigurationProtocol {
     
     func getUserProtocol()          -> UserServiceProtocol    {
-        return DummyUserService()
+        return UserServiceRest()
     }
     
     func getSensorProtocol()        -> SensorServiceProtocol  {
@@ -80,7 +62,7 @@ class IntegratedConfiguration : NSObject, ConfigurationProtocol {
     }
 }
 
-class KuraConfiguration : NSObject, ConfigurationProtocol {
+class KuraConfiguration : ConfigurationProtocol {
     
     func getUserProtocol()          -> UserServiceProtocol    {
         return DummyUserService()
@@ -92,6 +74,14 @@ class KuraConfiguration : NSObject, ConfigurationProtocol {
     
     func getRankingService()        -> RankingServiceProtocol {
         return KuraRankingService()
+    }
+}
+
+
+class DummyUserService : UserServiceProtocol {
+    
+    func getUser() {
+        user            = User(running: true)
     }
 }
 
