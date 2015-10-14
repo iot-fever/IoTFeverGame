@@ -18,14 +18,22 @@ class StartViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var IVPlayerReceived     : UIImageView!
     @IBOutlet weak var IVSensorLeftFound    : UIImageView!
     @IBOutlet weak var IVSensorRightFound   : UIImageView!
+    @IBOutlet weak var txtVUsername         : UITextField!
+    @IBOutlet weak var btnStartGame         : UIButton!
     
-    // static name for status images 
+    // static name for status images
     let startButton : String = "button-start.png"
     let stopButton  : String = "button-stop.png"
     
     var discoBall : UIImageView = UIImageView()
     
     var timer : NSTimer?
+    
+
+    @IBAction func registerUser(sender: AnyObject) {
+        user.nickname = txtVUsername.text
+        startGame()
+    }
     
     func startGame() {
         timer!.invalidate()
@@ -38,7 +46,7 @@ class StartViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewDidLoad() {
-        self.playerNameText.text = "Waiting for new Game..."
+        self.playerNameText.text = "Enter Username : "
         
         self.IVPlayerReceived.image = UIImage(named: stopButton)
 
@@ -82,7 +90,8 @@ class StartViewController: UIViewController, UITextFieldDelegate {
             if (!configuration!.getSensorProtocol().isConnected()) {
                 configuration!.getSensorProtocol().connect(startGame)
             } else {
-                startGame()
+//                startGame()
+                btnStartGame.enabled = true
             }
         } else {
             self.IVPlayerReceived.image = UIImage(named: stopButton)

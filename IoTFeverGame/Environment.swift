@@ -43,7 +43,7 @@ class TestConfiguration : ConfigurationProtocol {
     }
     
     func getRankingService()        -> RankingServiceProtocol {
-        return DummyRankingService()
+        return KuraRankingService()
     }
 }
 
@@ -51,8 +51,17 @@ class DummyUserService : UserServiceProtocol {
     
     func getUser() {
         user            = User(running: true)
-        user.nickname   = "Alex"
-        print("Got User Alex")
+//        user.nickname   = "Alex"
+//        print("Got User Alex")
+        print("Got User \(user.nickname)")
+    }
+}
+
+class DisplayUserService : UserServiceProtocol {
+    
+    func getUser() {
+        user            = User(running: true)
+        print("Got User \(user.nickname)")
     }
 }
 

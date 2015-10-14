@@ -14,20 +14,16 @@ class ScoreRanking {
     
     var players: [Player]?
     
-    init(){
+    private init(){
         self.players = [Player] ()
     }
     
-    func getTop(amount: Int) -> [Player]{
+    func addInRanking(player: Player) {
         
-        var topPlayer = [Player]()
-    
-        players!.sortInPlace{ $0.name < $1.name }
-
-        for index in 1...amount {
-            topPlayer.append(players![index])
-        }
+        players!.append(player)
         
-        return topPlayer
+        players!.sortInPlace({
+            $0.score > $1.score
+        })
     }
 }

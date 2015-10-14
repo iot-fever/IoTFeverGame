@@ -56,16 +56,6 @@ class RemoteRankingService : RankingServiceProtocol {
 class KuraRankingService : RankingServiceProtocol {
     
     func publish(player : Player) {
-        // add player to ranking
-        ScoreRanking.current.players?.append(player)
-        
-        print("Post Highscore")
-        print("Highscore of ... \(player.score)")
-        
-        var ranking = ScoreRanking.current.getTop(3)
-        
-        for index in ranking {
-            print("Player \(index.name)")
-        }
+        ScoreRanking.current.addInRanking(player)
     }
 }

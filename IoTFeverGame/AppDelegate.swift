@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // TODO - TOPIC of MQTT Server
         ])
         
-        NSUserDefaults.standardUserDefaults().setValue("kura_conf", forKey: settings_env_conf)
+        //NSUserDefaults.standardUserDefaults().setValue("kura_conf", forKey: settings_env_conf)
         NSUserDefaults.standardUserDefaults().synchronize()
     }
     

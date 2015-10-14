@@ -103,7 +103,4 @@ class IoTFeverGame : NSObject {
     func getCurrentLevel() -> Level {
         return levels[currentLevelIndex]
     }
-    
-    
-    
 }
