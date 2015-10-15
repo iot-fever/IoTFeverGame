@@ -87,12 +87,25 @@ class StartViewController: UIViewController, UITextFieldDelegate {
         self.view.addSubview(discoBall)
         self.view.sendSubviewToBack(discoBall)
         self.view.backgroundColor = UIColor.brownColor()
-                
+        
         super.viewDidLoad()
+        
+        self.txtVUsername.delegate = self;
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    //Method to dismiss keyboard on return key press
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
+    //Method to dismiss keyboard by touching to anywhere on the screen
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     // Integrated Mode
