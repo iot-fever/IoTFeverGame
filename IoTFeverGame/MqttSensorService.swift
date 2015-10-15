@@ -21,6 +21,10 @@ class MqttSensorService : SensorServiceProtocol {
         MQTT.current.subscribe(listener)
     }
     
+    func connect() {
+        MQTT.current.connect()
+    }
+    
     func connect(callback : () -> ()) {
         MQTT.current.connect()
         MQTT.current.addConnectedCallback(callback)

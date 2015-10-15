@@ -21,6 +21,9 @@ class DummySensorService : NSObject, SensorServiceProtocol {
         leftArmTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("generateSensorDataFromDeviceLeftArm"), userInfo: nil, repeats: true)
     }
     
+    func connect() {
+    }
+    
     func connect(callback : () -> ()){
         callback()
     }

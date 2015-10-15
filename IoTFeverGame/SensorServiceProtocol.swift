@@ -13,6 +13,8 @@ protocol SensorServiceProtocol {
     func subscribe(_: SensorDataListenerProtocol)
     
     func isConnected()                  -> Bool
+
+    func connect()
     
     func connect(callback : () -> ())
         

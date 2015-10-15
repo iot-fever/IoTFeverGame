@@ -25,6 +25,10 @@ class IntegratedSensorService : SensorServiceProtocol {
         sensorDelegate.subscribe(listener)
     }
     
+    func connect() {
+        centralManager = CBCentralManager(delegate: sensorDelegate, queue: dispatch_get_main_queue())
+    }
+    
     func connect(callback : () -> ()) {
         centralManager = CBCentralManager(delegate: sensorDelegate, queue: dispatch_get_main_queue())
         self.sensorDelegate.addConnectedCallback(callback)

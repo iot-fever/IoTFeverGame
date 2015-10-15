@@ -29,7 +29,7 @@ class MQTT : NSObject {
     private override init() {
         self.bulbTopicLeft          = "ysd/20ba/ti_sensortag_v2/c4:be:84:71:97:81/accelerometer"
         self.bulbTopicRight         = "ysd/a03f/ti_sensortag_v2/b0:b4:48:b9:88:80/accelerometer"
-        self.kMQTTServerHost        = "192.168.1.38"
+        self.kMQTTServerHost        = "192.168.1.106"
     }
     
     func addConnectedCallback(callback : () -> ()) {
@@ -58,30 +58,27 @@ class MQTT : NSObject {
     
     func connect() {
         
-        print("// STATUS - DETECT")
+//        print("// STATUS - DETECT")
         
-        let clientID                    = UIDevice.currentDevice().identifierForVendor!.UUIDString
-        // var mqttInstance :MQTTClient    = MQTTClient(clientId: clientID)
+        let clientID                            = UIDevice.currentDevice().identifierForVendor!.UUIDString
 
         let mqttInstanceLEFT    :MQTTClient    = MQTTClient(clientId: clientID)
         let mqttInstanceRIGHT   :MQTTClient    = MQTTClient(clientId: clientID)
         
         mqttInstanceLEFT.connectToHost(kMQTTServerHost, completionHandler: { (code: MQTTConnectionReturnCode) -> Void in
-            // if code.value == ConnectionAccepted.value {
-            print("// STATUS LEFT - CONNECTED")
+//            print("// STATUS LEFT - CONNECTED")
             
             if mqttInstanceLEFT.connected {
                 
                 mqttInstanceLEFT.subscribe(self.bulbTopicLeft, withCompletionHandler: { grantedQos in
-                    print("topic - LEFT \(self.bulbTopicLeft)");
-                    
-                    self.sensorLeftFound = true
+//                print("topic - LEFT \(self.bulbTopicLeft)");
                     
                     mqttInstanceLEFT.messageHandler = { (message : MQTTMessage!) -> Void in
-                        
+                    self.sensorLeftFound = true
+                    
                         do {
                             var payload = try Kuradatatypes.KuraPayload.parseFromData(message.payload)
-                            print("payload result LEFT \(payload.metric[2].floatValue)")
+                            print("LEFT \(payload.metric[2].floatValue)")
                             self.listener.onDataLeftIncoming(payload.metric[2].floatValue)
                         } catch let error as ErrorType {
                             print("Error reveicing data LEFT ")
@@ -93,20 +90,19 @@ class MQTT : NSObject {
         
         mqttInstanceRIGHT.connectToHost(kMQTTServerHost, completionHandler: { (code: MQTTConnectionReturnCode) -> Void in
             // if code.value == ConnectionAccepted.value {
-            print("// STATUS RIGHT - CONNECTED")
+//            print("// STATUS RIGHT - CONNECTED")
             
             if  mqttInstanceRIGHT.connected {
                 
                 mqttInstanceRIGHT.subscribe(self.bulbTopicRight, withCompletionHandler: { grantedQos in
-                    print("topic - RIGHT \(self.bulbTopicRight)");
-                    
-                    self.sensorRightFound = true
+//                    print("topic - RIGHT \(self.bulbTopicRight)");
                     
                     mqttInstanceRIGHT.messageHandler = { (message : MQTTMessage!) -> Void in
-                        
+                    self.sensorRightFound = true
+                    
                         do {
                             var payload = try Kuradatatypes.KuraPayload.parseFromData(message.payload)
-                            print("payload result RIGHT \(payload.metric[2].floatValue)")
+                            print("RIGHT \(payload.metric[2].floatValue)")
                             self.listener.onDataRightIncoming(payload.metric[2].floatValue)
                         } catch let error as ErrorType {
                             print("Error reveicing data RIGHT \(error)")

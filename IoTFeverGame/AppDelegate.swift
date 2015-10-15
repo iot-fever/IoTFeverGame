@@ -9,11 +9,17 @@
 import UIKit
 import CoreData
 
-let settings_env_conf           :String = "env_conf"
-let settings_number_lives       :String = "number_lives"
-let settings_game_length        :String = "game_length"
-let settings_left_sensor_uuid   :String = "left_sensor_uuid"
-let settings_right_sensor_uuid  :String = "right_sensor_uuid"
+// Settings
+let settings_env_conf           : String = "env_conf"
+let settings_number_lives       : String = "number_lives"
+let settings_game_length        : String = "game_length"
+let settings_left_sensor_uuid   : String = "left_sensor_uuid"
+let settings_right_sensor_uuid  : String = "right_sensor_uuid"
+
+// Environment conf - KEYS
+let settings_integrated_conf    : String = "integrated_conf"
+let settings_kura_conf          : String = "kura_conf"
+let settings_test_conf          : String = "test_conf"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,11 +30,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         registerAppDefaults()
         
-        if NSUserDefaults.standardUserDefaults().stringForKey(settings_env_conf) == "integrated_conf" {
+        if NSUserDefaults.standardUserDefaults().stringForKey(settings_env_conf) == settings_integrated_conf {
             configuration = IntegratedConfiguration()
-        } else if NSUserDefaults.standardUserDefaults().stringForKey(settings_env_conf) == "kura_conf" {
+        } else if NSUserDefaults.standardUserDefaults().stringForKey(settings_env_conf) == settings_kura_conf {
             configuration = KuraConfiguration()
-        } else if NSUserDefaults.standardUserDefaults().stringForKey(settings_env_conf) == "test_conf" {
+        } else if NSUserDefaults.standardUserDefaults().stringForKey(settings_env_conf) == settings_test_conf {
             configuration = TestConfiguration()
         }
         return true
