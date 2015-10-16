@@ -47,8 +47,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             settings_env_conf           : "kura_conf",                                  // integrated in AppDelegate.swift
             settings_number_lives       : 3,                                            // integrated in IoTFeverGame.swift
             settings_game_length        : 60,                                           
-            settings_left_sensor_uuid   : "30EF98A7-C4E4-9CF8-271A-489E1FFA57CF",       // currently not in use
-            settings_right_sensor_uuid  : "6561B0E5-0EF4-51B7-F493-CFD7ED72B5C7",       // currently not in use
+//            settings_left_sensor_uuid   : "30EF98A7-C4E4-9CF8-271A-489E1FFA57CF",       // currently not in use
+//            settings_right_sensor_uuid  : "6561B0E5-0EF4-51B7-F493-CFD7ED72B5C7",       // currently not in use
             settings_mqtt_server_ip     : "192.168.1.106"
 //            "rest_api_url_get_name"     : "http://192.168.1.32:1337/station/Vorto",
 //            "rest_api_url_post_score"   : "http://192.168.1.32:1337/highscore/vorto"
