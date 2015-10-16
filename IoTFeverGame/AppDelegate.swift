@@ -15,6 +15,7 @@ let settings_number_lives       : String = "number_lives"
 let settings_game_length        : String = "game_length"
 let settings_left_sensor_uuid   : String = "left_sensor_uuid"
 let settings_right_sensor_uuid  : String = "right_sensor_uuid"
+let settings_mqtt_server_ip     : String = "mqtt_server_ip"
 
 // Environment conf - KEYS
 let settings_integrated_conf    : String = "integrated_conf"
@@ -48,12 +49,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             settings_game_length        : 60,                                           
             settings_left_sensor_uuid   : "30EF98A7-C4E4-9CF8-271A-489E1FFA57CF",       // currently not in use
             settings_right_sensor_uuid  : "6561B0E5-0EF4-51B7-F493-CFD7ED72B5C7",       // currently not in use
-            "enabled_external_services" : false,
-            "rest_api_url_get_name"     : "http://192.168.1.32:1337/station/Vorto",
-            "rest_api_url_post_score"   : "http://192.168.1.32:1337/highscore/vorto"
+            settings_mqtt_server_ip     : "192.168.1.106"
+//            "rest_api_url_get_name"     : "http://192.168.1.32:1337/station/Vorto",
+//            "rest_api_url_post_score"   : "http://192.168.1.32:1337/highscore/vorto"
             // TODO - further settings
-            // TODO - IP of MQTT Server
-            // TODO - TOPIC of MQTT Server
         ])
         
         //NSUserDefaults.standardUserDefaults().setValue("kura_conf", forKey: settings_env_conf)

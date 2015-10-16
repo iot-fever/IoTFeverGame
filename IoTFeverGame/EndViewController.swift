@@ -77,11 +77,17 @@ class EndViewController : UIViewController, UITableViewDataSource, UITableViewDe
         
         let cell:UITableViewCell = self.tblVhighScoreRanking.dequeueReusableCellWithIdentifier("cell", forIndexPath:indexPath) as UITableViewCell
         
-        cell.textLabel!.text = String(indexPath.row+1) + ". " + ScoreRanking.current.players![indexPath.row].name
-       
+        cell.textLabel!.text    =   String(indexPath.row+1) + ". "
+        cell.textLabel!.text!    +=   String(ScoreRanking.current.players![indexPath.row].name)
+        
+        let labelScore = UILabel(frame: CGRectMake(0, 0, 20, 50))
+        labelScore.text = String(ScoreRanking.current.players![indexPath.row].score)
+        cell.accessoryView = labelScore
         
         return cell
     }
+    
+    
     
     func dismiss() {
         self.navigationController?.dismissViewControllerAnimated(true, completion: { () -> Void in})

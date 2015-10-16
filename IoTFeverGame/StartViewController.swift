@@ -58,9 +58,6 @@ class StartViewController: UIViewController, UITextFieldDelegate {
             self.IVSensorRightFound.image           = UIImage(named: stopButton)
             self.IVSensorLeftFound.image            = UIImage(named: stopButton)
         
-//            let sensorService = configuration!.getSensorProtocol()
-//            sensorService.subscribe(self)
-        
         // necessary inilization
             gameStarted     = false
             user.running    = false
@@ -143,25 +140,14 @@ class StartViewController: UIViewController, UITextFieldDelegate {
     }
     
     // Kura and Test Mode
-    
     func checkStatuses(){
-        print("inside")
-        if configuration!.getSensorProtocol().sensorLeftStatus() &&
-           configuration!.getSensorProtocol().sensorRightStatus(){
-            self.IVSensorRightFound.image         = UIImage(named: startButton)
+        if configuration!.getSensorProtocol().sensorLeftStatus() {
             self.IVSensorLeftFound.image          = UIImage(named: startButton)
         }
+        if configuration!.getSensorProtocol().sensorRightStatus() {
+            self.IVSensorRightFound.image         = UIImage(named: startButton)
+        }
     }
-//    
-//    func onDataRightIncoming(data: Float) {
-//        self.IVSensorRightFound.image         = UIImage(named: startButton)
-//        self.view.addSubview(self.IVSensorRightFound)
-//    }
-//    
-//    func onDataLeftIncoming(data: Float) {
-//        self.IVSensorLeftFound.image          = UIImage(named: startButton)
-//        self.view.addSubview(self.IVSensorLeftFound)
-//    }
     
     //Method to dismiss keyboard on return key press
     func textFieldShouldReturn(textField: UITextField) -> Bool {

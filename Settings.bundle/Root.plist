@@ -116,42 +116,48 @@
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
 		</dict>
-		<dict>
-			<key>Type</key>
-			<string>PSGroupSpecifier</string>
-			<key>Title</key>
-			<string>External Services</string>
-		</dict>
-		<dict>
-			<key>DefaultValue</key>
-			<true/>
-			<key>Key</key>
-			<string>enabled_external_services</string>
-			<key>Title</key>
-			<string>Enabled</string>
-			<key>Type</key>
-			<string>PSToggleSwitchSpecifier</string>
-		</dict>
-		<dict>
-			<key>DefaultValue</key>
-			<string>http://192.168.1.32:1337/station/Vorto</string>
-			<key>Type</key>
-			<string>PSTextFieldSpecifier</string>
-			<key>Title</key>
-			<string>Name Service URL</string>
-			<key>Key</key>
-			<string>rest_api_url_get_user</string>
-		</dict>
-		<dict>
-			<key>DefaultValue</key>
-			<string>http://192.168.1.32:1337/highscore/vorto</string>
-			<key>Type</key>
-			<string>PSTextFieldSpecifier</string>
-			<key>Title</key>
-			<string>Score Service URL</string>
-			<key>Key</key>
-			<string>rest_api_url_post_score</string>
-		</dict>
+        <dict>
+            <key>Type</key>
+            <string>PSGroupSpecifier</string>
+            <key>Title</key>
+            <string>MQTT</string>
+        </dict>
+        <dict>
+            <key>DefaultValue</key>
+            <string>192.168.1.106</string>
+            <key>Type</key>
+            <string>PSTextFieldSpecifier</string>
+            <key>Title</key>
+            <string>MQTT Server IP</string>
+            <key>Key</key>
+            <string>mqtt_server_ip</string>
+        </dict>
+<!--        <dict>-->
+<!--            <key>Type</key>-->
+<!--            <string>PSGroupSpecifier</string>-->
+<!--            <key>Title</key>-->
+<!--            <string>REST API</string>-->
+<!--        </dict>-->
+<!--		<dict>-->
+<!--			<key>DefaultValue</key>-->
+<!--			<string>http://192.168.1.32:1337/station/Vorto</string>-->
+<!--			<key>Type</key>-->
+<!--			<string>PSTextFieldSpecifier</string>-->
+<!--			<key>Title</key>-->
+<!--			<string>Name Service URL</string>-->
+<!--			<key>Key</key>-->
+<!--			<string>rest_api_url_get_user</string>-->
+<!--		</dict>-->
+<!--		<dict>-->
+<!--			<key>DefaultValue</key>-->
+<!--			<string>http://192.168.1.32:1337/highscore/vorto</string>-->
+<!--			<key>Type</key>-->
+<!--			<string>PSTextFieldSpecifier</string>-->
+<!--			<key>Title</key>-->
+<!--			<string>Score Service URL</string>-->
+<!--			<key>Key</key>-->
+<!--			<string>rest_api_url_post_score</string>-->
+<!--		</dict>-->
 	</array>
 	<key>StringsTable</key>
 	<string>Root</string>

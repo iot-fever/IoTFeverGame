@@ -29,7 +29,7 @@ class MQTT : NSObject {
     private override init() {
         self.bulbTopicLeft          = "ysd/20ba/ti_sensortag_v2/c4:be:84:71:97:81/accelerometer"
         self.bulbTopicRight         = "ysd/a03f/ti_sensortag_v2/b0:b4:48:b9:88:80/accelerometer"
-        self.kMQTTServerHost        = "192.168.1.106"
+        self.kMQTTServerHost        = NSUserDefaults.standardUserDefaults().stringForKey(settings_mqtt_server_ip)!
     }
     
     func addConnectedCallback(callback : () -> ()) {
@@ -78,7 +78,7 @@ class MQTT : NSObject {
                     
                         do {
                             var payload = try Kuradatatypes.KuraPayload.parseFromData(message.payload)
-                            print("LEFT \(payload.metric[2].floatValue)")
+//                            print("LEFT \(payload.metric[2].floatValue)")
                             self.listener.onDataLeftIncoming(payload.metric[2].floatValue)
                         } catch let error as ErrorType {
                             print("Error reveicing data LEFT ")
@@ -102,7 +102,7 @@ class MQTT : NSObject {
                     
                         do {
                             var payload = try Kuradatatypes.KuraPayload.parseFromData(message.payload)
-                            print("RIGHT \(payload.metric[2].floatValue)")
+//                            print("RIGHT \(payload.metric[2].floatValue)")
                             self.listener.onDataRightIncoming(payload.metric[2].floatValue)
                         } catch let error as ErrorType {
                             print("Error reveicing data RIGHT \(error)")
