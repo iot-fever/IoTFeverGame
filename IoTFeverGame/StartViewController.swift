@@ -11,7 +11,7 @@ import UIKit
 var user : User = User(running: false)
 var gameStarted : Bool = false
 
-class StartViewController: UIViewController, UITextFieldDelegate, SensorDataListenerProtocol {
+class StartViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: Properties
     @IBOutlet weak var playerNameText       : UILabel!
@@ -58,8 +58,8 @@ class StartViewController: UIViewController, UITextFieldDelegate, SensorDataList
             self.IVSensorRightFound.image           = UIImage(named: stopButton)
             self.IVSensorLeftFound.image            = UIImage(named: stopButton)
         
-            let sensorService = configuration!.getSensorProtocol()
-            sensorService.subscribe(self)
+//            let sensorService = configuration!.getSensorProtocol()
+//            sensorService.subscribe(self)
         
         // necessary inilization
             gameStarted     = false
@@ -91,6 +91,8 @@ class StartViewController: UIViewController, UITextFieldDelegate, SensorDataList
                 self.btnStartGame.enabled           = true
                 self.lblWaitingforUser.hidden       = true
                 self.playerNameText.text            = "Enter Username : "
+                            
+                timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("checkStatuses"), userInfo: nil, repeats: true)
             }
         
         // screen background
@@ -141,19 +143,25 @@ class StartViewController: UIViewController, UITextFieldDelegate, SensorDataList
     }
     
     // Kura and Test Mode
-    func onDataRightIncoming(data: Float) {
-        print("dataincoming")
-        self.playerNameText.text              = "change: "
-        self.IVSensorRightFound.image         = UIImage(named: startButton)
-        self.view.addSubview(self.IVSensorRightFound)
-    }
     
-    func onDataLeftIncoming(data: Float) {
-        print("dataincoming")
-        self.playerNameText.text              = "change: "
-        self.IVSensorLeftFound.image          = UIImage(named: startButton)
-        self.view.addSubview(self.IVSensorLeftFound)
+    func checkStatuses(){
+        print("inside")
+        if configuration!.getSensorProtocol().sensorLeftStatus() &&
+           configuration!.getSensorProtocol().sensorRightStatus(){
+            self.IVSensorRightFound.image         = UIImage(named: startButton)
+            self.IVSensorLeftFound.image          = UIImage(named: startButton)
+        }
     }
+//    
+//    func onDataRightIncoming(data: Float) {
+//        self.IVSensorRightFound.image         = UIImage(named: startButton)
+//        self.view.addSubview(self.IVSensorRightFound)
+//    }
+//    
+//    func onDataLeftIncoming(data: Float) {
+//        self.IVSensorLeftFound.image          = UIImage(named: startButton)
+//        self.view.addSubview(self.IVSensorLeftFound)
+//    }
     
     //Method to dismiss keyboard on return key press
     func textFieldShouldReturn(textField: UITextField) -> Bool {
