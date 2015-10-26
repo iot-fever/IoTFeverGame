@@ -43,7 +43,7 @@ class TestConfiguration : ConfigurationProtocol {
     }
     
     func getRankingService()        -> RankingServiceProtocol {
-        return KuraRankingService()
+        return DefaultRankingService()
     }
 }
 
@@ -73,10 +73,24 @@ class KuraConfiguration : ConfigurationProtocol {
     }
     
     func getRankingService()        -> RankingServiceProtocol {
-        return KuraRankingService()
+        return DefaultRankingService()
     }
 }
 
+class StandaloneConfiguration : ConfigurationProtocol {
+    
+    func getUserProtocol()          -> UserServiceProtocol    {
+        return DummyUserService()
+    }
+    
+    func getSensorProtocol()        -> SensorServiceProtocol  {
+        return IntegratedSensorService.current
+    }
+    
+    func getRankingService()        -> RankingServiceProtocol {
+        return DefaultRankingService()
+    }
+}
 
 class DummyUserService : UserServiceProtocol {
     

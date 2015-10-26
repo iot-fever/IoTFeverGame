@@ -193,9 +193,9 @@ class SensorDelegate: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate {
         
                     central.connectPeripheral(peripheral, options: nil)
                     
-                    if (self.sensorsFound()) {
-                        self.whenSensorsConnected!()
-                    }
+//                    if (self.sensorsFound()) {
+//                        self.whenSensorsConnected!()
+//                    }
                 }
         
     }

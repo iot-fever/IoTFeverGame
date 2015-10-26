@@ -82,7 +82,8 @@ class StartViewController: UIViewController, UITextFieldDelegate {
                 timer = NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: Selector("checkUserAndSensortag"), userInfo: nil, repeats: true)
             
             } else if   NSUserDefaults.standardUserDefaults().stringForKey(settings_env_conf) == settings_kura_conf ||
-                        NSUserDefaults.standardUserDefaults().stringForKey(settings_env_conf) == settings_test_conf {
+                        NSUserDefaults.standardUserDefaults().stringForKey(settings_env_conf) == settings_test_conf ||
+                        NSUserDefaults.standardUserDefaults().stringForKey(settings_env_conf) == settings_standalone_conf {
             
                 self.btnStartGame.hidden            = false
                 self.btnStartGame.enabled           = true
@@ -122,7 +123,8 @@ class StartViewController: UIViewController, UITextFieldDelegate {
         configuration!.getUserProtocol().getUser()
         
         if  NSUserDefaults.standardUserDefaults().stringForKey(settings_env_conf) == settings_kura_conf ||
-            NSUserDefaults.standardUserDefaults().stringForKey(settings_env_conf) == settings_test_conf {
+            NSUserDefaults.standardUserDefaults().stringForKey(settings_env_conf) == settings_test_conf ||
+            NSUserDefaults.standardUserDefaults().stringForKey(settings_env_conf) == settings_standalone_conf {
                 user.nickname = self.txtVUsername.text
         }
         

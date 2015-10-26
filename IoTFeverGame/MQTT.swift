@@ -28,9 +28,9 @@ class MQTT : NSObject {
     
     private override init() {
         //self.bulbTopicLeft          = "ysd/20ba/ti_sensortag_v2/c4:be:84:71:97:81/accelerometer"
-        self.bulbTopicLeft            = "bosch/B8:27:EB:A1:F0:C5/BLE_APP_V2/tisensortag/C4:BE:84:71:97:81/accelerometer"
+        self.bulbTopicLeft            = "bosch/B8:27:EB:F5:89:B9/BLE_APP_V2/tisensortag/C4:BE:84:71:97:81/accelerometer"
         //self.bulbTopicRight         = "ysd/a03f/ti_sensortag_v2/b0:b4:48:b9:88:80/accelerometer"
-        self.bulbTopicRight           = "bosch/B8:27:EB:A1:F0:C5/BLE_APP_V2/tisensortag/B0:B4:48:B9:88:80/accelerometer"
+        self.bulbTopicRight           = "bosch/B8:27:EB:F5:89:B9/BLE_APP_V2/tisensortag/B0:B4:48:B9:88:80/accelerometer"
         
         self.kMQTTServerHost        = NSUserDefaults.standardUserDefaults().stringForKey(settings_mqtt_server_ip)!
     }

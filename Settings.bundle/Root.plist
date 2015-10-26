@@ -10,12 +10,14 @@
 				<string>Integrated Configuration</string>
 				<string>Kura Configuration</string>
 				<string>Test Configuration</string>
+                <string>Standalone Configuration</string>
 			</array>
 			<key>Values</key>
 			<array>
 				<string>integrated_conf</string>
 				<string>kura_conf</string>
 				<string>test_conf</string>
+                <string>standalone_conf</string>
 			</array>
 			<key>Type</key>
 			<string>PSMultiValueSpecifier</string>

@@ -53,7 +53,7 @@ class RemoteRankingService : RankingServiceProtocol {
     }
 }
 
-class KuraRankingService : RankingServiceProtocol {
+class DefaultRankingService : RankingServiceProtocol {
     
     func publish(player : Player) {
         ScoreRanking.current.addInRanking(player)
